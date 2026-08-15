@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -133,11 +133,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
 \use_formatted_ref 0
 \use_minted 0
 \use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -169,6 +177,7 @@
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -178,7 +187,6 @@
 status open
 
 \begin_layout Plain Layout
-
 
 \backslash
 lhead{
@@ -190,13 +198,11 @@ space - Especificação}
 
 \begin_layout Plain Layout
 
-
 \backslash
 chead{}  
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 rhead{}  
@@ -418,8 +424,54 @@ name "sec: Nome do sistema/produto"
 \end_layout
 
 \begin_layout Standard
+O software denominado Sistema Educacional para Análise de Corrosão e Seleção de Inibidores em Operações de Petróleo foi desenvolvido utilizando a linguagem de programação C++,
+ com base no paradigma de programação orientada a objetos (POO).
+\end_layout
+
+\begin_layout Standard
+O sistema é capaz de analisar parâmetros operacionais de um poço,
+ tais como temperatura,
+ pressão,
+ propriedades do fluido (pH,
+ presença de CO₂ e H₂S,
+ salinidade) e tipo de operação (perfuração,
+ completação ou estimulação),
+ com o objetivo de:
+ Identificar o tipo de corrosão predominante;
+ avaliar a severidade do processo corrosivo;
+ recomendar o tipo de inibidor mais adequado;
+ estimar a dosagem necessária para a operação.
+\end_layout
+
+\begin_layout Standard
+O software permite ao usuário interagir com uma interface gráfica amigável,
+ facilitando a inserção de dados e a visualização dos resultados obtidos.
+\end_layout
+
+\begin_layout Standard
+A Tabela apresenta as características do software desenvolvido.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Características básicas do programa
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Características-básicas-do"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
+<lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle" tabularwidth="14cm">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="8cm">
@@ -439,7 +491,7 @@ Nome
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Software Educacional Para Análise de Corrosão e Seleção de Inibidores em Operações de Petróleo
 \end_layout
 
 \end_inset
@@ -461,29 +513,120 @@ Componentes principais
 \begin_inset Text
 
 \begin_layout Plain Layout
+Módulo de entrada de dados do poço e propriedades do fluído;
+\end_layout
 
+\begin_layout Plain Layout
+Módulo de análise de corrosão (classificação e severidade);
+\end_layout
+
+\begin_layout Plain Layout
+Módulo de seleção de inibidores (baseado em regras físico-químicas);
+\end_layout
+
+\begin_layout Plain Layout
+Módulo de cálculo de dosagem de inibidores;
+\end_layout
+
+\begin_layout Plain Layout
+Interface gráfica para interação com o usuário e visualização dos resultados
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada de dados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dados operacionais do poço (temperatura,
+ pressão),
+ propriedades do fluído(pH,
+ CO₂,
+ H₂S,
+ salinidade),
+ dados de perfilagem e tipo de operação.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" color="default" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Saída de dados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" color="default" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\series bold
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Tipo de corrosão identificado,
+ nível de severidade,
+ tipo de inibidor recomendado e dosagem estimada
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" color="default" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Missão
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" color="default" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+A missão do software é fornecer uma ferramenta educacional que auxilie estudantes na compreensão dos fenômenos de corrosão em sistemas petrolíferos,
+ permitindo a aplicação prática de conceitos teóricos e contribuindo para a formação de profissionais mais preparados para a indústria de óleo e gás
 \end_layout
 
 \end_inset
@@ -532,17 +675,49 @@ especificação
 \end_layout
 
 \begin_layout Standard
-Apresenta-se a seguir a especificação do software.
+Deseja-se desenvolver um software com interface didática projetado para permitir ao usuário realizar análises de corrosão em operações de petróleo de forma intuitiva e interativa.
+ O software foi concebido com o objetivo de integrar diferentes parâmetros operacionais e propriedades físico-químicas dos fluidos,
+ possibilitando a simulação de cenários reais enfrentados na indústria de óleo e gás.
 \end_layout
 
 \begin_layout Standard
-....coloque aqui a especificação...
+Inicialmente,
+ o usuário deverá fornecer os dados necessários para a análise,
+ podendo inserir manualmente informações relativas às condições do poço,
+ tais como temperatura e pressão,
+ bem como propriedades do fluido,
+ incluindo pH,
+ concentração de dióxido de carbono (CO₂),
+ presença de sulfeto de hidrogênio (H₂S) e salinidade.
+ Além disso,
+ o sistema permite a definição do tipo de operação a ser realizada,
+ como perfuração,
+ completação ou estimulação,
+ uma vez que essas condições influenciam diretamente nos mecanismos de corrosão.
 \end_layout
 
 \begin_layout Standard
-...eventualmente coloque imagem ilustrativa geral,
- mostrando o que se pretente (primeira ideia) do software;
- normalmente esta figura já será mais detalhada que aquela apresentada no escopo...
+A partir da inserção desses dados,
+ o software realiza automaticamente a análise das condições operacionais,
+ identificando o tipo de corrosão predominante no sistema e classificando sua severidade com base em critérios previamente definidos.
+ Essa análise é fundamental para a etapa seguinte,
+ na qual o sistema seleciona o tipo de inibidor de corrosão mais adequado para o cenário avaliado.
+\end_layout
+
+\begin_layout Standard
+Com base na classificação obtida,
+ o software procede ao cálculo da dosagem recomendada do inibidor,
+ considerando parâmetros operacionais e relações simplificadas utilizadas na engenharia de corrosão.
+ Por fim,
+ os resultados são apresentados ao usuário de forma clara e organizada,
+ permitindo a interpretação dos dados e a compreensão dos processos envolvidos.
+\end_layout
+
+\begin_layout Standard
+Dessa forma,
+ o sistema proporciona um ambiente de aprendizado dinâmico,
+ no qual o usuário pode testar diferentes condições operacionais e observar o impacto dessas variáveis na corrosão e na seleção de inibidores,
+ contribuindo significativamente para o desenvolvimento do conhecimento aplicado na engenharia de petróleo.
 \end_layout
 
 \begin_layout Section
@@ -631,8 +806,8 @@ RF-01
 \begin_inset Text
 
 \begin_layout Plain Layout
-O sistema deve conter uma base de dados xxx.
- O usuário deve ser capaz de xxx.
+O sistema deve conter uma base de dados confiável com informações sobre mecanismos de corrosão e tipos de inibidores,
+ fundamentadas em referências bibliográficas da área de engenharia de petróleo e corrosão.
 \end_layout
 
 \end_inset
@@ -671,7 +846,9 @@ RF-02
 \begin_inset Text
 
 \begin_layout Plain Layout
-O usuário deverá ter liberdade para xxxx.
+O sistema deve permitir ao usuário inserir e alterar os parâmetros operacionais do poço,
+ incluindo temperatura,
+ pressão e tipo de operação.
 \end_layout
 
 \end_inset
@@ -710,7 +887,10 @@ RF-03
 \begin_inset Text
 
 \begin_layout Plain Layout
-Deve permitir o carregamento de arquivos criados pelo software.
+O sistema deve permitir ao usuário inserir e modificar as propriedades do fluido,
+ tais como pH,
+ concentração de CO₂,
+ presença de H₂S e salinidade.
 \end_layout
 
 \end_inset
@@ -752,7 +932,7 @@ RF-04
 \begin_inset Text
 
 \begin_layout Plain Layout
-Deve permitir a escolha da equação xxx.
+O sistema deve ser capaz de analisar automaticamente os dados inseridos e identificar o tipo de corrosão predominante.
 \end_layout
 
 \end_inset
@@ -794,7 +974,7 @@ RF-05
 \begin_inset Text
 
 \begin_layout Plain Layout
-O usuário deve ter tal liberdade para escolher xxx.
+O sistema deve classificar a severidade do processo corrosivo com base nos parâmetros fornecidos.
 \end_layout
 
 \end_inset
@@ -833,8 +1013,127 @@ RF-06
 \begin_inset Text
 
 \begin_layout Plain Layout
-O usuário poderá plotar seus resultados em um gráfico.
- O gráfico poderá ser salvo como imagem ou ter seus dados exportados como texto.
+O sistema deve selecionar automaticamente o tipo de inibidor mais adequado para o cenário analisado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O sistema deve calcular a dosagem recomendada do inibidor de corrosão.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-08
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O sistema deve permitir a realização de múltiplas simulações com diferentes cenários operacionais.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RF-09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O sistema deve apresentar os resultados ao usuário de forma clara e organizada.
 \end_layout
 
 \end_inset
@@ -899,7 +1198,7 @@ RNF-01
 \begin_inset Text
 
 \begin_layout Plain Layout
-Os cálculos devem ser feitos utilizando-se xxxx.
+O sistema deve ser desenvolvido em linguagem de programação C++
 \end_layout
 
 \end_inset
@@ -941,21 +1240,93 @@ RNF-02
 \begin_inset Text
 
 \begin_layout Plain Layout
-O programa deverá ser multi-plataforma,
- podendo ser executado em 
-\emph on
-Windows
-\emph default
-,
- 
-\emph on
-GNU/Linux
-\emph default
- ou 
-\emph on
-Mac
-\emph default
-.
+O software deve possuir uma interface gráfica simples,
+ intuitiva e de fácil utilização para estudantes.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RNF-03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O sistema deve apresentar desempenho adequado,
+ fornecendo respostas em tempo hábil para as simulações realizadas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle" tabularwidth="14cm">
+<column alignment="center" valignment="top">
+<column alignment="block" valignment="top" width="11cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RNF-04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O sistema deve ser compatível com os sistemas operacionais Windows e Linux e permitir a exportação dos resultados em formato de arquivo (como .txt ou .pdf).
 \end_layout
 
 \end_inset
@@ -1304,8 +1675,32 @@ status open
 \end_layout
 
 \begin_layout Standard
-....coloque aqui caso de uso geral,
- descrição + figura(s)...
+O diagrama de caso de uso geral da Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-caso-uso-geral-1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ mostra o usuário de frente a interface com as opções permitidas do simulador.
+ Com essas opções ele poderá executar,
+ analisar os resultados obtidos e salvar as imagens ou os dados em um arquivo PDF.
+ As condições do caso de uso são apresentadas na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Exemplo-de-um-caso-de-uso (tabela)"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
