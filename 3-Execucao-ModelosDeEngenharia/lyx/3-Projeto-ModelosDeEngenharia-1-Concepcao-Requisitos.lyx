@@ -358,15 +358,93 @@ name "sec:Metodologia"
 \end_layout
 
 \begin_layout Standard
-A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig: Metodologia utilizada no desenvolvimento do sistema"
-nolink "false"
+A Figura 1.l apresenta a metodologia adotada para o desenvolvimento do sistema computacional proposto,
+ estruturada de forma sequencial a partir da definição do problema até a obtenção e validação do produto final.
+ A organização das etapas busca estabelecer uma relação entre os aspectos de engenharia envolvidos no problema,
+ a definição dos requisitos do sistema e sua posterior implementação computacional,
+ de modo a garantir que as funcionalidades desenvolvidas estejam alinhadas aos objetivos estabelecidos para o projeto.
+\end_layout
 
-\end_inset
+\begin_layout Standard
+A primeira etapa corresponde à definição do problema,
+ na qual são estabelecidos o problema de engenharia a ser abordado,
+ o escopo de aplicação do sistema,
+ o público-alvo e os objetivos do projeto.
+ Essa etapa é fundamental para delimitar as características e funcionalidades que deverão ser contempladas pelo software,
+ evitando a inclusão de recursos que não estejam relacionados à finalidade proposta.
+ 
+\end_layout
 
- apresenta a metodologia a ser utilizada no desenvolvimento do sistema.
+\begin_layout Standard
+Na segunda etapa,
+ referente à fundamentação teórica,
+ são levantados e organizados os conhecimentos necessários para a compreensão e representação do problema no sistema computacional.
+ São considerados aspectos relacionados à corrosão na indústria do petróleo,
+ aos seus principais mecanismos,
+ à influência de espécies como CO₂ e H₂S,
+ aos inibidores de corrosão e suas respectivas classes,
+ bem como aos conceitos associados à taxa de corrosão,
+ aos critérios de seleção e aos modelos utilizados para o cálculo da dosagem.
+ Esses fundamentos constituem a base para a definição das variáveis,
+ dos critérios e dos modelos empregados nas etapas posteriores do desenvolvimento.
+ A apresentação detalhada desses conceitos é realizada nas seções específicas deste trabalho.
+\end_layout
+
+\begin_layout Standard
+A terceira etapa compreende a especificação do sistema,
+ na qual os conhecimentos levantados são convertidos em requisitos para o desenvolvimento do software.
+ Nessa etapa são definidos os requisitos funcionais e não funcionais,
+ as principais entradas e saídas do sistema e os casos de uso que representam a interação do usuário com as funcionalidades propostas.
+ A especificação permite estabelecer de forma sistemática o comportamento esperado do software e os resultados que deverão ser fornecidos ao usuário.
+\end_layout
+
+\begin_layout Standard
+Na quarta etapa é realizada a modelagem do software,
+ responsável pela representação da estrutura e do comportamento do sistema antes de sua implementação.
+ São desenvolvidos os diagramas de casos de uso e de classes,
+ além da definição das classes,
+ de suas relações e possíveis mecanismos de herança.
+ Também são estruturados os algoritmos necessários à execução dos cálculos e demais funcionalidades,
+ estabelecendo uma representação lógica que orienta a etapa de programação.
+\end_layout
+
+\begin_layout Standard
+A quinta etapa corresponde ao desenvolvimento,
+ no qual a modelagem previamente estabelecida é implementada utilizando a linguagem de programação C++.
+ Nessa fase são desenvolvidas as classes e suas respectivas funcionalidades,
+ incluindo os procedimentos relacionados aos cálculos de corrosão,
+ à seleção do inibidor e ao cálculo da dosagem.
+ Também são implementadas as funcionalidades destinadas à geração e apresentação dos resultados,
+ incluindo os gráficos e a interface gráfica do sistema.
+\end_layout
+
+\begin_layout Standard
+Após a implementação,
+ é realizada a etapa de testes e validação,
+ destinada a verificar o funcionamento das diferentes partes do software e a consistência dos resultados obtidos.
+ São considerados testes unitários e de integração,
+ além da aplicação do sistema a diferentes cenários de entrada.
+ Os resultados são analisados e,
+ quando aplicável,
+ comparados com referências e modelos estabelecidos na literatura,
+ permitindo identificar possíveis inconsistências e verificar se as funcionalidades implementadas atendem aos requisitos previamente definidos.
+\end_layout
+
+\begin_layout Standard
+Por fim,
+ a integração das funcionalidades desenvolvidas e validadas resulta no produto final,
+ correspondente ao software educacional proposto.
+ O sistema reúne recursos para análise de problemas relacionados à corrosão,
+ seleção de inibidores,
+ cálculo de dosagem e apresentação dos resultados,
+ incluindo a geração de gráficos.
+ Dessa maneira,
+ a metodologia estabelece um fluxo de desenvolvimento que parte da compreensão e delimitação do problema de engenharia,
+ passa pela definição e modelagem dos requisitos e culmina na implementação,
+ avaliação e consolidação do sistema computacional.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement document
 alignment document
@@ -377,10 +455,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../imagens/ProjetoEngenharia-Etapas-Geral-wide.png
+	filename C:/Users/lroch/Desktop/metodologia.png
 	lyxscale 50
-	width 100text%
-	keepAspectRatio
 	special height=0.8\textheight
 
 \end_inset
@@ -1341,7 +1417,7 @@ O sistema deve ser compatível com os sistemas operacionais Windows e Linux e pe
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 #O que são os casos de uso
@@ -1575,7 +1651,7 @@ Nome do caso de uso:
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Software Educacional para Análise e Seleção de Inibidores de Corrosão
 \end_layout
 
 \end_inset
@@ -1595,7 +1671,14 @@ Resumo/descrição:
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+O caso de uso geral descreve a interação geral do usuário com o Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+ O usuário define um cenário de análise por meio da inserção dos parâmetros necessários.
+ A partir dessas informações,
+ o software realiza automaticamente a validação dos dados,
+ a análise das condições de corrosão,
+ a seleção da classe de inibidor mais adequada e o cálculo da dosagem recomendada.
+ Ao final do processamento,
+ o sistema apresenta os resultados obtidos e os respectivos gráficos para auxiliar a interpretação do cenário analisado.
 \end_layout
 
 \end_inset
@@ -1615,7 +1698,26 @@ Etapas:
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.
+ O usuário acessa o software.
+ 2.
+ O usuário define o cenário de análise.
+ 3.
+ O usuário fornece os parâmetros de entrada necessários ao cenário.
+ 4.
+ O software valida os parâmetros fornecidos.
+ 5.
+ O software realiza a análise das condições de corrosão.
+ 6.
+ O software determina a classificação e a severidade da corrosão.
+ 7.
+ O software avalia as condições do cenário e seleciona a classe de inibidor mais adequada.
+ 8.
+ O software calcula a dosagem recomendada do inibidor.
+ 9.
+ O software processa os resultados e gera as representações gráficas previstas.
+ 10.
+ O software disponibiliza os resultados da análise ao usuário.
 \end_layout
 
 \end_inset
@@ -1635,7 +1737,21 @@ Cenários alternativos:
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+A1 —
+ Parâmetros inválidos:
+ caso algum parâmetro fornecido seja inválido ou esteja fora dos limites estabelecidos,
+ o software informa o problema e solicita a correção dos dados.
+ A2 —
+ Dados insuficientes:
+ caso os parâmetros fornecidos não sejam suficientes para realizar a análise,
+ o software solicita as informações necessárias antes de prosseguir.
+ A3 —
+ Cenário incompatível:
+ caso as condições informadas não sejam compatíveis com os critérios de análise ou seleção disponíveis no software,
+ o sistema informa a impossibilidade de concluir a recomendação e apresenta a justificativa correspondente.
+ A4 —
+ Cancelamento:
+ o usuário pode cancelar a configuração do cenário antes da execução da análise.
 \end_layout
 
 \end_inset
@@ -1705,7 +1821,7 @@ nolink "false"
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Dica importante:
@@ -1863,10 +1979,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagens/DiagramaDeCasoUso-Geral.png
+	filename C:/Users/lroch/Desktop/Diagrama caso de uso geral.png
 	lyxscale 50
-	width 100text%
-	keepAspectRatio
+	scale 150
 	special height=0.3\textheight
 
 \end_inset
@@ -1920,50 +2035,78 @@ do software
 \end_layout
 
 \begin_layout Standard
-....coloque aqui casos de uso específicos,
- descrição + figura(s)...
+O caso de uso geral apresentado anteriormente,
+ descreve,
+ de forma abrangente,
+ a interação entre o usuário e o Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+ Entretanto,
+ devido à quantidade de etapas envolvidas no processamento do cenário de corrosão,
+ torna-se necessário o detalhamento sobre o funcionamento do sistema em casos de uso específicos.
+ Essa divisão permite representar de maneira mais clara a sequência lógica de processamento adotada pelo software,
+ mantendo a relação entre os dados fornecidos pelo usuário,
+ os cálculos realizados internamente e os resultados disponibilizados ao final da análise.
 \end_layout
 
 \begin_layout Standard
-exemplo...O caso de uso Calcular área função descrito na Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Diagrama-caso-uso-geral"
-nolink "false"
+O funcionamento do software foi dividido em quatro casos de uso específicos,
+ que representam as principais etapas do processo de análise.
+ A divisão foi realizada de modo a preservar a visão do sistema como um todo e,
+ simultaneamente,
+ permitir o detalhamento das suas principais funcionalidades.
+ Dessa forma,
+ os casos de uso específicos não representam processos independentes,
+ mas etapas relacionadas de uma mesma análise de cenário de corrosão.
+\end_layout
 
-\end_inset
+\begin_layout Standard
+A primeira etapa corresponde à definição do cenário,
+ na qual ocorre a interação direta do usuário com o software para fornecimento dos dados de entrada.
+ A segunda etapa corresponde à análise das condições de corrosão e seleção da classe de inibidor,
+ na qual os parâmetros fornecidos são processados pelo sistema para caracterização do ambiente corrosivo e determinação da classe de inibidor mais adequada.
+ A terceira etapa corresponde ao cálculo da dosagem do inibidor,
+ no qual os resultados da análise de corrosão e os fatores associados às condições operacionais são utilizados para estimar a concentração recomendada.
+ Por fim,
+ a quarta etapa corresponde à apresentação dos resultados,
+ na qual o software organiza os resultados obtidos e gera as representações gráficas destinadas à interpretação do cenário analisado.
+\end_layout
 
- e na Tabela 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Exemplo-de-um-caso-de-uso (tabela)"
-nolink "false"
+\begin_layout Standard
+Essa divisão também estabelece uma relação direta com a arquitetura orientada a objetos proposta para o desenvolvimento do software,
+ uma vez que cada etapa possui responsabilidades específicas e poderá ser implementada por diferentes classes e componentes do sistema.
+ Assim,
+ a modelagem dos casos de uso serve como uma ligação entre a concepção funcional do produto e sua posterior implementação computacional.
+\end_layout
 
-\end_inset
-
- é detalhado na Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Diagrama-de-caso-de-uso-especifico:Titulo"
-nolink "false"
-
-\end_inset
-
-.
- O usuário criará um objeto função matemática,
- um objeto para sua integração;
- em seguida,
- definirá o intervalo de integração,
- calculará a área da função criada e,
-  por fim,
- analisará os resultados (eventualmente gerará gráficos com os resultados obtidos utilizando um sistema externo,
- como o software 
-\emph on
-gnuplot
-\emph default
-).
- Este diagrama de caso de uso ilustra as etapas a serem executadas pelo usuário ou sistema,
- a iteração do usuário com o sistema.
+\begin_layout Standard
+O primeiro caso de uso específico,
+ apresentado na Figura 1.3,
+ detalha a etapa de definição do cenário de análise.
+ Nessa etapa ocorre a principal interação do usuário com o sistema,
+ sendo responsabilidade do usuário fornecer os parâmetros necessários para caracterizar o ambiente no qual a análise de corrosão será realizada.
+ O usuário inicia a configuração do cenário e informa as propriedades consideradas relevantes para a análise.
+ Entre os parâmetros de entrada podem estar as propriedades do fluido,
+ como pH,
+ salinidade e concentrações de espécies corrosivas,
+ incluindo dióxido de carbono (CO₂) e sulfeto de hidrogênio (H₂S),
+ além das condições operacionais,
+ como temperatura,
+ pressão,
+ vazão e profundidade do sistema.
+ Dependendo do cenário selecionado e da disponibilidade dos dados,
+ outros parâmetros poderão ser incorporados ao modelo.
+ Após o fornecimento das informações,
+ o software realiza a validação dos parâmetros,
+ verificando a consistência dos dados,
+ a presença de informações obrigatórias e a compatibilidade das unidades utilizadas.
+ Essa etapa é importante para evitar que valores inadequados sejam utilizados nos cálculos posteriores.
+ Portanto,
+ neste caso de uso,
+ o usuário é responsável pela definição do cenário e pelo fornecimento dos dados de entrada,
+ enquanto o software é responsável por receber,
+ armazenar e validar essas informações.
+ Os cálculos de corrosão e a seleção do inibidor ainda não são realizados nesta etapa,
+ sendo executados posteriormente pelo sistema.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1977,7 +2120,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagens/DiagramaDeCasoDeUso-Especifico-1.png
+	filename C:/Users/lroch/Desktop/Caso de uso especifico 1- Definicao de cenario.png
 	width 100text%
 
 \end_inset
@@ -1989,10 +2132,240 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Diagrama de caso de uso específico – Título
+Diagrama de caso de uso específico 1– Definição do cenário
 \begin_inset CommandInset label
 LatexCommand label
 name "cap:Diagrama-de-caso-de-uso-especifico:Titulo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Após a definição e validação do cenário,
+ inicia-se o segundo caso de uso específico,
+ apresentado na Figura 1.4,
+ correspondente à análise das condições de corrosão e à seleção da classe de inibidor.
+ Nesta etapa,
+ o usuário não precisa realizar individualmente os cálculos.
+ A partir dos parâmetros previamente fornecidos,
+ o próprio software executa o processamento necessário para caracterizar o cenário corrosivo.
+ Inicialmente,
+ os dados são utilizados para determinar a taxa de corrosão (CR) de acordo com o modelo adotado no software.
+ A taxa de corrosão constitui uma das principais informações utilizadas na avaliação da severidade do processo corrosivo.
+ A partir dos resultados obtidos,
+ o sistema realiza a classificação do tipo de corrosão e determina sua severidade,
+ considerando os critérios previamente estabelecidos na fundamentação teórica do projeto.
+ Essa classificação permite relacionar as características do cenário às condições de aplicação dos diferentes tipos de inibidores disponíveis na base de conhecimento do software.
+ Em seguida,
+ o sistema avalia as condições do cenário em relação aos critérios de aplicabilidade dos inibidores.
+ São consideradas características como temperatura,
+ pressão,
+ composição do fluido,
+ presença de CO₂ e H₂S,
+ salinidade e demais parâmetros relevantes para a seleção.
+ A partir dessa avaliação,
+ o software compara as condições do cenário com as características das classes de inibidores disponíveis e determina a classe recomendada.
+ Dessa maneira,
+ o caso de uso representa uma etapa predominantemente computacional:
+ o usuário fornece os parâmetros no caso de uso anterior e o software utiliza essas informações para realizar a análise de corrosão e selecionar a classe de inibidor mais compatível com o cenário.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/lroch/Desktop/Caso de uso específico 2- Análise de corrosão e seleção do inibidor.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de caso de uso específico 2 – Análise de corrosão e seleção de inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O terceiro caso de uso específico,
+ apresentado na Figura 1.5,
+ corresponde ao cálculo da dosagem do inibidor selecionado.
+ Essa etapa utiliza os resultados produzidos nas etapas anteriores para determinar uma estimativa da quantidade de inibidor necessária para o cenário analisado.
+ A dosagem não é definida exclusivamente a partir da taxa de corrosão.
+ O modelo desenvolvido considera também fatores relacionados às condições específicas de operação.
+ Dessa forma,
+ a equação implementada no software considera a taxa de corrosão,
+ a eficiência esperada do inibidor e fatores de correção associados à severidade,
+ temperatura,
+ corrosividade e vazão do sistema.
+ A formulação utilizada no projeto é representada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Dose=\frac{K\cdot CR\cdot F_{s}\cdot F_{T}\cdot F_{c}\cdot F_{q}}{\eta}
+\end{equation}
+
+\end_inset
+
+Em que Dose representa a dosagem estimada do inibidor,
+ K representa a constante de conversão associada às unidades adotadas,
+ CR representa a taxa de corrosão,
+ Fs representa o fator associado à severidade da corrosão,
+ Ft o fator de temperatura,
+ Fc o fator de corrosividade,
+ Fq o fator associado à vazão e η representa a eficiência considerada para o inibidor.
+\end_layout
+
+\begin_layout Standard
+Os fatores são determinados pelo software a partir das características do cenário e dos critérios definidos na fundamentação teórica.
+ Dessa maneira,
+ o resultado não consiste simplesmente na aplicação de uma concentração fixa,
+ mas em uma estimativa parametrizada em função das condições de operação analisadas.
+ Ao final desta etapa,
+ o sistema determina a dosagem recomendada,
+ expressa na unidade definida para a aplicação do software,
+ como concentração do produto no sistema.
+ O resultado é posteriormente utilizado na etapa de apresentação dos resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/lroch/Desktop/Caso de uso específico 3- Calculo dosagem inibidor.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de caso de uso específico 3 – Cálculo da dosagem do inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O quarto e último caso de uso específico,
+ apresentado na Figura 1.6,
+ corresponde à apresentação dos resultados obtidos durante a análise.
+ Esta etapa representa a saída do processamento realizado pelo software e tem como objetivo facilitar a interpretação dos resultados pelo usuário.
+ Após a conclusão dos cálculos,
+ o sistema organiza as principais informações obtidas durante o processamento.
+ Entre os resultados apresentados estão a taxa de corrosão,
+ o tipo de corrosão identificado,
+ a classificação de severidade,
+ a classe de inibidor recomendada e a dosagem estimada.
+ Além da apresentação numérica e textual dos resultados,
+ o software possui a funcionalidade de geração de gráficos por meio da classe GraphGenerator.
+ A representação gráfica permite visualizar a relação entre diferentes parâmetros do cenário e os resultados obtidos,
+ contribuindo para uma análise mais intuitiva do comportamento do sistema.
+ Entre as representações que podem ser produzidas estão gráficos relacionados ao perfil de corrosão,
+ à variação de temperatura,
+ pressão e à dosagem recomendada,
+ de acordo com os dados disponíveis e as funcionalidades implementadas.
+ A geração dos gráficos complementa os resultados numéricos e contribui para o caráter educacional da aplicação,
+ permitindo que o usuário observe visualmente a influência das condições do cenário sobre a análise realizada.
+ Assim,
+ o quarto caso de uso representa a etapa final do processo:
+ o software transforma os resultados dos cálculos em informações organizadas,
+ gráficos e indicadores que podem ser interpretados pelo usuário.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/lroch/Desktop/Caso de uso específico 4- Apresentação de resultados.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de caso de uso específico 4 – Apresentação de resultados
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1-1-1"
 
 \end_inset
 
