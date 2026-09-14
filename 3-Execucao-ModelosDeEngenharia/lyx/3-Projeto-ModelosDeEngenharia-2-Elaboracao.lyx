@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -28,11 +28,11 @@
 \end_preamble
 \use_default_options false
 \master 3-Projeto-ModelosDeEngenharia-Master.lyx
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language brazilian
 \language_package auto
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -40,7 +40,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -54,7 +56,7 @@
 \paperfontsize 12
 \spacing onehalf
 \use_hyperref false
-\papersize a4paper
+\papersize a4
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -73,9 +75,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -97,11 +109,17 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -111,7 +129,6 @@
 status open
 
 \begin_layout Plain Layout
-
 
 \backslash
 lhead{
@@ -129,6 +146,8 @@ space - Elaboração}
 \begin_layout Chapter
 Elaboração
 \begin_inset Index idx
+range none
+pageformat default
 status collapsed
 
 \begin_layout Plain Layout
@@ -148,23 +167,37 @@ name "sec:Elaboração"
 \end_layout
 
 \begin_layout Standard
-Depois da definição dos objetivos, da especificação do software e da montagem
- dos primeiros diagramas de caso de uso, a equipe de desenvolvimento do
- projeto de engenharia passa por um processo de elaboração que envolve o
- estudo de conceitos relacionados ao sistema a ser desenvolvido, a análise
- de domínio e a identificação de pacotes.
+Após a definição dos objetivos do projeto,
+ da especificação inicial do sistema e da elaboração dos primeiros diagramas de caso de uso,
+ inicia-se a etapa de elaboração do projeto de engenharia.
+ Essa etapa tem como finalidade aprofundar a compreensão do problema tecnológico,
+ estabelecer os fundamentos teóricos necessários à sua solução e transformar os requisitos inicialmente definidos em uma estrutura conceitual e computacional coerente.
+\end_layout
+
+\begin_layout Standard
+No desenvolvimento de um sistema computacional aplicado à Engenharia de Petróleo,
+ a etapa de elaboração é particularmente importante,
+ pois o software não deve ser compreendido apenas como um conjunto de rotinas de programação.
+ Sua construção depende da representação adequada de fenômenos físicos e químicos,
+ da definição dos parâmetros relevantes ao problema e da organização desses conhecimentos em modelos computacionais capazes de produzir resultados consistentes.
+\end_layout
+
+\begin_layout Standard
+Nesse contexto,
+ o presente capítulo apresenta a análise do domínio relacionado à corrosão em sistemas petrolíferos,
+ a formulação teórica utilizada como base para os cálculos do software e a organização dos principais assuntos do sistema em pacotes funcionais.
+ Essa estrutura estabelece a ligação entre os conhecimentos da engenharia de corrosão e a implementação orientada a objetos em linguagem C++.
+\end_layout
+
+\begin_layout Standard
+A elaboração também permite revisar e consolidar os requisitos inicialmente estabelecidos,
+ verificando se as funcionalidades previstas são compatíveis com o escopo,
+ os recursos disponíveis e o caráter educacional do projeto.
+ Dessa forma,
+ busca-se desenvolver um sistema suficientemente consistente para representar os conceitos fundamentais de análise de corrosão,
+ seleção de inibidores e estimativa de dosagem,
+ sem ultrapassar os limites de uma ferramenta acadêmica de simulação.
  
-\end_layout
-
-\begin_layout Standard
-Na elaboração fazemos uma análise dos requisitos, ajustando os requisitos
- iniciais de forma a desenvolver um sistema útil, que atenda às necessidades
- do usuário e, na medida do possível, permita seu reuso e futura extensão.
-\end_layout
-
-\begin_layout Standard
-Eliminam-se os requisitos "impossíveis" e ajusta-se a idéia do sistema de
- forma que este seja flexível, considerando-se aspectos como custos e prazos.
 \end_layout
 
 \begin_layout Section
@@ -179,30 +212,162 @@ name "sec:Análise-de-domínio"
 \end_layout
 
 \begin_layout Standard
-Após estudo dos requisitos/especificações do sistema, algumas entrevistas,
- estudos na biblioteca e disciplinas do curso foi possível identificar nosso
- domínio de trabalho:
+A análise de domínio constitui uma etapa fundamental para o desenvolvimento do software,
+ pois permite identificar os conhecimentos técnicos,
+ fenômenos físicos,
+ parâmetros operacionais e processos relacionados ao problema de engenharia que será representado computacionalmente.
 \end_layout
 
-\begin_layout Itemize
-Definição e caracterização do domínio a ser investigado 
+\begin_layout Standard
+A partir dos requisitos e da especificação do sistema apresentados no capítulo anterior,
+ juntamente com a revisão bibliográfica realizada e os conhecimentos adquiridos nas disciplinas de Corrosão e Proteção de Materiais,
+ Fenômenos de Transporte,
+ Química e Engenharia de Poço,
+ foi possível delimitar o domínio de aplicação do projeto.
 \end_layout
 
-\begin_layout Itemize
-Descrição das áreas/disciplinas relacionadas.
+\begin_layout Standard
+O domínio investigado corresponde à interseção entre três áreas principais:
+ a engenharia de corrosão aplicada à indústria de petróleo e gás,
+ a modelagem físico-matemática de fenômenos de degradação de materiais metálicos e o desenvolvimento de sistemas computacionais orientados a objetos.
 \end_layout
 
-\begin_layout Itemize
-Descrição de questões associadas a espaço/tempo (espaço físico, local, instalaçã
-o).
+\begin_layout Standard
+O problema de engenharia abordado está relacionado à ocorrência de corrosão interna em equipamentos metálicos utilizados na produção e no escoamento de petróleo e gás natural.
+ Entre esses equipamentos encontram-se colunas de produção,
+ tubulações,
+ linhas de escoamento e outros componentes sujeitos ao contato contínuo com fluidos produzidos pelo reservatório.
 \end_layout
 
-\begin_layout Itemize
-Fotografias de sistemas equivalentes/parecidos.
+\begin_layout Standard
+A corrosão interna nesses sistemas pode ser influenciada por diferentes características físico-químicas e operacionais do meio.
+ Entre os principais fatores considerados neste projeto destacam-se a presença de dióxido de carbono (CO₂),
+ sulfeto de hidrogênio (H₂S),
+ pH,
+ temperatura,
+ pressão,
+ salinidade e vazão do fluido.
 \end_layout
 
-\begin_layout Itemize
-...
+\begin_layout Standard
+O dióxido de carbono dissolvido pode contribuir para a formação de ácido carbônico quando em contato com a fase aquosa,
+ favorecendo a redução do pH e a ocorrência de processos corrosivos em materiais metálicos.
+ Da mesma forma,
+ a presença de sulfeto de hidrogênio caracteriza ambientes potencialmente agressivos,
+ nos quais mecanismos específicos de corrosão podem ocorrer e exigir estratégias diferenciadas de mitigação.
+\end_layout
+
+\begin_layout Standard
+Além da identificação dos agentes corrosivos,
+ o domínio também envolve o estudo dos métodos de controle da corrosão por meio da aplicação de inibidores químicos.
+ Esses produtos são utilizados com o objetivo de reduzir a velocidade das reações corrosivas,
+ normalmente por meio da formação de filmes protetores,
+ alteração das reações eletroquímicas ou modificação das condições superficiais do metal.
+\end_layout
+
+\begin_layout Standard
+A seleção do inibidor depende das características do ambiente corrosivo e do mecanismo predominante identificado no cenário analisado.
+ Consequentemente,
+ a estimativa da quantidade necessária do produto também deve considerar fatores relacionados à severidade da corrosão,
+ às condições operacionais e à eficiência esperada do inibidor.
+\end_layout
+
+\begin_layout Standard
+Dessa forma,
+ o domínio do projeto pode ser representado como um processo integrado de análise:
+\end_layout
+
+\begin_layout Standard
+Propriedades do fluido → Caracterização do ambiente corrosivo → Estimativa da taxa de corrosão → Classificação da severidade → Seleção do inibidor → Estimativa da dosagem.
+\end_layout
+
+\begin_layout Standard
+Essa sequência representa a lógica fundamental que será posteriormente implementada no software.
+\end_layout
+
+\begin_layout Subsection
+Áreas do conhecimento relacionadas
+\end_layout
+
+\begin_layout Standard
+O desenvolvimento do sistema envolve conhecimentos multidisciplinares,
+ uma vez que o problema de corrosão em sistemas petrolíferos exige a integração entre fundamentos de engenharia,
+ química e computação.
+\end_layout
+
+\begin_layout Standard
+A área de Corrosão e Proteção de Materiais fornece os conhecimentos necessários para compreender os mecanismos de degradação dos materiais metálicos,
+ os efeitos dos agentes corrosivos e os princípios de atuação dos inibidores.
+\end_layout
+
+\begin_layout Standard
+A Química contribui para a compreensão das interações entre os componentes do fluido produzido,
+ incluindo os equilíbrios ácido-base,
+ a presença de espécies dissolvidas e os efeitos da concentração de gases corrosivos sobre o meio aquoso.
+\end_layout
+
+\begin_layout Standard
+Os conhecimentos de Engenharia de Petróleo,
+ especialmente aqueles relacionados à Engenharia de Poço e à Engenharia de Produção,
+ são utilizados para representar as condições operacionais às quais os equipamentos estão submetidos.
+ Entre essas condições estão pressão,
+ temperatura,
+ vazão e características dos fluidos produzidos.
+\end_layout
+
+\begin_layout Standard
+Por fim,
+ a Programação Orientada a Objetos constitui a base computacional para a implementação do sistema.
+ Conceitos como encapsulamento,
+ herança,
+ polimorfismo e abstração são empregados na organização das classes responsáveis pela representação dos dados,
+ dos cálculos e dos resultados.
+\end_layout
+
+\begin_layout Standard
+A integração dessas áreas permite que o software represente,
+ de maneira simplificada,
+ um problema real de engenharia por meio de uma arquitetura computacional modular e extensível.
+\end_layout
+
+\begin_layout Subsection
+Delimitação do domínio
+\end_layout
+
+\begin_layout Standard
+Embora a corrosão em sistemas petrolíferos seja um fenômeno complexo e envolva diversos mecanismos,
+ o presente projeto possui um escopo delimitado ao desenvolvimento de uma ferramenta educacional.
+\end_layout
+
+\begin_layout Standard
+O software concentra-se na análise simplificada de corrosão interna associada principalmente à presença de CO₂ e H₂S em fluidos produzidos,
+ considerando também os efeitos de temperatura,
+ pressão,
+ pH,
+ salinidade e vazão.
+\end_layout
+
+\begin_layout Standard
+Não fazem parte do escopo deste trabalho a modelagem detalhada de fenômenos como corrosão sob tensão,
+ fragilização por hidrogênio,
+ corrosão microbiologicamente induzida ou seleção metalúrgica de materiais resistentes à corrosão.
+\end_layout
+
+\begin_layout Standard
+Esses fenômenos possuem mecanismos específicos e frequentemente exigem modelos experimentais,
+ normas técnicas e metodologias próprias,
+ que extrapolam os objetivos estabelecidos para este projeto.
+\end_layout
+
+\begin_layout Standard
+Da mesma forma,
+ o software não possui como finalidade substituir ferramentas comerciais de dimensionamento ou sistemas industriais de gestão de integridade.
+ Seu objetivo é fornecer uma representação computacional didática dos conceitos fundamentais envolvidos na análise e mitigação da corrosão.
+\end_layout
+
+\begin_layout Standard
+Essa delimitação é necessária para garantir que o desenvolvimento permaneça compatível com o nível de complexidade,
+ o prazo e os recursos disponíveis para um projeto acadêmico de graduação.
 \end_layout
 
 \begin_layout Section
@@ -217,53 +382,1304 @@ name "sec:Formulação-teórica"
 \end_layout
 
 \begin_layout Standard
-...coloque aqui texto explicando a formulação física-matemática, a descrição
- das equações que serão utilizadas...
+A formulação teórica constitui a base matemática e conceitual utilizada para transformar os conhecimentos relacionados à corrosão em procedimentos computacionais.
 \end_layout
 
 \begin_layout Standard
-...aqui entram figuras, tabelas explicativas, equações a serem utilizadas no
- software...
+O modelo desenvolvido neste projeto foi estruturado a partir da integração entre as propriedades físico-químicas do fluido,
+ os mecanismos de corrosão e os critérios simplificados de seleção e dosagem de inibidores.
 \end_layout
 
 \begin_layout Standard
-...logo depois, com os dados levantados na análise de domínio, e esta formulação
- teórica, iremos identificar os pacotes, os assuntos com os quais iremos
- trabalhar...
+A formulação foi organizada em etapas sequenciais,
+ nas quais os dados de entrada fornecidos pelo usuário são processados para produzir resultados intermediários e finais.
+ De maneira geral,
+ o sistema segue a seguinte lógica:
+\end_layout
+
+\begin_layout Enumerate
+Caracterização das propriedades do fluido;
+\end_layout
+
+\begin_layout Enumerate
+Estimativa da taxa base de corrosão;
+\end_layout
+
+\begin_layout Enumerate
+Classificação do tipo predominante e da severidade da corrosão;
+\end_layout
+
+\begin_layout Enumerate
+Seleção da classe de inibidor;
+\end_layout
+
+\begin_layout Enumerate
+Aplicação dos fatores de correção;
+\end_layout
+
+\begin_layout Enumerate
+Cálculo da dosagem recomendada;
+\end_layout
+
+\begin_layout Enumerate
+Geração dos resultados e representações gráficas.
 \end_layout
 
 \begin_layout Standard
-...
- no final da formulação teórica, indicar livros e artigos que tem mais informaçã
-o sobre o assunto...
+Essas etapas foram associadas às principais classes do sistema,
+ permitindo estabelecer uma correspondência entre o modelo teórico e a implementação computacional.
 \end_layout
 
 \begin_layout Standard
-...se vai usar modelos numéricos, colocar seção 3.3.x falando deles; no final
- citar/referenciar fontes...
+A classe FluidProperties é responsável pelo armazenamento das propriedades de entrada do fluido.
+ A classe CorrosionAnalysis realiza os procedimentos relacionados à análise da corrosão.
+ A hierarquia Inhibitor representa as diferentes classes de inibidores disponíveis no sistema.
+ A classe DosageCalculator executa os cálculos necessários para estimar a dosagem recomendada,
+ enquanto a classe GraphGenerator é responsável pela representação gráfica dos resultados obtidos.
+\end_layout
+
+\begin_layout Standard
+Essa organização permite que cada componente possua responsabilidades específicas,
+ reduzindo a complexidade do sistema e favorecendo sua manutenção e futura expansão.
+\end_layout
+
+\begin_layout Subsection
+Caracterização das propriedades do fluído
+\end_layout
+
+\begin_layout Standard
+A primeira etapa da formulação consiste na definição das propriedades físico-químicas e operacionais utilizadas como entrada do sistema.
+\end_layout
+
+\begin_layout Standard
+Essas propriedades representam as condições do cenário de produção ou escoamento que influenciam o comportamento corrosivo do meio.
+ Os parâmetros selecionados para o software foram definidos considerando sua relevância para os mecanismos de corrosão associados a ambientes de petróleo e gás.
+\end_layout
+
+\begin_layout Standard
+Entre os principais dados de entrada encontram-se:
+\end_layout
+
+\begin_layout Itemize
+temperatura do fluido;
+\end_layout
+
+\begin_layout Itemize
+pressão do sistema;
+\end_layout
+
+\begin_layout Itemize
+pH;
+\end_layout
+
+\begin_layout Itemize
+concentração de dióxido de carbono (CO₂);
+\end_layout
+
+\begin_layout Itemize
+concentração de sulfeto de hidrogênio (H₂S);
+\end_layout
+
+\begin_layout Itemize
+salinidade;
+\end_layout
+
+\begin_layout Itemize
+vazão do fluido.
+\end_layout
+
+\begin_layout Standard
+A classe FluidProperties tem como responsabilidade armazenar essas informações e disponibilizar métodos de acesso para as demais classes do sistema.
+\end_layout
+
+\begin_layout Standard
+Além do armazenamento dos dados,
+ essa classe pode realizar verificações básicas de consistência,
+ garantindo que os valores inseridos pelo usuário estejam dentro dos limites aceitáveis definidos para a simulação.
+\end_layout
+
+\begin_layout Standard
+Por exemplo,
+ valores de temperatura incompatíveis com o domínio do modelo,
+ concentrações negativas ou valores inválidos de pH devem ser identificados antes da execução dos cálculos.
+\end_layout
+
+\begin_layout Standard
+A separação dessas informações em uma classe específica permite que os dados do cenário sejam utilizados de maneira centralizada por diferentes módulos do software.
+\end_layout
+
+\begin_layout Subsection
+Estimativa da taxa de corrosão
+\end_layout
+
+\begin_layout Standard
+A estimativa da taxa de corrosão constitui uma das principais etapas do processamento realizado pelo sistema.
+\end_layout
+
+\begin_layout Standard
+Para fins educacionais,
+ foi adotada uma formulação simplificada inspirada conceitualmente nos estudos clássicos de corrosão por ácido carbônico desenvolvidos por de Waard e Milliams,
+ bem como nos fundamentos apresentados na literatura de engenharia de corrosão.
+\end_layout
+
+\begin_layout Standard
+É importante destacar que a formulação implementada não corresponde à reprodução literal do modelo original de de Waard–Milliams.
+ O modelo clássico possui formulações específicas,
+ geralmente expressas em função da pressão parcial de CO₂ e da temperatura absoluta.
+\end_layout
+
+\begin_layout Standard
+Neste projeto,
+ optou-se por uma formulação simplificada,
+ adequada ao objetivo educacional do software e à demonstração da influência dos principais parâmetros envolvidos no fenômeno corrosivo.
+\end_layout
+
+\begin_layout Standard
+A taxa base de corrosão é determinada pela Equação:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+CR=CO_{2}\cdot e^{0,02\cdot T}\cdot(7-pH)
+\end{equation}
+
+\end_inset
+
+em que:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CR$
+\end_inset
+
+ é a taxa base de corrosão (adimensional/relativa),
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CO_{2}$
+\end_inset
+
+ é a concentração de dióxido de carbono (ppm),
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ é a temperatura do fluido (°C) e
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $pH$
+\end_inset
+
+ representa o fator de acidez do meio,
+ nulo quando o pH é igual ou superior a 7.
+ 
+\end_layout
+
+\begin_layout Standard
+O termo associado ao pH representa a influência da acidez sobre o processo corrosivo.
+ Quanto menor o valor de pH,
+ maior tende a ser a agressividade do meio em condições compatíveis com o modelo adotado.
+\end_layout
+
+\begin_layout Standard
+O termo exponencial relacionado à temperatura representa,
+ de maneira simplificada,
+ a influência do aumento da temperatura sobre a velocidade das reações químicas e eletroquímicas envolvidas na corrosão.
+\end_layout
+
+\begin_layout Standard
+A taxa calculada nesta etapa é posteriormente utilizada como base para a classificação da severidade e para o cálculo da taxa de corrosão ajustada empregada na estimativa da dosagem do inibidor.
+\end_layout
+
+\begin_layout Subsection
+Classificação do tipo e da severidade da corrosão
+\end_layout
+
+\begin_layout Standard
+Após a estimativa da taxa base de corrosão,
+ o sistema realiza a identificação do mecanismo corrosivo predominante e a classificação da severidade do cenário.
+\end_layout
+
+\begin_layout Standard
+A análise considera principalmente a presença e a concentração de agentes corrosivos,
+ como CO₂ e H₂S,
+ além das características físico-químicas do meio.
+\end_layout
+
+\begin_layout Standard
+A identificação do tipo de corrosão permite estabelecer uma relação entre as condições do cenário e a classe de inibidor mais adequada para a mitigação do problema.
+\end_layout
+
+\begin_layout Standard
+De forma simplificada,
+ o sistema considera os seguintes ambientes:
+\end_layout
+
+\begin_layout Itemize
+corrosão associada à presença predominante de CO₂;
+\end_layout
+
+\begin_layout Itemize
+ambientes contendo concentrações relevantes de H₂S;
+\end_layout
+
+\begin_layout Itemize
+condições de corrosividade associadas à salinidade e demais parâmetros operacionais;
+\end_layout
+
+\begin_layout Itemize
+situações de menor agressividade,
+ classificadas como cenários gerais.
+\end_layout
+
+\begin_layout Standard
+Para fins de simplificação do modelo educacional,
+ foram estabelecidos critérios baseados na concentração dos principais agentes corrosivos considerados no sistema.
+ A Tabela 
+\backslash
+ref{tab:criterios-tipo-corrosao} apresenta os parâmetros utilizados para a classificação do tipo predominante de corrosão.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Critérios de classificação do tipo de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Criterios-tipo-corrosao"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Condição
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tipo de corrosão
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+S 
+\begin_inset Formula $>10$
+\end_inset
+
+ ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Corrosão ácida (Sour)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $>20$
+\end_inset
+
+ ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Corrosão doce (Sweet)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Demais casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A classificação apresentada tem como finalidade estabelecer uma regra de decisão simplificada para o software.
+ Quando a concentração de H₂S ultrapassa o limite definido,
+ o sistema classifica o cenário como predominantemente associado à corrosão ácida.
+ Na ausência dessa condição,
+ concentrações elevadas de CO₂ podem indicar um ambiente de corrosão doce.
+ Os demais cenários são classificados como leves dentro do escopo da simulação.
+\end_layout
+
+\begin_layout Standard
+Além da identificação do mecanismo corrosivo predominante,
+ é necessário estabelecer uma classificação qualitativa da intensidade do processo corrosivo.
+\end_layout
+
+\begin_layout Standard
+Para isso,
+ a taxa de corrosão estimada pelo modelo é utilizada como parâmetro de referência para a determinação da severidade do cenário.
+\end_layout
+
+\begin_layout Standard
+No presente trabalho,
+ foram adotadas três categorias de severidade:
+\end_layout
+
+\begin_layout Itemize
+Baixa;
+\end_layout
+
+\begin_layout Itemize
+Média;
+\end_layout
+
+\begin_layout Itemize
+Alta.
+\end_layout
+
+\begin_layout Standard
+A classificação da severidade é realizada a partir da comparação entre a taxa de corrosão calculada e os intervalos estabelecidos no modelo educacional.
+ Os critérios adotados são apresentados na Tabela 
+\backslash
+ref{tab:criterios-severidade}.
+ Os intervalos utilizados são apresentados na tabela a seguir:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Critérios de classificação da severidade
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Criterios-severidade"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Taxa de corrosão (CR)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Severidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $CR<10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Baixa
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10\leq CR<50$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $CR\geq50$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os limites apresentados são utilizados exclusivamente como critérios de classificação do modelo educacional desenvolvido.
+ Dessa forma,
+ a taxa de corrosão calculada é comparada com os intervalos definidos,
+ permitindo atribuir automaticamente um nível de severidade ao cenário analisado.
+ Essa classificação é posteriormente utilizada como fator de ajuste no cálculo da dosagem do inibidor.
+\end_layout
+
+\begin_layout Subsection
+Seleção da classe de inibidor
+\end_layout
+
+\begin_layout Standard
+A seleção do inibidor constitui a etapa responsável por relacionar as condições do ambiente corrosivo com uma estratégia simplificada de mitigação.
+\end_layout
+
+\begin_layout Standard
+No sistema proposto,
+ os inibidores são representados por uma hierarquia de classes derivadas de uma classe abstrata denominada Inhibitor.
+\end_layout
+
+\begin_layout Standard
+A classe abstrata define características comuns a todos os inibidores,
+ como nome,
+ eficiência estimada e descrição do mecanismo de atuação.
+\end_layout
+
+\begin_layout Standard
+A partir dessa estrutura,
+ são consideradas quatro classes principais:
+\end_layout
+
+\begin_layout Itemize
+OrganicInhibitor;
+\end_layout
+
+\begin_layout Itemize
+H2SInhibitor;
+\end_layout
+
+\begin_layout Itemize
+CathodicInhibitor;
+\end_layout
+
+\begin_layout Itemize
+GeneralInhibitor.
+\end_layout
+
+\begin_layout Standard
+A classe OrganicInhibitor representa produtos orgânicos capazes de atuar por meio da adsorção na superfície metálica e formação de um filme protetor.
+ Essa opção é considerada pelo sistema para condições específicas,
+ especialmente ambientes ácidos associados à presença de CO₂ e baixos valores de pH.
+\end_layout
+
+\begin_layout Standard
+A classe H2SInhibitor representa inibidores direcionados a ambientes contendo sulfeto de hidrogênio,
+ nos quais a presença desse composto pode aumentar significativamente a agressividade do meio.
+\end_layout
+
+\begin_layout Standard
+A classe CathodicInhibitor representa produtos cuja atuação está relacionada à redução ou controle das reações catódicas do processo corrosivo.
+ Sua utilização é considerada em cenários nos quais fatores como salinidade elevada ou determinadas condições operacionais aumentam a necessidade de proteção.
+\end_layout
+
+\begin_layout Standard
+Por fim,
+ a classe GeneralInhibitor representa uma alternativa para ambientes que não atendem aos critérios específicos das demais classes.
+\end_layout
+
+\begin_layout Standard
+A seleção é realizada por meio de uma árvore de decisão simplificada,
+ baseada nos parâmetros fornecidos pelo usuário.
+\end_layout
+
+\begin_layout Standard
+A lógica adotada pode ser representada da seguinte forma:
+\end_layout
+
+\begin_layout Enumerate
+Verificar a concentração de H₂S;
+\end_layout
+
+\begin_layout Enumerate
+Caso a concentração ultrapasse o limite definido,
+ selecionar o inibidor específico para H₂S;
+\end_layout
+
+\begin_layout Enumerate
+Caso contrário,
+ verificar as condições de CO₂,
+ pH e temperatura;
+\end_layout
+
+\begin_layout Enumerate
+Caso essas condições indiquem ambiente ácido e agressivo,
+ selecionar o inibidor orgânico;
+\end_layout
+
+\begin_layout Enumerate
+Caso contrário,
+ verificar salinidade e pressão;
+\end_layout
+
+\begin_layout Enumerate
+Caso nenhuma condição crítica seja identificada,
+ selecionar o inibidor geral.
+\end_layout
+
+\begin_layout Standard
+É importante destacar que os critérios de seleção implementados possuem caráter educacional e representam uma simplificação dos processos reais de seleção de produtos químicos utilizados na indústria.
+\end_layout
+
+\begin_layout Standard
+Na prática,
+ a escolha de um inibidor depende de diversos fatores adicionais,
+ como compatibilidade química,
+ composição detalhada do fluido,
+ material da tubulação,
+ tempo de contato,
+ concentração do produto,
+ condições de transporte e resultados experimentais.
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ o sistema não pretende substituir estudos laboratoriais ou procedimentos industriais de qualificação de produtos,
+ mas sim demonstrar computacionalmente os princípios básicos envolvidos na seleção de inibidores.
+\end_layout
+
+\begin_layout Subsection
+Cálculo da dosagem do inibidor
+\end_layout
+
+\begin_layout Standard
+A etapa de cálculo da dosagem tem como objetivo estimar a quantidade de inibidor necessária para o cenário analisado,
+ considerando os resultados obtidos nas etapas anteriores.
+\end_layout
+
+\begin_layout Standard
+O cálculo utiliza a taxa base de corrosão,
+ os fatores de correção associados às condições operacionais e a eficiência estimada do inibidor selecionado.
+\end_layout
+
+\begin_layout Standard
+Inicialmente,
+ a taxa de corrosão é ajustada por meio dos fatores relacionados à severidade,
+ temperatura,
+ corrosividade e vazão.
+\end_layout
+
+\begin_layout Standard
+A taxa de corrosão ajustada é calculada conforme a Equação:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+CRaj​=CR\text{⋅}Fs​\text{⋅}FT​\text{⋅}Fc​\text{⋅}F
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CRaj$
+\end_inset
+
+ representa a taxa de corrosão ajustada;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CR$
+\end_inset
+
+ corresponde à taxa base de corrosão;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Fs​$
+\end_inset
+
+ representa o fator associado à severidade;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $FT$
+\end_inset
+
+ representa o fator associado à temperatura;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Fc$
+\end_inset
+
+ representa o fator de corrosividade;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Fq​$
+\end_inset
+
+ representa o fator relacionado à vazão.
+\end_layout
+
+\begin_layout Standard
+Após o cálculo da taxa ajustada,
+ a dosagem do inibidor é estimada utilizando a eficiência esperada do produto.
+\end_layout
+
+\begin_layout Standard
+A Equação de dosagem do inibidor representa o modelo adotado:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Dose=\frac{K\cdot CRaj}{\eta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituindo-se a Equação ajustada obtém-se a formulação expandida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Dose=\frac{K\cdot CR\cdot F_{s}\cdot F_{T}\cdot F_{c}\cdot F_{q}}{\eta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que 
+\begin_inset Formula $K=0,1$
+\end_inset
+
+ (constante empírica é uma constante empírica de ajuste (adotada neste projeto para fins de calibração didática),
+ 
+\begin_inset Formula $F_{s}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $F_{T}$
+\end_inset
+
+ e 
+\begin_inset Formula $F_{c}$
+\end_inset
+
+ são,
+ respectivamente,
+ os fatores de severidade,
+ temperatura e corrosividade (cujos valores tabelados foram apresentados na base teórica do projeto),
+ 
+\begin_inset Formula $F_{q}=1+\left(Q/1000\right)$
+\end_inset
+
+ é o fator de vazão e 
+\begin_inset Formula $\eta$
+\end_inset
+
+ é a eficiência do inibidor selecionado (entre 0,70 e 0,95,
+ conforme a classe de inibidor).
+ É importante frisar que os fatores 
+\begin_inset Formula $F_{s}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $F_{T}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $F_{c}$
+\end_inset
+
+ e a constante 
+\begin_inset Formula $K$
+\end_inset
+
+ são parâmetros empíricos definidos pelos autores deste trabalho para fins de simulação educacional,
+ inspirados na lógica física observada na literatura (maior severidade,
+ temperatura e corrosividade exigem maior dosagem;
+ maior eficiência do inibidor reduz a dosagem necessária),
+ mas não correspondem a valores tabelados por nenhuma norma técnica específica.
+\end_layout
+
+\begin_layout Standard
+Dessa forma,
+ o modelo assume que ambientes mais severos,
+ com maior temperatura,
+ corrosividade ou vazão,
+ podem exigir maiores quantidades de produto químico.
+ Da mesma forma,
+ inibidores com maior eficiência estimada tendem a apresentar menores dosagens necessárias para alcançar o mesmo nível de proteção.
+\end_layout
+
+\begin_layout Standard
+A implementação desse procedimento é realizada pela classe DosageCalculator,
+ responsável por receber os resultados da análise de corrosão e as características do inibidor selecionado.
+\end_layout
+
+\begin_layout Standard
+Essa classe representa a integração entre os diferentes componentes do sistema,
+ pois utiliza informações provenientes tanto da análise das propriedades do fluido quanto da seleção do inibidor.
+\end_layout
+
+\begin_layout Standard
+O resultado final dessa etapa é a dosagem recomendada,
+ que posteriormente poderá ser apresentada ao usuário por meio da interface do software e utilizada para geração de gráficos e arquivos de saída.
+\end_layout
+
+\begin_layout Subsection
+Seleção do inibidor
+\end_layout
+
+\begin_layout Standard
+A seleção da classe de inibidor mais adequada ao cenário é realizada por meio de uma árvore de decisão baseada nos mecanismos de corrosão predominantes,
+ sintetizada a seguir:
+\end_layout
+
+\begin_layout Itemize
+Se H
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+S 
+\begin_inset Formula $>10$
+\end_inset
+
+ ppm 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ inibidor específico para H
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+S,
+ cuja necessidade de proteção reforçada em ambientes sour é consistente com as diretrizes de seleção de materiais da norma NACE MR0175/ISO 15156 (embora essa norma trate de qualificação metalúrgica,
+ e não diretamente de inibidores químicos);
+\end_layout
+
+\begin_layout Itemize
+Senão,
+ se CO
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $>20$
+\end_inset
+
+ ppm e pH 
+\begin_inset Formula $<6$
+\end_inset
+
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ inibidor orgânico,
+ cujo mecanismo de adsorção em filme protetor é descrito por Revie e Uhlig (2008) e por Schmitt (1984) para meios ácidos;
+\end_layout
+
+\begin_layout Itemize
+Senão,
+ se salinidade 
+\begin_inset Formula $>15.000$
+\end_inset
+
+ ppm 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ inibidor catódico,
+ que atua reduzindo a reação catódica em meios de alta condutividade (Revie;
+ Uhlig,
+ 2008);
+\end_layout
+
+\begin_layout Itemize
+Caso nenhuma condição crítica seja satisfeita 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ inibidor geral,
+ utilizado como alternativa padrão em cenários de baixa agressividade.
+\end_layout
+
+\begin_layout Standard
+Essa lógica de decisão foi implementada por meio do padrão de projeto 
+\shape italic
+Strategy
+\shape default
+/
+\shape italic
+Factory Method
+\shape default
+,
+ na classe SelectorInibidor,
+ que retorna uma instância concreta de uma hierarquia de classes derivadas de 
+\family typewriter
+Inibidor
+\family default
+ (classe abstrata),
+ conforme detalhado no Capítulo 
 \end_layout
 
 \begin_layout Section
 Identificação de pacotes – assuntos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Identificação-de-pacotes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-...aqui...
+A identificação de pacotes tem como objetivo organizar os componentes do sistema em grupos de responsabilidades relacionadas.
+ Essa organização contribui para a modularização do software e permite estabelecer uma arquitetura com menor acoplamento entre seus componentes.
+\end_layout
+
+\begin_layout Standard
+A partir da análise de domínio e da formulação teórica apresentada nas seções anteriores,
+ foram identificados cinco pacotes principais de trabalho:
+\end_layout
+
+\begin_layout Enumerate
+Dados do Fluido;
+\end_layout
+
+\begin_layout Enumerate
+Análise de Corrosão;
+\end_layout
+
+\begin_layout Enumerate
+Seleção de Inibidores;
+\end_layout
+
+\begin_layout Enumerate
+Cálculo de Dosagem;
+\end_layout
+
+\begin_layout Enumerate
+Simulação e Interface.
+\end_layout
+
+\begin_layout Standard
+A divisão em pacotes foi realizada considerando as responsabilidades funcionais do sistema e a necessidade de separar os conhecimentos de domínio das atividades relacionadas à interação com o usuário.
+\end_layout
+
+\begin_layout Subsection
+Pacote de Dados do Fluído
+\end_layout
+
+\begin_layout Standard
+O pacote Dados do Fluido é responsável pela representação das propriedades físico-químicas e operacionais utilizadas como entrada do sistema.
+\end_layout
+
+\begin_layout Standard
+Esse pacote contém a classe FluidProperties,
+ que armazena informações como pH,
+ concentração de CO₂,
+ concentração de H₂S,
+ salinidade,
+ temperatura,
+ pressão e vazão.
+\end_layout
+
+\begin_layout Standard
+Além do armazenamento dos dados,
+ a classe pode realizar validações básicas para garantir a consistência das informações fornecidas pelo usuário.
+\end_layout
+
+\begin_layout Standard
+Por constituir a base de entrada para as demais etapas do processamento,
+ esse pacote possui dependências reduzidas e fornece informações utilizadas pelos demais componentes do sistema.
+\end_layout
+
+\begin_layout Subsection
+Pacote Análise de Corrosão
+\end_layout
+
+\begin_layout Standard
+O pacote Análise de Corrosão é responsável pelo processamento dos dados do fluido e pela determinação dos resultados relacionados ao comportamento corrosivo do cenário analisado.
+\end_layout
+
+\begin_layout Standard
+A principal classe desse pacote é CorrosionAnalysis.
+\end_layout
+
+\begin_layout Standard
+Suas responsabilidades incluem:
 \end_layout
 
 \begin_layout Itemize
-Nome Pacote: Descrição.
- O que é, para que serve, como se relaciona com os demais pacotes.
+calcular a taxa base de corrosão;
 \end_layout
 
 \begin_layout Itemize
-Nome Pacote: Descrição.
- O que é, para que serve, como se relaciona com os demais pacotes.
+identificar o tipo predominante de corrosão;
 \end_layout
 
 \begin_layout Itemize
-Nome Pacote: Descrição.
- O que é, para que serve, como se relaciona com os demais pacotes.
+classificar a severidade do ambiente;
+\end_layout
+
+\begin_layout Itemize
+disponibilizar os resultados para as etapas subsequentes.
+\end_layout
+
+\begin_layout Standard
+Esse pacote depende diretamente do pacote Dados do Fluido,
+ pois todos os cálculos realizados utilizam propriedades fornecidas pela classe FluidProperties.
+\end_layout
+
+\begin_layout Subsection
+Pacote Seleção de Inibidores
+\end_layout
+
+\begin_layout Standard
+O pacote Seleção de Inibidores é responsável pela representação das classes de inibidores consideradas no sistema e pela determinação do produto mais adequado ao cenário analisado.
+\end_layout
+
+\begin_layout Standard
+Esse pacote é composto pela classe abstrata Inhibitor e suas especializações:
+\end_layout
+
+\begin_layout Itemize
+OrganicInhibitor;
+\end_layout
+
+\begin_layout Itemize
+H2SInhibitor;
+\end_layout
+
+\begin_layout Itemize
+CathodicInhibitor;
+\end_layout
+
+\begin_layout Itemize
+GeneralInhibitor.
+\end_layout
+
+\begin_layout Standard
+A utilização de herança permite representar características comuns entre os inibidores,
+ enquanto as classes derivadas apresentam informações específicas relacionadas a cada mecanismo de atuação.
+\end_layout
+
+\begin_layout Standard
+O pacote também inclui a classe responsável pela lógica de seleção,
+ denominada InhibitorSelector ou SeletorInibidor,
+ dependendo da nomenclatura final adotada no código.
+\end_layout
+
+\begin_layout Standard
+Essa classe utiliza os parâmetros do cenário para aplicar as regras de decisão e retornar a classe de inibidor correspondente.
+\end_layout
+
+\begin_layout Subsection
+Pacote Cálculo de Dosagem
+\end_layout
+
+\begin_layout Standard
+O pacote Cálculo de Dosagem é responsável pela estimativa da quantidade de inibidor necessária para o cenário analisado.
+\end_layout
+
+\begin_layout Standard
+A principal classe desse pacote é DosageCalculator.
+\end_layout
+
+\begin_layout Standard
+Essa classe recebe como informações a taxa de corrosão calculada pela classe CorrosionAnalysis,
+ as propriedades do fluido e o inibidor selecionado.
+\end_layout
+
+\begin_layout Standard
+Suas principais responsabilidades são:
+\end_layout
+
+\begin_layout Itemize
+calcular os fatores de ajuste;
+\end_layout
+
+\begin_layout Itemize
+determinar a taxa de corrosão ajustada;
+\end_layout
+
+\begin_layout Itemize
+utilizar a eficiência do inibidor;
+\end_layout
+
+\begin_layout Itemize
+calcular a dosagem recomendada;
+\end_layout
+
+\begin_layout Itemize
+armazenar o último resultado obtido.
+\end_layout
+
+\begin_layout Standard
+Esse pacote apresenta dependência direta tanto do pacote Análise de Corrosão quanto do pacote Seleção de Inibidores,
+ uma vez que necessita das informações produzidas por ambos para realizar seus cálculos.
+\end_layout
+
+\begin_layout Subsection
+Pacote Simulação e Interface
+\end_layout
+
+\begin_layout Standard
+O pacote Simulação e Interface é responsável pela execução do fluxo principal do software e pela interação com o usuário.
+\end_layout
+
+\begin_layout Standard
+Esse pacote coordena as etapas de entrada de dados,
+ processamento,
+ apresentação dos resultados e geração das simulações.
+\end_layout
+
+\begin_layout Standard
+Entre suas responsabilidades estão:
+\end_layout
+
+\begin_layout Itemize
+receber os dados fornecidos pelo usuário;
+\end_layout
+
+\begin_layout Itemize
+criar os objetos necessários à simulação;
+\end_layout
+
+\begin_layout Itemize
+executar a análise de corrosão;
+\end_layout
+
+\begin_layout Itemize
+solicitar a seleção do inibidor;
+\end_layout
+
+\begin_layout Itemize
+realizar o cálculo da dosagem;
+\end_layout
+
+\begin_layout Itemize
+encaminhar os resultados para geração de gráficos;
+\end_layout
+
+\begin_layout Itemize
+apresentar os resultados finais.
+\end_layout
+
+\begin_layout Standard
+A classe Simulator ou CorrosionSimulator,
+ juntamente com a função main,
+ representa o ponto de integração entre os demais pacotes.
+\end_layout
+
+\begin_layout Standard
+Esse módulo possui posição mais externa na arquitetura,
+ pois depende dos componentes responsáveis pela lógica do domínio,
+ mas os demais pacotes não dependem diretamente dele.
+\end_layout
+
+\begin_layout Standard
+Essa característica permite que futuramente o software receba uma nova interface gráfica,
+ desenvolvida por exemplo utilizando Qt,
+ sem necessidade de modificar significativamente as classes responsáveis pelos cálculos.
 \end_layout
 
 \begin_layout Section
@@ -278,23 +1694,70 @@ name "sec: Diagrama de pacotes – assuntos"
 \end_layout
 
 \begin_layout Standard
-...aqui...
-\end_layout
-
-\begin_layout Standard
-coloque aqui texto falando do diagrama de pacotes, referencie a figura.
- Veja Figura 
+A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Pacotes"
+nolink "false"
 
 \end_inset
 
-.
+ apresenta o diagrama de pacotes do sistema,
+ evidenciando os cinco pacotes identificados na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Identificação-de-pacotes"
+nolink "false"
+
+\end_inset
+
+ e as dependências entre eles.
+\end_layout
+
+\begin_layout Standard
+O diagrama evidencia a separação entre os componentes responsáveis pelo armazenamento dos dados,
+ processamento dos fenômenos corrosivos,
+ seleção dos inibidores,
+ cálculo da dosagem e interação com o usuário.
+\end_layout
+
+\begin_layout Standard
+A arquitetura proposta foi organizada de forma a reduzir o acoplamento entre os módulos e favorecer a reutilização dos componentes responsáveis pela lógica de domínio.
+\end_layout
+
+\begin_layout Standard
+O pacote Dados do Fluido ocupa uma posição fundamental na estrutura,
+ pois fornece as propriedades utilizadas pelos demais componentes do sistema.
+ A partir dessas informações,
+ o pacote Análise de Corrosão realiza os cálculos necessários para estimar a taxa de corrosão e classificar o cenário analisado.
+\end_layout
+
+\begin_layout Standard
+Na sequência,
+ o pacote Seleção de Inibidores utiliza as características do ambiente para determinar a classe de produto mais adequada.
+ Os resultados obtidos nessa etapa são encaminhados ao pacote Cálculo de Dosagem,
+ responsável por estimar a quantidade recomendada do inibidor.
+\end_layout
+
+\begin_layout Standard
+Por fim,
+ o pacote Simulação e Interface coordena a execução do processo completo e disponibiliza os resultados ao usuário.
+\end_layout
+
+\begin_layout Standard
+Essa organização reflete a sequência lógica do software e estabelece uma relação direta entre a formulação teórica e a arquitetura computacional desenvolvida.
+\end_layout
+
+\begin_layout Standard
+A separação dos pacotes também contribui para a evolução futura do projeto,
+ permitindo que novos modelos matemáticos,
+ classes de inibidores ou funcionalidades de visualização sejam adicionados sem comprometer a estrutura dos componentes existentes.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -302,9 +1765,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagens/DiagramaDeComponentes-Assuntos-Pacotes.png
+	filename C:/Users/lroch/Desktop/Diagrama de pacotes.png
 	lyxscale 50
-	width 100text%
+	scale 30
 
 \end_inset
 
@@ -336,7 +1799,8 @@ name "fig:Diagrama-de-Pacotes"
 \end_layout
 
 \begin_layout Description
-Nota: 
+Nota:
+ 
 \begin_inset space ~
 \end_inset
 
@@ -344,10 +1808,14 @@ Nota:
 \begin_inset Newline newline
 \end_inset
 
-Não perca de vista a visão do todo; do projeto de engenharia como um todo.
- Cada capítulo, cada seção, cada parágrafo deve se encaixar.
+Não perca de vista a visão do todo;
+ do projeto de engenharia como um todo.
+ Cada capítulo,
+ cada seção,
+ cada parágrafo deve se encaixar.
  Este é um diferencial fundamental do engenheiro em relação ao técnico,
- a capacidade de desenvolver projetos, de ver o todo e suas diferentes partes,
+ a capacidade de desenvolver projetos,
+ de ver o todo e suas diferentes partes,
  de modelar processos/sistemas/produtos de engenharia.
 \end_layout
 
