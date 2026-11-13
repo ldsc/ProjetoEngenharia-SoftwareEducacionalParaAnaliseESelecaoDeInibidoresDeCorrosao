@@ -1,11 +1,12 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass extbook
 \begin_preamble
+
 \usepackage {graphicx}
 \usepackage {longtable}
 \usepackage {indentfirst}
@@ -25,14 +26,13 @@
 % disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
 \usepackage{listings}
 \end_preamble
-\options normaltoc, sumarioincompleto
 \use_default_options false
-\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
-\maintain_unincluded_children false
+\master ProjetoEngenharia-ManualDoUsuario.lyx
+\maintain_unincluded_children no
 \language brazilian
 \language_package auto
-\inputencoding utf8
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -40,7 +40,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -50,23 +52,11 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize 12
 \spacing onehalf
-\use_hyperref true
-\pdf_title "Título da Monografia - Dissertação - Tese"
-\pdf_author "Nome do Autor"
-\pdf_subject "Descrever assunto"
-\pdf_keywords "Copiar do resumo"
-\pdf_bookmarks true
-\pdf_bookmarksnumbered true
-\pdf_bookmarksopen true
-\pdf_bookmarksopenlevel 1
-\pdf_breaklinks true
-\pdf_pdfborder true
-\pdf_colorlinks false
-\pdf_backref page
-\pdf_pdfusetitle true
-\papersize a4paper
+\use_hyperref false
+\papersize a4
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -85,9 +75,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -99,7 +99,7 @@
 \rightmargin 20mm
 \bottommargin 20mm
 \secnumdepth 2
-\tocdepth 1
+\tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
 \is_math_indent 0
@@ -109,11 +109,17 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -123,40 +129,36 @@ Contatos
 \end_layout
 
 \begin_layout Standard
-O presente projeto de engenharia foi desenvolvido por alunos do curso de
- engenharia de petróleo da UENF sob coordenação do Professor André Duarte
- Bueno.
+O presente projeto de engenharia foi desenvolvido por uma aluna do curso de Engenharia de Exploração e Produção de Petróleo da UENF,
+ sob coordenação do Professor André Duarte Bueno,
+ como trabalho da disciplina Programação Prática e como Trabalho de Conclusão de Curso.
 \end_layout
 
 \begin_layout Standard
-Para maiores informações entre em contato com os desenvolvedores:
+Para maiores informações,
+ entre em contato com os desenvolvedores:
 \end_layout
 
 \begin_layout Itemize
-Autor 1:
+Autora:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-SeuNome
-\end_layout
-
-\begin_layout Itemize
-Seuemail
+Laysla Nicoli Pereira da Rocha (UENF/LENEP,
+ Macaé - RJ) - layslarocha@lenep.uenf.br/ rochalaysla304@gmail.com
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Autor 2:
+Orientadora do TCC:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-SeuNome
-\end_layout
-
-\begin_layout Itemize
-Seuemail
+Profa.
+ Dra.
+ Georgiana Feitosa da Cruz
 \end_layout
 
 \end_deeper
@@ -167,47 +169,487 @@ Coordenador:
 \begin_deeper
 \begin_layout Itemize
 Prof.
- André Duarte Bueno
-\end_layout
-
-\begin_layout Itemize
-<bueno@lenep.uenf.br>
+ André Duarte Bueno- bueno@lenep.uenf.br
 \end_layout
 
 \end_deeper
+\begin_layout Section
+Licença
+\end_layout
+
+\begin_layout Standard
+O código do projeto é distribuído como software livre,
+ de acordo com as normas da disciplina,
+ sob a licença MIT,
+ cujo texto integral está no arquivo 
+\family typewriter
+LICENSE
+\family default
+ na pasta do projeto.
+ Essa licença permite usar,
+ copiar,
+ modificar e distribuir o código,
+ inclusive para fins didáticos,
+ desde que o aviso de direitos autorais e o texto da licença sejam mantidos nas cópias.
+\end_layout
+
 \begin_layout Section
 Referências
 \end_layout
 
 \begin_layout Standard
-O projeto foi desenvolvido tomando como base o modelo disponibilizado no
- site:
+O projeto foi desenvolvido tomando como base o modelo disponibilizado no site:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset CommandInset href
-LatexCommand href
-target "https://github.com/ldsc/ModeloDocumento-ProjetoEngenharia-ProgramacaoPratica"
-literal "false"
-
-\end_inset
-
-.
+https://github.com/ldsc/ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao.
 \end_layout
 
-\begin_layout Itemize
-Foram utilizadas informações de vários livros, incluindo:
+\begin_layout Standard
+AHMED,
+ E.;
+ LIU,
+ J.;
+ LIU,
+ J.
+ Mitigating corrosion in downhole environments of oil and gas operations:
+ mechanisms,
+ challenges,
+ and control strategies.
+ Trends in Sciences,
+ v.
+ 22,
+ n.
+ 8,
+ art.
+ 9855,
+ 2025.
+ DOI:
+ 10.48048/tis.2025.9855.
 \end_layout
 
-\begin_layout Itemize
-\begin_inset CommandInset citation
-LatexCommand cite
-key "adb-prog-livroCpp,adb-prog-livroCpp3"
-literal "false"
+\begin_layout Standard
+AMERICAN PETROLEUM INSTITUTE.
+ bA RP 14E:
+ recommended practice for design and installation of offshore production platform piping systems.
+ 5.
+ ed.
+ Washington:
+ API,
+ 1991.
+\end_layout
 
-\end_inset
+\begin_layout Standard
+BAHADORI,
+ A.
+ Corrosion and materials selection:
+ a guide for the chemical and petroleum industries.
+ Hoboken:
+ John Wiley & Sons,
+ 2014.
+\end_layout
 
-.
+\begin_layout Standard
+BLAHA,
+ M.;
+ RUMBAUGH,
+ J.
+ Modelagem e projetos baseados em objetos com UML 2.
+ Rio de Janeiro:
+ Campus,
+ 2006.
+\end_layout
+
+\begin_layout Standard
+BRASIL.
+ Ministério de Minas e Energia.
+ Estudo sobre o aproveitamento do gás natural do pré-sal.
+ Brasília,
+ 2020.
+ Disponível em:
+ https://www.gov.br/anp/pt-br/centrais-de-conteudo/publicacoes/livros-e-revistas/arquivos/aproveitamentognpresal.pdf.
+ Acesso em:
+ 11 out.
+ 2026.
+\end_layout
+
+\begin_layout Standard
+BUENO,
+ A.
+ D.
+ Programação orientada a objeto com C++:
+ aprenda a programar em ambiente multiplataforma com software livre.
+ São Paulo:
+ Novatec,
+ 2003.
+\end_layout
+
+\begin_layout Standard
+CAMARILLO,
+ M.
+ K.;
+ STRINGFELLOW,
+ W.
+ T.
+ Biological treatment of oil and gas produced water:
+ a review and meta-analysis.
+ Clean Technologies and Environmental Policy,
+ v.
+ 20,
+ n.
+ 6,
+ 2018.
+ DOI:
+ 10.1007/s10098-018-1564-9.
+\end_layout
+
+\begin_layout Standard
+DE WAARD,
+ C.;
+ MILLIAMS,
+ D.
+ E.
+ Carbonic acid corrosion of steel.
+ Corrosion,
+ v.
+ 31,
+ n.
+ 5,
+ p.
+ 177-181,
+ 1975.
+\end_layout
+
+\begin_layout Standard
+DING,
+ Y.
+ et al.
+ The effect of temperature and critical micelle concentrations (CMC) on the inhibition performance of a quaternary ammonium-type corrosion inhibitor.
+ In:
+ NACE INTERNATIONAL CORROSION CONFERENCE,
+ 2020.
+ Paper C2020-14793.
+\end_layout
+
+\begin_layout Standard
+EMAM,
+ E.
+ A.;
+ MOAWAD,
+ T.
+ M.;
+ ABOUL-GHEIT,
+ N.
+ A.
+ K.
+ Evaluating the characteristics of offshore oilfield produced water.
+ Petroleum & Coal,
+ v.
+ 56,
+ n.
+ 4,
+ p.
+ 363-372,
+ 2014.
+\end_layout
+
+\begin_layout Standard
+FINŠGAR,
+ M.;
+ JACKSON,
+ J.
+ Application of corrosion inhibitors for steels in acidic media for the oil and gas industry:
+ a review.
+ Corrosion Science,
+ v.
+ 86,
+ p.
+ 17-41,
+ 2014.
+\end_layout
+
+\begin_layout Standard
+FONTANA,
+ M.
+ G.
+ Corrosion engineering.
+ 3.
+ ed.
+ New York:
+ McGraw-Hill,
+ 1986.
+\end_layout
+
+\begin_layout Standard
+GENTIL,
+ V.
+ Corrosão.
+ 3.
+ ed.
+ Rio de Janeiro:
+ LTC,
+ 1996.
+\end_layout
+
+\begin_layout Standard
+GROYSMAN,
+ A.
+ Corrosion problems and solutions in oil,
+ gas,
+ refining and petrochemical industry.
+ Cham:
+ Springer,
+ 2017.
+\end_layout
+
+\begin_layout Standard
+INTERNATIONAL ORGANIZATION FOR STANDARDIZATION.
+ ISO 15156-1:
+ petroleum and natural gas industries – materials for use in H₂S-containing environments in oil and gas production.
+ Geneva:
+ ISO.
+\end_layout
+
+\begin_layout Standard
+INTERNATIONAL ORGANIZATION FOR STANDARDIZATION.
+ ISO 15156-2:
+ petroleum and natural gas industries – materials for use in H₂S-containing environments in oil and gas production – Part 2:
+ cracking-resistant carbon and low-alloy steels.
+ Geneva:
+ ISO,
+ 2020.
+\end_layout
+
+\begin_layout Standard
+KUMAR,
+ N.
+ et al.
+ An overview on emerging green organic corrosion inhibitors:
+ sustainable solution for oil and gas industrial applications.
+ RSC Advances,
+ v.
+ 16,
+ p.
+ 3909-3948,
+ 2026.
+ DOI:
+ 10.1039/d5ra08166a.
+\end_layout
+
+\begin_layout Standard
+LA MONACO.
+ Commercial Readiness Level (CRL) for Startups.
+ La Monaco Blog,
+ 11 dez.
+ 2024.
+ Disponível em:
+ https://lamonaco.com/blogs/2024/12/11/commercial-readiness-level-crl-for-startups.
+ Acesso em:
+ 30 set.
+ 2026.
+\end_layout
+
+\begin_layout Standard
+LDSC.
+ LDSC- ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao.
+ Disponível em:
+ https://github.com/ldsc/ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao.
+ Acesso em:
+ 30 out 2026.
+\end_layout
+
+\begin_layout Standard
+LI,
+ S.
+ et al.
+ CO₂ corrosion of low carbon steel under the joint effects of time-temperature-salt concentration.
+ Frontiers in Materials,
+ v.
+ 6,
+ art.
+ 10,
+ 2019.
+ DOI:
+ 10.3389/fmats.2019.00010.
+\end_layout
+
+\begin_layout Standard
+NATIONAL AERONAUTICS AND SPACE ADMINISTRATION (NASA).
+ Technology Readiness Levels.
+ Space Communications and Navigation (SCaN),
+ 2024.
+ Disponível em:
+ https://www.nasa.gov/directorates/somd/space-communications-navigation-program/technology-readiness-levels/.
+ Acesso em:
+ 30 set.
+ 2026.
+\end_layout
+
+\begin_layout Standard
+NEŠIĆ,
+ S.
+ Key issues related to modelling of internal corrosion of oil and gas pipelines – a review.
+ Corrosion Science,
+ v.
+ 49,
+ p.
+ 4308-4338,
+ 2007.
+ DOI:
+ 10.1016/j.corsci.2007.06.006.
+\end_layout
+
+\begin_layout Standard
+NUNES,
+ L.
+ P.
+ Fundamentos de resistência à corrosão.
+ Rio de Janeiro:
+ Interciência,
+ 2007.
+\end_layout
+
+\begin_layout Standard
+PETROBRAS.
+ Encomendas Tecnológicas.
+ Conexões para Inovação,
+ [s.d.].
+ Disponível em:
+ https://conexoes-inovacao.petrobras.com.br/s/encomendas-tecnologicas?language=pt_BR.
+ Acesso em:
+ 03 ago.
+ 2026.
+\end_layout
+
+\begin_layout Standard
+POPOOLA,
+ L.
+ T.
+ et al.
+ Corrosion problems during oil and gas production and its mitigation.
+ International Journal of Industrial Chemistry,
+ v.
+ 4,
+ art.
+ 35,
+ 2013.
+\end_layout
+
+\begin_layout Standard
+REVIE,
+ R.
+ W.;
+ UHLIG,
+ H.
+ H.
+ Corrosion and corrosion control.
+ 4.
+ ed.
+ Hoboken:
+ John Wiley & Sons,
+ 2008.
+\end_layout
+
+\begin_layout Standard
+SANDER,
+ R.
+ Compilation of Henry’s law constants (version 5.0.0) for water as solvent.
+ Atmospheric Chemistry and Physics,
+ v.
+ 23,
+ n.
+ 19,
+ p.
+ 10901-12440,
+ 2023.
+ DOI:
+ 10.5194/acp-23-10901-2023.
+\end_layout
+
+\begin_layout Standard
+SCHMITT,
+ G.
+ Application of inhibitors for acid media:
+ report prepared for the European Federation of Corrosion Working Party on Inhibitors.
+ British Corrosion Journal,
+ v.
+ 19,
+ n.
+ 4,
+ p.
+ 165-176,
+ 1984.
+\end_layout
+
+\begin_layout Standard
+SHAMSA,
+ A.
+ et al.
+ Hydrolysis of imidazoline based corrosion inhibitor and effects on inhibition performance of X65 steel in CO₂ saturated brine.
+ Journal of Petroleum Science and Engineering,
+ v.
+ 208,
+ part B,
+ art.
+ 109235,
+ 2022.
+ DOI:
+ 10.1016/j.petrol.2021.109235.
+\end_layout
+
+\begin_layout Standard
+SMITH,
+ L.
+ M.
+ Control of corrosion in oil and gas production tubing.
+ British Corrosion Journal,
+ v.
+ 34,
+ n.
+ 4,
+ p.
+ 247-253,
+ 1999.
+\end_layout
+
+\begin_layout Standard
+SVEDEMAN,
+ S.
+ J.
+ Erosional/corrosional testing for multiphase flow lines.
+ San Antonio:
+ Southwest Research Institute,
+ 1995.
+\end_layout
+
+\begin_layout Standard
+TELLES,
+ P.
+ C.
+ S.
+ Materiais para equipamentos de processo.
+ 6.
+ ed.
+ Rio de Janeiro:
+ Interciência,
+ 2003.
+\end_layout
+
+\begin_layout Standard
+WANG,
+ Z.
+ M.;
+ SONG,
+ G.-L.;
+ ZHANG,
+ J.
+ Corrosion control in CO₂ enhanced oil recovery from a perspective of multiphase fluids.
+ Frontiers in Materials,
+ v.
+ 6,
+ 2019.
+ DOI:
+ 10.3389/fmats.2019.00272.
 \end_layout
 
 \end_body

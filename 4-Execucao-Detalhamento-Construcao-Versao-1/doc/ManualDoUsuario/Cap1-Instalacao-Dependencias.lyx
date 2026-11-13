@@ -1,11 +1,12 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass extbook
 \begin_preamble
+
 \usepackage {graphicx}
 \usepackage {longtable}
 \usepackage {indentfirst}
@@ -25,14 +26,13 @@
 % disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
 \usepackage{listings}
 \end_preamble
-\options normaltoc, sumarioincompleto
 \use_default_options false
-\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
-\maintain_unincluded_children false
+\master ProjetoEngenharia-ManualDoUsuario.lyx
+\maintain_unincluded_children no
 \language brazilian
 \language_package auto
-\inputencoding utf8
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -40,7 +40,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -50,23 +52,11 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize 12
 \spacing onehalf
-\use_hyperref true
-\pdf_title "Título da Monografia - Dissertação - Tese"
-\pdf_author "Nome do Autor"
-\pdf_subject "Descrever assunto"
-\pdf_keywords "Copiar do resumo"
-\pdf_bookmarks true
-\pdf_bookmarksnumbered true
-\pdf_bookmarksopen true
-\pdf_bookmarksopenlevel 1
-\pdf_breaklinks true
-\pdf_pdfborder true
-\pdf_colorlinks false
-\pdf_backref page
-\pdf_pdfusetitle true
-\papersize a4paper
+\use_hyperref false
+\papersize a4
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -85,9 +75,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -99,7 +99,7 @@
 \rightmargin 20mm
 \bottommargin 20mm
 \secnumdepth 2
-\tocdepth 1
+\tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
 \is_math_indent 0
@@ -109,11 +109,17 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -123,8 +129,10 @@ Manual do Usuário
 \begin_inset Newline newline
 \end_inset
 
-TÍTULO DO PROJETO/SOFTWARE
+SOFTWARE EDUCACIONAL PARA ANÁLISE E SELEÇÃO DE INIBIDORES DE CORROSÃO
 \begin_inset Index idx
+range none
+pageformat default
 status open
 
 \begin_layout Plain Layout
@@ -146,6 +154,8 @@ name "chap:Manual-do-Usuário"
 \begin_layout Chapter
 Instalação
 \begin_inset Index idx
+range none
+pageformat default
 status open
 
 \begin_layout Plain Layout
@@ -158,7 +168,69 @@ Instalação
 \end_layout
 
 \begin_layout Standard
-A seguir instruções para instalação do software.
+Este manual explica,
+ passo a passo,
+ como instalar e usar o Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+ O programa foi desenvolvido como material de apoio à disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550),
+ do curso de Engenharia de Exploração e Produção de Petróleo da UENF.
+ A seguir estão as instruções para obter,
+ instalar e,
+ se necessário,
+ compilar o software.
+\end_layout
+
+\begin_layout Section
+Visão geral do software
+\end_layout
+
+\begin_layout Standard
+O usuário informa sete propriedades do fluido de produção (pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ temperatura,
+ pressão e vazão) e o programa retorna quatro respostas:
+ o tipo de corrosão,
+ a severidade,
+ o inibidor recomendado e a dosagem em ppm.
+ O usuário pode alterar um parâmetro por vez e observar imediatamente o efeito sobre cada resposta,
+ o que torna o programa útil para estudar tendências e relações entre as variáveis.
+\end_layout
+
+\begin_layout Standard
+O programa possui duas versões,
+ que usam exatamente as mesmas classes de cálculo:
+\end_layout
+
+\begin_layout Itemize
+a versão gráfica,
+ com janela,
+ abas,
+ formulário e gráficos (arquivo 
+\family typewriter
+SoftwareCorrosaoGUI.exe
+\family default
+),
+ que é a versão descrita neste manual;
+\end_layout
+
+\begin_layout Itemize
+a versão em console (arquivo 
+\family typewriter
+SoftwareDeCorrosao.exe
+\family default
+),
+ com um menu em texto que permite rodar as amostras padrão,
+ informar os dados de um fluido ou sair.
+\end_layout
+
+\begin_layout Standard
+As equações do programa são uma simplificação didática,
+ sem calibração experimental.
+ Os resultados servem para compreender tendências e relações entre as variáveis,
+ e não para dimensionar um tratamento real em campo,
+ o que exige modelos,
+ normas completas e dados laboratoriais.
 \end_layout
 
 \begin_layout Section
@@ -166,54 +238,40 @@ Baixando o software
 \end_layout
 
 \begin_layout Standard
-O software foi disponibilizado no site 
-\begin_inset CommandInset href
-LatexCommand href
-target "https://github.com/ldsc"
-literal "false"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-coloque o link correto para o seu projeto no site https://github.com/ldsc/nomePro
-jetoEspecifico
-\end_layout
-
-\end_inset
-
-.
+O software foi disponibilizado em um repositório no GitHub.
+ Para obtê-lo,
+ abra a página do repositório do projeto e use o botão Code e depois a opção Download ZIP,
+ extraindo o arquivo no computador.
+ Se preferir,
+ e se tiver o Git instalado,
+ clone o repositório pelo terminal.
 \end_layout
 
 \begin_layout Standard
-Lá você encontra instruções atualizadas para baixar e instalar.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-coloque as instruções:
+https://github.com/ldsc/ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao
 \end_layout
 
-\begin_layout Plain Layout
-git clone https://github.com/ldsc/nomeProjetoEspecifico
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+Na página do repositório você encontra também instruções atualizadas para baixar e instalar.
 \end_layout
 
 \begin_layout Section
-Dependências
+Instalação no Windows (pasta pronta)
 \begin_inset Index idx
+range none
+pageformat default
 status open
 
 \begin_layout Plain Layout
-Dependências
+Instalação no Windows
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:instalacao-windows"
 
 \end_inset
 
@@ -221,75 +279,280 @@ Dependências
 \end_layout
 
 \begin_layout Standard
-Para compilar o software é necessário atender as seguintes dependências:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-adicione aqui todas as dependências para instalação do software
+A versão para Windows acompanha uma pasta pronta para o uso,
+ que contém os dois executáveis e as bibliotecas do Qt necessárias para o funcionamento do programa.
+ Não é necessário instalar nada.
+ Para executar a interface gráfica:
 \end_layout
 
+\begin_layout Enumerate
+Copie a pasta completa do programa para o computador,
+ sem separar os executáveis dos demais arquivos.
+ As bibliotecas (arquivos com extensão 
+\family typewriter
+.dll
+\family default
+) e a pasta 
+\family typewriter
+assets
+\family default
+,
+ que guarda o logotipo da UENF,
+ precisam ficar ao lado do executável.
+\end_layout
+
+\begin_layout Enumerate
+Dê um clique duplo no arquivo 
+\family typewriter
+SoftwareCorrosaoGUI.exe
+\family default
+ que se encontra dentro da pasta build.
+\end_layout
+
+\begin_layout Enumerate
+Aguarde a abertura da janela 
+\begin_inset Quotes eld
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-Instalar o compilador g++ da GNU disponível em 
-\begin_inset CommandInset href
-LatexCommand href
-name "http://gcc.gnu.org"
-target "http://gcc.gnu.org"
-literal "false"
-
+Software Educacional - Análise e Seleção de Inibidores de Corrosão
+\begin_inset Quotes erd
 \end_inset
 
 .
+ A janela abre com 1180 × 780 pixels e pode ser redimensionada,
+ com tamanho mínimo de 980 × 640 pixels.
 \end_layout
 
-\begin_deeper
+\begin_layout Subsection
+Conteúdo da pasta do programa
+\end_layout
+
 \begin_layout Itemize
-Para instalar no GNU/Linux use o comando 
+
 \family typewriter
-dnf install gcc
+SoftwareCorrosaoGUI.exe
+\family default
+:
+ interface gráfica,
+ descrita neste manual;
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+SoftwareDeCorrosao.exe
+\family default
+:
+ versão em console;
+\end_layout
+
+\begin_layout Itemize
+arquivos 
+\family typewriter
+.dll
+\family default
+:
+ bibliotecas do Qt necessárias à interface gráfica;
+\end_layout
+
+\begin_layout Itemize
+pasta 
+\family typewriter
+assets
+\family default
+:
+ contém o logotipo da UENF (arquivo 
+\family typewriter
+uenf.png
+\family default
+).
+ Se a pasta não estiver ao lado do executável,
+ o programa funciona normalmente,
+ mas exibe um retângulo com o texto 
+\begin_inset Quotes eld
+\end_inset
+
+UENF
+\begin_inset Quotes erd
+\end_inset
+
+ no lugar do logotipo.
+\end_layout
+
+\begin_layout Section
+Dependências para compilar o software
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Dependências
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:dependencias"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quem usa a pasta pronta para Windows não precisa atender a nenhuma dependência.
+ Para compilar o programa (por exemplo,
+ em GNU/Linux ou em outro sistema operacional) é necessário atender as seguintes dependências:
+\end_layout
+
+\begin_layout Itemize
+Um compilador C++ compatível com o padrão C++20,
+ como o g++ da GNU,
+ disponível em http://gcc.gnu.org (no desenvolvimento foi usado o MinGW-w64 no Windows).
+\end_layout
+
+\begin_layout Itemize
+O CMake,
+ versão 3.27 ou superior.
+\end_layout
+
+\begin_layout Itemize
+Para a interface gráfica,
+ a biblioteca Qt 6 com o módulo Qt Widgets,
+ disponível em https://www.qt.io/download (o CMake também aceita o Qt 5).
+\end_layout
+
+\begin_layout Standard
+Em sistemas Ubuntu e Debian,
+ o Qt pode ser instalado com o comando 
+\family typewriter
+sudo apt install qt6-base-dev
+\family default
+.
+ Se o Qt não for encontrado,
+ apenas o executável de console é gerado e o CMake registra um aviso.
+\end_layout
+
+\begin_layout Section
+Compilando o software
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Compilação
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:compilando"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os passos a seguir devem ser executados em um terminal,
+ a partir da pasta do projeto:
+\end_layout
+
+\begin_layout Enumerate
+Configure o projeto com o comando 
+\family typewriter
+cmake -B build
 \family default
 .
 \end_layout
 
-\end_deeper
-\begin_layout Itemize
-Instalar a biblioteca Qt disponível em 
-\begin_inset CommandInset href
-LatexCommand href
-target "https://www.qt.io/download"
-
-\end_inset
-
+\begin_layout Enumerate
+Compile o projeto com o comando 
+\family typewriter
+cmake --build build
+\family default
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-apague se não usa Qt; 
 \end_layout
 
+\begin_layout Enumerate
+Se o CMake não encontrar o Qt automaticamente (comum no Windows),
+ informe a pasta de instalação do Qt e repita a configuração,
+ por exemplo:
+ 
+\family typewriter
+cmake -DCMAKE_PREFIX_PATH=
+\begin_inset Quotes eld
 \end_inset
 
+C:/Qt/6.7.0/mingw_64
+\begin_inset Quotes erd
+\end_inset
 
+ -B build
+\family default
+.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Note que você deve testar a instalação seguindo exatamente o que colocou
- nesta seção
+O comando gera dois executáveis dentro da pasta 
+\family typewriter
+build
+\family default
+:
+ 
+\family typewriter
+SoftwareDeCorrosao
+\family default
+ (console) e 
+\family typewriter
+SoftwareCorrosaoGUI
+\family default
+ (interface gráfica).
+ A pasta 
+\family typewriter
+assets
+\family default
+ é copiada automaticamente para junto do executável da interface gráfica.
 \end_layout
 
-\end_inset
+\begin_layout Standard
+No Visual Studio Code,
+ é possível usar a extensão CMake Tools:
+ escolha Configure,
+ depois Build,
+ selecionando o alvo desejado.
+\end_layout
 
+\begin_layout Standard
+No Windows,
+ para distribuir o programa a quem não tem o Qt instalado,
+ é preciso copiar também as bibliotecas do Qt para a pasta do executável,
+ o que pode ser feito com a ferramenta 
+\family typewriter
+windeployqt
+\family default
+,
+ fornecida com o Qt.
+\end_layout
 
+\begin_layout Section
+Verificando a instalação
+\end_layout
+
+\begin_layout Standard
+Para conferir se o programa está funcionando como esperado,
+ abra a interface gráfica e reproduza os valores da AMOSTRA 1 que se encontra na aba:
+ Amostras Padrão na aba formulário.
+ Se o relatório mostrar corrosão ácida (sour),
+ severidade alta,
+ inibidor para H₂S e dose recomendada de 1384,86 ppm,
+ a instalação está correta.
 \end_layout
 
 \end_body
