@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -73,11 +73,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
 \use_formatted_ref 0
 \use_minted 0
 \use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -109,6 +117,7 @@
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -129,7 +138,6 @@ name "cha:Introdução"
 status open
 
 \begin_layout Plain Layout
-
 
 \backslash
 lhead{
@@ -162,21 +170,26 @@ Segundo o CREA/CONFEA um dos quesitos fundamentais que diferenciam a atuação d
 \end_layout
 
 \begin_layout Standard
-Apresenta-se aqui a proposta de desenvolvimento do software XX_nome_XX.
- Um software aplicado a engenharia de petróleo e que visa ...descrever.
- em um parágrafo super resumido..
-\end_layout
+Apresenta-se aqui a proposta de desenvolvimento do software Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+ Um software aplicado à engenharia de petróleo e de corrosão que,
+ a partir dos dados de um cenário de produção (pH,
+ CO
+\begin_inset Formula $_{2}$
+\end_inset
 
-\begin_layout Itemize
-O primeiro parágrafo pode ser um super resumo da proposta de projeto.
- A ideia é fazer um resumo do resumo.
- Foque no problema que pretende resolver e não em como irá resolvê-lo!
-\end_layout
+,
+ H
+\begin_inset Formula $_{2}$
+\end_inset
 
-\begin_layout Itemize
-PS:
- Observe que ESTE MODELO TEM TEXTOS EXPLICATIVOS QUE DEVEM SER ELIMINADOS DA VERSÃO FINAL.
- O OBJETIVO DE COLOCAR AS EXPLICAÇÕES É FACILITAR O ENTENDIMENTO DO QUE DEVE ENTRAR EM CADA SEÇÃO.
+S,
+ salinidade,
+ temperatura,
+ pressão e vazão),
+ estima a taxa de corrosão,
+ classifica o tipo e a severidade,
+ seleciona a classe de inibidor e estima a dosagem em ppm,
+ apresentando os resultados de forma numérica e gráfica.
 \end_layout
 
 \begin_layout Section
@@ -185,107 +198,38 @@ Identificação da Proposta
 
 \begin_layout Subsubsection
 Tipo de investimento /divulgação:
- 
 \end_layout
 
 \begin_layout Itemize
-PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE - Versão 2 
+PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE - Versão 1
 \end_layout
 
 \begin_layout Subsubsection
 Coordenador:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Gestão das partes relacionadas às disciplinas e apoio em dúvidas de programação.
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Itemize
-André Duarte Bueno 
+André Duarte Bueno
 \end_layout
 
 \begin_layout Subsubsection
 Gerência técnica:
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Nota:
- caso o projeto tenha algum tipo de vínculo com empresa ou instituição externa (como um projeto de extensão),
- coloque aqui o nome da empresa e do engenheiro que irá acompanhar o projeto.
- Caso o acompanhamento venha a ser feito por outro professor da UENF coloque aqui o nome do professor e seu laboratório/setor.
-\end_layout
-
-\begin_layout Plain Layout
-Nota:
- A gerência técnica é responsável pelo apoio técnico,
- responsável pela parte de equações e modelos da área em que o software será desenvolvido.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Por exemplo,
- se o software é da área de reservatório a gerência técnica será de um professor de reservatório ou gerente de empresa que atua na área e tem o conhecimento técnico para auxiliar no esclarecimento de dúvidas.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
 Nome Empresa/Instituição:
+ UENF/CCT/LENEP - Universidade Estadual do Norte Fluminense Darcy Ribeiro
 \end_layout
 
 \begin_layout Itemize
-Nome Gerente
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-pode ser um professor(a)
-\end_layout
-
-\end_inset
-
-:
- 
+Nome Gerente:
+ Prof.
+ André Duarte Bueno
 \end_layout
 
 \begin_layout Itemize
 E-mail:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-coloque o email da empresa;
- institucional
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Telefone:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-celular
-\end_layout
-
-\end_inset
-
-
+ bueno@lenep.uenf.br
 \end_layout
 
 \begin_layout Subsubsection
@@ -293,38 +237,11 @@ Equipe:
 \end_layout
 
 \begin_layout Itemize
-Nome (gerente-equipe) [email/telefone]
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-o gerente da equipe é o aluno que faz a comunicação da equipe com a gerência técnica e coordenação.
- Todos se comunicam,
- mas o projeto deve ter um canal principal de comunicação.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Nome [email/telefone] 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-membros da equipe (até 3 pessoas)
-\end_layout
-
-\end_inset
-
-
+Laysla Nicoli Pereira da Rocha (gerente-equipe) - layslarocha@lenep.uenf.br
 \end_layout
 
 \begin_layout Subsubsection
 Vínculo institucional do processo:
- 
 \end_layout
 
 \begin_layout Itemize
@@ -341,85 +258,31 @@ DEPARTAMENTO DE ENGENHARIA DE PETRÓLEO - LENEP
 
 \begin_layout Itemize
 SETOR DE MODELAGEM MATEMÁTICA COMPUTACIONAL
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ADICIONE O Nome dos demais setores envolvidos
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
 Duração:
- 
 \end_layout
 
 \begin_layout Itemize
-18-24 mês(es) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Considere 3 semestres(5/6/7) ou 4 semestres.
-\end_layout
-
-\end_inset
-
-
+Desenvolvimento ao longo do semestre letivo,
+ com finalização de todos os documentos no diretório do github em 14/11/2026 e defesa do projeto de software em 26/11/2026.
 \end_layout
 
 \begin_layout Subsubsection
 Data de submissão:
- 
 \end_layout
 
 \begin_layout Itemize
-Coloque aqui a data de entrega do pré-projeto ao professor coordenador
-\end_layout
-
-\begin_layout Subsubsection
-Número da proposta:
- 
-\end_layout
-
-\begin_layout Itemize
-LDSC-2023-1-P50
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Numero informado pelo professor,
- leva em conta o número de projetos desenvolvidos no LDSC,
- ano e semestre
-\end_layout
-
-\end_inset
-
-
+14/11/2026
 \end_layout
 
 \begin_layout Subsubsection
 Tipo de instrumento contratual:
- 
 \end_layout
 
 \begin_layout Itemize
-Trabalho de disciplina
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ex:
- Termo de Cooperação / Convênio
-\end_layout
-
-\end_inset
-
-
+Trabalho de disciplina (Trabalho de Conclusão de Curso)
 \end_layout
 
 \begin_layout Subsubsection
@@ -427,16 +290,19 @@ Título do projeto:
 \end_layout
 
 \begin_layout Itemize
-"Título do projeto aqui"
+"Software Educacional para Análise e Seleção de Inibidores de Corrosão"
 \end_layout
 
 \begin_layout Subsubsection
 Palavras-chave:
- 
 \end_layout
 
 \begin_layout Itemize
-...coloque aqui lista de palavras chaves - até 5...
+Corrosão;
+ Inibidores de corrosão;
+ Software educacional;
+ Programação orientada a objetos;
+ C++.
 \end_layout
 
 \begin_layout Section
@@ -450,14 +316,54 @@ name "sec:Resumo"
 
 \end_layout
 
-\begin_layout Itemize
-Limite de 500 palavras,
- então seja bem direto!
+\begin_layout Standard
+A corrosão se apresenta como um dos maiores problemas de integridade de equipamentos na indústria de óleo e gás,
+ e a injeção de inibidores se apresenta como uma das maiores formas de combater a corrosão.
+ A escolha de um inibidor e de sua dosagem dependem da análise conjunta de variáveis,
+ tais como pH,
+ concentrações de CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+ e H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S,
+ temperatura,
+ pressão,
+ salinidade e vazão,
+ o que constitui um problema para um estudante em formação.
+ Este trabalho apresenta o design e a implementação de um software educacional em C++,
+ com programação orientada a objetos,
+ para a análise de corrosão e seleção de classes de inibidores em sistemas de produção de óleo.
+ Com base nos dados de um cenário,
+ o programa valida os dados,
+ estima a taxa de corrosão,
+ através de um modelo empírico simples,
+ classifica o tipo e a severidade,
+ escolhe a classe de inibidor,
+ de acordo com critérios sequenciais,
+ estima a dosagem em ppm e apresenta os resultados de maneira numérica e gráfica.
+ O sistema foi modelado em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades) e foi organizado em cinco pacotes,
+ sendo que a hierarquia de inibidores é polimórfica e pode ser estendida.
+ A validação é realizada em um ambiente controlado,
+ por meio de cenários de teste que são comparados com cálculos independentes e com as tendências da literatura.
+ O software tem objetivo didático,
+ educacional e foi desenvolvido como uma ferramenta auxiliar à disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
 \end_layout
 
-\begin_layout Itemize
-Escreva no final,
- depois de escrever todo o resto.
+\begin_layout Standard
+Palavras-chave:
+ Corrosão.
+ Inibidores de corrosão.
+ Software educacional.
+ Programação orientada a objetos.
+ C++.
 \end_layout
 
 \begin_layout Section
@@ -472,16 +378,51 @@ name "sec:Escopo-do-Problema"
 \end_layout
 
 \begin_layout Itemize
-Definir o escopo do projeto de engenharia,
- a ideia geral do software,
- acentuar sua importância,
- usos e aplicações em engenharia [de petróleo].
+A integridade,
+ segurança e confiabilidade dos sistemas de produção de petróleo são prejudicadas pela corrosão.
+ Tubos,
+ válvulas,
+ revestimentos e cabeças de poço estão expostos a um ambiente corrosivo,
+ o que leva a altos gastos com manutenção,
+ aumento do risco de falhas estruturais e possíveis acidentes ambientais.
+ Apesar dos avanços no monitoramento e na prevenção,
+ a gestão da corrosão continua sendo um dos principais problemas da engenharia de poços,
+ e a injeção de inibidores é uma das formas de mitigação mais utilizadas.
 \end_layout
 
 \begin_layout Itemize
-Delimitar o assunto.
- Situá-lo no tempo e no espaço.
- Situá-lo em relação a outros softwares.
+No âmbito acadêmico,
+ a disciplina opcional Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550) fornece os conhecimentos básicos sobre os mecanismos de corrosão e sua prevenção,
+ mas ainda não há uma ferramenta computacional educativa que permita ao estudante integrar esses conhecimentos em um único ambiente de simulação,
+ alterando as condições de um cenário e observando os resultados da avaliação da corrosão.
+\end_layout
+
+\begin_layout Itemize
+O desafio tecnológico é transformar o conhecimento teórico da engenharia de corrosão em um modelo computacional organizado para a sala de aula:
+ validar os dados do usuário,
+ calcular a taxa de corrosão,
+ identificar tipo e severidade,
+ escolher a classe de inibidor,
+ estimar a dosagem e mostrar os resultados de forma numérica e gráfica.
+\end_layout
+
+\begin_layout Itemize
+Delimitação:
+ não fazem parte do escopo a previsão de corrosão localizada (por exemplo,
+ em fendas ou por tensão) nem a consulta a bases comerciais de inibidores.
+ O modelo é simples e empírico,
+ e os resultados são estimativas educacionais,
+ que não devem ser utilizadas como recomendação para aplicação em campo.
+ A ferramenta não substitui livros,
+ aulas,
+ ensaios de laboratório ou programas industriais.
+\end_layout
+
+\begin_layout Itemize
+Maturidade pretendida:
+ TRL entre 3 e 4 (validação em ambiente controlado,
+ com cenários fictícios) e CRL entre 2 e 3 (sem objetivo de comercialização;
+ código distribuído como software livre).
 \end_layout
 
 \begin_layout Section
@@ -501,72 +442,57 @@ Os objetivos deste projeto de engenharia são:
 
 \begin_layout Itemize
 Objetivo geral:
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Descreva aqui o objetivo geral do projeto de engenharia,
- incluindo vínculos com engenharia de petróleo e com modelagem matemática computacional (ideia de lógica,
- algoritmos,...).
-\end_layout
-
-\begin_layout Itemize
-Desenvolver um projeto de engenharia de software para ...[.....descrever de forma clara,
- direta,
- objetiva,
- o objetivo geral do software].
+Criar um programa educacional para análise e escolha de inibidores de corrosão,
+ empregando C++ e o modelo de programação orientado a objetos,
+ que incorpore propriedades físico-químicas dos fluidos e condições operacionais de sistemas de produção de petróleo para avaliar a velocidade de corrosão do ambiente,
+ definir sua gravidade,
+ sugerir uma categoria de inibidor apropriada ao contexto e prever a dose necessária,
+ exibindo os resultados de maneira numérica e visual ao usuário.
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
 Objetivos específicos:
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Modelar física e matematicamente o problema.
+Reexaminar os princípios da corrosão,
+ os ambientes corrosivos da produção de petróleo e os modos de atuação dos inibidores que servem de base para o modelo computacional;
 \end_layout
 
 \begin_layout Itemize
-Modelagem estática do software (diagramas de caso de uso,
- de pacotes,
- de classes).
+Identificar os requisitos do sistema e mapeá-lo em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades);
 \end_layout
 
 \begin_layout Itemize
-Modelagem dinâmica do software (desenvolver algoritmos e diagramas exemplificando os fluxos de processamento).
+Codificar em C++ os componentes de armazenamento e verificação dos dados do fluido,
+ avaliação de corrosão,
+ escolha do inibidor,
+ cálculo da dose e produção de gráficos e resultados;
 \end_layout
 
 \begin_layout Itemize
-Calcular XXX[.....descrever de forma clara,
- direta,
- objetiva,
- cada objetivo específico,
- cada parte do software].
+Organizar o código por herança e polimorfismo,
+ de forma que novas classes de inibidores possam ser adicionadas futuramente sem reescrever o programa;
 \end_layout
 
 \begin_layout Itemize
-Calcular XXX[.....descrever de forma clara,
- direta,
- objetiva,
- cada objetivo específico,
- cada parte do software].
+Validar o programa através de cenários de teste,
+ comparando as saídas com cálculos independentes e com as tendências relatadas na literatura;
 \end_layout
 
 \begin_layout Itemize
-Simular (realizar simulações para teste do software desenvolvido).
-\end_layout
-
-\begin_layout Itemize
-Implementar manual simplificado de uso do software.
+Associar o uso do programa ao conteúdo da disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550),
+ sugerindo cenários para aulas e exercícios.
 \end_layout
 
 \end_deeper
@@ -582,18 +508,28 @@ name "sec:Metodologia"
 \end_layout
 
 \begin_layout Standard
-A Figura 
+O trabalho é classificado como uma pesquisa aplicada,
+ de natureza tecnológica,
+ que visa o desenvolvimento de um produto de software,
+ seguindo o modelo de projeto de engenharia utilizado no curso,
+ com ciclos iterativos e incrementais,
+ estruturado nas sete etapas apresentadas na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Metodologia utilizada no desenvolvimento do sistema 1: Desafio, pré-projeto e projeto"
-nolink "false"
+reference "fig: Metodologia utilizada no desenvolvimento do sistema"
 
 \end_inset
 
- apresenta a metodologia a ser utilizada no desenvolvimento do sistema.
- Parte inicial,
- definição do desafio tecnológico,
- pré-projeto e projeto.
+:
+ definição do problema,
+ fundamentação teórica,
+ especificação,
+ modelagem,
+ desenvolvimento,
+ testes e validação e produto final.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement document
 alignment document
@@ -604,10 +540,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/bueno/Documentos/workdir/ProjetoEngenharia-SoftwareAnaliseEncrustacaoAmostrasSalmouras/imagens/ProjetoEngenharia-Etapas-Geral-portrait-1.png
+	filename C:/Users/lroch/Downloads/TCC-Metodologia-Desenvolvimento.png
 	lyxscale 50
-	width 100text%
-	special height=0.8\textheight
+	width 45text%
+	height 80theight%
 
 \end_inset
 
@@ -618,12 +554,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Metodologia utilizada no desenvolvimento do sistema 1:
- Desafio,
- pré-projeto e projeto
+Metodologia utilizada no desenvolvimento do sistema
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Metodologia utilizada no desenvolvimento do sistema 1: Desafio, pré-projeto e projeto"
+name "fig: Metodologia utilizada no desenvolvimento do sistema"
 
 \end_inset
 
@@ -633,6 +567,14 @@ name "fig:Metodologia utilizada no desenvolvimento do sistema 1: Desafio, pré-p
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026) – Criado no Software PlantUML.
 \end_layout
 
 \end_inset
@@ -641,64 +583,12 @@ name "fig:Metodologia utilizada no desenvolvimento do sistema 1: Desafio, pré-p
 \end_layout
 
 \begin_layout Standard
-A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Metodologia utilizada no desenvolvimento do sistema 2: Análise, Implementação e Entrega"
-nolink "false"
-
-\end_inset
-
- apresenta a metodologia a ser utilizada no desenvolvimento do sistema.
- Parte de análise,
- implementação (planejamento detalhes,
- implementação,
- testes,
- documentação) e entrega.
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/bueno/Documentos/workdir/ProjetoEngenharia-SoftwareAnaliseEncrustacaoAmostrasSalmouras/imagens/ProjetoEngenharia-Etapas-Geral-portrait-2.png
-	lyxscale 50
-	width 100text%
-	special height=0.8\textheight
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Metodologia utilizada no desenvolvimento do sistema 2:
- Análise,
- Implementação e Entrega 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Metodologia utilizada no desenvolvimento do sistema 2: Análise, Implementação e Entrega"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+Para a criação dos diagramas de linguagem de modelagem unificada (UML),
+ foi-se utilizado a ferramenta PlantUML.
+ Por adotar o paradigma Diagrams as Code (diagramas como código),
+ a ferramenta viabiliza a construção de artefatos gráficos a partir de descrições textuais estruturadas.
+ Essa abordagem garantiu a padronização visual das representações conforme as especificações da UML,
+ facilitou o controle dos modelos junto ao código-fonte e conferiu uma maior agilidade nas atualizações e manutenções dos diagramas ao longo dos ciclos do projeto.
 \end_layout
 
 \begin_layout Section
@@ -712,82 +602,150 @@ name "sec:Informações-Adicionais-Específicas"
 
 \end_layout
 
-\begin_layout Itemize
-Coloque aqui informações adicionais,
- importantes,
- relevantes e que não se encaixaram nos demais tópicos deste documento.
+\begin_layout Standard
+Para avaliar o nível de desenvolvimento e a possibilidade de comercialização de uma inovação,
+ são aplicadas medidas padronizadas de maturidade técnica e de mercado,
+ com especial atenção ao Technology Readiness Level (TRL) e ao Commercial Readiness Level (CRL).
+ O TRL é uma escala de nove pontos,
+ criada inicialmente pela NASA,
+ para avaliar a maturidade de uma tecnologia,
+ que vai da observação dos princípios básicos (TRL 1) até a demonstração do sistema em ambiente real (TRL 9).
+ Por outro lado,
+ o CRL mede a preparação comercial e o posicionamento no mercado da solução,
+ seguindo o desenvolvimento do projeto desde a identificação de oportunidades e o estabelecimento do modelo de negócios até o amadurecimento do produto e o ganho de receita (níveis 1 a 9).
+\end_layout
+
+\begin_layout Standard
+Nveis de Maturidade Tecnológica (Technology Readiness Levels – TRL):
 \end_layout
 
 \begin_layout Itemize
-Entre as referências utilizadas podemos em sala de aula podemos citar:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-UML:
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "prog-UML-blaha,prog-UML-Rumbaugh"
-literal "false"
-
-\end_inset
-
-.
+TRL 1 Identificação dos princípios científicos fundamentais que podem servir de base para o desenvolvimento da tecnologia.
 \end_layout
 
 \begin_layout Itemize
-Projetos:
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "projetos-introducao,projetos-pmi,projetos-projetoeletrico1,projetos-Woiler"
-literal "false"
-
-\end_inset
-
-.
+TRL 2 Concepção da tecnologia e descoberta de suas utilizações potenciais.
 \end_layout
 
 \begin_layout Itemize
-Gestão de Projetos:
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "projetos-Abrantes,projetos-gestao,projetos-Heldman,projetos-Menezes,projetos-Pahl,projetos-Valeriano,projetos-Rosa"
-literal "false"
-
-\end_inset
-
-
+TRL 3 Criação inicial e análise experimental ou analítica do conceito,
+ com o objetivo de provar que ele é possível.
 \end_layout
 
 \begin_layout Itemize
-Produtos:
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "projetos-Abrantes"
-literal "false"
-
-\end_inset
-
-.
+TRL 4 Teste dos componentes ou modelos no laboratório,
+ através de ensaios controlados.
 \end_layout
 
 \begin_layout Itemize
-C++:
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "adb-prog-livroCpp"
-literal "false"
-
-\end_inset
-
-
+TRL 5 Teste da tecnologia em tamanho reduzido ou em situações que imitem o local onde ela vai ser usada.
 \end_layout
 
-\end_deeper
+\begin_layout Itemize
+TRL 6 Criação e exibição de um modelo funcionando em condições importantes de Uso.
+\end_layout
+
+\begin_layout Itemize
+TRL 7 Exibição da tecnologia em condições de trabalho,
+ com análise de como ela funciona em um caso real.
+\end_layout
+
+\begin_layout Itemize
+TRL 8 Tecnologia terminada,
+ testada e pronta para ser vendida.
+\end_layout
+
+\begin_layout Itemize
+TRL 9 Tecnologia totalmente funcionando,
+ provado pelo fato de que ela já foi usada com sucesso em situações reais.
+\end_layout
+
+\begin_layout Standard
+Níveis de Prontidão Comercial (Commercial Readiness Level – CRL):
+\end_layout
+
+\begin_layout Standard
+Nível Estágio da Maturidade Tecnológica
+\end_layout
+
+\begin_layout Itemize
+CRL 1 Entendimento de mercado,
+ identificação de clientes-alvo e de suas necessidades
+\end_layout
+
+\begin_layout Itemize
+CRL 2 Correlação de clientes-alvo com suas necessidades,
+ concorrência e proposta de valor
+\end_layout
+
+\begin_layout Itemize
+CRL 3 Pesquisa de clientes-alvo e validação da solução com protótipos de baixa fidelidade
+\end_layout
+
+\begin_layout Itemize
+CRL 4 Definição da atuação na cadeia de valor,
+ das parcerias,
+ dos custos e das receitas
+\end_layout
+
+\begin_layout Itemize
+CRL 5 Definição de canais de marketing,
+ de preços e das ações de promoção
+\end_layout
+
+\begin_layout Itemize
+CRL 6 Estrutura de processos de marketing,
+ vendas,
+ entrega,
+ treinamento,
+ suporte e pagamentos
+\end_layout
+
+\begin_layout Itemize
+CRL 7 Acesso ao mercado,
+ geração de demanda e desenvolvimento de funil de vendas CRL
+\end_layout
+
+\begin_layout Itemize
+CRL 8 Demonstrações de produto,
+ provas de conceito e projetos piloto com clientes-alvo
+\end_layout
+
+\begin_layout Itemize
+CRL 9 Conversão das primeiras vendas e geração de receitas com clientes
+\end_layout
+
+\begin_layout Standard
+O nível de maturidade tecnológica (TRL,
+ do inglês Technology Readiness Level) é alcançado entre o TRL 3 e o TRL 4.
+ No TRL 3,
+ os princípios da solução são demonstrados por meio de modelos computacionais e da primeira implementação dos algoritmos de análise de corrosão,
+ classificação de severidade e seleção de inibidores.
+ No TRL 4,
+ a tecnologia é validada em um ambiente controlado,
+ através de simulações que representam cenários fictícios da indústria de petróleo.
+ Não se espera validar a tecnologia em campo real,
+ uma vez que a aplicação é focada na aplicação educacional.
+ No entanto,
+ a arquitetura permite a evolução futura através da integração com dados reais e validação experimental.
+\end_layout
+
+\begin_layout Standard
+Do ponto de vista da maturidade comercial (CRL,
+ Commercial Readiness Level),
+ o projeto situa-se entre o CRL 2 e o CRL 3.
+ Existe uma definição conceitual da solução,
+ do problema e do público-alvo,
+ além de um protótipo funcional que pode ser utilizado em ambiente acadêmico.
+ O objetivo principal não é a comercialização,
+ mas sim a validação técnica e o potencial de aplicação futura.
+ De acordo com as normas da disciplina.
+\end_layout
+
+\begin_layout Standard
+O código será disponibilizado como software livre,
+ de acordo com as normas da disciplina.
+\end_layout
+
 \end_body
 \end_document
