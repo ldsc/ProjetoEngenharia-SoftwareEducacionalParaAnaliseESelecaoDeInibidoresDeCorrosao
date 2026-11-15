@@ -1,0 +1,3644 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Análise Orientada a Objeto}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+AOO – Análise Orientada a Objeto
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Análise Orientada a Objeto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A terceira etapa do desenvolvimento de um projeto de engenharia,
+ no caso um software aplicado à engenharia de petróleo,
+ é a análise orientada a objeto (AOO).
+ A AOO utiliza regras para identificar os objetos de interesse,
+ as relações entre os pacotes,
+ as classes,
+ os atributos,
+ os métodos,
+ as heranças,
+ as associações e as dependências.
+ O modelo de análise deve ser conciso e mostrar o que deve ser feito,
+ sem se preocupar com a forma como será realizado.
+ O resultado é um conjunto de diagramas que identificam os objetos e seus relacionamentos.
+\end_layout
+
+\begin_layout Section
+Diagramas de classes
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagramas-de-classes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:classes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ ilustra o diagrama de classes,
+ o qual representa a estrutura estática do software educacional criado.
+ Este diagrama mostra as classes,
+ os seus atributos,
+ os seus métodos e os seus relacionamentos.
+ A classe MainWindow é o elemento mais importante da interface gráfica,
+ pois permite que o usuário interaja com o sistema.
+ O usuário pode passar parâmetros de entrada,
+ executar as simulações e ver os resultados.
+ A classe SimuladorCorrosao é responsável por gerenciar o processo de simulação,
+ seja com os dados pré-sugeridos,
+ seja com o cenário definido no sistema.
+\end_layout
+
+\begin_layout Standard
+A classe Fluido representa as condições físico-químicas e operacionais do cenário analisado.
+ Ela guarda parâmetros como o pH,
+ as concentrações de CO₂ e H₂S,
+ a salinidade,
+ a temperatura,
+ a pressão e a vazão.
+ Estes dados são usados depois pela classe AnaliseCorrosao.
+ Ela é responsável por calcular a taxa de corrosão,
+ determinar o seu tipo,
+ a sua gravidade de obter os fatores de correção que o modelo usa.
+\end_layout
+
+\begin_layout Standard
+A classe SeletorInibidor é responsável por escolher o inibidor mais adequado para usar de acordo com as necessidades do cenário definido.
+ Para isso,
+ usa-se a classe abstrata Inibidor.
+ Ela estabelece atributos e comportamentos comuns às classes concretas InibidorOrganico,
+ InibidorH2S,
+ InibidorCatodico e InibidorGeral.
+ Estas subclasses são responsáveis por implementar os métodos específicos de identificação do tipo e avaliação da aplicabilidade do inibidor.
+ Isso mostra o uso de herança e polimorfismo.
+\end_layout
+
+\begin_layout Standard
+A classe CalculadoraDosagem,
+ é responsável por estimar a dosagem com base nas propriedades do fluido,
+ nos resultados da análise de corrosão e na eficiência do inibidor escolhido.
+ Por fim,
+ a classe GraficoResultados é responsável por uma apresentação gráfica dos dados.
+ Ela oferece para fazer gráficos comparativos.
+ Assim,
+ toda a estrutura que sugerimos ajuda a separar as responsabilidades de cada classe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de classes do sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:classes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/diagrama_classes.png
+	lyxscale 50
+	width 22cm
+	scaleBeforeRotation
+	rotateAngle 360
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dicionário de classes
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:dicionario-de-classes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ relaciona cada classe do sistema à sua responsabilidade principal.
+ Em seguida,
+ as Tabelas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.13"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ detalham as classes,
+ com seus atributos,
+ métodos e colaboradores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Correspondência entre as classes e suas responsabilidades
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.3cm">
+<column alignment="block" valignment="top" width="12.2cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Classe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MainWindow
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gerenciar a janela principal,
+ receber as entradas do usuário,
+ executar as simulações e exibir os resultados e relatórios.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimuladorCorrosao
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gerenciar a execução das simulações,
+ tratar as amostras e ligar as fases de análise,
+ escolha e cálculo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Guardar e validar os dados físico-químicos e operacionais do fluido (pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ temperatura,
+ pressão e fluxo).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Calcular a taxa,
+ o tipo e a gravidade da corrosão e achar os fatores relacionados ao modelo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definir a estrutura comum e a interface das classes de inibidores.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+InibidorOrganico,
+ InibidorH2S,
+ InibidorCatodico,
+ InibidorGeral
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Criar classes especiais de inibidores,
+ com propriedades e regras de uso diferentes.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SeletorInibidor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Escolher e criar o inibidor baseado nas características do fluido e na sequência das regras dadas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalculadoraDosagem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Calcular a dosagem aproximada do inibidor usando as informações do fluido,
+ da análise e da eficiência adotada.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GraficoResultados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estruturar e criar gráficos para resultados e dos fatores considerados na análise.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe MainWindow
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="2.9cm">
+<column alignment="block" valignment="top" width="12.6cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gerenciar a interação do usuário com o software e apresentar os resultados da simulação por meio da interface gráfica.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+graficoResultados:
+ objeto do tipo GraficoResultados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor MainWindow();
+ métodos de resposta às ações do usuário,
+ como OnSimularFormulario(),
+ OnEnviarParametros(),
+ OnReiniciarAmostra(),
+ OnCarregarAmostras(),
+ OnMostrarAmostras() e AtualizarPainelGraficos().
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GraficoResultados e SimuladorCorrosao.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe SimuladorCorrosao
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.1cm">
+<column alignment="block" valignment="top" width="12.4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Coordenar a execução das simulações,
+ organizar o processamento das amostras e integrar as etapas de análise e seleção do inibidor e cálculo da dosagem.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+amostras:
+ coleção de objetos do tipo Fluido.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor SimuladorCorrosao() e Executar(),
+ responsável por iniciar o processamento
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos complementares
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CarregarAmostrasPadrao(),
+ ExecutarSimulacao(),
+ ExecutarInterativo() e métodos Imprimir...(),
+ destinados à execução,
+ à apresentação e à organização dos resultados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido,
+ AnaliseCorrosao,
+ SeletorInibidor,
+ Inibidor e CalculadoraDosagem.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe Fluido
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.1cm">
+<column alignment="block" valignment="top" width="12.4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Armazenar,
+ consultar,
+ definir e validar os parâmetros utilizados na caracterização do fluido e do cenário operacional.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pH,
+ co2,
+ h2s,
+ salinidade,
+ temperatura,
+ pressao e vazao,
+ todos do tipo double.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtores,
+ métodos de consulta (PH(),
+ CO2(),
+ H2S(),
+ Salinidade(),Temperatura(),
+ Pressao() e Vazao(),
+ e métodos de definição dos parâmetros.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos complementares
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FatorTemperatura(),
+ PressaoParcialCO2(),
+ FatorAcidez(),
+ FatorCorrosivo(),
+ FatorSeveridade(),
+ Imprimir() e Validar().
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimuladorCorrosao,
+ AnaliseCorrosao,
+ CalculadoraDosagem,
+ SeletorInibidor e Inibidor.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe AnaliseCorrosao
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.5"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.1cm">
+<column alignment="block" valignment="top" width="12.4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analisar as condições de corrosividade do fluido e determinar os indicadores utilizados na avaliação do cenário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fluido,
+ taxaCorrosao,
+ taxaCorrosaoFinal,
+ tipoCorrosao,
+ severidade,
+ fatorSeveridade,
+ fatorTemperatura e fatorCorrosivo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor AnaliseCorrosao(),
+ consultas TaxaCorrosao(),
+ TaxaCorrosaoFinal(),
+ TipoCorrosao(),
+ Severidade(),
+ FatorSeveridade(),
+ FatorTemperatura(),
+ FatorCorrosivo(),
+ Analisar() e Imprimir().
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos complementares
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalcularTaxaBaseCorrosao(),
+ DeterminarTipoCorrosao(),
+ DeterminarSeveridade() e os métodos de cálculo dos fatores de correção.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido,
+ utilizada para obter os parâmetros de entrada,
+ e SimuladorCorrosao,
+ que coordena a execução da análise.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe CalculadoraDosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.6"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.3cm">
+<column alignment="block" valignment="top" width="12.2cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Calcular a dosagem estimada de inibidor com base nas propriedades do fluido,
+ na análise de corrosão e nas características do inibidor selecionado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+constanteEmpirica:
+ constante empírica do tipo double,
+ utilizada no cálculo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalcularDose(fluido,
+ analise,
+ inibidor):
+ double e FatorDeVazao(fluido):
+ double.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos internos complementares
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FatorDeVazao() determina o fator associado à vazão;
+ CalcularDose() combina a taxa de corrosão e os fatores considerados no modelo para estimar a dosagem.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido,
+ AnaliseCorrosao e Inibidor,
+ cujos dados são utilizados como entradas para os cálculos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe SeletorInibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.7"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.5cm">
+<column alignment="block" valignment="top" width="12cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selecionar uma instância de inibidor com base nas propriedades do fluido analisado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Não há atributos declarados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selecionar(fluido:
+ Fluido):
+ Inibidor.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido e a classe abstrata Inibidor,
+ incluindo suas subclasses especializadas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.8"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.1cm">
+<column alignment="block" valignment="top" width="12.4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definir os atributos e comportamentos comuns às diferentes categorias de inibidores utilizadas pelo software.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+nome:
+ string,
+ eficiencia:
+ double e descricao:
+ string.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor Inibidor(nome,
+ eficiencia,
+ descricao);
+ métodos de consulta Nome(),
+ Eficiencia() e Descricao();
+ métodos virtuais Tipo() e EhAplicavel(fluido).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Característica da classe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classe abstrata que fornece uma interface comum para as subclasses concretas,
+ permitindo o uso de polimorfismo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido,
+ SeletorInibidor e as subclasses InibidorH2S,
+ InibidorCatodico,
+ InibidorGeral e InibidorOrganico.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe InibidorH2S
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.9"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.2cm">
+<column alignment="block" valignment="top" width="12.3cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Representar uma categoria de inibidor cuja aplicabilidade é avaliada para condições relacionadas à presença de H₂S.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herda de Inibidor os atributos nome,
+ eficiencia e descricao.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor InibidorH2S(),
+ Tipo():
+ string e EhAplicavel(fluido:
+ Fluido):
+ bool.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Critério de aplicabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O método EhAplicavel() retorna verdadeiro quando a concentração de H₂S é superior a 10 ppm.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor,
+ da qual herda os atributos e comportamentos comuns,
+ e Fluido,
+ utilizado na avaliação de aplicabilidade.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe InibidorCatodico
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.10"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.2cm">
+<column alignment="block" valignment="top" width="12.3cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Representar a categoria de inibidor catódico considerada pelo software para cenários com salinidade elevada.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herda de Inibidor os atributos nome,
+ eficiencia e descricao.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor InibidorCatodico(),
+ Tipo():
+ string e EhAplicavel(fluido:
+ Fluido):
+ bool.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Critérios de aplicabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O método EhAplicavel() retorna verdadeiro quando a salinidade é superior a 15.000,
+ conforme a unidade adotada no código.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor,
+ como classe-base,
+ e Fluido,
+ utilizado na avaliação das condições do cenário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise InibidorGeral
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.11"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.2cm">
+<column alignment="block" valignment="top" width="12.3cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Representar a categoria geral de inibidor utilizada como alternativa padrão quando os critérios específicos de seleção não são atendidos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herda de Inibidor os atributos nome,
+ eficiencia e descricao.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor InibidorGeral(),
+ Tipo():
+ string e EhAplicavel(fluido:
+ Fluido):
+ bool.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Critérios de aplicabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O método EhAplicavel() retorna verdadeiro para qualquer objeto Fluido,
+ funcionando como alternativa geral.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor,
+ como classe-base,
+ e Fluido,
+ utilizado na avaliação de aplicabilidade.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe InibidorOrganico
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.12"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.2cm">
+<column alignment="block" valignment="top" width="12.3cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Representar a categoria de inibidor orgânico considerada na seleção e avaliação de aplicabilidade pelo software.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herda de Inibidor os atributos nome,
+ eficiencia e descricao.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construtor InibidorOrganico(),
+ Tipo():
+ string e EhAplicavel(fluido:
+ Fluido):
+ bool.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Critérios de aplicabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O método EhAplicavel() retorna verdadeiro quando a concentração de CO₂ é superior a 20 ppm e o pH é inferior a 6,0.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor,
+ como classe-base,
+ e Fluido,
+ utilizado na avaliação de aplicabilidade.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Classe GraficoResultados
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.13"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="3.1cm">
+<column alignment="block" valignment="top" width="12.4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Campo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Responsabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gerar e atualizar representações gráficas dos resultados da simulação,
+ permitindo comparar os fatores considerados na análise de corrosão e na dosagem.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atributos principais
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+temDados:
+ bool,
+ tipoCorrosao:
+ QString,
+ severidade:
+ QString,
+ taxaCorrosaoBase:
+ double,
+ taxaCorrosaoFinal:
+ double,
+ nomeInibidor:
+ QString,
+ eficienciaInibidor:
+ double e doseRecomendada:
+ double.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos públicos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AtualizarResultados(fluido,
+ analise,
+ inibidor,
+ fatorVazao,
+ dose):
+ void;
+ Limpar():
+ void;
+ paintEvent(evento):
+ void;
+ e métodos para desenhar gráficos comparativos,
+ barras verticais e cartões de dose.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Métodos complementares
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DesenharGraficoComparativo(),
+ DesenharBarrasVerticais(),
+ DesenharComparativo(),
+ DesenharGaugeEficiencia() e DesenharCartaoDose().
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Colaboradores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MainWindow,
+ que atualiza e apresenta os gráficos,
+ e as classes Fluido e AnaliseCorrosao,
+ cujos dados são utilizados na representação dos resultados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de sequência – eventos e mensagens
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagrama-de-sequencia-eventos-e-mensagens"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de sequência é um diagrama comportamental da Linguagem de Modelagem Unificada (UML) usado para mostrar as interações entre os objetos de um sistema no tempo.
+ Com linhas de vida e mensagens em ordem temporal,
+ o diagrama é para mostrar os métodos chamados,
+ os dados passados e os valores retornados na execução de uma função.
+ Com o diagrama de sequência é possível ver a ordem das coisas e como os componentes trabalham juntos para processar os dados.
+\end_layout
+
+\begin_layout Subsection
+Diagrama de sequência geral
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:seq-geral"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:seq-geral"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ é mostrado o diagrama de sequência geral do software educacional para análise e escolha de inibidores de corrosão,
+ que vai desde a entrada de dados até o retorno dos resultados ao usuário.
+ A primeira coisa que acontece é que a função principal (main) cria um objeto da classe SimuladorCorrosao,
+ que vai preparar as amostras padrão por meio do método AmostrasPadrao().
+ Depois,
+ o usuário vai escolher uma das duas opções de execução,
+ que são:
+ usar as amostras que já foram criadas antes,
+ ou colocar os parâmetros do cenário manualmente.
+\end_layout
+
+\begin_layout Standard
+Se o usuário escolher a opção entrada manual,
+ o simulador vai pedir os valores de pH,
+ as concentrações de CO₂ e H₂S,
+ a salinidade,
+ a temperatura,
+ a pressão e a vazão.
+ Com esses dados,
+ um objeto da classe Fluido vai ser criado,
+ e os parâmetros vão ser passados para o método Validar().
+ Se o software achar algum valor inválido,
+ uma exceção vai ser lançada,
+ o problema vai ser mostrado e os dados vão ser pedidos novamente,
+ até que a validação seja feita.
+\end_layout
+
+\begin_layout Standard
+Depois que a validação for feita,
+ o simulador vai processar as amostras uma a uma e vai fazer uma única simulação,
+ dependendo da opção que o usuário escolheu.
+ Para cada cenário,
+ uma instância de AnaliseCorrosao vai ser criada,
+ e o método Analisar() vai determinar os indicadores que vão ser usados para avaliar as condições corrosivas.
+ Depois,
+ a classe SeletorInibidor vai receber as propriedades do fluido e vai escolher uma instância da categoria de inibidor que melhor se encaixe nos critérios que foram implementados.
+\end_layout
+
+\begin_layout Standard
+Depois que a análise e o inibidor estiverem definidos,
+ o simulador vai usar a classe CalculadoraDosagem através do método CalcularDose().
+ A calculadora vai retornar a dosagem que foi estimada em partes por milhão (ppm),
+ e com isso o simulador vai poder juntar todas as informações que obteve e mostrar para o usuário o tipo e a severidade da corrosão,
+ o inibidor que foi escolhido para ser usado e a dose que foi calculada.
+ Com tudo isso,
+ esse diagrama serve para mostrar tanto o caminho principal de execução do software,
+ quanto os mecanismos que são usados para validar e tratar as entradas que não são válidas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de sequência geral
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:seq-geral"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/seq_geral.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagrama de sequência específico:
+ cálculo da dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:seq-especifico"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de sequência para o cálculo da dosagem do inibidor está ilustrado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:seq-dosagem"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ com a colaboração entre as classes SimuladorCorrosao,
+ CalculadoraDosagem,
+ Fluido,
+ AnaliseCorrosao e Inibidor.
+ O simulador inicia o cálculo chamando o método CalcularDose(fluido,
+ analise,
+ inibidor).
+ A calculadora consulta o método Eficiencia() do objeto Inibidor para obter a eficiência η usada no modelo.
+ Se η≤0,
+ é lançada uma exceção invalid_argument,
+ impedindo que o cálculo continue com um valor de eficiência inválido.
+ Se não,
+ a calculadora calcula o fator de vazão como
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{q}=1+\frac{Q}{1000}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e utiliza o objeto AnaliseCorrosao para obter os seguintes parâmetros:
+ a taxa de corrosão (CR),
+ o fator de severidade (
+\begin_inset Formula $F_{s}$
+\end_inset
+
+),
+ o fator de correção de temperatura (
+\begin_inset Formula $F_{T}$
+\end_inset
+
+) e o fator corrosivo (
+\begin_inset Formula $F_{c}$
+\end_inset
+
+).
+ Com estes parâmetros e a constante empírica K,
+ aplica-se a equação de dosagem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{Dose}=\frac{K\cdot CR\cdot F_{s}\cdot F_{T}\cdot F_{c}\cdot F_{q}}{\eta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No modelo implementado e mostrado no gráfico,
+ a constante empírica é definida como K=0,1.
+ Depois disso,
+ o cálculo da dose estimada,
+ em partes por milhão (ppm),
+ é devolvido ao simulador para ser mostrado ao usuário mais tarde.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de sequência do cálculo da dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:seq-dosagem"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/seq_dosagem.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de comunicação – colaboração
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagrama-de-comunicacao-colaboracao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de comunicação é um diagrama de comportamento da Linguagem de Modelagem Unificada (UML),
+ que mostra as interações entre os objetos de um sistema,
+ evidenciando as relações entre eles e as mensagens trocadas para realizar uma funcionalidade específica.
+ Diferente do diagrama de sequência,
+ que dá mais importância à ordem temporal das interações,
+ o diagrama de comunicação se concentra na estrutura dos objetos e usa números para identificar a ordem das mensagens.
+\end_layout
+
+\begin_layout Subsection
+Comunicação da simulação de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:comunicacao-da-simulacao-de-corrosao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:com-simulacao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresenta o diagrama de comunicação da simulação de corrosão,
+ evidenciando a colaboração entre o usuário,
+ a função principal (main) e os objetos responsáveis pela execução,
+ pela validação dos dados,
+ pela análise de corrosão,
+ pela seleção do inibidor e pelo cálculo da dosagem.
+\end_layout
+
+\begin_layout Standard
+A princípio,
+ o usuário seleciona a aba de execução que quer seguir,
+ que aciona o método Executar() ou ExecutarInterativo() da classe SimuladorCorrosao.
+ De acordo,
+ com a opção decidida,
+ o sistema utiliza as amostras padrão ou solicita os parâmetros do cenário estipulado pelo usuário.
+ Na entrada manual,
+ a simulação cria o objeto Fluido e solicita a validação de suas propriedades por meio do método Validar().
+ Caso os dados sejam considerados inválidos pelo software,
+ uma exceção é lançada e o usuário é orientado a fornecer novos dados.
+\end_layout
+
+\begin_layout Standard
+Após dados validados,
+ o simulador cria um objeto AnaliseCorrosao e aciona o método Analisar().
+ Posteriormente,
+ encaminha o fluido ao SeletorInibidor,
+ que consulta as propriedades relevantes e cria uma instância da classe concreta de inibidor aplicável.
+ O simulador solicita,
+ então,
+ à CalculadoraDosagem o cálculo da dosagem,
+ fornecendo as referências ao fluido,
+ à análise e ao inibidor selecionado.
+\end_layout
+
+\begin_layout Standard
+As mensagens numeradas representam a sequência de colaboração entre os objetos.
+ O diagrama também indica que determinadas operações se repetem para cada amostra,
+ quando utilizada a modalidade de amostras padrão,
+ enquanto na entrada manual o processamento corresponde ao cenário informado pelo usuário.
+ Ao final,
+ o simulador reúne os resultados e os disponibiliza para apresentação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de comunicação
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:com-simulacao"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/com_simulacao.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comunicação do cálculo da dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:comunicacao-do-calculo-da-dosagem"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:com-dosagem"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ mostra o diagrama de comunicação que faz o cálculo da dosagem.
+ Esse diagrama explica as informações que vão e vêm entre a classe CalculadoraDosagem e os objetos Inibidor,
+ Fluido e AnaliseCorrosao.
+ O processo começa quando o simulador chama CalcularDose(fluido,
+ analise,
+ inibidor).
+ Depois,
+ a calculadora diz quanto o inibidor funciona usando Eficiencia().
+ Se o número for zero ou menos que zero,
+ a execução é parada por um problema chamado invalid_argument.
+ Isso significa que as outras perguntas que são necessárias para fazer o cálculo não são feitas.
+ Quando o número do inibidor é aceito,
+ a calculadora faz FatorDeVazao(fluido) e vê quanto é a vazão usando Vazao().
+ Assim,
+ ela encontra o número 
+\begin_inset Formula $F_{q}$
+\end_inset
+
+.
+ Depois disso,
+ ela pede para a classe AnaliseCorrosao a taxa que o material corrói,
+ o número de severidade,
+ o número de temperatura que corrige e o número de corrosividade.
+ Ela usa esses números na Equação 2.16 junto com o número empírico K = 0,1 e o número do inibidor.
+\end_layout
+
+\begin_layout Standard
+Quando a calculadora termina o cálculo,
+ ela mostra para o simulador o número da dosagem do inibidor em ppm.
+ Como a CalculadoraDosagem é uma classe que tem várias funções de cálculo e não precisa de um objeto próprio na história que ela conta,
+ ela aparece no diagrama sem nenhum objeto criado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de comunicação cálculo da dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:com-dosagem"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/com_dosagem.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de estado
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagrama-de-estado"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de máquina de estados é um diagrama comportamental UML que mostra os possíveis estados de um objeto ou processo ao longo do seu ciclo de vida,
+ juntamente com as transições que ocorrem devido a eventos,
+ condições ou operações.
+ Isso possibilita determinar quais são as condições necessárias para progredir de um estado para o próximo e quais são as opções disponíveis caso ocorram situações fora do comum.
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:estados"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ mostra como se dá o ciclo de vida de uma simulação,
+ desde quando são informados os parâmetros do fluido até quando são mostrados os resultados ou quando ocorre o fim do ciclo por causa de um erro.
+ O processo começa no estado DadosInformados,
+ que é quando o usuário informa os parâmetros.
+ A validação desses valores,
+ de acordo com as faixas de valores permitidas pelo software,
+ é feita por meio da operação Validar().
+ Se os parâmetros forem válidos,
+ o sistema passa para o estado Validado.
+ Caso contrário,
+ ocorre uma exceção e o cenário passa para Invalido,
+ o que exige que os dados sejam corrigidos e inseridos novamente de forma correta para que a validação seja refeita.
+ Uma vez validada a informação,
+ a análise dos indicadores de corrosão é realizada pela operação Analisar(),
+ que leva o processo para o estado CorrosaoAnalisada.
+ Depois disso,
+ o inibidor adequado para o cenário analisado é definido pelo método Selecionar(fluido),
+ que leva ao estado InibidorSelecionado.
+ Em seguida,
+ o caminho que o fluxo vai tomar depende do resultado da operação CalcularDose().
+ Se a eficiência do inibidor for maior do que zero e o cálculo for terminado,
+ o processo passa para DosagemCalculada.
+ Com isso,
+ o sistema mostra o tipo e a gravidade da corrosão,
+ o inibidor que foi escolhido e a dose que foi calculada,
+ chegando ao estado ResultadoApresentado.
+ Se a eficiência for inválida e a calculadora gerar uma exceção,
+ o processo passa para ErroDosagem,
+ o que faz com que o fluxo seja encerrado sem que uma dosagem calculada com sucesso seja mostrada.
+ Dessa forma,
+ o diagrama mostra quais são os estados mais importantes da simulação e quais são os caminhos de exceção que estão previstos para quando os dados são inválidos ou quando ocorre algum erro no cálculo da dosagem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de máquina de estados do cenário de simulação
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:estados"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/estados_simulacao.png
+	lyxscale 50
+	width 55text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de atividades
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:diagrama-de-atividades"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de atividades é um diagrama comportamental da UML que mostra o fluxo de execução de um processo,
+ mostrando a ordem das ações,
+ as decisões condicionais,
+ as possíveis ramificações e o término do processamento.
+ Organizado em raias,
+ permite também identificar as responsabilidades atribuídas a cada classe ou componente que participa da execução.
+\end_layout
+
+\begin_layout Standard
+O fluxo de atividades para calcular a dosagem do inibidor é mostrado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:atividades"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ onde as responsabilidades são divididas entre as classes SimuladorCorrosao,
+ CalculadoraDosagem,
+ Inibidor,
+ Fluido e AnaliseCorrosao.
+ O processo começa com o pedido do cálculo,
+ seguido pela obtenção da eficiência do inibidor.
+ Se a eficiência for menor ou igual a zero 
+\begin_inset Formula $\eta\leq0$
+\end_inset
+
+,
+ uma exceção é lançada pelo sistema e o cálculo é interrompido.
+ Se não for menor ou igual a zero 
+\begin_inset Formula $\eta\leq0$
+\end_inset
+
+,
+ a calculadora calcula o fator de vazão 
+\begin_inset Formula ${(F}_{q}),$
+\end_inset
+
+ pela expressão 
+\begin_inset Formula $F_{q}=1+\frac{Q}{1000}$
+\end_inset
+
+,
+ e obtém os parâmetros para aplicar a equação de dosagem.
+ O fator de severidade 
+\begin_inset Formula ${(F}_{s})$
+\end_inset
+
+ é dado pela classificação da corrosão:
+ 2,5 para alta,
+ 1,5 para média e 1,0 para baixa.
+ O fator de temperatura 
+\begin_inset Formula $(F_{T})$
+\end_inset
+
+ leva em conta a temperatura de operação,
+ que vale 1,8 para temperaturas acima de 80 °C,
+ 1,3 para temperaturas entre 40 °C e 80 °C e 1,0 para temperaturas abaixo de 40 °C.
+ O fator corrosivo 
+\begin_inset Formula ${(F}_{c})$
+\end_inset
+
+ leva em conta a composição do fluido,
+ que vale 2,0 para concentrações de H₂S maiores que 10 ppm,
+ 1,5 para concentrações de CO₂ maiores que 20 ppm e 1,0 para os outros casos.
+ Depois de obter os fatores,
+ a calculadora usa a equação de dosagem apresentada na Equação 2.16,
+ e usa a taxa de corrosão (CR),
+ a constante empírica (K) e a eficiência do inibidor 
+\begin_inset Formula $(\eta$
+\end_inset
+
+).
+ Finalmente,
+ a dose estimada é retornada ao simulador e mostrada ao usuário.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de atividades do cálculo da dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:atividades"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/atividades_dosagem.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
