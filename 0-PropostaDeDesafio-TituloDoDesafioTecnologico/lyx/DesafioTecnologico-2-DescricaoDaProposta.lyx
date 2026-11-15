@@ -1,0 +1,546 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+%-----------------------------------------------------------------
+% Para incluir formatações especificas para apresentações
+%-----------------------------------------------------------------
+%https://tex.stackexchange.com/questions/5894/latex-conditional-expression
+% Abaixo inserimos o pacote etoolbox que permite a gestão de if..else
+\usepackage{etoolbox}
+% Cria o flag
+\newtoggle{FormatoApresentacaoTRUE}
+\newtoggle{IncluirBibliografiaNoCapituloTRUE}
+%Seta o flag - deixe true se for para gerar apresentação de aula e false para formato livro
+%\toggletrue{FormatoApresentacaoTRUE}
+\togglefalse{FormatoApresentacaoTRUE}
+%\toggletrue{IncluirBibliografiaNoCapituloTRUE}
+\togglefalse{IncluirBibliografiaNoCapituloTRUE}
+
+% Para usar no meio dos arquivos do lyx crie um comando latex e cole o texto abaixo
+%\iftoggle{FormatoApresentacaoTRUE}{..verdadeiro..}{..falso..}
+%\iftoggle{FormatoApresentacaoTRUE}{\newpage}{}
+
+%---------------------------------------------------------------
+% Para adicionar/excluir uma seção inteira
+%---------------------------------------------------------------
+%https://tex.stackexchange.com/questions/193295/lyx-conditional-sections
+% Abaixo criamos um novo if
+\newif\ifIncluirSecaoProgramacaoAvancada
+%\FormatoApresentacaoWidefalse
+\IncluirSecaoProgramacaoAvancadatrue
+% Para usar
+% \ifIncluirSecaoProgramacaoAvancada no início do blobo
+% \fi para finalizar o bloco
+
+%---------------------------------------------------------------
+%GERAL
+%---------------------------------------------------------------
+\usepackage{verbatim}
+%%\usepackage{algorithm}
+\usepackage{fancyvrb}
+\usepackage{keyval} 
+\usepackage{indentfirst}
+%\usepackage{color}
+\usepackage{xcolor}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+\definecolor{BLACK}{rgb}{0,0,0}%   rgb color model
+\definecolor{BLUE}{rgb}{0,0,1}%   rgb color model
+
+%Informa que vai usar o pacote listings, disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+
+%Define um novo comando, chamado lst
+%observe que lst chama o comando  lstinputlisting.
+\newcommand{\lst}[2]{%
+    \noindent\rule[-1ex]{\textwidth}{0.3mm}\vspace{-1ex}
+    \lstinputlisting[caption={#2},label={#1},stringspaces=false,frame={tb},lineskip=-1pt,extendedchars=true,%
+    basicstyle=\footnotesize\tt,labelstep=1,labelstyle=\tiny,indent=2em,language=Java,breaklines]{#1}
+    \vspace{1ex}%
+}
+
+%\listfiles
+%\usepackage[]{hyperref}
+
+%\usepackage{mathptmx}  % instead of package times
+
+%\usepackage[scaled=0.9]{helvet} % or [scaled=0.92], if you like
+
+%% Pacote de citações para formato abnt
+%%\usepackage[num]{abntcite}
+%%\usepackage[alf]{abntcite}
+
+%%\usepackage[cam,a4,center]{crop}
+%% a4 é o tamanho físico
+%% center é para centralizar
+%% cam inclui quatro marcas diferentes
+
+%%\usepackage[cam,width=20truecm,height=28truecm,center]{crop}
+%\usepackage[cam,width=18truecm,height=26truecm,center]{crop}
+
+%\noindent
+\end_preamble
+\use_default_options false
+\master 1-DesafioTecnologico-0-Master.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Descrição da Proposta
+\end_layout
+
+\begin_layout Standard
+Apresenta-se aqui a proposta de desenvolvimento de um projeto de engenharia que visa à criação de um software educacional para análise de corrosão e seleção de inibidores em poços de petróleo,
+ utilizando o paradigma de programação orientada a objetos na linguagem C++.
+\end_layout
+
+\begin_layout Standard
+O projeto tem como objetivo integrar conceitos fundamentais da engenharia de petróleo,
+ química de fluidos e engenharia de corrosão em uma ferramenta computacional capaz de simular cenários operacionais reais.
+ A proposta consiste no desenvolvimento de um sistema que permita ao usuário inserir parâmetros do poço e propriedades dos fluidos,
+ tais como temperatura,
+ pressão,
+ pH,
+ concentração de dióxido de carbono (CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+),
+ presença de sulfeto de hidrogênio (H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S) e salinidade.
+\end_layout
+
+\begin_layout Standard
+A partir dessas informações,
+ o software será capaz de realizar uma análise automatizada das condições do sistema,
+ identificando o tipo de corrosão predominante,
+ avaliando sua severidade e recomendando o inibidor de corrosão mais adequado para o cenário analisado.
+ Além disso,
+ o sistema será responsável por estimar a dosagem necessária do inibidor,
+ considerando as condições operacionais informadas.
+\end_layout
+
+\begin_layout Standard
+A proposta também contempla o desenvolvimento de uma interface gráfica amigável,
+ que possibilite a interação do usuário com o sistema de forma simples e intuitiva,
+ facilitando a visualização dos resultados e a realização de múltiplas simulações.
+\end_layout
+
+\begin_layout Standard
+Dessa forma,
+ o projeto busca contribuir para o processo de ensino-aprendizagem na área de engenharia de petróleo,
+ oferecendo uma ferramenta que permita a aplicação prática de conceitos teóricos,
+ aproximando o ambiente acadêmico das situações reais enfrentadas na indústria de óleo e gás.
+\end_layout
+
+\begin_layout Section
+Título da proposta
+\end_layout
+
+\begin_layout Itemize
+Título:
+ Software Educacional para Análise e Seleção de Inibidores de Corrosão em Operações de Óleo e Gás
+\end_layout
+
+\begin_layout Section
+Convocação
+\end_layout
+
+\begin_layout Itemize
+[ ] Projeto da UENF
+\end_layout
+
+\begin_layout Itemize
+[ ] Projeto do CCT
+\end_layout
+
+\begin_layout Itemize
+[x] Projeto do LENEP :
+ Georgiana Feitosa
+\end_layout
+
+\begin_layout Itemize
+[ ] Projeto de extensão:
+ nome da empresa de engenharia
+\end_layout
+
+\begin_layout Section
+Atendimento obrigação?
+\end_layout
+
+\begin_layout Itemize
+[ ] sim - anp.
+\end_layout
+
+\begin_layout Itemize
+[x] sim disciplinas programação:
+ Introdução ao Projeto de Engenharia,
+ Programação Orientada a Objeto em C++ e Projeto de Software Aplicado à Engenharia (antiga programação prática).
+\end_layout
+
+\begin_layout Itemize
+[x] sim - TCC do curso de engenharia de petróleo.
+\end_layout
+
+\begin_layout Itemize
+[ ] não.
+\end_layout
+
+\begin_layout Section
+Área,
+ tema e sub-tema
+\end_layout
+
+\begin_layout Itemize
+Título da área do conhecimento.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Engenharias → Engenharia de Petróleo → Engenharia de Produção e Operações em Poços → Corrosão
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Título do tema específico.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Análise de corrosão em poços de petróleo e seleção de inibidores
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Título do sub-tema.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Modelagem computacional para previsão de corrosão e recomendação de inibidores em operações de poços
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Descrição do desafio tecnológico
+\end_layout
+
+\begin_layout Itemize
+Descrição do desafio tecnológico.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O controle da corrosão em sistemas de produção de petróleo representa um dos principais desafios operacionais da indústria,
+ devido à presença de agentes corrosivos como dióxido de carbono (CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+),
+ sulfeto de hidrogênio (H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S),
+ alta salinidade e variações de temperatura e pressão.
+ Esses fatores contribuem para a degradação de equipamentos,
+ aumento de custos operacionais e riscos à segurança.
+\end_layout
+
+\begin_layout Itemize
+A seleção adequada de inibidores de corrosão depende da análise simultânea de diversas variáveis físico-químicas e operacionais,
+ tornando o processo complexo,
+ especialmente para estudantes em fase de formação.
+\end_layout
+
+\begin_layout Itemize
+Dessa forma,
+ o desafio tecnológico deste projeto consiste no desenvolvimento de um sistema computacional capaz de integrar essas variáveis e fornecer uma análise automatizada do tipo de corrosão,
+ sua severidade e a recomendação do inibidor mais adequado,
+ simulando cenários reais da indústria de petróleo.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Objetivo geral
+\end_layout
+
+\begin_layout Itemize
+Desenvolver um software educacional baseado em programação orientada a objetos capaz de analisar condições operacionais de poços de petróleo,
+ identificar mecanismos de corrosão e recomendar inibidores adequados,
+ incluindo a estimativa de dosagem,
+ contribuindo para a aplicação prática dos conceitos teóricos estudados.
+\end_layout
+
+\begin_layout Section
+Solução esperada - Tipo
+\end_layout
+
+\begin_layout Itemize
+Software educacional com interface gráfica desenvolvido em linguagem C++.
+\end_layout
+
+\begin_layout Section
+Solução esperada - Descrição
+\end_layout
+
+\begin_layout Itemize
+Descrição do tipo de solução esperada.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Espera-se como resultado o desenvolvimento de um software capaz de receber dados operacionais do poço e propriedades dos fluidos,
+ realizar a análise do tipo de corrosão predominante,
+ classificar sua severidade e recomendar o inibidor mais adequado para o cenário analisado.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Produto final esperado.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O sistema também deverá ser capaz de calcular a dosagem recomendada do inibidor e apresentar os resultados ao usuário de forma clara e organizada,
+ permitindo a simulação de diferentes condições operacionais.
+ A solução terá caráter educacional,
+ sendo voltada para o apoio ao ensino na área de engenharia de petróleo.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+TRL pretendido
+\end_layout
+
+\begin_layout Itemize
+TRL = 3 a 4 (entre os níveis TRL 3 e TRL 4).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+No TRL 3,
+ espera-se que os princípios fundamentais da tecnologia estejam comprovados por meio da modelagem computacional e da implementação inicial dos algoritmos responsáveis pela análise de corrosão,
+ classificação de severidade e seleção de inibidores.
+ Nesta etapa,
+ o sistema já incorpora conhecimento teórico validado da engenharia de corrosão e propriedades dos fluidos,
+ traduzido em regras e modelos computacionais.
+\end_layout
+
+\begin_layout Itemize
+No TRL 4,
+ o software atinge um estágio mais avançado,
+ no qual ocorre a validação da tecnologia em ambiente controlado,
+ neste caso,
+ por meio de simulações computacionais representativas de cenários reais da indústria de petróleo.
+ O sistema será capaz de processar diferentes conjuntos de dados operacionais,
+ fornecendo resultados consistentes e coerentes com a literatura técnica.
+\end_layout
+
+\begin_layout Itemize
+É importante destacar que o projeto não contempla validação em campo real,
+ sendo sua aplicação voltada ao ambiente educacional.
+ No entanto,
+ a arquitetura do sistema foi concebida de forma a permitir futura evolução para níveis mais elevados de maturidade tecnológica,
+ mediante integração com dados reais e validação experimental.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+CRL pretendido
+\end_layout
+
+\begin_layout Itemize
+CRL = 2 a 3 (entre os níveis CRL 2 e CRL 3).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+No CRL 2,
+ o projeto encontra-se na fase de definição conceitual da solução,
+ com identificação clara do problema,
+ proposta de valor e público-alvo,
+ sendo este composto principalmente por estudantes de engenharia de petróleo e áreas correlatas.
+ A viabilidade técnica do software é sustentada por fundamentos consolidados da engenharia e por metodologias de desenvolvimento de software amplamente utilizadas.
+\end_layout
+
+\begin_layout Itemize
+No CRL 3,
+ observa-se o desenvolvimento inicial do produto,
+ com a implementação de um protótipo funcional capaz de demonstrar suas principais funcionalidades,
+ como análise de corrosão e recomendação de inibidores.
+ Nesta etapa,
+ o software já pode ser utilizado como ferramenta educacional em ambiente acadêmico,
+ embora ainda não esteja preparado para comercialização em larga escala ou aplicação industrial direta.
+\end_layout
+
+\begin_layout Itemize
+Cabe ressaltar que,
+ por se tratar de um software com finalidade educacional,
+ o foco principal do projeto não está na comercialização imediata,
+ mas sim na validação técnica e no potencial de aplicação futura.
+ Com o aprimoramento do sistema,
+ inclusão de bases de dados industriais e validação em campo,
+ o software poderá evoluir para níveis mais elevados de maturidade comercial.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Informações básicas complementares
+\end_layout
+
+\begin_layout Itemize
+O desenvolvimento do software baseia-se em conceitos fundamentais da engenharia de corrosão e propriedades dos fluidos aplicados à indústria de petróleo,
+ incluindo mecanismos de corrosão por CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+ e H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S,
+ bem como métodos de mitigação através do uso de inibidores químicos.
+\end_layout
+
+\begin_layout Itemize
+A modelagem computacional será realizada utilizando o paradigma de programação orientada a objetos,
+ com implementação em linguagem C++,
+ permitindo a construção de um sistema modular e escalável.
+\end_layout
+
+\begin_layout Itemize
+O projeto também utiliza conceitos de engenharia de software,
+ incluindo modelagem UML,
+ definição de requisitos e desenvolvimento iterativo.
+ Materiais de apoio incluem livros,
+ artigos científicos e conteúdo das disciplinas cursadas ao longo da graduação.
+\end_layout
+
+\begin_layout Section
+Prazo máximo para desenvolvimento da solução
+\end_layout
+
+\begin_layout Itemize
+O prazo estimado para o desenvolvimento completo da solução é de aproximadamente 4 meses,
+ considerando sua execução ao longo da disciplina de Projeto de Software.
+\end_layout
+
+\begin_layout Section
+Referências bibliográficas
+\end_layout
+
+\begin_layout Itemize
+UML:
+ Blaha e Rumbaugh (2006);
+ Rumbaugh et al.
+ (1994)
+\end_layout
+
+\begin_layout Itemize
+Programação orientada a objeto com C++:
+ Bueno (2003)
+\end_layout
+
+\end_body
+\end_document
