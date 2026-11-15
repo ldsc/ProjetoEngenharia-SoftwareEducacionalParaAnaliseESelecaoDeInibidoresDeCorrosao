@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -133,11 +133,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
 \use_formatted_ref 0
 \use_minted 0
 \use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -169,6 +177,7 @@
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -185,7 +194,7 @@ reference "fig:Etapas: do desafio tecnológico ao produto final"
 
 \end_inset
 
- mostra a metodologia que será utilizada pela equipe no desenvolvimento do sistema(software).
+ mostra a metodologia que será utilizada pela equipe no desenvolvimento do software educacional para análise e seleção de inibidores de corrosão.
  
 \end_layout
 
@@ -200,12 +209,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/andreduartebueno/Dropbox/02-Ensino/1-Apostilas-Livros-Pessoais/Livro-2-IntroducaoAoProjetoDeEngenharia-ProjetoCientifico-Tecnologico-Produtos-AndreDuarteBueno/Livro/imagens/P04-C03/Engenharia-Modelos-Processos-Projetos-ImplantacaoExecucao.png
-	lyxscale 25
-	width 100col%
-	height 100text%
+	filename imagens/metodologia-etapas.png
+	lyxscale 50
+	width 100text%
 	keepAspectRatio
-	special height=0.95\textheight
 
 \end_inset
 
@@ -255,8 +262,16 @@ TRL
 \end_layout
 
 \begin_layout Standard
-Se não sabe definir o nível de TRL,
- veja uma breve descrição do que é TRL na Figura 
+O TRL (
+\emph on
+Technology Readiness Level
+\emph default
+) mede o nível de maturidade tecnológica de uma solução,
+ de 1 (princípios básicos observados) a 9 (sistema provado em operação).
+ Neste projeto o nível pretendido está entre TRL 3 (princípios comprovados por modelagem computacional e implementação inicial dos algoritmos) e TRL 4 (validação em ambiente controlado,
+ por meio de simulações de cenários representativos).
+ Não há validação em campo real.
+ Veja a descrição na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig: Diagrama ilustrando o conceito de TRL"
@@ -277,11 +292,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../../../../../02-Ensino/1-Apostilas-Livros-Pessoais/Livro-2-IntroducaoAoProjetoDeEngenharia-ProjetoCientifico-Tecnologico-Produtos-AndreDuarteBueno/Livro/imagens/ProjetoEngenharia-TRL/trl-wide-circular.png
-	lyxscale 25
+	filename imagens/conceito-trl.png
+	lyxscale 50
 	width 100text%
 	keepAspectRatio
-	special height=0.85\textheight
 
 \end_inset
 
@@ -317,8 +331,16 @@ CRL
 \end_layout
 
 \begin_layout Standard
-Se não sabe definir o nível de CRL,
- veja uma breve descrição do que é CRL na Figura 
+O CRL (
+\emph on
+Commercial Readiness Level
+\emph default
+) mede o nível de maturidade comercial.
+ O nível pretendido está entre CRL 2 (definição conceitual,
+ problema e público-alvo identificados) e CRL 3 (protótipo funcional utilizável como ferramenta educacional).
+ O foco é a validação técnica,
+ e não a comercialização imediata.
+ Veja a descrição na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:O-que-é-crl"
@@ -340,10 +362,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../../../../../02-Ensino/1-Apostilas-Livros-Pessoais/Livro-2-IntroducaoAoProjetoDeEngenharia-ProjetoCientifico-Tecnologico-Produtos-AndreDuarteBueno/Livro/imagens/Petrobras-Sigitec/1-AmbienteCompetitividade-OP1252-InformacoesBasicas/AmbienteCompetitividade-InformacoesBasicas-5-crl.png
-	width 99col%
+	filename imagens/conceito-crl.png
+	lyxscale 50
+	width 100text%
 	keepAspectRatio
-	special height=0.95\textheight
 
 \end_inset
 
@@ -401,7 +423,11 @@ Engenharia - Paradigmas:
 
 \begin_deeper
 \begin_layout Itemize
-A visão adotada pela equipe de desenvolvimento do software utiliza o paradigma da orientação a objetos.
+A visão adotada pela equipe de desenvolvimento do software utiliza o paradigma da orientação a objetos,
+ com implementação em C++,
+ que permite um sistema modular e escalável (classes para o poço,
+ os fluidos,
+ os tipos de corrosão e os inibidores).
 \end_layout
 
 \begin_layout Itemize
@@ -419,16 +445,7 @@ Engenharia - Modelos e Modelagem:
 
 \begin_deeper
 \begin_layout Itemize
-Os modelos serão desenvolvidos usando a linguagem de modelagem UML (veja especificações no site 
-\begin_inset CommandInset href
-LatexCommand href
-name "UML"
-target "https://www.uml.org/"
-literal "false"
-
-\end_inset
-
-) que é universalmente aceita e amplamente utilizada.
+Os modelos do software de análise de corrosão e seleção de inibidores serão desenvolvidos usando a linguagem de modelagem UML que é universalmente aceita e amplamente utilizada.
 \end_layout
 
 \end_deeper
@@ -442,16 +459,7 @@ Engenharia - Normas e Processos
 
 \begin_deeper
 \begin_layout Itemize
-O processo de desenvolvimento utiliza uma metodologia de gestão ágil baseada em scrum (veja descrição no site da 
-\begin_inset CommandInset href
-LatexCommand href
-name "aws"
-target "https://aws.amazon.com/pt/what-is/scrum/#:~:text=O%20Scrum%20%C3%A9%20um%20framework,uma%20entrega%20eficiente%20de%20projetos."
-literal "false"
-
-\end_inset
-
-).
+O processo de desenvolvimento utiliza uma metodologia de gestão ágil baseada em scrum.
 \end_layout
 
 \begin_layout Itemize
@@ -462,9 +470,12 @@ reference "cap: Metodologias ágeis"
 
 \end_inset
 
-,
- em amarelo,
- itens associados a scrum.
+ o ciclo ágil adotado:
+ o Product Backlog reúne as funcionalidades e requisitos do software;
+ a cada sprint seleciona-se um subconjunto,
+ que é codificado,
+ testado e documentado,
+ entregando-se um incremento funcional.
 \end_layout
 
 \end_deeper
@@ -485,12 +496,10 @@ status open
 
 \size large
 \begin_inset Graphics
-	filename ../../../../../../02-Ensino/1-Apostilas-Livros-Pessoais/Livro-2-IntroducaoAoProjetoDeEngenharia-ProjetoCientifico-Tecnologico-Produtos-AndreDuarteBueno/Livro/imagens/P04-C04/EngenhariaSoftware-Geral-Wide.png
-	lyxscale 25
-	width 100col%
-	height 100theight%
+	filename imagens/metodologia-scrum.png
+	lyxscale 50
+	width 100text%
 	keepAspectRatio
-	special height=0.95\textheight
 
 \end_inset
 
@@ -502,7 +511,7 @@ status open
 
 \begin_layout Plain Layout
 Metodologias Ágeis:
- reuniões e ciclos de desenvolvimento
+ ciclo Scrum de desenvolvimento (sprints)
 \begin_inset CommandInset label
 LatexCommand label
 name "cap: Metodologias ágeis"
@@ -537,7 +546,11 @@ Diretório:
 \end_layout
 
 \begin_layout Itemize
-É a elaboração do desafio tecnológico pelo cliente (professor ou empresa) [este documento]
+É a elaboração do desafio tecnológico pelo cliente (professor ou empresa) [este documento].
+ Neste projeto:
+ software educacional para análise e seleção de inibidores de corrosão em operações de óleo e gás,
+ projeto do LENEP (Profa.
+ Georgiana Feitosa).
 \end_layout
 
 \end_deeper
@@ -626,8 +639,8 @@ O primeiro ciclo de desenvolvimento do sistema é o
 Concepção
 \series default
 :
- a partir do desafio tecnológico são detalhadas a especificação e requisitos dos sistema,
- elaborados os diagramas de casos de uso do software).
+ a partir do desafio tecnológico são detalhadas a especificação e requisitos do sistema,
+ elaborados os diagramas de casos de uso do software.
 \end_layout
 
 \begin_layout Itemize
@@ -809,7 +822,8 @@ Repetem os itens do passo 4.
 \end_layout
 
 \begin_layout Itemize
-Serão feitos tantos ciclos de detalhamento e implantação quanto necessário.
+Serão feitos tantos ciclos de detalhamento e implantação quanto necessário (o prazo estimado para o desenvolvimento completo é de aproximadamente 4 meses,
+ ao longo da disciplina de Projeto de Software).
 \end_layout
 
 \begin_layout Itemize
@@ -828,20 +842,12 @@ Dicas extras
 \end_layout
 
 \begin_layout Itemize
-A dica é não deixar para depois imaginando que terá condições de fazer "rápido¨,
+A dica é não deixar para depois imaginando que terá condições de fazer "rápido",
  projetos de engenharia por definição são demorados.
 \end_layout
 
 \begin_layout Itemize
 Utilizamos uma metodologia de gestão ágil baseada em scrum.
- Veja itens em amarelo na Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap: Metodologias ágeis"
-
-\end_inset
-
-.
  
 \end_layout
 
@@ -856,17 +862,7 @@ Disponibilizamos no google classroom da turma aulas de diversas ferramentas util
 
 \end_deeper
 \begin_layout Itemize
-Os modelos de software a serem desenvolvidos utilizam o paradigma da orientação a objetos,
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "prog-UML-blaha,prog-UML-Rumbaugh,adb-prog-livroCpp"
-literal "false"
-
-\end_inset
-
-,
- e a linguagem de programação C++ em função do baixo consumo de memória e alto desempenho.
+Os modelos de software a serem desenvolvidos utilizam o paradigma da orientação a objetos e a linguagem de programação C++ em função do baixo consumo de memória e alto desempenho.
  
 \end_layout
 
@@ -889,20 +885,87 @@ As ciências da computação são uma área de conhecimento enorme,
 \end_layout
 
 \begin_layout Itemize
-O(s) aluno(s) após encerrarem a disciplina de 
-\begin_inset CommandInset href
-LatexCommand href
-name "Projeto de Software Aplicado à Engenharia"
-target "https://sites.google.com/view/professorandreduartebueno/ensino/projeto-de-software-aplicado"
-literal "false"
-
-\end_inset
-
-,
+O(s) aluno(s) após encerrarem a disciplina,
  podem dar continuidade ao projeto adicionando novos ciclos e defendendo o projeto final como seu TCC.
  O exemplo é a adição de interfaces gráficas amigáveis usando Qt.
 \end_layout
 
 \end_deeper
+\begin_layout Section
+Aplicação da metodologia ao projeto
+\end_layout
+
+\begin_layout Standard
+A lista a seguir relaciona as etapas da metodologia com os capítulos do projeto de engenharia do software.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Concepção
+\series default
+:
+ requisitos,
+ casos de uso e especificação do software (entrada de parâmetros do poço e dos fluidos,
+ análise do tipo de corrosão,
+ severidade,
+ inibidor recomendado e dosagem).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Elaboração
+\series default
+:
+ estudo da corrosão por CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+ e H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S,
+ efeito da salinidade,
+ temperatura,
+ pressão e pH,
+ e dos inibidores químicos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Análise e Projeto Orientados a Objeto
+\series default
+:
+ diagramas UML de pacotes,
+ classes,
+ sequência e estados,
+ e decisões de arquitetura (C++,
+ interface gráfica).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ciclos de Construção e Implementação
+\series default
+:
+ codificação,
+ testes e documentação em sprints,
+ com entrega de versões funcionais.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Testes
+\series default
+:
+ cenários de simulação representativos de poços de petróleo,
+ verificando a coerência dos resultados com a literatura técnica.
+\end_layout
+
 \end_body
 \end_document
