@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -27,12 +27,12 @@
 \usepackage{listings}
 \end_preamble
 \use_default_options false
-\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
-\maintain_unincluded_children false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
 \language brazilian
 \language_package auto
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -40,7 +40,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -54,7 +56,7 @@
 \paperfontsize 12
 \spacing onehalf
 \use_hyperref false
-\papersize a4paper
+\papersize a4
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -73,9 +75,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -97,11 +109,17 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -111,7 +129,6 @@
 status open
 
 \begin_layout Plain Layout
-
 
 \backslash
 lhead{
@@ -128,16 +145,6 @@ space - Elaboração}
 
 \begin_layout Chapter
 Elaboração
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Elaboração
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Elaboração"
@@ -148,30 +155,18 @@ name "sec:Elaboração"
 \end_layout
 
 \begin_layout Standard
-Depois da definição dos objetivos, da especificação do software e da montagem
- dos primeiros diagramas de caso de uso, a equipe de desenvolvimento do
- projeto de engenharia passa por um processo de elaboração que envolve o
- estudo de conceitos relacionados ao sistema a ser desenvolvido, a análise
- de domínio e a identificação de pacotes.
- 
+Após a definição dos objetivos, da especificação e dos casos de uso apresentados no capítulo anterior, inicia-se a etapa de elaboração do projeto de engenharia. Esta etapa aprofunda a compreensão do problema, estabelece os fundamentos teóricos necessários à sua solução e organiza o sistema em pacotes, de modo a ligar o conhecimento de engenharia de corrosão à implementação orientada a objetos em C++.
 \end_layout
 
 \begin_layout Standard
-Na elaboração fazemos uma análise dos requisitos, ajustando os requisitos
- iniciais de forma a desenvolver um sistema útil, que atenda às necessidades
- do usuário e, na medida do possível, permita seu reuso e futura extensão.
-\end_layout
-
-\begin_layout Standard
-Eliminam-se os requisitos "impossíveis" e ajusta-se a idéia do sistema de
- forma que este seja flexível, considerando-se aspectos como custos e prazos.
+Apresentam-se, a seguir, a análise de domínio, a formulação teórica que sustenta os cálculos do software, o fluxo geral de processamento e a identificação dos pacotes do sistema.
 \end_layout
 
 \begin_layout Section
 Análise de domínio
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Análise-de-domínio"
+name "sec:analise-de-dominio"
 
 \end_inset
 
@@ -179,37 +174,241 @@ name "sec:Análise-de-domínio"
 \end_layout
 
 \begin_layout Standard
-Após estudo dos requisitos/especificações do sistema, algumas entrevistas,
- estudos na biblioteca e disciplinas do curso foi possível identificar nosso
- domínio de trabalho:
+A análise de domínio inclui todos os conceitos e os fundamentos teóricos de engenharia de corrosão e de petróleo envolvidos no software, servindo como base para determinar as variáveis que o usuário irá fornecer, as regras que o software irá implementar e as classes que vão aparecer na modelagem.
 \end_layout
 
-\begin_layout Itemize
-Definição e caracterização do domínio a ser investigado 
+\begin_layout Subsection
+Corrosão: definição e mecanismos
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:corrosao-definicao-e-mecanismos"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-Descrição das áreas/disciplinas relacionadas.
+\begin_layout Standard
+A corrosão é a degradação gradual dos materiais, principalmente dos metais, devido a processos químicos ou eletroquímicos com o meio (TELLES, 2003). A corrosão é um fenômeno espontâneo, no qual o metal tende a voltar à sua forma mais estável encontrada na natureza, principalmente óxidos, hidróxidos ou sais. Na indústria de óleo e gás, esse fenômeno é aumentado pela umidade, pelos gases reativos (presença de CO₂ e H₂S) e pelas variações de pressão, temperatura e potencial eletroquímico.
 \end_layout
 
-\begin_layout Itemize
-Descrição de questões associadas a espaço/tempo (espaço físico, local, instalaçã
-o).
+\begin_layout Standard
+Nunes (2007) afirma que os mecanismos podem ser classificados em eletroquímicos e químicos. A corrosão eletroquímica é a forma mais comum de corrosão e depende da presença de um eletrólito, geralmente água líquida, que favorece a formação de células de corrosão. Uma célula de corrosão necessita de quatro componentes: uma região anódica (onde ocorre a oxidação e dissolução do metal), uma região catódica (onde ocorrem as reações de redução), um eletrólito (que permite a condução iônica) e uma conexão elétrica entre ânodo e cátodo (que permite o fluxo de elétrons). A corrosão química, por sua vez, acontece na falta de água líquida, por meio de uma reação direta entre o metal e o meio. No caso do ferro, a reação anódica e as reações catódicas mais comuns em meio aquoso são:
 \end_layout
 
-\begin_layout Itemize
-Fotografias de sistemas equivalentes/parecidos.
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{Fe}\rightarrow\mathrm{Fe}^{2+}+2e^{-}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-...
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+2\mathrm{H}^{+}+2e^{-}\rightarrow\mathrm{H}_{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{O}_{2}+2\mathrm{H}_{2}\mathrm{O}+4e^{-}\rightarrow4\mathrm{OH}^{-}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segundo Gentil (1996), os produtos formados na interface metal-meio influenciam o processo, já que quando compactos e aderentes, servem de barreira de proteção e, quando porosos, podem incrementar o ataque. A corrosão pode ser uniforme, em que o ataque se dá de forma homogênea, ou localizada, em que a corrosão se concentra em regiões determinadas, como é o caso dos pites. Essa diferença é relevante para o software educacional desenvolvido, uma vez que o modelo adotado estima uma taxa de corrosão generalizada e não o mecanismo localizado.
+\end_layout
+
+\begin_layout Subsection
+Ambientes corrosivos na produção de petróleo
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:ambientes-corrosivos-na-producao-de-petroleo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A corrosão pode ser afetada e aumentada por vários motivos. Os produtos de produção têm gases dissolvidos, sais, água de formação e condensados, e se misturam com os metais em condições difíceis de pressão, calor e fluxo, conforme Groysman (2017). Os principais fatores e variáveis levados em conta neste trabalho estão descritos a seguir.
+\end_layout
+
+\begin_layout Standard
+O dióxido de carbono (CO₂), ou gás carbônico, é um produto químico que surge da combinação de um átomo de carbono e dois de oxigênio. Quando o CO₂ é dissolvido na água, cria ácido carbônico, que se separa em bicarbonato e carbonato e torna o meio ácido. O ácido carbônico reage com o ferro e gera íons Fe
+\begin_inset Formula $^{2+}$
+\end_inset
+
+, que podem se transformar em carbonato de ferro (FeCO₃). Dependendo da densidade e da aderência desta camada, ela serve como uma barreira parcial, se essa barreira for pouco protegente ou for retirada por causa do fluxo, a velocidade de ataque será alta. Esse problema é chamado de corrosão doce (sweet corrosion) (GROYSMAN, 2017). A reação total é:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{Fe}+\mathrm{CO}_{2}+\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{FeCO}_{3}+\mathrm{H}_{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por sua vez, o sulfeto de hidrogênio (H₂S), que também é chamado de ácido sulfídrico, quando se encontra em meio aquoso, se ioniza em HS
+\begin_inset Formula $^{-}$
+\end_inset
+
+ e S
+\begin_inset Formula $^{2-}$
+\end_inset
+
+, que vão reagir com o ferro e vão formar sulfetos de ferro na superfície. O filme resultante pode ser protetor ou não. O H₂S, ainda, dificulta a recombinação do hidrogênio atômico em H₂, o que facilita a difusão para a rede metálica, reduzindo a tenacidade do aço e podendo induzir trincas por hidrogênio. Esse meio é chamado de ácido (sour) e requer uma proteção especial.
+\end_layout
+
+\begin_layout Standard
+Os íons cloreto quebram os filmes protetores e favorecem a corrosão localizada. A elevada salinidade também aumenta a condutividade do eletrólito, o que favorece a corrosão eletroquímica, conforme Bahadori (2014).
+\end_layout
+
+\begin_layout Standard
+O pH, potencial hidrogeniônico, é o que indica se uma solução aquosa está ácida, neutra ou básica, em uma escala de 0 a 14, onde os valores abaixo de 7 representam meios ácidos, o valor 7 é neutro e os valores acima de 7 são meios básicos.
+\end_layout
+
+\begin_layout Standard
+A temperatura e a pressão também têm muita influência na corrosão, o aumento da temperatura acelera a velocidade das reações, enquanto a pressão aumenta a solubilidade dos gases agressivos na fase líquida. Os regimes de escoamento turbulentos podem retirar os filmes de FeCO₃ e FeS e produzir corrosão-erosão (GROYSMAN, 2017). A vazão, portanto, influencia tanto a corrosão quanto a eficácia do inibidor, que depende da presença de um filme na superfície.
+\end_layout
+
+\begin_layout Standard
+Todos esses efeitos se manifestam de formas diferentes nos equipamentos. Nos dutos, nas linhas de fluxo e nas colunas de produção, a corrosão interna por espessamento e piteamento é a mais comum. Nas válvulas, nos flanges e nas conexões, a corrosão sob depósito e a corrosão galvânica são muito comuns. Nos equipamentos submarinos, além da corrosão interna, ocorre também a corrosão externa em ambiente marinho (GROYSMAN, 2017).
+\end_layout
+
+\begin_layout Standard
+Para facilitar, o software educacional não diferenciará os equipamentos e a análise será baseada no aço carbono em contato com o fluido do cenário informado.
+\end_layout
+
+\begin_layout Subsection
+Métodos de controle e mitigação
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:metodos-de-controle-e-mitigacao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A corrosão não é eliminável, mas pode ser controlada. Os métodos mais usados na indústria são a seleção de materiais e revestimentos, a proteção catódica e o uso de inibidores químicos que devem ser considerados complementares (POPOOLA et al., 2013). Os revestimentos servem de barreira física entre o metal e o meio, e a escolha do material a ser usado (aços carbono, aços inoxidáveis martensíticos, ligas de níquel e titânio) deve levar em consideração a composição do fluido, a pressão e a temperatura. A proteção catódica transforma toda a superfície metálica em cátodo, seja por ânodos de sacrifício, tais como zinco, alumínio ou magnésio, ou por corrente impressa. Segundo Ahmed, Liu e Liu (2025), em situações de poços profundos, de alta temperatura e pressão, a combinação de inibidores químicos, revestimentos e ligas adequadas é a estratégia mais discutida, e cada uma delas apresenta vantagens e limitações próprias.
+\end_layout
+
+\begin_layout Subsection
+Inibidores de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:inibidores-de-corrosao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os inibidores de corrosão são os compostos químicos que contribuem para diminuir a velocidade de corrosão, através da alteração das reações eletroquímicas que ocorrem na interface metal/meio (GROYSMAN, 2017). A sua atuação consiste essencialmente na adsorção do composto inibidor sobre a superfície do metal, que cria uma película de proteção que impede o transporte das espécies agressivas. De acordo com a reação afetada, os inibidores podem ser classificados em anódicos, catódicos ou mistos. A adsorção pode ocorrer fisicamente (fisissorção), por meio das forças de Van der Waals, ou quimicamente (quimissorção), através de ligações que se formam com o metal. Em diversos sistemas, ambos os mecanismos estão presentes.
+\end_layout
+
+\begin_layout Standard
+Os inibidores orgânicos são os mais empregados na produção de petróleo. Moléculas com heteroátomos tais como nitrogênio, enxofre e oxigênio (por exemplo, aminas, imidazolinas e tióis), se adsorvem bem no ferro e formam filmes hidrofóbicos que repelem a água ou a solução aquosa (FINŠGAR; JACKSON, 2014). Os inibidores inorgânicos, como cromatos, fosfatos e molibdatos, funcionam pela passivação, porém, são de uso limitado devido à sua toxicidade. Mais recentemente, os inibidores de origem renovável e biodegradável ganharam grande importância, pois podem chegar a boas eficiências com menor impacto ambiental. Kumar et al. (2026) destacam, entre eles, os aminoácidos, os biopolímeros e os extratos de plantas, cujo desempenho depende do mecanismo de adsorção na superfície metálica e das condições de seu meio. Como o software não avalia produtos comerciais, ele trabalha com as classes de inibidores que representam o mecanismo de atuação predominante.
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tipos-inibidores"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ resume a classificação dos inibidores quanto à reação afetada e à natureza química.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tipos de Inibidores
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tipos-inibidores"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/tipos_inibidores.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A aplicação, portanto, varia de acordo com a fase de operação. Em fluidos de perfuração e completação, os inibidores devem apresentar compatibilidade com sais e outros aditivos químicos. Na estimulação ácida, em presença de HCl, os inibidores são necessários para reduzir a solubilização do aço até mesmo quando a temperatura excede 120 °C. Nas linhas de produção e transporte, os inibidores podem ser introduzidos de maneira contínua ou intermitente e sua seleção deve levar em conta a compatibilidade com o fluido, o tipo de fluxo e o custo de novas aplicações.
+\end_layout
+
+\begin_layout Standard
+Dentre as principais restrições práticas avaliadas nestas condições, destacam-se a estabilidade térmica, a reação com outros aditivos e a variação entre o desempenho no laboratório e o desempenho no campo, o que indica que os resultados obtidos por este software devem ser considerados como estimativas.
 \end_layout
 
 \begin_layout Section
 Formulação teórica
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Formulação-teórica"
+name "sec:formulacao-teorica"
 
 \end_inset
 
@@ -217,53 +416,2162 @@ name "sec:Formulação-teórica"
 \end_layout
 
 \begin_layout Standard
-...coloque aqui texto explicando a formulação física-matemática, a descrição
- das equações que serão utilizadas...
+Esta seção fornece as bases teóricas e as equações matemáticas que serão utilizadas no software. Na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+, estão as variáveis de entrada, suas respectivas unidades e as faixas de valores mais comuns. Essas faixas serão utilizadas como referência para a validação dos dados (RF02).
 \end_layout
 
 \begin_layout Standard
-...aqui entram figuras, tabelas explicativas, equações a serem utilizadas no
- software...
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parâmetros de entrada, unidades e faixas típicas
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.1"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="1.8cm">
+<column alignment="center" valignment="top" width="1.8cm">
+<column alignment="center" valignment="top" width="2.7cm">
+<column alignment="block" valignment="top" width="9.3cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Parâmetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Unidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Faixa típica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Influência principal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+–
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3 – 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acidez do meio; quanto menor o pH, maior a agressividade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO₂
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 – 100+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Formação de ácido carbônico (corrosão doce)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 – 50+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Corrosão sulfídrica severa
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temperatura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+°C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20 – 150
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cinética das reações
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pressão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+psi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000 – 10000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Solubilidade dos gases
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salinidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 – 200000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Condutividade do eletrólito
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vazão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m
+\begin_inset Formula $^{3}$
+\end_inset
+
+/dia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100 – 10000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transporte de espécies e remoção de filmes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-...logo depois, com os dados levantados na análise de domínio, e esta formulação
- teórica, iremos identificar os pacotes, os assuntos com os quais iremos
- trabalhar...
+Os intervalos da Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ são valores típicos de referência e não limites de validação: o programa rejeita apenas valores fisicamente impossíveis (como detalhado na Seção 6.2), permitindo que o estudante explore condições fora delas. Estes valores foram determinados com base na literatura de corrosão em óleo e gás. O pH de 3 a 7 compreende a água saturada de CO₂ com pH em torno de 4 e as salmouras tamponadas, entre 5 e 7 (NEŠIĆ, 2007); em água produzida offshore foram medidos valores de 4,2 a 6,8 (EMAM; MOAWAD; ABOUL-GHEIT, 2014). A temperatura de 20 a 150 °C inclui as condições dos ensaios de corrosão por CO₂ com pico entre 60 e 80 °C (NEŠIĆ, 2007) e termina em 150 °C, acima do qual os inibidores orgânicos geralmente não são recomendados (SMITH, 1999). A salinidade de até 200.000 ppm cobre águas produzidas com 196 a 264 g/L de sólidos dissolvidos (EMAM; MOAWAD; ABOUL-GHEIT, 2014), embora a mediana de 50 estudos seja de 28 g/L (CAMARILLO; STRINGFELLOW, 2018). A pressão de 1.000 a 10.000 psi (cerca de 7 a 69 MPa) é compatível com pressões na cabeça do poço que superam 10 MPa (WANG; SONG; ZHANG, 2019) e com pressões de fundo de 6.400 a 17.500 psi (SMITH, 1999), sem pretender cobrir os poços de alta pressão e alta temperatura, definidos acima de 500 bar.
 \end_layout
 
 \begin_layout Standard
-...
- no final da formulação teórica, indicar livros e artigos que tem mais informaçã
-o sobre o assunto...
+O CO₂ e o H₂S são informados em ppm, em escala relativa ao cenário simulado, pois nos campos o CO₂ é reportado em porcentagem do gás, de 2 a 15% (SMITH, 1999) e de 8 a 25% no campo de Lula (BRASIL, 2020). O limiar de 10 ppm de H₂S corresponde ao critério de serviço ácido da ISO 15156-2, de pressão parcial de H₂S acima de 0,3 kPa: pela lei de Henry (SANDER, 2023), 10 mg/L dissolvidos equivalem a cerca de 0,29 kPa. O limiar de 20 ppm de CO₂ equivale a uma pressão parcial de aproximadamente 0,014 atm e, em água sem tampão, a um pH próximo de 4,8, o que sustenta o critério conjunto de CO₂ superior a 20 ppm e pH inferior a 6 para o inibidor orgânico. Trata-se de um limiar conservador, de caráter didático, pois a gravidade da corrosão é definida pela taxa e por seus limites (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Fundamentos termodinâmicos
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:fundamentos-termodinamicos"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-...se vai usar modelos numéricos, colocar seção 3.3.x falando deles; no final
- citar/referenciar fontes...
+Sob uma perspectiva termodinâmica, o fenômeno da corrosão encontra-se diretamente correlacionado com a variação da energia livre de Gibbs. Nesse contexto, uma determinada reação eletroquímica é considerada espontânea se e somente se o valor de 
+\begin_inset Formula $\Delta G$
+\end_inset
+
+ for menor que zero, como demonstrado pela seguinte expressão (GENTIL, 1996):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Delta G = - nFE
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Delta G$
+\end_inset
+
+ é a variação de energia livre de Gibbs (J mol
+\begin_inset Formula $^{-1}$
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n$
+\end_inset
+
+ é o número de elétrons envolvidos na reação;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F$
+\end_inset
+
+ é a constante de Faraday (aproximadamente 96 500 C mol
+\begin_inset Formula $^{-1}$
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E$
+\end_inset
+
+ é o potencial da célula de corrosão (V).
+\end_layout
+
+\begin_layout Standard
+O efeito da concentração e da temperatura sobre o potencial é descrito pela equação de Nernst (FONTANA, 1986). No caso de uma reação geral 
+\begin_inset Formula $lL + mM \rightarrow rR + qQ$
+\end_inset
+
+, a equação de Nernst é dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E = E^{\circ} - \frac{RT}{nF} \ln\left( \frac{{a_{R}}^{r} \cdot {a_{Q}}^{q}}{{a_{L}}^{l} \cdot {a_{M}}^{m}} \right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E^{\circ}$
+\end_inset
+
+ é o potencial padrão (V);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R$
+\end_inset
+
+ é a constante universal dos gases (8,314 J mol
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ K
+\begin_inset Formula $^{-1}$
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ é a temperatura absoluta (K);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ é a atividade da espécie i.
+\end_layout
+
+\begin_layout Standard
+A 25 °C (298 K), a equação assume a forma simplificada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E = E^{\circ} - \frac{0{,}0591}{n} \log\left( \frac{{a_{R}}^{r} \cdot {a_{Q}}^{q}}{{a_{L}}^{l} \cdot {a_{M}}^{m}} \right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estes conceitos dão sustentação aos diagramas de Pourbaix, que mostram a relação entre potencial e pH e dividem as áreas de imunidade, corrosão e passivação. No caso do ferro, em meio ácido acontece dissolução ativa, enquanto em meios neutros a alcalinos pode haver passivação através de camadas de óxidos.
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pourbaix"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresenta um diagrama simplificado de potencial e pH para o sistema Fe – H₂O.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama simplificado de potencial e pH para o sistema Fe – H₂O
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pourbaix"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/pourbaix_fe_h2o.png
+	lyxscale 50
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Gentil, pág 116 (1996).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O pH entra no software por esta razão, quanto mais ácido o meio, maior será a agressividade. As linhas de equilíbrio dependentes apenas do pH têm a forma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E = E^{\circ} - 0{,}0591 \mathrm{pH}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Enquanto a termodinâmica indica se o processo de corrosão é possível de acontecer ou não, não dá para saber a velocidade que ela acontece. A corrosão depende de fatores cinéticos como, por exemplo, o transporte de massa, a energia de ativação, e a interface do metal com o meio.
+\end_layout
+
+\begin_layout Subsection
+Solubilidade dos gases e pressão parcial de CO₂
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:solubilidade-dos-gases-e-pressao-parcial-de-co2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segundo a lei de Henry, a quantidade de gás dissolvida em uma fase líquida é proporcional à pressão parcial do gás:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C_{CO_{2}} = k_{H} \cdot P_{CO_{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{CO_{2}}$
+\end_inset
+
+ é a concentração de CO₂ dissolvido;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k_{H}$
+\end_inset
+
+ é a constante de Henry, que depende da temperatura e do meio;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{CO_{2}}$
+\end_inset
+
+ é a pressão parcial do CO₂.
+\end_layout
+
+\begin_layout Standard
+A pressão parcial é obtida a partir da fração molar do gás na mistura e da pressão total:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P_{CO_{2}} = y_{CO_{2}} \cdot P
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em sua versão atual, a classe que define as propriedades do fluido recebe a concentração de CO₂ em ppm, diretamente, e utiliza a pressão total apenas para fins de seleção do inibidor. Quando a fração molar não é conhecida, adota-se a simplificação de usar o valor de CO₂ informado.
+\end_layout
+
+\begin_layout Subsection
+Efeito da temperatura
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:efeito-da-temperatura"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A influência da temperatura na velocidade das reações é modelada utilizando uma simplificação do modelo de Arrhenius, segundo o qual a velocidade das reações aumenta exponencialmente com a temperatura. O fator de temperatura previamente calculado é definido como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f_{T} = e^{bT}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b$
+\end_inset
+
+ é uma constante empírica, adotada como 0,02 °C
+\begin_inset Formula $^{-1}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ é a temperatura (°C).
+\end_layout
+
+\begin_layout Subsection
+Taxa de corrosão estimada
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:taxa-de-corrosao-estimada"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As taxas de corrosão base são obtidas a partir de um modelo empírico simples que inclui a concentração de CO₂, o efeito exponencial da temperatura e a acidez do meio. A forma funcional foi derivada das tendências relatadas na literatura de corrosão por CO₂ (DE WAARD; MILLIAMS, 1975; FONTANA, 1986): a taxa aumenta com a concentração de CO₂, aumenta com a temperatura e diminui com o aumento do pH.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+{CR}_{base} = {CO}_{2} \cdot e^{bT} \cdot (7 - \mathrm{pH})\label{eq:cr-base}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CR_{base}$
+\end_inset
+
+ é a taxa de corrosão base, em unidade relativa (adimensional);
+\end_layout
+
+\begin_layout Itemize
+CO₂ é a concentração de dióxido de carbono (ppm);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ é a temperatura (°C);
+\end_layout
+
+\begin_layout Itemize
+pH é o potencial hidrogeniônico;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $b$
+\end_inset
+
+ é a constante empírica (0,02).
+\end_layout
+
+\begin_layout Standard
+O termo 
+\begin_inset Formula $(7-pH)$
+\end_inset
+
+ representa o quanto o meio se distancia da neutralidade. Portanto, o modelo só funciona para pH menor que 7; quando o pH é igual a 7, a taxa estimada é zero e, acima disso, o termo fica negativo, então a validação dos dados deve limitar a faixa de pH (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+). Além disso, é necessário informar que a Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cr-base"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ não é o modelo original de De Waard e Milliams, que relaciona o logaritmo da taxa com o inverso da temperatura absoluta e com o logaritmo da pressão parcial de CO₂. Trata-se de uma expressão simplificada e didática, que gera as mesmas tendências qualitativas. Por ser relativa, a taxa não tem unidade física, e os limites de severidade da Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:tipo-e-severidade-da-corrosao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ foram estabelecidos para essa escala.
+\end_layout
+
+\begin_layout Subsection
+Tipo e severidade da corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:tipo-e-severidade-da-corrosao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O mecanismo de corrosão predominante é definido pela natureza do fluido e a sua intensidade pela velocidade com que o processo ocorre. As regras estão dispostas nas Tabelas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Classificação do tipo de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.2"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="6.9cm">
+<column alignment="block" valignment="top" width="8.6cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Condição
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Tipo de corrosão
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S > 10 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sulfídrica (
+\shape italic
+sour corrosion
+\shape default
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO₂ > 20 ppm (e H₂S ≤ 10 ppm)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Doce (
+\shape italic
+sweet corrosion
+\shape default
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Demais casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Branda (
+\shape italic
+mild
+\shape default
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Classificação da severidade pela taxa de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.3"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="6.8cm">
+<column alignment="center" valignment="top" width="4.4cm">
+<column alignment="center" valignment="top" width="4.4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Faixa de CR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Severidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Fator de severidade (
+\begin_inset Formula $F_{s}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CR < 10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Baixa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 ≤ CR < 50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CR ≥ 50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2,5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os limites (10 e 50) são parâmetros do modelo que podem ser modificados pelo usuário; eles foram utilizados como parâmetros de controle para o contexto escolar. O professor pode alterá-los para ajustar o nível de dificuldade dos problemas.
+\end_layout
+
+\begin_layout Standard
+Além dos parâmetros de gravidade, o modelo também considera parâmetros de temperatura (
+\begin_inset Formula $F_{T}$
+\end_inset
+
+) e de corrosividade (
+\begin_inset Formula $F_{c}$
+\end_inset
+
+) para determinar a velocidade e a quantidade (Tabelas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.4"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.5"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+). A taxa final é calculada da seguinte forma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+{CR}_{final} = {CR}_{base} \cdot F_{s} \cdot F_{T} \cdot F_{c}\label{eq:cr-final}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fator de temperatura
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.4"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="9.0cm">
+<column alignment="center" valignment="top" width="6.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Temperatura (°C)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+\begin_inset Formula $F_{T}$
+\end_inset
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+T < 40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40 ≤ T ≤ 80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+T > 80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026), com base na base teórica do projeto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fator de corrosividade
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.5"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="block" valignment="top" width="11.7cm">
+<column alignment="center" valignment="top" width="3.8cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Condição
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+\begin_inset Formula $F_{c}$
+\end_inset
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S > 10 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2,0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO₂ > 20 ppm (e H₂S ≤ 10 ppm)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Demais casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026), com base na base teórica do projeto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O efeito da temperatura indica que o inibidor perde eficiência quando aquecido. Ding et al. (2020) demonstraram que a quantidade de inibidor necessária para conseguir uma eficiência equivalente a 50 °C em relação a 25 °C é aproximadamente oito vezes maior, e não conseguiram observar qualquer tipo de inibição a 80 °C. Shamsa et al. (2022) mostraram que a hidrólise de um inibidor baseado em imidazolina aumenta com a temperatura, tendo uma meia-vida de 20,5 h a 70 °C e de 0,8 h a 120 °C. Os pontos de ruptura em 40 e 80 °C dividem assim três formas de atuação: bom desempenho, quantidade crescente e perda de eficiência do inibidor. Os valores 1,0; 1,3 e 1,8 são educativos e muito mais suaves do que as diferenças medidas nestas pesquisas. O aumento do fator acima de 80 °C se relaciona com o inibidor e não com a velocidade de desgaste do aço, que costuma diminuir nessa região pela formação de FeCO₃ (NEŠIĆ, 2007; LI et al., 2019).
+\end_layout
+
+\begin_layout Subsection
+Critérios de seleção do inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:criterios-de-selecao-do-inibidor"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A classe de inibidor é selecionada de maneira lógica e sequencial, sendo que o primeiro critério que for preenchido determina a classe (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.6"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+). O H₂S é o mais importante, pois o ambiente ácido necessita de proteção específica. Depois, são avaliadas as condições do inibidor orgânico, que cria um filme adsorvido e é recomendado para ambientes com CO₂ e pH baixo (SCHMITT, 1984; REVIE; UHLIG, 2008). Posteriormente, a salinidade alta sugere o inibidor catódico, que diminui a reação catódica. Se não houver nenhuma condição crítica, o inibidor geral é utilizado como opção padrão.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lógica de seleção da classe de inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.6"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="1.9cm">
+<column alignment="block" valignment="top" width="5.1cm">
+<column alignment="block" valignment="top" width="6.6cm">
+<column alignment="center" valignment="top" width="1.9cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Ordem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Classe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Critério
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Eficiência típica (η)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor para H₂S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S > 10 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,93
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor orgânico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO₂ > 20 ppm e pH < 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,85
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor catódico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salinidade > 15 000 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,80
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor geral
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nenhuma condição crítica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,70
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026), com base na base teórica do projeto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Eficiência do inibidor e adsorção
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:eficiencia-do-inibidor-e-adsorcao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A eficiência de um inibidor pode ser definida como sendo a diminuição relativa da taxa de corrosão que se consegue quando se utiliza um inibidor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\eta = \frac{{CR}_{sem} - {CR}_{com}}{{CR}_{sem}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\eta$
+\end_inset
+
+ é a eficiência do inibidor (decimal);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CR_{sem}$
+\end_inset
+
+ é a taxa de corrosão sem inibidor;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $CR_{com}$
+\end_inset
+
+ é a taxa de corrosão com inibidor.
+\end_layout
+
+\begin_layout Standard
+Na prática, as amplitudes de variação dos valores geralmente se encontram entre 0,70 e 0,95. O processo de formação do filme dos inibidores orgânicos pode ser modelado através da isoterma de adsorção de Langmuir, onde a área da superfície coberta θ aumenta conforme a concentração do inibidor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\theta = \frac{KC}{1 + KC}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta$
+\end_inset
+
+ é o grau de recobrimento da superfície (0 a 1);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K$
+\end_inset
+
+ é a constante de equilíbrio de adsorção;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C$
+\end_inset
+
+ é a concentração do inibidor.
+\end_layout
+
+\begin_layout Standard
+No software não se calcula a eficiência pela isoterma, mas a cada categoria de inibidor é dado um valor de eficiência como propriedade do objeto. No entanto, a isoterma é usada para explicar que a eficiência aumenta com a quantidade de dose até atingir um máximo, fenômeno que pode ser visto nos gráficos de eficiência em relação à quantidade de dose.
+\end_layout
+
+\begin_layout Subsection
+Modelo de dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:modelo-de-dosagem"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A dosagem estimada, em ppm, é obtida pela equação:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathrm{Dose} = \frac{K \cdot CR \cdot F_{s} \cdot F_{T} \cdot F_{c} \cdot F_{q}}{\eta}\label{eq:dose}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $K$
+\end_inset
+
+ é a constante empírica de ajuste (adotada como 0,1; faixa de referência de 0,05 a 0,2);
+\end_layout
+
+\begin_layout Itemize
+CR é a taxa de corrosão estimada;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F_{s}$
+\end_inset
+
+ é o fator de severidade (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F_{T}$
+\end_inset
+
+ é o fator de temperatura (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.4"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F_{c}$
+\end_inset
+
+ é o fator de corrosividade (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.5"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+);
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F_{q}$
+\end_inset
+
+ é o fator de vazão;
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\eta$
+\end_inset
+
+ é a eficiência do inibidor selecionado (decimal).
+\end_layout
+
+\begin_layout Standard
+O fator de vazão representa o efeito do escoamento sobre o filme protetor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+F_{q} = 1 + \frac{Q}{1000}\label{eq:fq}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onde:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Q$
+\end_inset
+
+ é a vazão (m
+\begin_inset Formula $^{3}$
+\end_inset
+
+/dia).
+\end_layout
+
+\begin_layout Standard
+A equação descreve quatro conceitos físicos: ambientes mais violentos exigem mais dose; altas temperaturas aumentam a velocidade das reações e a degradação química; vazões maiores ajudam a retirar o filme e precisam de mais produto; e inibidores melhores permitem usar menos dose. O valor de K e os fatores são calibrações de natureza empírica de caráter didático, que não se baseiam em experimentos.
+\end_layout
+
+\begin_layout Standard
+Para estimar a vazão do fluido foi usado um índice de velocidade do fluido, de forma que o filme protetor é removido pela velocidade do fluido, aumentando a dose de inibidor necessária (NEŠIĆ, 2007; GROYSMAN, 2017). O fator 
+\begin_inset Formula $F_{q}$
+\end_inset
+
+ = 1 + Q/1000 dobra a dose em 1.000 m
+\begin_inset Formula $^{3}$
+\end_inset
+
+/dia, vazão que em coluna de 
+\begin_inset Formula $2\,7/8''$
+\end_inset
+
+ representa aproximadamente 4 m/s, próxima da velocidade erosional de 4,3 m/s obtida pela API RP 14E para massa específica de 800 kg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+ e C = 100 (API, 1991; SVEDEMAN, 1995). A forma linear e o divisor 1000 são adotados por motivos didáticos.
+\end_layout
+
+\begin_layout Subsection
+Premissas e limitações do modelo
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:premissas-e-limitacoes-do-modelo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+O modelo é empírico e qualitativo, não substitui modelos validados experimentalmente nem estudos de campo, mas sim, auxilia no ensino;
+\end_layout
+
+\begin_layout Itemize
+A taxa de corrosão é relativa (adimensional) e válida para aço carbono em meios com pH inferior a 7;
+\end_layout
+
+\begin_layout Itemize
+A corrosão localizada, corrosão sob tensão, microbiológica e erosão-corrosão não são previstas, mas sim, citadas na análise de domínio;
+\end_layout
+
+\begin_layout Itemize
+Os fatores, limiares, a constante K e as eficiências são parâmetros de referência, e que podem ser alterados sem modificar a estrutura do programa;
+\end_layout
+
+\begin_layout Itemize
+O software escolhe uma 
+\series bold
+classe
+\series default
+ de inibidor, e não um produto comercial.
+\end_layout
+
+\begin_layout Section
+Fluxo geral de processamento
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fluxo-geral-de-processamento"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O processamento consiste em seis etapas interligadas: entrada de dados, análise das condições de corrosão, seleção do inibidor, cálculo da dosagem, apresentação dos resultados e geração de gráficos. Na fase de análise, além de checar os intervalos de operação, se estabelece qual é o tipo predominante de corrosão, calcula-se a velocidade da mesma e quantifica-se a severidade. Os gráficos mostram a comparação entre os fatores de severidade, a velocidade de corrosão e a dose em cada ponto para serem exibidos.
 \end_layout
 
 \begin_layout Section
 Identificação de pacotes – assuntos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Identificação-de-pacotes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-...aqui...
+A partir da análise do domínio, o sistema foi organizado em cinco pacotes, conforme mostra a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pacotes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+. Em cada um deles estão agrupadas as classes ou componentes cujas responsabilidades têm relação entre si. As setas tracejadas indicam as dependências existentes entre eles:
 \end_layout
 
 \begin_layout Itemize
-Nome Pacote: Descrição.
- O que é, para que serve, como se relaciona com os demais pacotes.
+Aplicação: reúne os componentes que são responsáveis por inicializar e gerenciar o sistema, incluindo a função principal (main), a interface gráfica (main_gui e MainWindow) e o simulador (SimuladorCorrosao)
 \end_layout
 
 \begin_layout Itemize
-Nome Pacote: Descrição.
- O que é, para que serve, como se relaciona com os demais pacotes.
+Visualização: contém a classe GraficoResultados, que é responsável por exibir os resultados obtidos na simulação realizada no software.
 \end_layout
 
 \begin_layout Itemize
-Nome Pacote: Descrição.
- O que é, para que serve, como se relaciona com os demais pacotes.
+Dosagem: reúne a classe CalculadoraDosagem, responsável por estimar a dosagem do inibidor com base nos parâmetros fornecidos no momento de supor o cenário, nas informações da análise de corrosão e nas características do inibidor selecionado.
+\end_layout
+
+\begin_layout Itemize
+Inibidores: reúne a classe abstrata Inibidor, suas implementações específicas (InibidorOrganico, InibidorH2S, InibidorCatodico e InibidorGeral) e a classe SeletorInibidor, que é responsável por escolher o tipo de inibidor de acordo com os critérios estabelecidos no software.
+\end_layout
+
+\begin_layout Itemize
+Modelo: reúne as classes Fluido e AnaliseCorrosao, que representam, respectivamente, as propriedades do fluido e as informações relacionadas à análise do processo corrosivo
 \end_layout
 
 \begin_layout Section
@@ -278,31 +2586,61 @@ name "sec: Diagrama de pacotes – assuntos"
 \end_layout
 
 \begin_layout Standard
-...aqui...
-\end_layout
-
-\begin_layout Standard
-coloque aqui texto falando do diagrama de pacotes, referencie a figura.
- Veja Figura 
+A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Diagrama-de-Pacotes"
+reference "fig:pacotes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
 \end_inset
 
-.
+ apresenta o diagrama de pacotes do sistema, evidenciando os cinco pacotes identificados na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Identificação-de-pacotes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e as dependências entre eles.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
+alignment document
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de pacotes do sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pacotes"
+
+\end_inset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename imagens/DiagramaDeComponentes-Assuntos-Pacotes.png
+	filename imagens/diagrama_pacotes.png
 	lyxscale 50
 	width 100text%
 
@@ -312,17 +2650,8 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Diagrama de Pacotes
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Diagrama-de-Pacotes"
-
-\end_inset
-
-
+\align center
+Fonte: Autoria própria (2026).
 \end_layout
 
 \end_inset
@@ -330,25 +2659,8 @@ name "fig:Diagrama-de-Pacotes"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-Nota: 
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Não perca de vista a visão do todo; do projeto de engenharia como um todo.
- Cada capítulo, cada seção, cada parágrafo deve se encaixar.
- Este é um diferencial fundamental do engenheiro em relação ao técnico,
- a capacidade de desenvolver projetos, de ver o todo e suas diferentes partes,
- de modelar processos/sistemas/produtos de engenharia.
+\begin_layout Standard
+O pacote Aplicação tem dependências com os pacotes Visualização, Dosagem e Inibidores, refletindo sua função de coordenador a execução do sistema. O pacote Visualização possui dependência com o pacote Inibidores para acessar as informações necessárias para geração de resultado, em contrapartida o pacote Dosagem utiliza recursos dos pacotes Inibidores e Modelo para que possa realizar os cálculos. Por fim, o pacote Inibidores, por sua vez, possui dependência com o pacote Modelo, visto que os critérios de seleção consideram propriedades do fluido. Dessa forma, o diagrama de pacotes evidencia a separação entre a coordenação da aplicação, a apresentação de resultados, o cálculo da dosagem e a seleção dos inibidores.
 \end_layout
 
 \end_body

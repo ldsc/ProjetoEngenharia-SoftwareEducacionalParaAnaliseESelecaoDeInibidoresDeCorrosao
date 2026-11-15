@@ -66,8 +66,8 @@
 \paperfontsize 12
 \spacing onehalf
 \use_hyperref true
-\pdf_title "Projeto Engenharia: Desenvolvimento Software Aplicado XXXXX"
-\pdf_author "Nome do Autor"
+\pdf_title "Manual do Desenvolvedor: Software Educacional para Análise e Seleção de Inibidores de Corrosão"
+\pdf_author "Laysla Nicoli Pereira da Rocha; Professor André Duarte Bueno"
 \pdf_subject "Descrever assunto"
 \pdf_keywords "Copiar do resumo"
 \pdf_bookmarks true
@@ -151,6 +151,18 @@ literal "true"
 \begin_inset CommandInset include
 LatexCommand include
 filename "Cap0-Capa-ProjetoDisciplina.lyx"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset include
+LatexCommand include
+filename "Cap0b-ResumoAbstract.lyx"
 literal "true"
 
 \end_inset
@@ -451,21 +463,6 @@ rhead{}
 LatexCommand bibtex
 bibfiles "bibliografia"
 options "apalike"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align block
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-os arquivos a seguir contém informações para ajudar quem esta fazendo o trabalho;
- você deve apagá-los.
-\end_layout
 
 \end_inset
 
