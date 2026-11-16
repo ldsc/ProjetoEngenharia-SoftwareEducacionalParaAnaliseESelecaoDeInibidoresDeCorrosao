@@ -1,0 +1,605 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+%-----------------------------------------------------------------
+% Para incluir formatações especificas para apresentações
+%-----------------------------------------------------------------
+%https://tex.stackexchange.com/questions/5894/latex-conditional-expression
+% Abaixo inserimos o pacote etoolbox que permite a gestão de if..else
+\usepackage{etoolbox}
+% Cria o flag
+\newtoggle{FormatoApresentacaoTRUE}
+\newtoggle{IncluirBibliografiaNoCapituloTRUE}
+%Seta o flag - deixe true se for para gerar apresentação de aula e false para formato livro
+%\toggletrue{FormatoApresentacaoTRUE}
+\togglefalse{FormatoApresentacaoTRUE}
+%\toggletrue{IncluirBibliografiaNoCapituloTRUE}
+\togglefalse{IncluirBibliografiaNoCapituloTRUE}
+
+% Para usar no meio dos arquivos do lyx crie um comando latex e cole o texto abaixo
+%\iftoggle{FormatoApresentacaoTRUE}{..verdadeiro..}{..falso..}
+%\iftoggle{FormatoApresentacaoTRUE}{\newpage}{}
+
+%---------------------------------------------------------------
+% Para adicionar/excluir uma seção inteira
+%---------------------------------------------------------------
+%https://tex.stackexchange.com/questions/193295/lyx-conditional-sections
+% Abaixo criamos um novo if
+\newif\ifIncluirSecaoProgramacaoAvancada
+%\FormatoApresentacaoWidefalse
+\IncluirSecaoProgramacaoAvancadatrue
+% Para usar
+% \ifIncluirSecaoProgramacaoAvancada no início do blobo
+% \fi para finalizar o bloco
+
+%---------------------------------------------------------------
+%GERAL
+%---------------------------------------------------------------
+\usepackage{verbatim}
+%%\usepackage{algorithm}
+\usepackage{fancyvrb}
+\usepackage{keyval} 
+\usepackage{indentfirst}
+%\usepackage{color}
+\usepackage{xcolor}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+\definecolor{BLACK}{rgb}{0,0,0}%   rgb color model
+\definecolor{BLUE}{rgb}{0,0,1}%   rgb color model
+
+%Informa que vai usar o pacote listings, disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+
+%Define um novo comando, chamado lst
+%observe que lst chama o comando  lstinputlisting.
+\newcommand{\lst}[2]{%
+    \noindent\rule[-1ex]{\textwidth}{0.3mm}\vspace{-1ex}
+    \lstinputlisting[caption={#2},label={#1},stringspaces=false,frame={tb},lineskip=-1pt,extendedchars=true,%
+    basicstyle=\footnotesize\tt,labelstep=1,labelstyle=\tiny,indent=2em,language=Java,breaklines]{#1}
+    \vspace{1ex}%
+}
+
+%\listfiles
+%\usepackage[]{hyperref}
+
+%\usepackage{mathptmx}  % instead of package times
+
+%\usepackage[scaled=0.9]{helvet} % or [scaled=0.92], if you like
+
+%% Pacote de citações para formato abnt
+%%\usepackage[num]{abntcite}
+%%\usepackage[alf]{abntcite}
+
+%%\usepackage[cam,a4,center]{crop}
+%% a4 é o tamanho físico
+%% center é para centralizar
+%% cam inclui quatro marcas diferentes
+
+%%\usepackage[cam,width=20truecm,height=28truecm,center]{crop}
+%\usepackage[cam,width=18truecm,height=26truecm,center]{crop}
+
+%\noindent
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introdução
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Introdução"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+fancyhead[L]{Desenvolvimento do Projeto de Engenharia - Projeto Detalhado}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyhead[C]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyhead[R]{
+\backslash
+thepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyfoot[L]{Profa.
+ Georgiana Feitosa da Cruz}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyfoot[C]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyfoot[R]{
+\backslash
+today}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Jamais retire o 
+\backslash
+today ele vai colocar data no material impresso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Apresenta-se aqui a proposta de desenvolvimento do software Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+ Um software aplicado à engenharia de petróleo e de corrosão que,
+ a partir dos dados de um cenário de produção (pH,
+ CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+,
+ H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S,
+ salinidade,
+ temperatura,
+ pressão e vazão),
+ estima a taxa de corrosão,
+ classifica o tipo e a severidade,
+ seleciona a classe de inibidor e estima a dosagem em ppm,
+ apresentando os resultados de forma numérica e gráfica.
+\end_layout
+
+\begin_layout Section
+Identificação da Proposta
+\end_layout
+
+\begin_layout Subsubsection
+Número da proposta
+\end_layout
+
+\begin_layout Itemize
+LDSC-2026-X-PXX (número a ser informado pelo professor)
+\end_layout
+
+\begin_layout Subsubsection
+Tipo de investimento /divulgação
+\end_layout
+
+\begin_layout Itemize
+PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE 
+\end_layout
+
+\begin_layout Subsubsection
+Tipo de instrumento contratual
+\end_layout
+
+\begin_layout Itemize
+Trabalho de disciplina (Trabalho de Conclusão de Curso)
+\end_layout
+
+\begin_layout Section
+Identificação do Projeto 
+\end_layout
+
+\begin_layout Subsubsection
+Título do projeto
+\end_layout
+
+\begin_layout Itemize
+"Software Educacional para Análise e Seleção de Inibidores de Corrosão"
+\end_layout
+
+\begin_layout Subsubsection
+Palavras-chave
+\end_layout
+
+\begin_layout Itemize
+Corrosão;
+ Inibidores de corrosão;
+ Software educacional;
+ Programação orientada a objetos;
+ C++.
+\end_layout
+
+\begin_layout Section
+Identificação da Universidade,
+ Instituições e Empresas Participantes
+\end_layout
+
+\begin_layout Subsection
+Universidade
+\end_layout
+
+\begin_layout Itemize
+UNIVERSIDADE ESTADUAL DO NORTE FLUMINENSE DARCY RIBEIRO/UENF
+\end_layout
+
+\begin_layout Itemize
+CENTRO DE CIÊNCIA E TECNOLOGIA - CCT
+\end_layout
+
+\begin_layout Itemize
+DEPARTAMENTO DE ENGENHARIA DE PETRÓLEO - LENEP (Laboratório de Engenharia e Exploração de Petróleo)
+\end_layout
+
+\begin_layout Itemize
+SETOR DE MODELAGEM MATEMÁTICA COMPUTACIONAL
+\end_layout
+
+\begin_layout Itemize
+Representante pela universidade:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Coordenador do curso e da disciplina:
+ Prof.
+ Dr.
+ André Duarte Bueno - LENEP/CCT/UENF.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Instituição/Fundação
+\end_layout
+
+\begin_layout Itemize
+Não se aplica.
+\end_layout
+
+\begin_layout Subsection
+Empresa
+\end_layout
+
+\begin_layout Itemize
+Não se aplica.
+ O projeto é de natureza acadêmica e o código será disponibilizado como software livre,
+ de acordo com as normas da disciplina.
+\end_layout
+
+\begin_layout Subsection
+Equipe
+\end_layout
+
+\begin_layout Itemize
+Laysla Nicoli Pereira da Rocha (layslarocha@lenep.uenf.br)
+\end_layout
+
+\begin_layout Itemize
+Representante pela equipe:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Estudante:
+ Laysla Nicoli Pereira da Rocha 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Resumo
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Resumo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A corrosão se apresenta como um dos maiores problemas de integridade de equipamentos na indústria de óleo e gás,
+ e a injeção de inibidores se apresenta como uma das maiores formas de combater a corrosão.
+ A escolha de um inibidor e de sua dosagem dependem da análise conjunta de variáveis,
+ tais como pH,
+ concentrações de CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+ e H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S,
+ temperatura,
+ pressão,
+ salinidade e vazão,
+ o que constitui um problema para um estudante em formação.
+ Este trabalho apresenta o design e a implementação de um software educacional em C++,
+ com programação orientada a objetos,
+ para a análise de corrosão e seleção de classes de inibidores em sistemas de produção de óleo.
+ Com base nos dados de um cenário,
+ o programa valida os dados,
+ estima a taxa de corrosão,
+ através de um modelo empírico simples,
+ classifica o tipo e a severidade,
+ escolhe a classe de inibidor,
+ de acordo com critérios sequenciais,
+ estima a dosagem em ppm e apresenta os resultados de maneira numérica e gráfica.
+ O sistema foi modelado em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades) e foi organizado em cinco pacotes,
+ sendo que a hierarquia de inibidores é polimórfica e pode ser estendida.
+ A validação é realizada em um ambiente controlado,
+ por meio de cenários de teste que são comparados com cálculos independentes e com as tendências da literatura.
+ O software tem objetivo didático,
+ educacional e foi desenvolvido como uma ferramenta auxiliar à disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
+\end_layout
+
+\begin_layout Standard
+Palavras-chave:
+ Corrosão.
+ Inibidores de corrosão.
+ Software educacional.
+ Programação orientada a objetos.
+ C++.
+\end_layout
+
+\begin_layout Section
+Escopo do Problema 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Escopo-do-Problema"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A integridade,
+ segurança e confiabilidade dos sistemas de produção de petróleo são prejudicadas pela corrosão.
+ Tubos,
+ válvulas,
+ revestimentos e cabeças de poço estão expostos a um ambiente corrosivo,
+ o que leva a altos gastos com manutenção,
+ aumento do risco de falhas estruturais e possíveis acidentes ambientais.
+ Apesar dos avanços no monitoramento e na prevenção,
+ a gestão da corrosão continua sendo um dos principais problemas da engenharia de poços,
+ e a injeção de inibidores é uma das formas de mitigação mais utilizadas.
+\end_layout
+
+\begin_layout Itemize
+No âmbito acadêmico,
+ a disciplina opcional Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550) fornece os conhecimentos básicos sobre os mecanismos de corrosão e sua prevenção,
+ mas ainda não há uma ferramenta computacional educativa que permita ao estudante integrar esses conhecimentos em um único ambiente de simulação,
+ alterando as condições de um cenário e observando os resultados da avaliação da corrosão.
+\end_layout
+
+\begin_layout Itemize
+O desafio tecnológico é transformar o conhecimento teórico da engenharia de corrosão em um modelo computacional organizado para a sala de aula:
+ validar os dados do usuário,
+ calcular a taxa de corrosão,
+ identificar tipo e severidade,
+ escolher a classe de inibidor,
+ estimar a dosagem e mostrar os resultados de forma numérica e gráfica.
+\end_layout
+
+\begin_layout Itemize
+Delimitação:
+ não fazem parte do escopo a previsão de corrosão localizada (por exemplo,
+ em fendas ou por tensão) nem a consulta a bases comerciais de inibidores.
+ O modelo é simples e empírico,
+ e os resultados são estimativas educacionais,
+ que não devem ser utilizadas como recomendação para aplicação em campo.
+ A ferramenta não substitui livros,
+ aulas,
+ ensaios de laboratório ou programas industriais.
+\end_layout
+
+\begin_layout Itemize
+Maturidade pretendida:
+ TRL entre 3 e 4 (validação em ambiente controlado,
+ com cenários fictícios) e CRL entre 2 e 3 (sem objetivo de comercialização;
+ código distribuído como software livre).
+\end_layout
+
+\begin_layout Section
+Objetivos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Objetivos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os objetivos deste projeto de engenharia são:
+\end_layout
+
+\begin_layout Itemize
+Objetivo geral:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Criar um programa educacional para análise e escolha de inibidores de corrosão,
+ empregando C++ e o modelo de programação orientado a objetos,
+ que incorpore propriedades físico-químicas dos fluidos e condições operacionais de sistemas de produção de petróleo para avaliar a velocidade de corrosão do ambiente,
+ definir sua gravidade,
+ sugerir uma categoria de inibidor apropriada ao contexto e prever a dose necessária,
+ exibindo os resultados de maneira numérica e visual ao usuário.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Objetivos específicos:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Reexaminar os princípios da corrosão,
+ os ambientes corrosivos da produção de petróleo e os modos de atuação dos inibidores que servem de base para o modelo computacional;
+\end_layout
+
+\begin_layout Itemize
+Identificar os requisitos do sistema e mapeá-lo em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades);
+\end_layout
+
+\begin_layout Itemize
+Codificar em C++ os componentes de armazenamento e verificação dos dados do fluido,
+ avaliação de corrosão,
+ escolha do inibidor,
+ cálculo da dose e produção de gráficos e resultados;
+\end_layout
+
+\begin_layout Itemize
+Organizar o código por herança e polimorfismo,
+ de forma que novas classes de inibidores possam ser adicionadas futuramente sem reescrever o programa;
+\end_layout
+
+\begin_layout Itemize
+Validar o programa através de cenários de teste,
+ comparando as saídas com cálculos independentes e com as tendências relatadas na literatura;
+\end_layout
+
+\begin_layout Itemize
+Associar o uso do programa ao conteúdo da disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550),
+ sugerindo cenários para aulas e exercícios.
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
