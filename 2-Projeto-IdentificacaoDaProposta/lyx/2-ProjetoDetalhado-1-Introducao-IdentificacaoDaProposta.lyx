@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -132,11 +132,19 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
 \use_formatted_ref 0
 \use_minted 0
 \use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Índice
 \shortcut idx
 \color #008000
@@ -168,6 +176,7 @@
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -189,20 +198,17 @@ status open
 
 \begin_layout Plain Layout
 
-
 \backslash
 fancyhead[L]{Desenvolvimento do Projeto de Engenharia - Projeto Detalhado}
 \end_layout
 
 \begin_layout Plain Layout
 
-
 \backslash
 fancyhead[C]{}
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 fancyhead[R]{
@@ -212,20 +218,18 @@ thepage}
 
 \begin_layout Plain Layout
 
-
 \backslash
-fancyfoot[L]{NomeProfessor-Cliente}
+fancyfoot[L]{Profa.
+ Georgiana Feitosa da Cruz}
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 fancyfoot[C]{}
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 fancyfoot[R]{
@@ -234,7 +238,6 @@ today}
 \end_layout
 
 \begin_layout Plain Layout
-
 
 \backslash
 pagenumbering{arabic}
@@ -258,34 +261,26 @@ today ele vai colocar data no material impresso
 \end_layout
 
 \begin_layout Standard
-Apresenta-se aqui a proposta de desenvolvimento do software XX_nome_XX.
- Um software aplicado a engenharia de petróleo e que visa ...descrever.
- em um parágrafo super resumido.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTE que este capítulo de introdução deve ser uma cópia do capítulo de introdução ao pré-projeto,
- mas agora vocês tiveram tempo para detalhar diversas informações da proposta;
-\end_layout
-
-\begin_layout Plain Layout
-Coloque aqui todas as novidades e atualizações melhorando o escopo/resumo/objetivos.
-\end_layout
-
-\begin_layout Plain Layout
-Ou seja,
- o projeto detalhado,
- como o nome diz,
- deve ser detalhado.
-\end_layout
-
+Apresenta-se aqui a proposta de desenvolvimento do software Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+ Um software aplicado à engenharia de petróleo e de corrosão que,
+ a partir dos dados de um cenário de produção (pH,
+ CO
+\begin_inset Formula $_{2}$
 \end_inset
 
+,
+ H
+\begin_inset Formula $_{2}$
+\end_inset
 
+S,
+ salinidade,
+ temperatura,
+ pressão e vazão),
+ estima a taxa de corrosão,
+ classifica o tipo e a severidade,
+ seleciona a classe de inibidor e estima a dosagem em ppm,
+ apresentando os resultados de forma numérica e gráfica.
 \end_layout
 
 \begin_layout Section
@@ -297,19 +292,7 @@ Número da proposta
 \end_layout
 
 \begin_layout Itemize
-LDSC-2023-1-P50
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Numero informado pelo professor,
- leva em conta o número de projetos desenvolvidos no LDSC,
- ano e semestre
-\end_layout
-
-\end_inset
-
-
+LDSC-2026-X-PXX (número a ser informado pelo professor)
 \end_layout
 
 \begin_layout Subsubsection
@@ -317,7 +300,7 @@ Tipo de investimento /divulgação
 \end_layout
 
 \begin_layout Itemize
-PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE - Versão 2 
+PROJETO DE PESQUISA E DESENVOLVIMENTO / DESENVOLVIMENTO DE SOFTWARE 
 \end_layout
 
 \begin_layout Subsubsection
@@ -325,18 +308,7 @@ Tipo de instrumento contratual
 \end_layout
 
 \begin_layout Itemize
-Trabalho de disciplina
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ex:
- Termo de Cooperação / Convênio
-\end_layout
-
-\end_inset
-
-
+Trabalho de disciplina (Trabalho de Conclusão de Curso)
 \end_layout
 
 \begin_layout Section
@@ -344,11 +316,11 @@ Identificação do Projeto
 \end_layout
 
 \begin_layout Subsubsection
-Título do projeto 
+Título do projeto
 \end_layout
 
 \begin_layout Itemize
-"Título do projeto aqui"
+"Software Educacional para Análise e Seleção de Inibidores de Corrosão"
 \end_layout
 
 \begin_layout Subsubsection
@@ -356,7 +328,11 @@ Palavras-chave
 \end_layout
 
 \begin_layout Itemize
-...coloque aqui lista de palavras chaves - até 5...
+Corrosão;
+ Inibidores de corrosão;
+ Software educacional;
+ Programação orientada a objetos;
+ C++.
 \end_layout
 
 \begin_layout Section
@@ -377,21 +353,11 @@ CENTRO DE CIÊNCIA E TECNOLOGIA - CCT
 \end_layout
 
 \begin_layout Itemize
-DEPARTAMENTO DE ENGENHARIA DE PETRÓLEO - LENEP
+DEPARTAMENTO DE ENGENHARIA DE PETRÓLEO - LENEP (Laboratório de Engenharia e Exploração de Petróleo)
 \end_layout
 
 \begin_layout Itemize
 SETOR DE MODELAGEM MATEMÁTICA COMPUTACIONAL
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ADICIONE O Nome dos demais setores envolvidos
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -400,8 +366,10 @@ Representante pela universidade:
 
 \begin_deeper
 \begin_layout Itemize
-Professor(a):
- Nome/email/telefone.
+Coordenador do curso e da disciplina:
+ Prof.
+ Dr.
+ André Duarte Bueno - LENEP/CCT/UENF.
 \end_layout
 
 \end_deeper
@@ -410,58 +378,25 @@ Instituição/Fundação
 \end_layout
 
 \begin_layout Itemize
-Nome instituição se houver.
+Não se aplica.
 \end_layout
 
-\begin_layout Itemize
-Representante da instituição/fundação:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Professor(a):
- Nome/email/telefone.
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
 Empresa
 \end_layout
 
 \begin_layout Itemize
-Nome empresa se houver.
+Não se aplica.
+ O projeto é de natureza acadêmica e o código será disponibilizado como software livre,
+ de acordo com as normas da disciplina.
 \end_layout
 
-\begin_layout Itemize
-Dados da empresa (CNPj,
- contatos).
-\end_layout
-
-\begin_layout Itemize
-Representante pela empresa:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Engenheiro(a):
- Nome/email/telefone.
-\end_layout
-
-\end_deeper
 \begin_layout Subsection
 Equipe
 \end_layout
 
 \begin_layout Itemize
-Nome aluno/email/telefone.
-\end_layout
-
-\begin_layout Itemize
-Nome aluno/email/telefone.
-\end_layout
-
-\begin_layout Itemize
-Nome aluno/email/telefone.
+Laysla Nicoli Pereira da Rocha (layslarocha@lenep.uenf.br)
 \end_layout
 
 \begin_layout Itemize
@@ -471,7 +406,7 @@ Representante pela equipe:
 \begin_deeper
 \begin_layout Itemize
 Estudante:
- Nome/email/telefone.
+ Laysla Nicoli Pereira da Rocha 
 \end_layout
 
 \end_deeper
@@ -486,14 +421,54 @@ name "sec:Resumo"
 
 \end_layout
 
-\begin_layout Itemize
-Limite de 500 palavras,
- então seja bem direto!
+\begin_layout Standard
+A corrosão se apresenta como um dos maiores problemas de integridade de equipamentos na indústria de óleo e gás,
+ e a injeção de inibidores se apresenta como uma das maiores formas de combater a corrosão.
+ A escolha de um inibidor e de sua dosagem dependem da análise conjunta de variáveis,
+ tais como pH,
+ concentrações de CO
+\begin_inset Formula $_{2}$
+\end_inset
+
+ e H
+\begin_inset Formula $_{2}$
+\end_inset
+
+S,
+ temperatura,
+ pressão,
+ salinidade e vazão,
+ o que constitui um problema para um estudante em formação.
+ Este trabalho apresenta o design e a implementação de um software educacional em C++,
+ com programação orientada a objetos,
+ para a análise de corrosão e seleção de classes de inibidores em sistemas de produção de óleo.
+ Com base nos dados de um cenário,
+ o programa valida os dados,
+ estima a taxa de corrosão,
+ através de um modelo empírico simples,
+ classifica o tipo e a severidade,
+ escolhe a classe de inibidor,
+ de acordo com critérios sequenciais,
+ estima a dosagem em ppm e apresenta os resultados de maneira numérica e gráfica.
+ O sistema foi modelado em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades) e foi organizado em cinco pacotes,
+ sendo que a hierarquia de inibidores é polimórfica e pode ser estendida.
+ A validação é realizada em um ambiente controlado,
+ por meio de cenários de teste que são comparados com cálculos independentes e com as tendências da literatura.
+ O software tem objetivo didático,
+ educacional e foi desenvolvido como uma ferramenta auxiliar à disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
 \end_layout
 
-\begin_layout Itemize
-Escreva no final,
- depois de escrever todo o resto.
+\begin_layout Standard
+Palavras-chave:
+ Corrosão.
+ Inibidores de corrosão.
+ Software educacional.
+ Programação orientada a objetos.
+ C++.
 \end_layout
 
 \begin_layout Section
@@ -508,34 +483,51 @@ name "sec:Escopo-do-Problema"
 \end_layout
 
 \begin_layout Itemize
-Definir o escopo do problema de engenharia
-\begin_inset Foot
-status open
-
-\begin_layout Itemize
-problemas vinculados à:
- i) engenharia de petróleo,
- ii) algoritmos computacionais,
- iii) sistemas de software
-\end_layout
-
-\end_inset
-
-,
- a ideia geral.
- Destacar sua importância/relevância.
+A integridade,
+ segurança e confiabilidade dos sistemas de produção de petróleo são prejudicadas pela corrosão.
+ Tubos,
+ válvulas,
+ revestimentos e cabeças de poço estão expostos a um ambiente corrosivo,
+ o que leva a altos gastos com manutenção,
+ aumento do risco de falhas estruturais e possíveis acidentes ambientais.
+ Apesar dos avanços no monitoramento e na prevenção,
+ a gestão da corrosão continua sendo um dos principais problemas da engenharia de poços,
+ e a injeção de inibidores é uma das formas de mitigação mais utilizadas.
 \end_layout
 
 \begin_layout Itemize
-Definir a abrangência,
- delimintando o assunto (para que caiba no prazo de até 24 meses).
- 
+No âmbito acadêmico,
+ a disciplina opcional Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550) fornece os conhecimentos básicos sobre os mecanismos de corrosão e sua prevenção,
+ mas ainda não há uma ferramenta computacional educativa que permita ao estudante integrar esses conhecimentos em um único ambiente de simulação,
+ alterando as condições de um cenário e observando os resultados da avaliação da corrosão.
 \end_layout
 
 \begin_layout Itemize
-Situá-lo no tempo e no espaço.
- Situá-lo em relação a outros concorrentes (sistemas similares,
- como softwares similares).
+O desafio tecnológico é transformar o conhecimento teórico da engenharia de corrosão em um modelo computacional organizado para a sala de aula:
+ validar os dados do usuário,
+ calcular a taxa de corrosão,
+ identificar tipo e severidade,
+ escolher a classe de inibidor,
+ estimar a dosagem e mostrar os resultados de forma numérica e gráfica.
+\end_layout
+
+\begin_layout Itemize
+Delimitação:
+ não fazem parte do escopo a previsão de corrosão localizada (por exemplo,
+ em fendas ou por tensão) nem a consulta a bases comerciais de inibidores.
+ O modelo é simples e empírico,
+ e os resultados são estimativas educacionais,
+ que não devem ser utilizadas como recomendação para aplicação em campo.
+ A ferramenta não substitui livros,
+ aulas,
+ ensaios de laboratório ou programas industriais.
+\end_layout
+
+\begin_layout Itemize
+Maturidade pretendida:
+ TRL entre 3 e 4 (validação em ambiente controlado,
+ com cenários fictícios) e CRL entre 2 e 3 (sem objetivo de comercialização;
+ código distribuído como software livre).
 \end_layout
 
 \begin_layout Section
@@ -555,94 +547,57 @@ Os objetivos deste projeto de engenharia são:
 
 \begin_layout Itemize
 Objetivo geral:
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Descreva aqui o objetivo geral do projeto de engenharia,
- incluindo vínculos com engenharia de petróleo e com modelagem matemática computacional (ideia de lógica,
- algoritmos,...).
-\end_layout
-
-\begin_layout Itemize
-Desenvolver um projeto de engenharia de software para ...[.....descrever de forma clara,
- direta,
- objetiva,
- o objetivo geral do software].
+Criar um programa educacional para análise e escolha de inibidores de corrosão,
+ empregando C++ e o modelo de programação orientado a objetos,
+ que incorpore propriedades físico-químicas dos fluidos e condições operacionais de sistemas de produção de petróleo para avaliar a velocidade de corrosão do ambiente,
+ definir sua gravidade,
+ sugerir uma categoria de inibidor apropriada ao contexto e prever a dose necessária,
+ exibindo os resultados de maneira numérica e visual ao usuário.
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
 Objetivos específicos:
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Modelar física e matematicamente o problema.
+Reexaminar os princípios da corrosão,
+ os ambientes corrosivos da produção de petróleo e os modos de atuação dos inibidores que servem de base para o modelo computacional;
 \end_layout
 
 \begin_layout Itemize
-Modelagem estática do software (diagramas de caso de uso,
- de pacotes,
- de classes).
+Identificar os requisitos do sistema e mapeá-lo em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades);
 \end_layout
 
 \begin_layout Itemize
-Modelagem dinâmica do software (desenvolver algoritmos e diagramas exemplificando os fluxos de processamento).
+Codificar em C++ os componentes de armazenamento e verificação dos dados do fluido,
+ avaliação de corrosão,
+ escolha do inibidor,
+ cálculo da dose e produção de gráficos e resultados;
 \end_layout
 
 \begin_layout Itemize
-Calcular XXX[.....descrever de forma clara,
- direta,
- objetiva,
- cada objetivo específico,
- cada parte do software].
+Organizar o código por herança e polimorfismo,
+ de forma que novas classes de inibidores possam ser adicionadas futuramente sem reescrever o programa;
 \end_layout
 
 \begin_layout Itemize
-Calcular XXX[.....descrever de forma clara,
- direta,
- objetiva,
- cada objetivo específico,
- cada parte do software].
+Validar o programa através de cenários de teste,
+ comparando as saídas com cálculos independentes e com as tendências relatadas na literatura;
 \end_layout
 
 \begin_layout Itemize
-Simular (realizar simulações para teste do software desenvolvido).
-\end_layout
-
-\begin_layout Itemize
-Implementar manual simplificado de uso do software.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-No pré-projeto vocês colocaram os objetivos específicos;
- depois houve uma prazo para análise pelo coordenador e gerente técnico;
-\end_layout
-
-\begin_layout Plain Layout
-neste meio tempo novas análises foram feitas e os objetivos específicos puderão ser mais bem detalhados;
-\end_layout
-
-\begin_layout Plain Layout
-Coloque aqui este detalhamento.
-\end_layout
-
-\end_inset
-
-
+Associar o uso do programa ao conteúdo da disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550),
+ sugerindo cenários para aulas e exercícios.
 \end_layout
 
 \end_deeper
