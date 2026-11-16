@@ -26,7 +26,7 @@
 \usepackage{listings}
 \end_preamble
 \use_default_options false
-\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
+\master 3-Projeto-ModelosDeEngenharia-Master.lyx
 \maintain_unincluded_children false
 \language brazilian
 \language_package auto
@@ -117,1212 +117,132 @@ name "chap:Projeto-do-Sistema"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-lhead{
-\backslash
-thechapter - Projeto} 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Neste capítulo do projeto de engenharia veremos questões associadas ao projeto
- do sistema, incluindo protocolos, recursos, plataformas suportadas, inplicações
- nos diagramas feitos anteriormente, diagramas de componentes e implantação.
- Na segunda parte revisamos os diagramas levando em conta as decisões do
- projeto do sistema.
+Neste capítulo apresentam-se as decisões de projeto do sistema (plataforma, linguagem, bibliotecas, controle, tratamento de erros e entrada e saída de dados) e o projeto orientado a objeto, que ajusta o modelo de análise à plataforma escolhida.
 \end_layout
 
 \begin_layout Section
 Projeto do Sistema
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Projeto do sistema
 \end_layout
 
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Projeto-do-sistema"
-
-\end_inset
-
-
+\begin_layout Subsection
+Plataforma, linguagem e bibliotecas
 \end_layout
 
 \begin_layout Standard
-Depois da análise orientada a objeto desenvolve-se o projeto do sistema,
- qual envolve etapas como a definição dos protocolos, da interface API,
- o uso de recursos, a subdivisão do sistema em subsistemas, a alocação dos
- subsistemas ao hardware e a seleção das estruturas de controle, a seleção
- das plataformas do sistema, das bibliotecas externas, dos padrões de projeto,
- além da tomada de decisões conceituais e políticas que formam a infraestrutura
- do projeto.
+O software educacional foi escrito na linguagem de programação C++ e, utilizando o paradigma de programação orientada a objetos (POO), as funções foram distribuídas entre diferentes classes, cada uma com sua respectiva responsabilidade. A arquitetura da solução está organizada em módulos: caracterização do fluido, análise de corrosão, escolha de inibidores, determinação da dose e visualização dos resultados. A interface com o usuário foi criada com o Qt 6 usando o componente Qt Widgets, enquanto os gráficos com os resultados são exibidos no interior do próprio programa. Os cálculos são efetuados com o tipo de dados ‘double’, e as funções de processamento e manipulação de dados utilizam os recursos da biblioteca padrão de C++.
+\end_layout
+
+\begin_layout Subsection
+Arquitetura em pacotes e fluxo de controle
 \end_layout
 
 \begin_layout Standard
-Deve-se definir padrões de documentação, padrões para o nome das classes,
- padrões de retorno e de parâmetros em métodos, características da interface
- do usuário e características de desempenho.
- 
+Como foi mostrado no Seção 2.4, o sistema está organizado em pacotes que agrupam as classes segundo as tarefas que elas devem realizar. Além disso, mostra como essas classes estão ligadas umas às outras. Quem decide o que acontece primeiro é a classe SimuladorCorrosao. Ela é quem comanda o Simulador, chamando as funções necessárias para cada fase do processo. O processo começa pegando e conferindo os dados do fluido. Depois vem a análise da corrosão, a escolha do inibidor, o cálculo da quantidade certa e, finalmente, os resultados. Esse caminho é igualzinho ao que está na máquina de estados do Seção 3.4. As funções estão divididas entre classes que fazem só uma coisa, então cada pedaço faz o que deve fazer e pega o que precisa dos outros. Isso ajuda a arrumar o código se precisar e também deixa mudar as coisas só num lugar, sem precisar mexer em todo o resto do programa.
+\end_layout
+
+\begin_layout Subsection
+Tratamento de erros
 \end_layout
 
 \begin_layout Standard
-Segundo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "prog-UML-Rumbaugh,prog-UML-blaha"
-literal "true"
-
-\end_inset
-
-, o projeto do sistema é a estratégia de alto nível para resolver o problema
- e elaborar uma solução.
- Você deve se preocupar com itens como: 
+A validação dos parâmetros do fluido é realizada pela própria classe que armazena os dados, a qual lança exceções quando os valores não pertencem aos intervalos e critérios estabelecidos. Já no cálculo da dosagem, a eficiência do inibidor é também verificada, sendo que η ≤ 0, sendo lançado o erro std::invalid_argument, não permitindo um erro de divisão por zero ou por um valor negativo.
 \end_layout
 
-\begin_layout Enumerate
-Protocolos
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Protocolos
+\begin_layout Standard
+Dessa forma, o tratamento de erros e exceções realizadas pelo software permite comunicar o erro ao usuário sem que seja interrompido de maneira brusca o programa.
 \end_layout
 
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
+\begin_layout Subsection
+Entrada e saída de dados
 \end_layout
 
-\begin_deeper
+\begin_layout Standard
+O software educacional permite que o usuário faça uma simulação de ensaios com amostras de dados que ele próprio entra, por meio de parâmetros do fluido (pH, concentrações de CO₂ e H₂S, salinidade, temperatura, pressão, vazão). Depois de tudo ter sido processado, os resultados são exibidos para o usuário através da interface gráfica, que indica dados sobre a corrosão, o inibidor escolhido e a quantidade de dosagem estimada.
+\end_layout
+
+\begin_layout Subsection
+Padrões e decisões de projeto
+\end_layout
+
 \begin_layout Itemize
-Definição dos protocolos de comunicação entre os diversos elementos externos
- 
-\begin_inset Newline newline
-\end_inset
-
-(como dispositivos).
- Por exemplo: se o sistema envolve o uso dos nós de um cluster, devem ser
- considerados aspectos como o protocolo de comunicação entre os nós do cluster.
-\begin_inset Separator latexpar
-\end_inset
-
-
+Herança e polimorfismo: a classe abstrata Inibidor possui uma interface comum às classes concretas, permitindo a existência de várias classes de inibidores de forma uniforme.
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
-Neste projeto blablabla
+Centralização da seleção: a classe SeletorInibidor concentra as regras de decisão e cria o objeto da classe concreta de inibidor adequada ao cenário.
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
-Definição dos protocolos de comunicação entre os diversos elementos internos
- 
-\begin_inset Newline newline
-\end_inset
-
-(como objetos).
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
+Separação de responsabilidades: a análise da corrosão, o cálculo da dosagem, a seleção dos inibidores e a apresentação dos resultados são distribuídos entre classes específicas.
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
-Neste projeto blablabla
+Encapsulamento: os atributos e as operações auxiliares estão organizados conforme suas responsabilidades, permitindo assim, que o acesso direto aos dados seja restrito quando necessário.
 \end_layout
 
-\end_deeper
-\begin_layout Itemize
-Definição da interface API de suas bibliotecas e sistemas.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Definição do formato dos arquivos gerados pelo software.
- Por exemplo: prefira formatos abertos, como arquivos txt e xml.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Recursos
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Recursos
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Identificação e alocação dos recursos globais, como os recursos do sistema
- serão alocados, utilizados, compartilhados e liberados.
- Implicam modificações no diagrama de componentes.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação da necessidade do uso de banco de dados.
- Implicam em modificações nos diagramas de atividades e de componentes.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação da necessidade de sistemas de armazenamento de massa.
- Por exemplo: um 
-\emph on
-storage
-\emph default
- em um sistema de cluster ou sistemas de backup.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Controle
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Controle
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Identificação e seleção da implementação de controle, seqüencial ou concorrente,
- baseado em procedimentos ou eventos.
- Implicam modificações no diagrama de execução.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação das condições extremas e de prioridades.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação da necessidade de otimização.
- Por exemplo: prefira sistemas com grande capacidade de memória; prefira
- vários hds pequenos a um grande.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação e definição de 
-\emph on
-loops
-\emph default
- de controle e das escalas de tempo.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação de concorrências – quais algoritmos podem ser implementados
- usando processamento paralelo.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Plataformas
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Plataformas
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Identificação das estruturas arquitetônicas comuns.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação de subsistemas relacionados à plataforma selecionada.
- Podem implicar em modificações no diagrama de pacotes e no diagrama de
- componentes.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identificação e definição das plataformas a serem suportadas: hardware,
- sistema operacional e linguagem de software.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Seleção das bibliotecas externas a serem utilizadas.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Seleção da biblioteca utilizada para montar a interface gráfica do software
- – GDI.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Seleção do ambiente de desenvolvimento para montar a interface de desenvolviment
-o – IDE.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Enumerate
-Padrões de projeto
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Normalmente os padrões de projeto são identificados e passam a fazer parte
- de uma biblioteca de padrões da empresa.
- Mas isto só ocorre após a realização de diversos projetos.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-se um item não for pertinente; pode ser retirado; ,mas somente na versão
- final; isto facilita o trabalho de revisão do trabalho!!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\end_deeper
 \begin_layout Section
 Projeto Orientado a Objeto – POO
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-POO
 \end_layout
 
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Projeto orientado a objeto
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Projeto-orientado-a-objeto"
-
-\end_inset
-
-
+\begin_layout Subsection
+Efeitos do projeto na análise
 \end_layout
 
 \begin_layout Standard
-O projeto orientado a objeto é a etapa posterior ao projeto do sistema.
- Baseia-se na análise, mas considera as decisões do projeto do sistema.
- Acrescenta a análise desenvolvida e as características da plataforma escolhida
- (hardware, sistema operacional e linguagem de softwareção).
- Passa pelo maior detalhamento do funcionamento do software, acrescentando
- atributos e métodos que envolvem a solução de problemas específicos não
- identificados durante a análise.
+A partir da implantação foi possível transformar o modelo abstrato desenvolvido por meio da elaboração teórica e dos diagramas em uma estrutura de classes que pudesse ser executada e que se transformasse em seguida em um software. A classe SimuladorCorrosao é a que coordena o fluxo de processamento e a validação dos parâmetros é feita pela classe Fluido, a qual recebe os dados do usuário. A classe AnaliseCorrosao agrupa os cálculos relativos à taxa, tipo de gravidade da corrosão, além dos coeficientes de dosagem. Por outro lado, a classe SeletorInibidor é a que concentra a seleção do inibidor recomendado para uso.
+\end_layout
+
+\begin_layout Subsection
+Associações e dependências
 \end_layout
 
 \begin_layout Standard
-Envolve a otimização da estrutura de dados e dos algoritmos, a minimização
- do tempo de execução, de memória e de custos.
- Existe um desvio de ênfase para os conceitos da plataforma selecionada.
- 
+As relações entre as classes expressam a colaboração exigida para a realização de uma simulação. O SimuladorCorrosao organiza as tarefas e usa os componentes de análise, escolha e cálculo. A AnaliseCorrosao e a CalculadoraDosagem consultam os parâmetros do fluido para fazer seus cálculos, enquanto o SeletorInibidor usa os dados para criar uma classe de inibidor concreta. Essa separação impede que todas as tarefas sejam feitas por um único componente e ajuda na manutenção do código.
+\end_layout
+
+\begin_layout Subsection
+Extensibilidade
 \end_layout
 
 \begin_layout Standard
-Exemplo: na análise você define que existe um método para salvar um arquivo
- em disco, define um atributo nomeDoArquivo, mas não se preocupa com detalhes
- específicos da linguagem.
- Já no projeto, você inclui as bibliotecas necessárias para acesso ao disco,
- cria um objeto específico para acessar o disco, podendo, portanto, acrescentar
- novas classes àquelas desenvolvidas na análise.
- 
-\end_layout
-
-\begin_layout Subsubsection
-Efeitos do projeto no modelo
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-modelo
-\end_layout
-
-\end_inset
-
- estrutural
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Efeito-do-projeto-no-modelo-estrutural"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Adicionar nos diagramas de pacotes as bibliotecas e subsistemas selecionados
- no projeto do sistema (exemplo: a biblioteca gráfica selecionada).
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Novas classes e associações oriundas das bibliotecas selecionadas e da linguagem
- escolhida devem ser acrescentadas ao modelo.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Estabelecer as dependências e restrições associadas à plataforma escolhida.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Efeitos do projeto no modelo
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-modelo
-\end_layout
-
-\end_inset
-
- dinâmico
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Efeito-do-projeto-no-modelo-dinamico"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Revisar os diagramas de seqüência e de comunicação considerando a plataforma
- escolhida.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Verificar a necessidade de se revisar, ampliar e adicionar novos diagramas
- de máquinas de estado e de atividades.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Efeitos do projeto nos atributos
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-atributos
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Efeito-do-projeto-nos-atributos"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Atributos novos podem ser adicionados a uma classe, como, por exemplo, atributos
- específicos de uma determinada linguagem de softwareção (acesso a disco,
- ponteiros, constantes e informações correlacionadas).
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Efeitos do projeto nos métodos
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-métodos
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Efeitos do projeto nos métodos
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Em função da plataforma escolhida, verifique as possíveis alterações nos
- métodos.
- O projeto do sistema costuma afetar os métodos de acesso aos diversos dispositi
-vos (exemplo: hd, rede).
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-De maneira geral os métodos devem ser divididos em dois tipos: i) tomada
- de decisões, métodos políticos ou de controle; devem ser claros, legíveis,
- flexíveis e usam polimorfismo.
- ii) realização de processamentos, podem ser otimizados e em alguns casos
- o polimorfismo deve ser evitado.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Algoritmos complexos podem ser subdivididos.
- Verifique quais métodos podem ser otimizados.
- Pense em utilizar algoritmos prontos como os da STL (algoritmos genéricos).
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Responda a pergunta: os métodos da classes estão dando resposta às responsabilid
-ades da classe?
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Revise os diagramas de classes, de seqüência e de máquina de estado.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Efeitos do projeto nas heranças
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-heranças
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Efeitos do projeto nas heranças
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Heranças
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Reorganização das classes e dos métodos (criar métodos genéricos com parâmetros
- que nem sempre são necessários e englobam métodos existentes).
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Abstração do comportamento comum (duas classes podem ter uma superclasse
- em comum).
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Utilização de delegação para compartilhar a implementação (quando você cria
- uma herança irreal para reaproveitar código).
- Usar com cuidado.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Revise as heranças no diagrama de classes.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Efeitos do projeto nas associações
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Efeitos do projeto nas associações
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Associações
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Deve-se definir na fase de projeto como as associações serão implementadas,
- se obedecerão um determinado padrão ou não.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Se existe uma relação de "muitos", pode-se implementar a associação com
- a utilização de um dicionário, que é um mapa das associações entre objetos.
- Assim, o objeto A acessa o dicionário fornecendo uma chave (um nome para
- o objeto que deseja acessar) e o dicionário retorna um valor (um ponteiro)
- para o objeto correto.
- 
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Evite percorrer várias associações para acessar dados de classes distantes.
- Pense em adicionar associações diretas.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Subsubsection
-Efeitos do projeto nas otimizações
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-otimizações
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Faça uma análise de aspectos relativos à otimização do sistema.
- Lembrando que a otimização deve ser desenvolvida por analistas/desenvolvedores
- experientes.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Identifique pontos a serem otimizados em que podem ser utilizados processos
- concorrentes.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Pense em incluir bibliotecas otimizadas.
-\end_layout
-
-\begin_layout Itemize
-Se o acesso a determinados objetos (atributos/métodos) requer um caminho
- longo (exemplo: A->B->C->D.atributo), pense em incluir associações extras
- (exemplo: A-D.atributo).
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Atributos auxiliares podem ser incluídos.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-A ordem de execução pode ser alterada.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Revise as associações nos diagramas de classes.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Neste projeto blablabla
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Depois de revisados os diagramas da análise você pode montar dois diagramas
- relacionados à infraestrutura do sistema.
- As dependências dos arquivos e bibliotecas podem ser descritos pelo diagrama
- de componentes, e as relações e dependências entre o sistema e o hardware
- podem ser ilustradas com o diagrama de implantação.
+A estrutura de herança permite adicionar novos tipos de inibidores através de classes que herdam de Inibidor, que precisam implementar os métodos virtuais criados pela classe-base. Para que um novo tipo possa ser escolhido pelo sistema, é preciso incluir o seu critério na lógica de SeletorInibidor. Além disso, os modelos de análise de corrosão podem ser melhorados na classe AnaliseCorrosao, desde que se mantenham as interfaces usadas pelos outros componentes. Essa forma de organizar fornece uma base para futuras melhorias, como a adição de novos critérios de seleção e o melhoramento dos modelos de cálculo, sem ter que reestruturar todo o software.
 \end_layout
 
 \begin_layout Section
 Diagrama de Componentes
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Diagrama de componentes
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Diagrama-de-componentes"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-O diagrama de componentes mostra a forma como os componentes do software
- se relacionam, suas dependências.
- Inclui itens como: componentes, subsistemas, executáveis, nós, associações,
- dependências, generalizações, restrições e notas.
- Exemplos de componentes são bibliotecas estáticas, bibliotecas dinâmicas,
- dlls, componentes Java, executáveis, arquivos de disco, código-fonte.
- 
-\end_layout
+O código é organizado em um par de arquivos (cabeçalho e implementação) por classe. As classes do núcleo de cálculo formam o componente de cálculo, reutilizado pelo executável de console (SoftwareDeCorrosao) e pelo executável com interface gráfica (SoftwareCorrosaoGUI), que depende ainda do módulo Qt Widgets. O arquivo CMakeLists.txt define os dois alvos e, na ausência do Qt, compila apenas o executável de console. A Figura 
 
-\begin_layout Standard
-Veja na Figura 
-\begin_inset CommandInset ref
+\backslash
+begin_inset CommandInset ref
 LatexCommand ref
-reference "cap:Diagrama-de-componentes"
-
-\end_inset
-
- um exemplo de diagrama de componentes.
- Observe que este inclui muitas dependências, ilustrando as relações entre
- os arquivos.
- Por exemplo: o subsistema biblioteca inclui os arquivos das classes A e
- B, e a geração dos objetos A.obj e B.obj depende dos arquivos A.h, A.cpp, B.h
- e B.cpp.
- A geração da biblioteca depende dos arquivos A.obj e B.obj.
- O subsistema biblioteca Qt, um subsistema exerno, inclui os arquivos de
- código da biblioteca Qt e a biblioteca em si.
- O subsistema banco de dados representa o banco de dados utilizado pelo
- sistema e tem uma interface de acesso que é utilizada pelo software para
- acesso aos dados armazenados no banco de dados.
- O software executável a ser gerado depende da biblioteca gerada, dos arquivos
- da biblioteca Qt, do módulo de arquivos MinhaJanela e do banco de dados.
-\end_layout
-
-\begin_layout Standard
-Algumas observações úteis para o diagrama de componentes:
-\end_layout
-
-\begin_layout Itemize
-De posse do diagrama de componentes, temos a lista de todos os arquivos
- necessários para compilar e rodar o software.
-\end_layout
-
-\begin_layout Itemize
-Observe que um assunto/pacote pode se transformar em uma biblioteca e será
- incluído no diagrama de componentes.
-\end_layout
-
-\begin_layout Itemize
-A ligação entre componentes pode incluir um estereótipo indicando o tipo
- de relacionamento ou algum protocolo utilizado.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Na versão final apagar este texto copiado do livro; e colocado aqui para
- lhe auxiliar; deixar somente o que é pertinente ao trabalho
-\end_layout
-
-\end_inset
+reference "fig:componentes"
 
 
-\end_layout
-
-\begin_layout Standard
-Neste projeto blablabla
+\backslash
+end_inset
+ apresenta o diagrama de componentes.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename imagens/DiagramaDeComponentes-Assuntos-Pacotes.png
-	lyxscale 40
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Diagrama de componentes
+Diagrama de componentes do sistema
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:Diagrama-de-componentes"
+name "fig:componentes"
 
 \end_inset
 
@@ -1332,6 +252,22 @@ name "cap:Diagrama-de-componentes"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-21-diagrama-componentes.png
+	special height=0.55\textheight
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
 \end_layout
 
 \end_inset
@@ -1341,101 +277,39 @@ name "cap:Diagrama-de-componentes"
 
 \begin_layout Section
 Diagrama de Implantação
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Diagrama de implantação
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status open
-
-\begin_layout Plain Layout
-Diagrama de execução
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Diagrama-de-execução"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-O diagrama de implantação é um diagrama de alto nível que inclui relações
- entre o sistema e o hardware e que se preocupa com os aspectos da arquitetura
- computacional escolhida.
- Seu enfoque é o hardware, a configuração dos nós em tempo de execução.
- 
-\end_layout
+O software é executado em um computador pessoal com Windows (ou outro sistema com compilador C++ e Qt 6), sem necessidade de servidor ou de banco de dados. O diretório de compilação reúne os dois executáveis, as bibliotecas do Qt e a pasta assets, que contém o logotipo da UENF. A Figura 
 
-\begin_layout Standard
-O diagrama de implantação deve incluir os elementos necessários para que
- o sistema seja colocado em funcionamento: computador, periféricos, processadore
-s, dispositivos, nós, relacionamentos de dependência, associação, componentes,
- subsistemas, restrições e notas.
-\end_layout
-
-\begin_layout Standard
-Veja na Figura 
-\begin_inset CommandInset ref
+\backslash
+begin_inset CommandInset ref
 LatexCommand ref
-reference "cap:Diagrama-de-implantação."
+reference "fig:implantacao"
 
-\end_inset
 
- um exemplo de diagrama de implantação de um cluster.
- Observe a presença de um servidor conectado a um switch.
- Os nós do cluster (ou clientes) também estão conectados ao switch.
- Os resultados das simulações são armazenados em um servidor de arquivos
- (
-\emph on
-storage
-\emph default
-).
-\end_layout
-
-\begin_layout Standard
-Pode-se utilizar uma anotação de localização para identificar onde determinado
- componente está residente, por exemplo {localização: sala 3}.
+\backslash
+end_inset
+ apresenta o diagrama de implantação.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename imagens/DiagramaDeExecucao.png
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Diagrama de implantação
+Diagrama de implantação do sistema
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:Diagrama-de-implantação."
+name "fig:implantacao"
 
 \end_inset
 
@@ -1447,26 +321,27 @@ name "cap:Diagrama-de-implantação."
 
 \end_layout
 
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-22-diagrama-implantacao.png
+	width 100col%
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Description
-Nota: 
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Não perca de vista a visão do todo; do projeto de engenharia como um todo.
- Cada capítulo, cada seção, cada parágrafo deve se encaixar.
- Este é um diferencial fundamental do engenheiro em relação ao técnico,
- a capacidade de desenvolver projetos, de ver o todo e suas diferentes partes,
- de modelar processos/sistemas/produtos de engenharia.
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
 
 \end_body
 \end_document

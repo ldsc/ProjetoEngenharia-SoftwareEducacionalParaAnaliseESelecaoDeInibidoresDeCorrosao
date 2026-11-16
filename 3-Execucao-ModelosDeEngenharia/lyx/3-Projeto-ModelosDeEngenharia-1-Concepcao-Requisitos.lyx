@@ -237,216 +237,114 @@ Concepção
 \end_layout
 
 \begin_layout Standard
-Apresenta-se neste capítulo do projeto de engenharia a concepção,
- a especificação do sistema a ser modelado e desenvolvido.
+Apresenta-se neste capítulo do projeto de engenharia a concepção do software educacional: o problema abordado, os objetivos, a metodologia de desenvolvimento, a maturidade tecnológica pretendida, a especificação do sistema, os requisitos e os casos de uso.
+\end_layout
+
+\begin_layout Section
+Introdução
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-#O que é especificação?
+A corrosão é um processo contínuo e natural de deterioração de um material devido a reações químicas, eletroquímicas ou mecânicas entre o material e o meio onde se encontra (GENTIL, 1996). Popoola et al. a definem como "o ataque destrutivo de um material por reação com o seu meio". No setor de petróleo e gás, o fenômeno ocorre em tubulações, válvulas, revestimentos, colunas de produção e estruturas metálicas em todos os pontos da cadeia, desde a exploração e produção até o transporte e o refino (BAHADORI, 2014). Além de diminuir a vida útil dos equipamentos, a corrosão pode levar a falhas catastróficas, prejuízos financeiros, danos ao meio ambiente e riscos à segurança das operações (UHLIG; REVIE, 2008).
 \end_layout
 
-\begin_layout Description
-Nota:
- os textos que explicam o que é especificação;
- diagrama caso uso;
- etc....;
- foram colocados apenas para que você se lembre do assunto;
- na versão final do seu trabalho estes texto explicativos feitos pelo professor devem ser retirados/apagados.
+\begin_layout Standard
+Nos sistemas de produção, o problema é agravado pelas condições do meio, como nos casos de poços profundos, onde a combinação de altas pressões e temperaturas com gases ácidos, como CO₂ e H₂S, auxiliam para o aumento da corrosão e fazem com que seja exigido a combinação de inibidores, revestimentos e seleção de materiais (AHMED; LIU; LIU, 2025). Altas pressões e temperaturas se associam com a presença de espécies agressivas, tais como o dióxido de carbono (CO₂), o sulfeto de hidrogênio (H₂S) e os íons cloreto (Cl⁻) (POPOOLA et al, 2013), em fluidos que geralmente possuem água de formação com alta salinidade (BAHADORI, 2014). O CO₂ dissolvido em água forma ácido carbônico e dá origem à chamada corrosão doce, denominada sweet corrosion (NEŠIC, 2007). O H₂S, por sua vez, está relacionado à corrosão sulfídrica e à fragilização do aço por hidrogênio. Os cloretos, por fim, favorecem a corrosão localizada.
 \end_layout
 
-\begin_layout Plain Layout
-A primeira etapa do desenvolvimento de um sistema é a concepção,
- a definição de requisitos a serem satisfeitos e a especificação do sistema (descrição do objetivo e o que se espera do sistema a ser desenvolvido,
- o contexto da aplicação).
+\begin_layout Standard
+Entre as formas de mitigação, a injeção de inibidores de corrosão é uma das mais utilizadas, pois diminui a velocidade do ataque com pequenas concentrações de produto. Esse efeito ocorre pela formação de um filme adsorvido sobre a superfície metálica ou pela modificação das reações que causam a degradação (FINŠGAR; JACKSON, 2014). A seleção do inibidor, entretanto, não é tão simples, pois a escolha depende do mecanismo de corrosão dominante, da composição do fluido e das condições operacionais, e requer a interpretação de várias variáveis ao mesmo tempo. Revisões mais recentes mostram que a pesquisa em inibidores avança atualmente também para compostos orgânicos de origem natural, os quais são menos tóxicos, e seu desempenho depende de mecanismos de adsorção na superfície metálica e das condições do meio observado, como a presença de CO₂ e H₂S (KUMAR et al., 2026).
 \end_layout
 
-\begin_layout Plain Layout
-Na concepção ocorre a primeira reunião da equipe de desenvolvimento com os clientes,
- quando é feita a especificação do software.
- O cliente por meio das especificações e das entrevistas,
- passa para o analista idéias gerais de uso do sistema.
- Neste caso,
- o cliente é o professor da disciplina e os alunos os analistas/desenvolvedores.
+\begin_layout Standard
+Esta necessidade de integrar conceitos também aparece no ensino. Mecanismos de corrosão, propriedades dos fluidos, efeito da temperatura e do pH, presença de CO₂ e H₂S e critérios de seleção e dosagem de inibidores costumam ser estudados em separado durante a disciplina de Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550). Este trabalho propõe reunir esses temas em um software educacional, escrito em C++ com programação orientada a objetos, que permita ao estudante criar um cenário de produção e observar como cada parâmetro modifica a análise de corrosão, a escolha do inibidor de corrosão e sua dosagem estimada.
 \end_layout
 
-\begin_layout Plain Layout
-O resultado da etapa de especificação é um conjunto formal de documentos e requisitos organizados pelo analista do sistema com apoio dos usuários.
- 
+\begin_layout Section
+Escopo do problema
 \end_layout
 
-\begin_layout Plain Layout
-As 
-\shape italic
-especificações
-\shape default
- definem as características gerais do sistema,
- aquilo que ele deve realizar e não a forma como irá fazê-lo.
- Definem as necessidades a serem satisfeitas.
- Envolvem a seleção do tipo de interface,
- a forma de interação com o usuário;
- se vai ter uma ou múltiplas janelas;
- se o software vai imprimir seus resultados,
- o formato dos arquivos de disco;
- se vai existir um help e seu formato.
- Podem ser especificadas características de desempenho.
- O cliente define o que deve obrigatoriamente ser satisfeito e o que é opcional – isto é,
- tudo o que o sistema/software deve ser.
- 
+\begin_layout Standard
+A integridade, segurança e confiabilidade dos sistemas de produção de petróleo são prejudicadas pela corrosão. As partes que compõem os poços, como os tubos, válvulas, revestimentos e cabeças de poço, estão expostas a um ambiente corrosivo, o que leva a altos gastos com manutenção, aumento do risco de falhas estruturais e possíveis acidentes ambientais (BAHADORI, 2014). Apesar dos avanços no monitoramento e nas técnicas de prevenção, a gestão da corrosão continua sendo um dos principais problemas enfrentados pela engenharia de poços.
 \end_layout
 
-\begin_layout Description
-Dica:
- a comunicação com o cliente pode ser melhorada com o uso de metáforas,
- como,
- por exemplo,
- a metáfora da "lixeira".
- 
+\begin_layout Standard
+No âmbito acadêmico, o problema se apresenta de outra maneira. A disciplina opcional Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550) fornece os conhecimentos básicos para entender os mecanismos de corrosão e as maneiras de preveni-la com excelência. No entanto, ainda não há uma ferramenta computacional educativa relacionada a ela que permita que o estudante integre esses conhecimentos adquiridos na aula em um único ambiente de simulação para consolidar os conceitos teóricos adquiridos. Sendo assim, falta um recurso no qual o estudante possa mudar as condições de um cenário e observar, de forma simulada e aplicada, os resultados sobre a avaliação da corrosão.
 \end_layout
 
-\begin_layout Description
-NOTA
-\begin_inset space ~
-\end_inset
-
-IMPORTANTE:
-\begin_inset Separator latexpar
-\end_inset
-
-
+\begin_layout Standard
+O desafio tecnológico deste projeto é transformar os conhecimentos teóricos da engenharia de corrosão em um modelo computacional organizado para a sala de aula. Com os dados fornecidos pelo usuário, o programa deve verificar as informações, calcular a taxa de corrosão, identificar o tipo e a intensidade da corrosão, escolher uma categoria de inibidor baseado nos critérios estabelecidos e, em seguida, estimar a quantidade necessária, mostrando os resultados de forma numérica e gráfica para o usuário. A ferramenta não substitui os livros, as aulas, os ensaios de laboratório ou os programas industriais. Os resultados obtidos são apenas estimativas educacionais e não devem ser utilizados como sugestão para aplicação no campo.
 \end_layout
 
-\begin_deeper
-\begin_layout Plain Layout
-Como requisitos mínimos o software deve:
+\begin_layout Section
+Objetivos
 \end_layout
 
-\begin_layout Plain Layout
-Solicitar dados ao usuário via terminal (teclado/tela);
+\begin_layout Subsection
+Objetivo geral
 \end_layout
 
-\begin_layout Plain Layout
-Mostrar resultados na tela;
+\begin_layout Standard
+Criar um programa educacional para análise e escolha de inibidores de corrosão, empregando C++ e o modelo de programação orientado a objetos, que possa incorporar propriedades físico-químicas dos fluidos e condições operacionais de sistemas de extração de petróleo para avaliar a velocidade de corrosão do ambiente, definir sua gravidade, sugerir uma categoria de inibidor apropriada ao contexto e prever uma dose caso necessário, exibindo os resultados de maneira numérica e visual ao usuário.
 \end_layout
 
-\begin_layout Plain Layout
-Ler dados de entrada e gerar dados de saída em arquivos de disco;
+\begin_layout Subsection
+Objetivos específicos
 \end_layout
 
-\begin_layout Plain Layout
-Plotar gráficos usando biblioteca externa CGnuplot (tem livro do gnuplot na biblioteca );
+\begin_layout Itemize
+Reexaminar os princípios da corrosão, os ambientes corrosivos da extração de petróleo e os modos de atuação dos inibidores que servem de base para o modelo computacional;
 \end_layout
 
-\end_deeper
-\end_inset
+\begin_layout Itemize
+Identificar os requisitos do sistema e mapeá-lo em UML (casos de uso, pacotes, classes, sequência, estados e atividades);
+\end_layout
 
+\begin_layout Itemize
+Codificar em C++ os componentes de salvamento e verificação dos dados do fluido, avaliação de corrosão, escolha do inibidor, cálculo da dose e produção de gráficos e resultados;
+\end_layout
 
+\begin_layout Itemize
+Organizar o código por herança e polimorfismo, de forma que novas classes de inibidores possam ser adicionadas futuramente sem reescrever o programa;
+\end_layout
+
+\begin_layout Itemize
+Validar o programa através de cenários de teste, comparando as saídas com cálculos independentes e com as tendências relatadas na literatura;
+\end_layout
+
+\begin_layout Itemize
+Associar o uso do programa ao conteúdo da disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550), sugerindo cenários para aulas e exercícios.
+\end_layout
+
+\begin_layout Section
+Justificativa e público-alvo
+\end_layout
+
+\begin_layout Standard
+O grande diferencial do projeto está na possibilidade de reunir, em um único meio de ensino aplicado, os conteúdos de Engenharia de Petróleo, Engenharia de Corrosão e Computação. Como a corrosão não se dá por apenas uma única variável em sistema de produção, então a análise da corrosão em um meio de ensino se dá pela análise simultânea do pH, concentração de CO₂ e H₂S, temperatura, pressão, salinidade e vazão. Por exemplo, na análise, o estudante pode comparar um caso de baixa concentração de CO₂ com um de alta concentração, observar o efeito de uma queda de pH ou até mesmo analisar e estudar a influência da temperatura na dosagem de inibidor de corrosão sugerida.
+\end_layout
+
+\begin_layout Standard
+O público-alvo principal são os estudantes do curso de Engenharia de Exploração e Produção de Petróleo, especialmente aqueles que cursam a disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550). O professor também pode utilizar casos já preparados em sala de aula para demonstrar como a alteração de um parâmetro altera a severidade da corrosão ou a recomendação de inibidor. A arquitetura orientada a objetos também possibilita a futura expansão com novos modelos de corrosão, novas classes de inibidores e bancos de dados de produtos.
 \end_layout
 
 \begin_layout Section
 Metodologia
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Metodologia"
+\end_layout
+
+\begin_layout Standard
+O trabalho é classificado como uma pesquisa aplicada, de natureza tecnológica, que visa o desenvolvimento de um produto de software. O desenvolvimento segue o modelo de projeto de engenharia utilizado no curso, com ciclos iterativos e incrementais, sendo estruturado nas sete etapas apresentadas na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:b218"
 
 \end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A Figura 1.l apresenta a metodologia adotada para o desenvolvimento do sistema computacional proposto,
- estruturada de forma sequencial a partir da definição do problema até a obtenção e validação do produto final.
- A organização das etapas busca estabelecer uma relação entre os aspectos de engenharia envolvidos no problema,
- a definição dos requisitos do sistema e sua posterior implementação computacional,
- de modo a garantir que as funcionalidades desenvolvidas estejam alinhadas aos objetivos estabelecidos para o projeto.
-\end_layout
-
-\begin_layout Standard
-A primeira etapa corresponde à definição do problema,
- na qual são estabelecidos o problema de engenharia a ser abordado,
- o escopo de aplicação do sistema,
- o público-alvo e os objetivos do projeto.
- Essa etapa é fundamental para delimitar as características e funcionalidades que deverão ser contempladas pelo software,
- evitando a inclusão de recursos que não estejam relacionados à finalidade proposta.
- 
-\end_layout
-
-\begin_layout Standard
-Na segunda etapa,
- referente à fundamentação teórica,
- são levantados e organizados os conhecimentos necessários para a compreensão e representação do problema no sistema computacional.
- São considerados aspectos relacionados à corrosão na indústria do petróleo,
- aos seus principais mecanismos,
- à influência de espécies como CO₂ e H₂S,
- aos inibidores de corrosão e suas respectivas classes,
- bem como aos conceitos associados à taxa de corrosão,
- aos critérios de seleção e aos modelos utilizados para o cálculo da dosagem.
- Esses fundamentos constituem a base para a definição das variáveis,
- dos critérios e dos modelos empregados nas etapas posteriores do desenvolvimento.
- A apresentação detalhada desses conceitos é realizada nas seções específicas deste trabalho.
-\end_layout
-
-\begin_layout Standard
-A terceira etapa compreende a especificação do sistema,
- na qual os conhecimentos levantados são convertidos em requisitos para o desenvolvimento do software.
- Nessa etapa são definidos os requisitos funcionais e não funcionais,
- as principais entradas e saídas do sistema e os casos de uso que representam a interação do usuário com as funcionalidades propostas.
- A especificação permite estabelecer de forma sistemática o comportamento esperado do software e os resultados que deverão ser fornecidos ao usuário.
-\end_layout
-
-\begin_layout Standard
-Na quarta etapa é realizada a modelagem do software,
- responsável pela representação da estrutura e do comportamento do sistema antes de sua implementação.
- São desenvolvidos os diagramas de casos de uso e de classes,
- além da definição das classes,
- de suas relações e possíveis mecanismos de herança.
- Também são estruturados os algoritmos necessários à execução dos cálculos e demais funcionalidades,
- estabelecendo uma representação lógica que orienta a etapa de programação.
-\end_layout
-
-\begin_layout Standard
-A quinta etapa corresponde ao desenvolvimento,
- no qual a modelagem previamente estabelecida é implementada utilizando a linguagem de programação C++.
- Nessa fase são desenvolvidas as classes e suas respectivas funcionalidades,
- incluindo os procedimentos relacionados aos cálculos de corrosão,
- à seleção do inibidor e ao cálculo da dosagem.
- Também são implementadas as funcionalidades destinadas à geração e apresentação dos resultados,
- incluindo os gráficos e a interface gráfica do sistema.
-\end_layout
-
-\begin_layout Standard
-Após a implementação,
- é realizada a etapa de testes e validação,
- destinada a verificar o funcionamento das diferentes partes do software e a consistência dos resultados obtidos.
- São considerados testes unitários e de integração,
- além da aplicação do sistema a diferentes cenários de entrada.
- Os resultados são analisados e,
- quando aplicável,
- comparados com referências e modelos estabelecidos na literatura,
- permitindo identificar possíveis inconsistências e verificar se as funcionalidades implementadas atendem aos requisitos previamente definidos.
-\end_layout
-
-\begin_layout Standard
-Por fim,
- a integração das funcionalidades desenvolvidas e validadas resulta no produto final,
- correspondente ao software educacional proposto.
- O sistema reúne recursos para análise de problemas relacionados à corrosão,
- seleção de inibidores,
- cálculo de dosagem e apresentação dos resultados,
- incluindo a geração de gráficos.
- Dessa maneira,
- a metodologia estabelece um fluxo de desenvolvimento que parte da compreensão e delimitação do problema de engenharia,
- passa pela definição e modelagem dos requisitos e culmina na implementação,
- avaliação e consolidação do sistema computacional.
+: definição do problema, fundamentação teórica, especificação, modelagem, desenvolvimento, testes e validação e produto final.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -454,24 +352,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename C:/Users/lroch/Desktop/metodologia.png
-	lyxscale 50
-	special height=0.8\textheight
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Metodologia utilizada no desenvolvimento do sistema
 \begin_inset CommandInset label
 LatexCommand label
-name "fig: Metodologia utilizada no desenvolvimento do sistema"
+name "fig:b218"
 
 \end_inset
 
@@ -483,60 +370,60 @@ name "fig: Metodologia utilizada no desenvolvimento do sistema"
 
 \end_layout
 
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-01-metodologia.png
+	special height=0.62\textheight
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026) – Criado no Software PlantUML.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na definição do problema foram identificados o problema de engenharia, o escopo, o público-alvo e os objetivos. A fundamentação teórica reuniu os conceitos de corrosão, o papel do CO₂ e do H₂S, as classes de inibidores, os critérios de seleção e os modelos de taxa de corrosão e de dosagem, que serão apresentados no Capítulo 2. A especificação definiu requisitos, entradas, saídas e casos de uso (este capítulo), e a modelagem produziu os diagramas UML dos Capítulos 3 e 4. O desenvolvimento e os testes ocorrem nos ciclos descritos nos Capítulos 5 a 7.
+\end_layout
+
+\begin_layout Standard
+Para a criação dos diagramas de linguagem de modelagem unificada (UML), foi-se utilizado a ferramenta PlantUML. Por adotar o paradigma Diagrams as Code (diagramas como código), a ferramenta viabiliza a construção de artefatos gráficos a partir de descrições textuais estruturadas. Essa abordagem garantiu a padronização visual das representações conforme as especificações da UML, facilitou o controle dos modelos junto ao código-fonte e conferiu uma maior agilidade nas atualizações e manutenções dos diagramas ao longo dos ciclos do projeto.
 \end_layout
 
 \begin_layout Section
-Nome do Sistema/Produto
-\begin_inset CommandInset label
-LatexCommand label
-name "sec: Nome do sistema/produto"
-
-\end_inset
-
-
+Maturidade tecnológica e comercial pretendida
 \end_layout
 
 \begin_layout Standard
-O software denominado Sistema Educacional para Análise de Corrosão e Seleção de Inibidores em Operações de Petróleo foi desenvolvido utilizando a linguagem de programação C++,
- com base no paradigma de programação orientada a objetos (POO).
+Para avaliar o nível de desenvolvimento e a possibilidade de comercialização de uma inovação, são aplicadas medidas padronizadas de maturidade técnica e de mercado, com especial atenção ao Technology Readiness Level (TRL) e ao Commercial Readiness Level (CRL). O TRL é uma escala de nove pontos, criada inicialmente pela NASA, para avaliar a maturidade de uma tecnologia, que vai da observação dos princípios básicos (TRL 1) até a demonstração do sistema em ambiente real (TRL 9). Por outro lado, o CRL mede a preparação comercial e o posicionamento no mercado da solução, seguindo o desenvolvimento do projeto desde a identificação de oportunidades e o estabelecimento do modelo de negócios até o amadurecimento do produto e o ganho de receita (níveis 1 a 9).
 \end_layout
 
 \begin_layout Standard
-O sistema é capaz de analisar parâmetros operacionais de um poço,
- tais como temperatura,
- pressão,
- propriedades do fluido (pH,
- presença de CO₂ e H₂S,
- salinidade) e tipo de operação (perfuração,
- completação ou estimulação),
- com o objetivo de:
- Identificar o tipo de corrosão predominante;
- avaliar a severidade do processo corrosivo;
- recomendar o tipo de inibidor mais adequado;
- estimar a dosagem necessária para a operação.
-\end_layout
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
 
-\begin_layout Standard
-O software permite ao usuário interagir com uma interface gráfica amigável,
- facilitando a inserção de dados e a visualização dos resultados obtidos.
-\end_layout
-
-\begin_layout Standard
-A Tabela apresenta as características do software desenvolvido.
-\end_layout
-
-\begin_layout Standard
+\begin_layout Plain Layout
 \align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Características básicas do programa
+Níveis de Maturidade Tecnológica (Technology Readiness Levels – TRL).
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Características-básicas-do"
+name "fig:b225"
 
 \end_inset
 
@@ -546,918 +433,13 @@ name "tab:Características-básicas-do"
 \end_inset
 
 
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top" width="8cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Nome
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Software Educacional Para Análise de Corrosão e Seleção de Inibidores em Operações de Petróleo
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Componentes principais
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Módulo de entrada de dados do poço e propriedades do fluído;
-\end_layout
-
-\begin_layout Plain Layout
-Módulo de análise de corrosão (classificação e severidade);
-\end_layout
-
-\begin_layout Plain Layout
-Módulo de seleção de inibidores (baseado em regras físico-químicas);
-\end_layout
-
-\begin_layout Plain Layout
-Módulo de cálculo de dosagem de inibidores;
-\end_layout
-
-\begin_layout Plain Layout
-Interface gráfica para interação com o usuário e visualização dos resultados
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entrada de dados
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Dados operacionais do poço (temperatura,
- pressão),
- propriedades do fluído(pH,
- CO₂,
- H₂S,
- salinidade),
- dados de perfilagem e tipo de operação.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" color="default" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Saída de dados
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" color="default" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Tipo de corrosão identificado,
- nível de severidade,
- tipo de inibidor recomendado e dosagem estimada
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" color="default" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Missão
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" color="default" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\nospellcheck off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-A missão do software é fornecer uma ferramenta educacional que auxilie estudantes na compreensão dos fenômenos de corrosão em sistemas petrolíferos,
- permitindo a aplicação prática de conceitos teóricos e contribuindo para a formação de profissionais mais preparados para a indústria de óleo e gás
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Especificação
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Especificação"
-
-\end_inset
-
-
-\begin_inset Index idx
-range none
-pageformat default
-status open
-
-\begin_layout Plain Layout
-Especificação
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-range none
-pageformat default
-status collapsed
-
-\begin_layout Plain Layout
-especificação
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Deseja-se desenvolver um software com interface didática projetado para permitir ao usuário realizar análises de corrosão em operações de petróleo de forma intuitiva e interativa.
- O software foi concebido com o objetivo de integrar diferentes parâmetros operacionais e propriedades físico-químicas dos fluidos,
- possibilitando a simulação de cenários reais enfrentados na indústria de óleo e gás.
-\end_layout
-
-\begin_layout Standard
-Inicialmente,
- o usuário deverá fornecer os dados necessários para a análise,
- podendo inserir manualmente informações relativas às condições do poço,
- tais como temperatura e pressão,
- bem como propriedades do fluido,
- incluindo pH,
- concentração de dióxido de carbono (CO₂),
- presença de sulfeto de hidrogênio (H₂S) e salinidade.
- Além disso,
- o sistema permite a definição do tipo de operação a ser realizada,
- como perfuração,
- completação ou estimulação,
- uma vez que essas condições influenciam diretamente nos mecanismos de corrosão.
-\end_layout
-
-\begin_layout Standard
-A partir da inserção desses dados,
- o software realiza automaticamente a análise das condições operacionais,
- identificando o tipo de corrosão predominante no sistema e classificando sua severidade com base em critérios previamente definidos.
- Essa análise é fundamental para a etapa seguinte,
- na qual o sistema seleciona o tipo de inibidor de corrosão mais adequado para o cenário avaliado.
-\end_layout
-
-\begin_layout Standard
-Com base na classificação obtida,
- o software procede ao cálculo da dosagem recomendada do inibidor,
- considerando parâmetros operacionais e relações simplificadas utilizadas na engenharia de corrosão.
- Por fim,
- os resultados são apresentados ao usuário de forma clara e organizada,
- permitindo a interpretação dos dados e a compreensão dos processos envolvidos.
-\end_layout
-
-\begin_layout Standard
-Dessa forma,
- o sistema proporciona um ambiente de aprendizado dinâmico,
- no qual o usuário pode testar diferentes condições operacionais e observar o impacto dessas variáveis na corrosão e na seleção de inibidores,
- contribuindo significativamente para o desenvolvimento do conhecimento aplicado na engenharia de petróleo.
-\end_layout
-
-\begin_layout Section
-Requisitos
-\begin_inset Index idx
-range none
-pageformat default
-status open
-
-\begin_layout Plain Layout
-Requisitos
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Requisitos"
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Apresenta-se nesta seção os requisitos funcionais e não funcionais.
-\end_layout
-
-\begin_layout Subsection
-Requisitos funcionais
-\begin_inset Index idx
-range none
-pageformat default
-status open
-
-\begin_layout Plain Layout
-Requisitos funcionais
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Requisitos-funcionais"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Apresenta-se a seguir os requisitos funcionais
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-coloque aqueles que fazem sentido para seu sistema
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="block" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-01
-\end_layout
-
-\end_inset
-</cell>
-<cell mroffset="2cm" alignment="block" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve conter uma base de dados confiável com informações sobre mecanismos de corrosão e tipos de inibidores,
- fundamentadas em referências bibliográficas da área de engenharia de petróleo e corrosão.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-02
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve permitir ao usuário inserir e alterar os parâmetros operacionais do poço,
- incluindo temperatura,
- pressão e tipo de operação.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-03
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve permitir ao usuário inserir e modificar as propriedades do fluido,
- tais como pH,
- concentração de CO₂,
- presença de H₂S e salinidade.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-04
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve ser capaz de analisar automaticamente os dados inseridos e identificar o tipo de corrosão predominante.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
 \end_layout
 
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-05
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve classificar a severidade do processo corrosivo com base nos parâmetros fornecidos.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-06
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve selecionar automaticamente o tipo de inibidor mais adequado para o cenário analisado.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-07
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve calcular a dosagem recomendada do inibidor de corrosão.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-08
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve permitir a realização de múltiplas simulações com diferentes cenários operacionais.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11.5cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RF-09
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve apresentar os resultados ao usuário de forma clara e organizada.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Requisitos não funcionais
-\begin_inset Index idx
-range none
-pageformat default
-status open
-
-\begin_layout Plain Layout
-Requisitos não funcionais
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Requisitos-não-funcionais"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RNF-01
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve ser desenvolvido em linguagem de programação C++
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RNF-02
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O software deve possuir uma interface gráfica simples,
- intuitiva e de fácil utilização para estudantes.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RNF-03
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve apresentar desempenho adequado,
- fornecendo respostas em tempo hábil para as simulações realizadas.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="2">
-<features tabularvalignment="middle" tabularwidth="14cm">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="11cm">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-RNF-04
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O sistema deve ser compatível com os sistemas operacionais Windows e Linux e permitir a exportação dos resultados em formato de arquivo (como .txt ou .pdf).
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-#O que são os casos de uso
-\begin_inset Index idx
-range none
-pageformat default
-status collapsed
-
-\begin_layout Plain Layout
-Casos de uso
-\end_layout
-
-\end_inset
-
- do sistema – cenários
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Casos-de-uso-do-programa"
-
-\end_inset
-
-
-\begin_inset Index idx
-range none
-pageformat default
-status collapsed
-
 \begin_layout Plain Layout
-Cenário
-\end_layout
-
-\end_inset
-
-?
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Apague esta seção!
-\end_layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-02-trl.jpeg
+	width 50col%
 
 \end_inset
 
@@ -1465,135 +447,13 @@ Apague esta seção!
 \end_layout
 
 \begin_layout Plain Layout
-Segundo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "prog-UML-blaha"
-literal "true"
-
-\end_inset
-
-,
- "um 
-\shape italic
-cenário
-\shape default
- pode ser um registro histórico de execução de um sistema real ou um experimento de execução teórica de um sistema proposto"
-\emph on
-.
-\end_layout
-
-\begin_layout Plain Layout
-Um 
-\shape italic
-caso de uso
-\shape default
- descreve um ou mais cenários de uso do software,
- exemplos de uso,
- como o sistema interage com usuários externos (atores).
- Ademais,
- ele deve representar uma seqüência típica de uso do software (a execução de determinadas tarefas-padrão).
- Também deve representar as exceções,
- casos em que o usuário comete algum erro,
- em que o sistema não consegue realizar as tarefas solicitadas.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Segundo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "prog-EngSof-Pressman"
-literal "true"
-
-\end_inset
-
-,
- o caso de uso deve "produzir uma descrição clara e não ambígua de como o usuário final e o sistema interagem um com o outro".
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "prog-EngSof-Pressman"
-literal "true"
-
-\end_inset
-
- diz ainda que "uma vez definidos o ator e seu caso de uso,
- uma hierarquia de comandos é identificada"
-\emph on
-.
-\end_layout
-
-\begin_layout Plain Layout
-Devem ser montados diversos diagramas de caso de uso.
- Por exemplo:
- para cada cenário,
- crie diagramas de seqüência listando os objetos e os diversos eventos que partem de um objeto para outro.
+\align center
+Fonte: Petrobras (2024).
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-As Figuras devem ficar GRANDES;
- bem legíveis!!
- se necessário dar zoom!!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Casos de Uso
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Casos-de-uso"
-
-\end_inset
-
-
-\begin_inset Index idx
-range none
-pageformat default
-status collapsed
-
-\begin_layout Plain Layout
-Casos de uso
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-do software
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A Tabela 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Exemplo-de-um-caso-de-uso (tabela)"
-nolink "false"
-
-\end_inset
-
- mostra a descrição de um caso de uso.
 \end_layout
 
 \begin_layout Standard
@@ -1605,26 +465,20 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Caso de uso 1
+Explicação Níveis de Maturidade Tecnológica (Technology Readiness Levels – TRL)
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:Exemplo-de-um-caso-de-uso (tabela)"
+name "tab:b228"
 
 \end_inset
 
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset space ~
 \end_inset
 
 
@@ -1633,21 +487,636 @@ name "cap:Exemplo-de-um-caso-de-uso (tabela)"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
+<lyxtabular version="3" rows="10" columns="2">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="block" valignment="top" width="10cm">
+<column alignment="left" valignment="top" width="2.1cm">
+<column alignment="left" valignment="top" width="13.9cm">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Nome do caso de uso:
+\series bold
+
+\series bold
+Nível
+\series default
+
+\series default
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Estágio da Maturidade Tecnológica
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identificação dos princípios científicos fundamentais que podem servir de base para o desenvolvimento da tecnologia.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Concepção da tecnologia e descoberta de suas utilizações potenciais.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Criação inicial e análise experimental ou analítica do conceito, com o objetivo de provar que ele é possível.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teste dos componentes ou modelos no laboratório, através de ensaios controlados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teste da tecnologia em tamanho reduzido ou em situações que imitem o local onde ela vai ser usada.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Criação e exibição de um modelo funcionando em condições importantes de Uso.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exibição da tecnologia em condições de trabalho, com análise de como ela funciona em um caso real.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tecnologia terminada, testada e pronta para ser vendida.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tecnologia totalmente funcionando, provado pelo fato de que ela já foi usada com sucesso em situações reais.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Níveis de Prontidão Comercial (Commercial Readiness Level – CRL).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b231"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-03-crl.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria no CANVA (2026)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Explicação Níveis de Prontidão Comercial (Commercial Readiness Level – CRL).
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:b234"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.4cm">
+<column alignment="left" valignment="top" width="13.6cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Nível
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Estágio da Maturidade Tecnológica
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entendimento de mercado, identificação de clientes-alvo e de suas necessidades
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correlação de clientes-alvo com suas necessidades, concorrência e proposta de valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pesquisa de clientes-alvo e validação da solução com protótipos de baixa fidelidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definição da atuação na cadeia de valor, das parcerias, dos custos e das receitas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definição de canais de marketing, de preços e das ações de promoção
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estrutura de processos de marketing, vendas, entrega, treinamento, suporte e pagamentos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acesso ao mercado, geração de demanda e desenvolvimento de funil de vendas CRL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Demonstrações de produto, provas de conceito e projetos piloto com clientes-alvo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Conversão das primeiras vendas e geração de receitas com clientes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O nível de maturidade tecnológica (TRL, do inglês Technology Readiness Level) é alcançado entre o TRL 3 e o TRL 4. No TRL 3, os princípios da solução são demonstrados por meio de modelos computacionais e da primeira implementação dos algoritmos de análise de corrosão, classificação de severidade e seleção de inibidores. No TRL 4, a tecnologia é validada em um ambiente controlado, através de simulações que representam cenários fictícios da indústria de petróleo. Não se espera validar a tecnologia em campo real, uma vez que a aplicação é focada na aplicação educacional. No entanto, a arquitetura permite a evolução futura através da integração com dados reais e validação experimental.
+\end_layout
+
+\begin_layout Standard
+Do ponto de vista da maturidade comercial (CRL, Commercial Readiness Level), o projeto situa-se entre o CRL 2 e o CRL 3. Existe uma definição conceitual da solução, do problema e do público-alvo, além de um protótipo funcional que pode ser utilizado em ambiente acadêmico. O objetivo principal não é a comercialização, mas sim a validação técnica e o potencial de aplicação futura. De acordo com as normas da disciplina, o código será disponibilizado como Software Livre.
+\end_layout
+
+\begin_layout Section
+Nome do Sistema/Produto
+\end_layout
+
+\begin_layout Standard
+O sistema foi denominado Software Educacional para Análise e Seleção de Inibidores de Corrosão. Ele foi construído com base em módulos de simulação e interface, dados do fluido, análise de corrosão, seleção de inibidores e cálculo de dosagem, retornando ao usuário.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Características básicas do programa
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:caracteristicas-basicas"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4.2cm">
+<column alignment="left" valignment="top" width="11.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Característica
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+Descrição
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1658,100 +1127,120 @@ Software Educacional para Análise e Seleção de Inibidores de Corrosão
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Resumo/descrição:
+Linguagem e paradigma
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-O caso de uso geral descreve a interação geral do usuário com o Software Educacional para Análise e Seleção de Inibidores de Corrosão.
- O usuário define um cenário de análise por meio da inserção dos parâmetros necessários.
- A partir dessas informações,
- o software realiza automaticamente a validação dos dados,
- a análise das condições de corrosão,
- a seleção da classe de inibidor mais adequada e o cálculo da dosagem recomendada.
- Ao final do processamento,
- o sistema apresenta os resultados obtidos e os respectivos gráficos para auxiliar a interpretação do cenário analisado.
+C++ com programação orientada a objetos (herança e polimorfismo na hierarquia de inibidores).
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Etapas:
+Componentes principais
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.
- O usuário acessa o software.
- 2.
- O usuário define o cenário de análise.
- 3.
- O usuário fornece os parâmetros de entrada necessários ao cenário.
- 4.
- O software valida os parâmetros fornecidos.
- 5.
- O software realiza a análise das condições de corrosão.
- 6.
- O software determina a classificação e a severidade da corrosão.
- 7.
- O software avalia as condições do cenário e seleciona a classe de inibidor mais adequada.
- 8.
- O software calcula a dosagem recomendada do inibidor.
- 9.
- O software processa os resultados e gera as representações gráficas previstas.
- 10.
- O software disponibiliza os resultados da análise ao usuário.
+Módulos de simulação e interface, dados do fluido, análise de corrosão, seleção de inibidores e cálculo da dosagem.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Cenários alternativos:
+Entrada de dados
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-A1 —
- Parâmetros inválidos:
- caso algum parâmetro fornecido seja inválido ou esteja fora dos limites estabelecidos,
- o software informa o problema e solicita a correção dos dados.
- A2 —
- Dados insuficientes:
- caso os parâmetros fornecidos não sejam suficientes para realizar a análise,
- o software solicita as informações necessárias antes de prosseguir.
- A3 —
- Cenário incompatível:
- caso as condições informadas não sejam compatíveis com os critérios de análise ou seleção disponíveis no software,
- o sistema informa a impossibilidade de concluir a recomendação e apresenta a justificativa correspondente.
- A4 —
- Cancelamento:
- o usuário pode cancelar a configuração do cenário antes da execução da análise.
+pH, concentração de CO₂ (ppm), concentração de H₂S (ppm), temperatura (°C), pressão (psi), salinidade (ppm) e vazão (m³/dia).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Saída de dados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de corrosão, severidade, taxa de corrosão estimada, classe de inibidor recomendada, dosagem estimada (ppm) e gráficos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Interface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Menu de console e interface gráfica com Qt 6 (Qt Widgets).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Missão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fornecer uma ferramenta educacional que auxilie estudantes na compreensão dos fenômenos de corrosão em sistemas petrolíferos, permitindo a aplicação prática de conceitos teóricos e contribuindo para a formação de profissionais mais preparados para a indústria de óleo e gás.
 \end_layout
 
 \end_inset
@@ -1761,7 +1250,498 @@ A1 —
 
 \end_inset
 
+\end_layout
 
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Especificação
+\end_layout
+
+\begin_layout Standard
+Os dados de pH, concentração de CO₂ (ppm), concentração de H₂S (ppm), temperatura (°C), pressão (psi), salinidade (ppm) e vazão (m³/dia) são fornecidos pelo usuário como parâmetros referentes ao cenário de produção do fluído e ao poço. Os dados são validados pelo software que executa, logo em seguida, a análise das condições de corrosão, a seleção da classe de inibidor, o cálculo da dosagem em ppm e a apresentação dos resultados. Os resultados são compostos pelo tipo de corrosão, severidade, taxa de corrosão, classe de inibidor recomendada e dosagem estimada, além de gráficos para a análise. A cadeia de processamento que foi adotada pode ser resumida em: condições do sistema → análise da corrosividade → classificação da severidade → seleção do inibidor → estimativa da dosagem → visualização dos resultados.
+\end_layout
+
+\begin_layout Section
+Requisitos
+\end_layout
+
+\begin_layout Standard
+Apresentam-se nesta seção os requisitos funcionais e não funcionais do sistema, identificados por códigos que permitem rastrear cada requisito até os casos de uso e aos testes.
+\end_layout
+
+\begin_layout Subsection
+Requisitos funcionais
+\end_layout
+
+\begin_layout Standard
+A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:b246"
+
+\end_inset
+ apresenta os requisitos funcionais (RF). Cada requisito é identificado por um código que permite estabelecer uma relação de rastreabilidade entre ele, os casos de uso e os testes do Capítulo 7.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Requisitos funcionais do sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:b246"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.6cm">
+<column alignment="left" valignment="top" width="10.0cm">
+<column alignment="left" valignment="top" width="2.2cm">
+<column alignment="left" valignment="top" width="2.1cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Código
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Caso de uso
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Prioridade
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Permitir que os parâmetros do cenário sejam fornecidos como dados de entrada: pH, CO₂, H₂S, salinidade, temperatura, pressão e vazão.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Validar os dados de entrada, rejeitando aqueles que estiverem fora das faixas operacionais definidas e justificando o porquê.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Calcular a taxa de corrosão estimada (CR) a partir de CO₂, temperatura e pH.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identificar o tipo de corrosão predominante (sulfídrica, doce ou branda).
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identificar a severidade da corrosão (baixa, média ou alta) com base na taxa de corrosão.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Escolher a classe de inibidor (H₂S, orgânico, catódico ou geral) conforme a lógica de escolha.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estimar a dosagem do inibidor, em ppm, considerando severidade, temperatura, composição, vazão e eficiência.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF08
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mostrar ao usuário tipo, severidade, taxa de corrosão, inibidor recomendado e dosagem.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Criar gráfico comparativo dos fatores (severidade (Fs), temperatura (FT), corrosividade (Fc) e vazão (Fq).
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC-04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
 \end_layout
 
 \end_inset
@@ -1770,207 +1750,12 @@ A1 —
 \end_layout
 
 \begin_layout Subsection
-Diagrama de caso de uso geral
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec: Diagrama de caso de uso geral"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- do software
-\end_layout
-
-\end_inset
-
-
+Requisitos não funcionais
 \end_layout
 
 \begin_layout Standard
-O diagrama de caso de uso geral da Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-caso-uso-geral-1"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- mostra o usuário de frente a interface com as opções permitidas do simulador.
- Com essas opções ele poderá executar,
- analisar os resultados obtidos e salvar as imagens ou os dados em um arquivo PDF.
- As condições do caso de uso são apresentadas na Tabela 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Exemplo-de-um-caso-de-uso (tabela)"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Dica importante:
-\end_layout
-
-\begin_layout Plain Layout
-1) Os diagramas devem ser gerados usando o modelador umbrello.
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-2) Para instalar no Fedora:
-\end_layout
-
-\begin_layout Plain Layout
-dnf install umbrello
-\end_layout
-
-\begin_layout Plain Layout
-Para instalar no Windows:
-\end_layout
-
-\begin_layout Plain Layout
-https://uml.sourceforge.io/installation.php#install-windows
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-3) Após instalar,
- vá no diretório 
-\end_layout
-
-\begin_layout Plain Layout
-NOME-DO-PROJETO/3-Execucao-ModelosDeEngenharia/uml
-\end_layout
-
-\begin_layout Plain Layout
-e crie uma cópia do arquivo Modelo.umbrello.xmi.
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-4) Renomeie esta cópia com o nome do seu projeto.
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-5) Faça os diagramas segundo o que foi visto em sala de aula.
-\end_layout
-
-\begin_layout Plain Layout
-Siga a sequência apresentada no modelo,
- pois é a mais natural e simples de entender.
-\end_layout
-
-\begin_layout Plain Layout
-Não invente pois é seu primeiro projeto!
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-6) Se tiver dúvidas?
-\end_layout
-
-\begin_layout Plain Layout
-Tem muitos vídeos na internet sobre UML.
-\end_layout
-
-\begin_layout Plain Layout
-Temos livros específicos de UML na biblioteca.
-\end_layout
-
-\begin_layout Plain Layout
-Nas provas e no material de aula tem diversos exemplos.
-\end_layout
-
-\begin_layout Plain Layout
-Nos projetos tem diversos exemplos.
-\end_layout
-
-\begin_layout Plain Layout
-Na mesma pasta irá encontrar alguns exemplos de arquivos de projeto.
-\end_layout
-
-\begin_layout Plain Layout
-Procure o professor.
-\end_layout
-
-\begin_layout Plain Layout
-.
-\end_layout
-
-\begin_layout Plain Layout
-7) Note que as imagens devem ser exportadas para a pasta:
-\end_layout
-
-\begin_layout Plain Layout
-NOME-DO-PROJETO/3-Execucao-ModelosDeEngenharia/lyx/imagens
-\end_layout
-
-\begin_layout Plain Layout
-desta forma ao exportar a imagem a mesma será automaticamente recarregada no LyX.
-\end_layout
-
-\begin_layout Plain Layout
-Você não precisará ficar copiando e colando.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-exemplo...
-\end_layout
-
-\begin_layout Standard
-O diagrama de caso de uso geral da Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Diagrama-caso-uso-geral"
-nolink "false"
-
-\end_inset
-
- mostra o usuário acessando os sistemas de ajuda do software,
- calculando a área de uma função ou analisando resultados.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
+\begin_inset Float table
+placement H
 alignment document
 wide false
 sideways false
@@ -1978,25 +1763,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename C:/Users/lroch/Desktop/Diagrama caso de uso geral.png
-	lyxscale 50
-	scale 150
-	special height=0.3\textheight
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Diagrama de caso de uso – Caso de uso geral
+Requisitos não funcionais do sistema
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:Diagrama-caso-uso-geral"
+name "tab:b250"
 
 \end_inset
 
@@ -2006,6 +1779,596 @@ name "cap:Diagrama-caso-uso-geral"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.6cm">
+<column alignment="left" valignment="top" width="10.1cm">
+<column alignment="left" valignment="top" width="4.3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Código
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Categoria
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementação em C++ com programação orientada a objetos, utilizando herança e polimorfismo na hierarquia de inibidores.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Linguagem e paradigma
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Arquitetura modular, estruturada em pacotes de baixo acoplamento, que permita adicionar novos inibidores e modelos sem reconstruir a aplicação.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Manutenibilidade e extensibilidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Código portável entre sistemas operacionais, compilável com compilador C++ padrão e sem dependência de software proprietário.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Portabilidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Código distribuído como software livre e documentado, com comentários e documentação gerada a partir do código.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Licença e documentação
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mensagens de erro claras para entradas inválidas, sem interromper abruptamente a execução.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usabilidade e robustez
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resposta imediata para o cálculo de um cenário em computador pessoal comum.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Desempenho
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RNF07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cálculos em ponto flutuante de precisão dupla, com constantes empíricas isoladas e identificadas no código.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precisão e rastreabilidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Delimitação
+\end_layout
+
+\begin_layout Standard
+Não fazem parte do âmbito deste projeto, a previsão de corrosão localizada (por exemplo, fendas e fendas devido a tensão) e a pesquisa em arquivos de dados comerciais de inibidores. O modelo mostra a corrosão de maneira simples e experimental, ideal para o uso educacional na sala de aula para entendimento de cenários práticos baseados na literatura.
+\end_layout
+
+\begin_layout Section
+Casos de Uso
+\end_layout
+
+\begin_layout Subsection
+Diagrama de caso de uso geral
+\end_layout
+
+\begin_layout Standard
+Os casos de uso representam a maneira como o usuário interage com o sistema. O diagrama geral está mostrado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:b257"
+
+\end_inset
+. O ator é o Usuário (aluno da disciplina ou professor) e as principais interações são a definição do cenário e o preenchimento dos parâmetros, que resultam na validação, na análise de corrosão, na seleção da classe de inibidor, no cálculo da dosagem, na produção de resultados e gráficos e na exibição dos resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de casos de uso geral do sistema (em duas faixas: a segunda continua a primeira)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b257"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-04-uc-geral-1.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-05-uc-geral-2.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria no PlantUML (Agosto 2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise UC- Diagrama de casos de uso geral do sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:b261"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.3cm">
+<column alignment="left" valignment="top" width="13.7cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Campo
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UC- Diagrama de casos de uso geral do sistema
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usuário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pré-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O software deve estar iniciado e disponível para utilização.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxo principal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1. O usuário define o cenário de análise.
+\begin_inset Newline newline
+\end_inset
+
+2. O usuário informa os parâmetros do cenário.
+\begin_inset Newline newline
+\end_inset
+
+3. O sistema valida os parâmetros informados.
+\begin_inset Newline newline
+\end_inset
+
+4. O sistema realiza a análise de corrosão.
+\begin_inset Newline newline
+\end_inset
+
+5. O sistema seleciona a classe de inibidor recomendada.
+\begin_inset Newline newline
+\end_inset
+
+6. O sistema calcula a dosagem do inibidor.
+\begin_inset Newline newline
+\end_inset
+
+7. O sistema gera os resultados e os gráficos.
+\begin_inset Newline newline
+\end_inset
+
+8. O sistema disponibiliza os resultados ao usuário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxos alternativos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1a. Caso os parâmetros informados sejam inválidos, o sistema não permite prosseguimento e exige a correção dos dados antes de prosseguir com a análise.
+\begin_inset Newline newline
+\end_inset
+
+1b. Caso não seja possível concluir alguma etapa por insuficiência de dados ou falha no processamento, o sistema não prossegue e00 impede a disponibilização de resultados incompletos como se fossem válidos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pós-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Os resultados da análise de corrosão, a classe de inibidor recomendada, a dosagem estimada e os gráficos são disponibilizados ao usuário, desde que o processamento seja concluído com sucesso.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
 \end_layout
 
 \end_inset
@@ -2015,103 +2378,23 @@ name "cap:Diagrama-caso-uso-geral"
 
 \begin_layout Subsection
 Diagrama de caso de uso específico
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec: Diagrama de caso de uso específico"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-do software
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-O caso de uso geral apresentado anteriormente,
- descreve,
- de forma abrangente,
- a interação entre o usuário e o Software Educacional para Análise e Seleção de Inibidores de Corrosão.
- Entretanto,
- devido à quantidade de etapas envolvidas no processamento do cenário de corrosão,
- torna-se necessário o detalhamento sobre o funcionamento do sistema em casos de uso específicos.
- Essa divisão permite representar de maneira mais clara a sequência lógica de processamento adotada pelo software,
- mantendo a relação entre os dados fornecidos pelo usuário,
- os cálculos realizados internamente e os resultados disponibilizados ao final da análise.
+O caso de uso geral foi detalhado em quatro casos de uso específicos, correspondentes às etapas principais de funcionamento do software: definição do cenário, análise de corrosão e seleção do inibidor, cálculo da dosagem e apresentação dos resultados.
+\end_layout
+
+\begin_layout Subsubsection
+UC-01 – Definição do cenário
 \end_layout
 
 \begin_layout Standard
-O funcionamento do software foi dividido em quatro casos de uso específicos,
- que representam as principais etapas do processo de análise.
- A divisão foi realizada de modo a preservar a visão do sistema como um todo e,
- simultaneamente,
- permitir o detalhamento das suas principais funcionalidades.
- Dessa forma,
- os casos de uso específicos não representam processos independentes,
- mas etapas relacionadas de uma mesma análise de cenário de corrosão.
-\end_layout
-
-\begin_layout Standard
-A primeira etapa corresponde à definição do cenário,
- na qual ocorre a interação direta do usuário com o software para fornecimento dos dados de entrada.
- A segunda etapa corresponde à análise das condições de corrosão e seleção da classe de inibidor,
- na qual os parâmetros fornecidos são processados pelo sistema para caracterização do ambiente corrosivo e determinação da classe de inibidor mais adequada.
- A terceira etapa corresponde ao cálculo da dosagem do inibidor,
- no qual os resultados da análise de corrosão e os fatores associados às condições operacionais são utilizados para estimar a concentração recomendada.
- Por fim,
- a quarta etapa corresponde à apresentação dos resultados,
- na qual o software organiza os resultados obtidos e gera as representações gráficas destinadas à interpretação do cenário analisado.
-\end_layout
-
-\begin_layout Standard
-Essa divisão também estabelece uma relação direta com a arquitetura orientada a objetos proposta para o desenvolvimento do software,
- uma vez que cada etapa possui responsabilidades específicas e poderá ser implementada por diferentes classes e componentes do sistema.
- Assim,
- a modelagem dos casos de uso serve como uma ligação entre a concepção funcional do produto e sua posterior implementação computacional.
-\end_layout
-
-\begin_layout Standard
-O primeiro caso de uso específico,
- apresentado na Figura 1.3,
- detalha a etapa de definição do cenário de análise.
- Nessa etapa ocorre a principal interação do usuário com o sistema,
- sendo responsabilidade do usuário fornecer os parâmetros necessários para caracterizar o ambiente no qual a análise de corrosão será realizada.
- O usuário inicia a configuração do cenário e informa as propriedades consideradas relevantes para a análise.
- Entre os parâmetros de entrada podem estar as propriedades do fluido,
- como pH,
- salinidade e concentrações de espécies corrosivas,
- incluindo dióxido de carbono (CO₂) e sulfeto de hidrogênio (H₂S),
- além das condições operacionais,
- como temperatura,
- pressão,
- vazão e profundidade do sistema.
- Dependendo do cenário selecionado e da disponibilidade dos dados,
- outros parâmetros poderão ser incorporados ao modelo.
- Após o fornecimento das informações,
- o software realiza a validação dos parâmetros,
- verificando a consistência dos dados,
- a presença de informações obrigatórias e a compatibilidade das unidades utilizadas.
- Essa etapa é importante para evitar que valores inadequados sejam utilizados nos cálculos posteriores.
- Portanto,
- neste caso de uso,
- o usuário é responsável pela definição do cenário e pelo fornecimento dos dados de entrada,
- enquanto o software é responsável por receber,
- armazenar e validar essas informações.
- Os cálculos de corrosão e a seleção do inibidor ainda não são realizados nesta etapa,
- sendo executados posteriormente pelo sistema.
- 
+O usuário estabelece o cenário especificando duas séries de dados (Figura 1.3). A primeira consiste nas condições de operação: profundidade, vazão, pressão e temperatura. A segunda é composta pelas propriedades do fluido: salinidade, quantidade de H₂S, quantidade de pH do CO₂ e PH.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -2119,23 +2402,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename C:/Users/lroch/Desktop/Caso de uso especifico 1- Definicao de cenario.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Diagrama de caso de uso específico 1– Definição do cenário
+Caso de uso específico UC-01 – Definição do cenário
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:Diagrama-de-caso-de-uso-especifico:Titulo"
+name "fig:b266"
 
 \end_inset
 
@@ -2145,6 +2418,22 @@ name "cap:Diagrama-de-caso-de-uso-especifico:Titulo"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-06-uc01-definicao-cenario.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
 \end_layout
 
 \end_inset
@@ -2153,38 +2442,8 @@ name "cap:Diagrama-de-caso-de-uso-especifico:Titulo"
 \end_layout
 
 \begin_layout Standard
-Após a definição e validação do cenário,
- inicia-se o segundo caso de uso específico,
- apresentado na Figura 1.4,
- correspondente à análise das condições de corrosão e à seleção da classe de inibidor.
- Nesta etapa,
- o usuário não precisa realizar individualmente os cálculos.
- A partir dos parâmetros previamente fornecidos,
- o próprio software executa o processamento necessário para caracterizar o cenário corrosivo.
- Inicialmente,
- os dados são utilizados para determinar a taxa de corrosão (CR) de acordo com o modelo adotado no software.
- A taxa de corrosão constitui uma das principais informações utilizadas na avaliação da severidade do processo corrosivo.
- A partir dos resultados obtidos,
- o sistema realiza a classificação do tipo de corrosão e determina sua severidade,
- considerando os critérios previamente estabelecidos na fundamentação teórica do projeto.
- Essa classificação permite relacionar as características do cenário às condições de aplicação dos diferentes tipos de inibidores disponíveis na base de conhecimento do software.
- Em seguida,
- o sistema avalia as condições do cenário em relação aos critérios de aplicabilidade dos inibidores.
- São consideradas características como temperatura,
- pressão,
- composição do fluido,
- presença de CO₂ e H₂S,
- salinidade e demais parâmetros relevantes para a seleção.
- A partir dessa avaliação,
- o software compara as condições do cenário com as características das classes de inibidores disponíveis e determina a classe recomendada.
- Dessa maneira,
- o caso de uso representa uma etapa predominantemente computacional:
- o usuário fornece os parâmetros no caso de uso anterior e o software utiliza essas informações para realizar a análise de corrosão e selecionar a classe de inibidor mais compatível com o cenário.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
+\begin_inset Float table
+placement H
 alignment document
 wide false
 sideways false
@@ -2192,23 +2451,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename C:/Users/lroch/Desktop/Caso de uso específico 2- Análise de corrosão e seleção do inibidor.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Diagrama de caso de uso específico 2 – Análise de corrosão e seleção de inibidor
+Análise Caso de uso específico UC-01 – Definição do cenário
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1"
+name "tab:b269"
 
 \end_inset
 
@@ -2219,189 +2468,1086 @@ name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1"
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-O terceiro caso de uso específico,
- apresentado na Figura 1.5,
- corresponde ao cálculo da dosagem do inibidor selecionado.
- Essa etapa utiliza os resultados produzidos nas etapas anteriores para determinar uma estimativa da quantidade de inibidor necessária para o cenário analisado.
- A dosagem não é definida exclusivamente a partir da taxa de corrosão.
- O modelo desenvolvido considera também fatores relacionados às condições específicas de operação.
- Dessa forma,
- a equação implementada no software considera a taxa de corrosão,
- a eficiência esperada do inibidor e fatores de correção associados à severidade,
- temperatura,
- corrosividade e vazão do sistema.
- A formulação utilizada no projeto é representada por:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-Dose=\frac{K\cdot CR\cdot F_{s}\cdot F_{T}\cdot F_{c}\cdot F_{q}}{\eta}
-\end{equation}
-
-\end_inset
-
-Em que Dose representa a dosagem estimada do inibidor,
- K representa a constante de conversão associada às unidades adotadas,
- CR representa a taxa de corrosão,
- Fs representa o fator associado à severidade da corrosão,
- Ft o fator de temperatura,
- Fc o fator de corrosividade,
- Fq o fator associado à vazão e η representa a eficiência considerada para o inibidor.
-\end_layout
-
-\begin_layout Standard
-Os fatores são determinados pelo software a partir das características do cenário e dos critérios definidos na fundamentação teórica.
- Dessa maneira,
- o resultado não consiste simplesmente na aplicação de uma concentração fixa,
- mas em uma estimativa parametrizada em função das condições de operação analisadas.
- Ao final desta etapa,
- o sistema determina a dosagem recomendada,
- expressa na unidade definida para a aplicação do software,
- como concentração do produto no sistema.
- O resultado é posteriormente utilizado na etapa de apresentação dos resultados.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename C:/Users/lroch/Desktop/Caso de uso específico 3- Calculo dosagem inibidor.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.3cm">
+<column alignment="left" valignment="top" width="13.7cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Diagrama de caso de uso específico 3 – Cálculo da dosagem do inibidor
-\begin_inset CommandInset label
-LatexCommand label
-name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1-1"
+\series bold
 
-\end_inset
+\series bold
+Campo
+\series default
 
-
+\series default
 \end_layout
 
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-O quarto e último caso de uso específico,
- apresentado na Figura 1.6,
- corresponde à apresentação dos resultados obtidos durante a análise.
- Esta etapa representa a saída do processamento realizado pelo software e tem como objetivo facilitar a interpretação dos resultados pelo usuário.
- Após a conclusão dos cálculos,
- o sistema organiza as principais informações obtidas durante o processamento.
- Entre os resultados apresentados estão a taxa de corrosão,
- o tipo de corrosão identificado,
- a classificação de severidade,
- a classe de inibidor recomendada e a dosagem estimada.
- Além da apresentação numérica e textual dos resultados,
- o software possui a funcionalidade de geração de gráficos por meio da classe GraphGenerator.
- A representação gráfica permite visualizar a relação entre diferentes parâmetros do cenário e os resultados obtidos,
- contribuindo para uma análise mais intuitiva do comportamento do sistema.
- Entre as representações que podem ser produzidas estão gráficos relacionados ao perfil de corrosão,
- à variação de temperatura,
- pressão e à dosagem recomendada,
- de acordo com os dados disponíveis e as funcionalidades implementadas.
- A geração dos gráficos complementa os resultados numéricos e contribui para o caráter educacional da aplicação,
- permitindo que o usuário observe visualmente a influência das condições do cenário sobre a análise realizada.
- Assim,
- o quarto caso de uso representa a etapa final do processo:
- o software transforma os resultados dos cálculos em informações organizadas,
- gráficos e indicadores que podem ser interpretados pelo usuário.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement document
-alignment document
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename C:/Users/lroch/Desktop/Caso de uso específico 4- Apresentação de resultados.png
-	width 100text%
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
 
 \end_inset
-
-
-\end_layout
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Diagrama de caso de uso específico 4 – Apresentação de resultados
-\begin_inset CommandInset label
-LatexCommand label
-name "cap:Diagrama-de-caso-de-uso-especifico:Titulo-1-1-1"
-
-\end_inset
-
-
+Caso de uso específico UC-01 – Definição do cenário
 \end_layout
 
 \end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-
+\begin_layout Plain Layout
+Ator
 \end_layout
 
 \end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-
+\begin_layout Plain Layout
+Usuário.
 \end_layout
 
-\begin_layout Description
-Nota:
- 
-\begin_inset space ~
 \end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
+\begin_layout Plain Layout
+Pré-condições
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O software deve estar iniciado e disponível para utilização.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxo principal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1. O usuário inicia a definição do cenário.
 \begin_inset Newline newline
 \end_inset
 
-Não perca de vista a visão do todo;
- do projeto de engenharia como um todo.
- Cada capítulo,
- cada seção,
- cada parágrafo deve se encaixar.
- Este é um diferencial fundamental do engenheiro em relação ao técnico,
- a capacidade de desenvolver projetos,
- de ver o todo e suas diferentes partes,
- de modelar processos/sistemas/produtos de engenharia.
+2. O usuário seleciona a opção de configuração dos parâmetros.
+\begin_inset Newline newline
+\end_inset
+
+3. O usuário informa a profundidade, a vazão, a pressão e a temperatura de operação.
+\begin_inset Newline newline
+\end_inset
+
+4. O usuário informa as propriedades do fluido: salinidade, concentração de H₂S, concentração de CO₂ e pH.
+\begin_inset Newline newline
+\end_inset
+
+5. O sistema reúne os dados informados para a análise de corrosão.
 \end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxos alternativos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1a. Caso algum parâmetro obrigatório não seja informado, o sistema apenas prosseguirá após o preenchimento.
+\begin_inset Newline newline
+\end_inset
+
+1b. Caso sejam identificados valores inconsistentes, o sistema aguarda a correção dos dados e não prossegue.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pós-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O cenário fica definido com os parâmetros operacionais e as propriedades do fluido informados, ficando disponível para validação e análise.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+UC-02 – Análise de corrosão e seleção do inibidor
+\end_layout
+
+\begin_layout Standard
+Com base nesses parâmetros, o sistema faz a validação dos dados, calcula a taxa de corrosão (CR), classifica o tipo e a severidade, escolhe a classe do inibidor, avalia as condições do cenário, compara os critérios de aplicabilidade, e decide qual classe de inibidor deve ser utilizada (Figura 1.4).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Caso de uso específico UC-02 – Análise de corrosão e seleção do inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b274"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-07-uc02-analise-selecao.png
+	special height=0.62\textheight
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análise Caso de uso específico UC-02 – Análise de corrosão e seleção do inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:b277"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.2cm">
+<column alignment="left" valignment="top" width="13.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Campo
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Caso de uso específico UC-02 – Análise de corrosão e seleção do inibidor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usuário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pré-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O usuário deve ter definido o cenário e informado os parâmetros necessários à análise.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxo principal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1. O sistema recebe os parâmetros do cenário.
+\begin_inset Newline newline
+\end_inset
+
+2. O sistema valida os dados informados.
+\begin_inset Newline newline
+\end_inset
+
+3. O sistema analisa as condições de corrosão.
+\begin_inset Newline newline
+\end_inset
+
+4. O sistema calcula a taxa de corrosão (CR).
+\begin_inset Newline newline
+\end_inset
+
+5. O sistema classifica o tipo de corrosão.
+\begin_inset Newline newline
+\end_inset
+
+6. O sistema determina a severidade da corrosão.
+\begin_inset Newline newline
+\end_inset
+
+7. O sistema identifica as classes de inibidores potencialmente aplicáveis.
+\begin_inset Newline newline
+\end_inset
+
+8. O sistema avalia as condições do cenário.
+\begin_inset Newline newline
+\end_inset
+
+9. O sistema compara os critérios de aplicabilidade dos inibidores.
+\begin_inset Newline newline
+\end_inset
+
+10. O sistema determina a classe de inibidor recomendada.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxos alternativos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2a. Dados inválidos: caso a validação identifique dados ausentes, inconsistentes ou fora dos critérios estabelecidos, o sistema não segue com o processamento. Após a correção, o sistema retoma o processamento a partir da etapa de validação.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pós-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Com dados válidos, a taxa, o tipo e a severidade da corrosão são determinados, e a classe de inibidor recomendada é definida. Caso os dados sejam inválidos, o sistema permanece no estado correspondente até que ocorra a correção.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+UC-03 – Cálculo da dosagem do inibidor
+\end_layout
+
+\begin_layout Standard
+O sistema obtém a taxa de corrosão e a eficiência do inibidor, calcula os fatores de severidade (Fs), temperatura (FT), corrosividade (Fc) e vazão (Fq), aplica a equação de dosagem e determina a dosagem final em ppm (Figura 1.5).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Caso de uso específico UC-03 – Cálculo da dosagem do inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b282"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-08-uc03-calculo-dosagem.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Caso de uso específico UC-03 – Cálculo da dosagem do inibidor
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:b285"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.2cm">
+<column alignment="left" valignment="top" width="13.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Campo
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Caso de uso específico UC-03 – Cálculo da dosagem do inibidor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usuário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pré-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O cenário deve estar definido, os parâmetros devem ter sido validados e a taxa de corrosão deve estar disponível.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxo principal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1. O usuário inicia o cálculo da dosagem.
+\begin_inset Newline newline
+\end_inset
+
+2. O sistema recupera os parâmetros necessários ao cálculo.
+\begin_inset Newline newline
+\end_inset
+
+3. O sistema determina ou obtém o fator de vazão (Fq).
+\begin_inset Newline newline
+\end_inset
+
+4. O sistema determina ou obtém o fator de corrosividade (Fc).
+\begin_inset Newline newline
+\end_inset
+
+5. O sistema determina ou obtém o fator de temperatura (FT).
+\begin_inset Newline newline
+\end_inset
+
+6. O sistema determina ou obtém o fator de severidade (Fs).
+\begin_inset Newline newline
+\end_inset
+
+7. O sistema obtém a eficiência do inibidor (η).
+\begin_inset Newline newline
+\end_inset
+
+8. O sistema aplica a equação de dosagem definida no projeto.
+\begin_inset Newline newline
+\end_inset
+
+9. O sistema determina a dosagem final estimada, expressa em ppm.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxos alternativos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1a. Caso algum parâmetro necessário esteja ausente ou inválido, o sistema não prossegue até o preenchimento correto dos dados.
+\begin_inset Newline newline
+\end_inset
+
+1b. Caso não seja possível determinar algum fator ou a eficiência do inibidor, o sistema informa a impossibilidade de concluir o cálculo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pós-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A dosagem estimada do inibidor é calculada e disponibilizada para apresentação dos resultados, desde que todos os dados necessários sejam válidos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+UC-04 – Apresentação dos resultados
+\end_layout
+
+\begin_layout Standard
+Os resultados são apresentados ao usuário: taxa de corrosão, tipo, severidade, classe de inibidor recomendada e dosagem estimada. O sistema também gera os de comparativos dos fatores (severidade (Fs), temperatura (FT), corrosividade (Fc) e vazão (Fq)) (Figura 1.6).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Caso de uso específico UC-04 – Apresentação dos resultados
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b290"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figuras/fig-09-uc04-apresentacao-resultados.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Caso de uso específico UC-04 – Apresentação dos resultados
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:b293"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.2cm">
+<column alignment="left" valignment="top" width="13.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Campo
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\series bold
+
+\series bold
+Descrição
+\series default
+
+\series default
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Caso de uso específico UC-04 – Apresentação dos resultados
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usuário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pré-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A análise de corrosão e a seleção do inibidor devem ter sido concluídas, e os resultados necessários à apresentação devem estar disponíveis.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxo principal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1. O usuário solicita a apresentação dos resultados.
+\begin_inset Newline newline
+\end_inset
+
+2. O sistema recupera os resultados da análise e do cálculo de dosagem.
+\begin_inset Newline newline
+\end_inset
+
+3. O sistema apresenta a taxa de corrosão calculada.
+\begin_inset Newline newline
+\end_inset
+
+4. O sistema apresenta o tipo de corrosão identificado.
+\begin_inset Newline newline
+\end_inset
+
+5. O sistema apresenta a severidade da corrosão.
+\begin_inset Newline newline
+\end_inset
+
+6. O sistema apresenta a classe de inibidor recomendada.
+\begin_inset Newline newline
+\end_inset
+
+7. O sistema apresenta a dosagem estimada.
+\begin_inset Newline newline
+\end_inset
+
+8. O sistema gera e apresenta o gráfico comparativo dos fatores de severidade (Fs), temperatura (FT), corrosividade (Fc) e vazão (Fq).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluxos alternativos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1a. Caso os resultados necessários não estejam disponíveis, o sistema não prossegue até completar as etapas anteriores.
+\begin_inset Newline newline
+\end_inset
+
+1b. Caso ocorra uma falha na geração do gráfico, o sistema informa a indisponibilidade da representação gráfica, preservando os demais resultados que puderem ser apresentados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pós-condições
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Os resultados da análise e da seleção do inibidor são apresentados ao usuário, incluindo a dosagem estimada e o gráfico comparativo, quando sua geração for concluída com sucesso.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte: Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 
 \end_body
 \end_document
