@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_SoftwareDeCorrosao_FILE C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/SoftwareDeCorrosao.exe)
+set(__QT_DEPLOY_TARGET_SoftwareDeCorrosao_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_SoftwareDeCorrosao_RUNTIME_DLLS )
+set(__QT_DEPLOY_TARGET_SoftwareCorrosaoGUI_FILE C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/SoftwareCorrosaoGUI.exe)
+set(__QT_DEPLOY_TARGET_SoftwareCorrosaoGUI_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_SoftwareCorrosaoGUI_RUNTIME_DLLS C:/Qt/6.11.2/mingw_64/bin/Qt6Widgets.dll;C:/Qt/6.11.2/mingw_64/bin/Qt6Gui.dll;C:/Qt/6.11.2/mingw_64/bin/Qt6Core.dll)

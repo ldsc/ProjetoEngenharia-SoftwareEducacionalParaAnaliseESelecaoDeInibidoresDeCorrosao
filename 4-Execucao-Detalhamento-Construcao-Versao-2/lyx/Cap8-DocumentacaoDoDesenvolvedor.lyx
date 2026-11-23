@@ -1,0 +1,5119 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Documentação para o Desenvolvedor
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Documentacao-Desenvolvedor"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Documentação}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este capítulo reúne a documentação de uso do software.
+ A primeira parte (Seções 9.1 a 9.12) é um manual do usuário,
+ para dar suporte ao discente ou docente na utilização do programa pela primeira vez.
+ A segunda parte (Seções 9.13 e 9.14) sé destinada a quem deseja compilar,
+ entender ou ampliar o código.
+\end_layout
+
+\begin_layout Section
+Visão geral
+\end_layout
+
+\begin_layout Standard
+O Software Educacional para Análise e Seleção de Inibidores de Corrosão é um programa que simula,
+ de maneira simples e aplicada,
+ simula os conhecimentos teóricos de corrosão por meio da análise do fluido de produção,
+ da caracterização do ambiente,
+ da identificação do tipo de corrosão predominante,
+ da seleção do inibidor mais adequado e de sua dosagem necessária.
+ O software foi desenvolvido como material de apoio para a disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo,
+ do curso,
+ de Engenharia de Exploração e Produção de Petróleo da UENF.
+\end_layout
+
+\begin_layout Standard
+O Usuário informa sete propriedades do fluido (pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ temperatura,
+ pressão e vazão) e o programa retorna quatro respostas:
+ o tipo de corrosão,
+ a severidade,
+ o inibidor recomendado e a dosagem em ppm.
+ A vantagem para o ensino é que o usuário pode alterar um parâmetro por vez e observar e analisar imediatamente o efeito sobre cada resposta.
+\end_layout
+
+\begin_layout Standard
+É necessário lembrar,
+ ao usar o programa,
+ que as equações são uma simplificação didática,
+ sem calibração experimental.
+ Os resultados servem para compreender tendências e relações entre as variáveis,
+ e não para dimensionar um tratamento real em campo,
+ o que exige modelos,
+ normas completas e dados laboratoriais.
+\end_layout
+
+\begin_layout Section
+Requisitos e execução do programa
+\end_layout
+
+\begin_layout Standard
+A versão para Windows acompanha uma pasta pronta para o uso,
+ que contém os dois executáveis e as bibliotecas do Qt necessárias para funcionamento do programa.
+ Não se faz necessário instalar nada.
+ Para executar a interface gráfica:
+\end_layout
+
+\begin_layout Enumerate
+Copie a pasta completa do programa para o computador,
+ sem separar o executável dos demais arquivos.
+ As bibliotecas (arquivos com extensão .dll) e a pasta assets,
+ que guarda o logotipo da UENF,
+ precisam ficar ao lado di executável.
+\end_layout
+
+\begin_layout Enumerate
+Dê um clique duplo no arquivo SoftwareCorrosaoGUI.exe.
+\end_layout
+
+\begin_layout Enumerate
+Aguarde a abertura da janela “Software Educacional- Análise e Seleção de Inibidores de Corrosão”.
+ A janela abre com 1180 x 780 pixels e pode ser redimensionada,
+ com tamanho mínimo de 980 x 640 pixels.
+\end_layout
+
+\begin_layout Standard
+Existe também uma versão em console,
+ o arquivo SoftwareDeCorrosao.exe,
+ que apresente um menu em texto com as opções de rodar as amostras padrão,
+ informar os dados de um fluido ou sair.
+ Ela usa exatamente as mesmas classes de cálculo da interface gráfica.
+ Para usuário de outros sistemas operacionais,
+ a Seção 8.13.1 explica como compilar o programa.
+\end_layout
+
+\begin_layout Section
+Conhecendo a interface
+\end_layout
+
+\begin_layout Standard
+A janela principal é dividida em duas regiões,
+ como mostra a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:b781"
+
+\end_inset
+
+.
+ Na parte superior fica o cabeçalho,
+ com a logotipo da UENF,
+ o título do software e a identificação do curso e da disciplina.
+ Logo abaixo ficam as cinco abas,
+ que são os modos de uso do programa.
+ A aba aberta aparece em azul escuro,
+ e o restante das janelas exibe o conteúdo dessa aba.
+ Cada aba tem uma função e finalidade,
+ e a escolha delas depende do que o usuário quer fazer (Tabela 8.1).
+ Para quem está começando,
+ o caminho ideal é primeiro experimentar a aba das Amostras Padrão para entender o funcionamento,
+ e posteriormente,
+ usar o Formulário com os próprios valores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Janela principal do software,
+ com a aba Formulário aberta
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b781"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-36.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Software Educacional- Análise e Seleção de Inibidores de Corrosão (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+As cinco abas do software
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:AbasSoftware"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.9cm">
+<column alignment="left" valignment="top" width="6.2cm">
+<column alignment="left" valignment="top" width="6.9cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Aba
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Para que serve
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Quando usar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Formulário
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Informar manualmente as sete propriedades do fluido e simular.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Para testar um cenário próprio ou fazer exercícios variando um parâmetro.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amostras Padrão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simular fluidos já cadastrados,
+ sem digitar nada.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Para o primeiro contato e para comparar cenários típicos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modo Perguntas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Informar os dados respondendo a uma pergunta por vez.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Para quem prefere ser guiado passo a passo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gráficos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ver o resultado da última simulação em forma de gráficos.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Depois de qualquer simulação,
+ para interpretar os números.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Material de Apoio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Consultar fórmulas,
+ tipos de corrosão e de inibidor.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sempre que surgir uma dúvida sobre como o resultado foi obtido.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Parâmetros de entrada
+\end_layout
+
+\begin_layout Standard
+Antes de começarmos a simular,
+ devemos saber o que significa cada parâmetro.
+ Na tabela 8.2 podemos ver quais são as unidades e as faixas normais que estão escritas na própria interface.
+ Essas faixas são uma ajuda:
+ O programa permite qualquer valor que exista fisicamente,
+ mesmo que não esteja na faixa normal,
+ o que nos permite ver o que acontece em situações ruins.
+ O que o programa não permite são valores que não existem fisicamente,
+ por exemplo,
+ pH menor que 0 ou maior que 14 ou quantidades negativas de H₂S e CO₂.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parâmetros de entrada,
+ unidades e faixas indicadas na interface
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:ParametrosEntrada"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.3cm">
+<column alignment="left" valignment="top" width="1.8cm">
+<column alignment="left" valignment="top" width="3.7cm">
+<column alignment="left" valignment="top" width="8.3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Parâmetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Faixa típica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+O que significa
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+–
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 a 8 (válido de 0 a 14)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mede a acidez da água.
+ Quanto menor o pH,
+ mais ácido e mais agressivo é o meio.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO₂
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 a 1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dióxido de carbono dissolvido.
+ Acima de 20 ppm,
+ o modelo considera corrosão doce (sweet).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 a 200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sulfeto de hidrogênio dissolvido.
+ Acima de 10 ppm,
+ o modelo considera corrosão ácida (sour).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salinidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.000 a 250.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quantidade de sais dissolvidos.
+ A água do mar tem cerca de 35.000 ppm.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temperatura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+°C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20 a 150
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quanto mais quente,
+ mais rápidas são as reações de corrosão.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pressão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+psi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 a 5.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pressão do sistema de produção.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vazão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m³/dia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100 a 10.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Volume de fluido produzido por dia.
+ Vazões altas aumentam a dose necessária.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026),
+ com base nas faixas indicadas na interface do software.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aba Formulário
+\end_layout
+
+\begin_layout Standard
+O Formulário consiste na forma mais simples de utilizar o programa.
+ À esquerda,
+ se encontram sete campos para entrada de dados,
+ e à direita,
+ a área onde é apresentado o resultado.
+ Em cada campo de dados,
+ estão presentes:
+ o nome do parâmetro,
+ uma caixa numérica com a unidade,
+ e um botão "+ Ver faixa de referência".
+ Quando o usuário clica neste botão,
+ aparece um quadro de cor azul que mostra a unidade,
+ a faixa normal de valores e uma sugestão (por exemplo,
+ em qual valor o CO₂ começa a valer o regime doce).
+ Se o usuário clicar novamente,
+ o quadro desaparece.
+ A imagem 8.2 ilustra a aba formulário,
+ onde os parâmetros são inseridos,
+ e a imagem 8.3 mostra os sete campos e suas respectivas faixas de referência abertas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Formulário
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b794"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-36.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Software Educacional- Análise e Seleção de Inibidores de Corrosão (2026)..
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Campos do formulário com as faixas de referência abertas
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b797"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-37.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Software Educacional- Análise e Seleção de Inibidores de Corrosão (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os campos são preenchidos por valores iniciais (pH 7,00;
+ temperatura 25ºC;
+ pressão 101,33psi;
+ os demais em zero).
+ Os valores de pH,
+ temperatura,
+ pressão e demais campos formam um fluido neutro sem gases,
+ o qual não é passível de corrosão quando calculado.
+ Por essa razão,
+ antes de efetuar a primeira simulação,
+ deve-se alterar os valores.
+ Para simular:
+\end_layout
+
+\begin_layout Enumerate
+Clique no campo desejado e digite o valor,
+ ou use as setas da caixa numérica para aumentar e diminuir.
+ É possível usar a vírgula como separador decimal.
+\end_layout
+
+\begin_layout Enumerate
+Preencha os sete campos.
+ Se a janela for pequena,
+ use a barra de rolagem,
+ à esquerda para alcançar os campos finais.
+\end_layout
+
+\begin_layout Enumerate
+Clique em Simular,
+ que fica no rodapé do painel de entrada e sempre permanece visível.
+\end_layout
+
+\begin_layout Enumerate
+Leia o resultado no painel da direita e,
+ se desejar,
+ abra a aba Gráficos para ver a análise visual.
+\end_layout
+
+\begin_layout Subsection
+Exemplo guiado
+\end_layout
+
+\begin_layout Standard
+Para reproduzir a Amostra 1 do software no formulário,
+ digite pH= 5,5;
+ CO₂= 60 ppm;
+ H₂S= 25 ppm;
+ salinidade= 80000 ppm;
+ temperatura= 65ºC;
+ pressão= 4000 psi;
+ vazão= 5000 m³/dia,
+ e clique em Simular.
+ O relatório deve mostrar corrosão ácida (sour),
+ severidade alta,
+ inibidor para H₂S com eficiência de 93 e dosagem recomendada de 1384,86 ppm.
+ Se o resultado for esse,
+ o formulário está funcionando como esperado.
+\end_layout
+
+\begin_layout Section
+Aba Amostras Padrão
+\end_layout
+
+\begin_layout Standard
+Esta aba reúne sete fluidos típicos da indústria de óleo e gás,
+ pré definidos e prontos para uso.
+ É a melhor forma de conhecer o software,
+ pois não exige digitar nenhum dado.
+ No alto da aba há uma lista para escolher uma amostra e dois botões ao lado direito:
+ Simular amostra selecionada e Simular todas as amostras padrão.
+ Abaixo fica a área de resultados,
+ que está vazia até a primeira simulação iniciada (Figura 8.3)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Amostras Padrão antes da primeira simulação
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:b806"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-38.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ao abrir a lista,
+ aparecem sete opções de amostras padrões para escolher,
+ cada uma com seu número,
+ nome e os valores de pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ pressão,
+ temperatura e vazão.
+ Cada amostra foi escolhida para exercitar uma situação diferente do modelo,
+ como mostrado na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:AmostraPadraoDetalhamento"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amostras padrão e o que cada uma ilustra
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:AmostraPadraoDetalhamento"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.5cm">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="5.1cm">
+<column alignment="left" valignment="top" width="5.9cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nº
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Amostra
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Resultado esperado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+O que ilustra
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sour acentuado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sour,
+ Alta;
+ inibidor H₂S;
+ 1.384,86 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S acima de 10 ppm define o inibidor para H₂S.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sweet severa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sweet,
+ Alta;
+ inibidor orgânico;
+ 1.665,61 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mesmo com salinidade alta,
+ CO₂ e pH são avaliados antes.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sweet intensa / T alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sweet,
+ Alta;
+ inibidor orgânico;
+ 3.822,76 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temperatura acima de 80 °C (FT = 1,8) e CO₂ elevado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve / baixo risco
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve,
+ Baixa;
+ inibidor geral;
+ 0,58 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido brando:
+ a dose é a menor de todas.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve / catódico (baixa)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve,
+ Baixa;
+ inibidor catódico;
+ 1,56 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salinidade alta como único gatilho do inibidor catódico.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve / catódico (média)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve,
+ Média;
+ inibidor catódico;
+ 10,49 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Compara o efeito da severidade (Fs) com a Amostra 5.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extremo combinado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sour,
+ Alta;
+ inibidor H₂S;
+ 17.293,09 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teste de estresse:
+ todos os critérios ao mesmo tempo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lista das sete amostras padrão
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SeteAmostras"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-39.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para simular uma única amostra,
+ selecione-a na lista de opções e clique em Simular amostra selecionada.
+ O relatório aparece na área abaixo,
+ como na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SimulacaoAmostra7"
+
+\end_inset
+
+.
+ Para comparar todos os cenários de uma vez,
+ clique no botão Simular todas as amostras padão,
+ que os relatórios das sete amostras serão exibidos um após o outro,
+ cada um iniciando com uma faixa azul com o número da amostra,
+ como na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SimulacaoTodasAmostras"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultado da simulação de uma amostra (Amostra 7,
+ extremo combinado)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SimulacaoAmostra7"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-40.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultado ao simular todas as amostras padrão (início da Amostra 1)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SimulacaoTodasAmostras"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-41.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aba Modo Perguntas
+\end_layout
+
+\begin_layout Standard
+Esta aba Modo Perguntas funciona como uma conversa.
+ O software faz uma pergunta por vez,
+ e o usuário responde digitando um número.
+ É uma forma útil da utilização do software para quem ainda não está familiarizado com os parâmetros,
+ pois cada pergunta já informa a unidade e faixa típica.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ModoPergunta"
+
+\end_inset
+
+ mostra a tela inicial,
+ com a saudação e a primeira pergunta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Modo Perguntas com a primeira pergunta
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ModoPergunta"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-42.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Leia a pergunta exibida na área de conversa,
+ por exemplo:
+ “Qual o pH do fluido?
+ (0 a 14;
+ típico 4 a 8)”.
+\end_layout
+
+\begin_layout Enumerate
+Digite o valor no campo inferior e pressione Enter ou clique em Enviar.
+ A resposta aparece na conversa e a pergunta seguinte é exibida.
+ Podem ser usados o ponto ou a vírgula como separador decimal.
+\end_layout
+
+\begin_layout Enumerate
+Responda às sete perguntas,
+ que seguem a ordem:
+ pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ temperatura,
+ pressão e vazão.
+\end_layout
+
+\begin_layout Enumerate
+Após a última resposta,
+ o software apresenta o relatório completo na própria conversa e a mensagem “Simulação concluída!”.
+ A aba Gráficos é atualizada com o resultado.
+\end_layout
+
+\begin_layout Enumerate
+Para fazer outra simulação,
+ clique em Nova simulação,
+ que reinicia a conversa.
+\end_layout
+
+\begin_layout Standard
+Se alguma resposta não for um número,
+ o software avisa (“Isso não parece um número válido.
+ Tente novamente”) e repete a pergunta.
+ Se o conjunto das respostas for fisicamente inválido (por exemplo,
+ um pH de 15),
+ o software explica o motivo e recomeça a conversa do início.
+\end_layout
+
+\begin_layout Section
+Aba Gráfico
+\end_layout
+
+\begin_layout Standard
+A aba Gráficos transforma o resultado da última simulação,
+ feito em qualquer de uma das abas anteriores,
+ em uma análise visual extra.
+ Se nenhuma simulação ainda houver sido realizada,
+ o painel solicitará que o usuário simule um cenário.
+ No topo,
+ uma caixa azul explica em linguagem simples o tipo de corrosão identificado e o inibidor selecionado,
+ com a justificativa técnica,
+ como apresentado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:GraficosParte1"
+
+\end_inset
+
+ e 8.10.
+ Abaixo dela,
+ aparecem os gráficos,
+ que podem ser vistos rolando a aba.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Gráficos:
+ explicação didática,
+ perfil do fluido e fatores de correção (Amostra 7)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GraficosParte1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-43.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Gráficos:
+ evolução da taxa,
+ comparativo base e final,
+ eficiência do inibidor e dose
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:GraficosParte2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-44.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Guia de leitura dos gráficos
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:GuiaGraficos"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4.4cm">
+<column alignment="left" valignment="top" width="11.6cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Bloco
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Como interpretar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Perfil do fluido simulado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resumo dos sete parâmetros usados.
+ Serve para conferir se a simulação corresponde ao cenário pretendido.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fatores de correção da taxa de corrosão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Barras com Fs (severidade),
+ FT (temperatura),
+ Fc (corrosivo) e Fq (vazão).
+ Barras mais altas indicam fatores que mais ampliam a taxa e a dose.
+ É o gráfico que mostra “o que pesa mais” no cenário.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Evolução da taxa de corrosão por etapa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mostra como a taxa base vai crescendo ao ser multiplicada por Fs,
+ FT e Fc até chegar à taxa final.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Taxa de corrosão:
+ base versus final
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Compara os dois valores.
+ A barra da taxa final muda de cor conforme a severidade.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eficiência do inibidor selecionado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medidor circular com a eficiência do inibidor (por exemplo,
+ 93 % para o inibidor de H₂S).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dosagem recomendada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cartão em destaque,
+ na parte inferior,
+ com a dose final em ppm.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aba Material de Apoio
+\end_layout
+
+\begin_layout Standard
+Esta aba funciona como uma consulta rápida,
+ para esclarecer dúvidas teóricas sem sair do software.
+ Ela traz quatro seções:
+\end_layout
+
+\begin_layout Enumerate
+As fórmulas do modelo,
+ com a taxa base,
+ os fatores Fs,
+ FT,
+ Fc e Fq,
+ e a equação da dose.
+\end_layout
+
+\begin_layout Enumerate
+Os tipos de corrosão considerados (ácida,
+ doce e leve).
+\end_layout
+
+\begin_layout Enumerate
+Os tipos de inibidores de corrosão,
+ com a eficiência e o critério de seleção de cada um.
+\end_layout
+
+\begin_layout Enumerate
+As principais referências de apoio.
+\end_layout
+
+\begin_layout Itemize
+Esta aba reforça que,
+ as fórmulas do software são uma simplificação didática.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Material de Apoio:
+ fórmulas do modelo parte 1
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AbaMaterialApoioParte1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-45.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Material de Apoio:
+ fórmulas do modelo parte 2
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AbaMaterialApoioParte2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-46.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aba Material de Apoio:
+ fórmulas do modelo parte 3
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AbaMaterialApoio3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-47.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Interpretação dos resultados
+\end_layout
+
+\begin_layout Standard
+O relatório gerado pelas abas Formulários,
+ Amostras Padrão e o Modo Perguntas seguem a mesma estrutura,
+ em quatro blocos numerados,
+ como na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RelatorioSimulacaoAmostra1"
+
+\end_inset
+
+ e 8.15,
+ que corresponde a Amostra 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relatório da simulação da Amostra 1,
+ blocos 1 e 2:
+ propriedades do fluido e análise de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RelatorioSimulacaoAmostra1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-48.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relatório da simulação da Amostra 1,
+ blocos 3 e 4:
+ inibidor selecionado e dosagem recomendada
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RelatorioSimulacaoAmostra1Parte2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/fig-49.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Itens do relatório e seu significado
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:SignificadosRelatorio"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4.2cm">
+<column alignment="left" valignment="top" width="11.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Item
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+O que significa
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Propriedades do fluido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Repete os sete dados informados,
+ com as unidades.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de corrosão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mecanismo predominante:
+ Corrosão Ácida (Sour) se H₂S > 10 ppm;
+ Corrosão Doce (Sweet) se CO₂ > 20 ppm;
+ Leve nos demais casos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Severidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Baixa,
+ Média ou Alta,
+ conforme a taxa base.
+ A palavra é colorida para chamar a atenção (Alta aparece em vermelho).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Taxa base de corrosão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Índice calculado só com CO₂,
+ temperatura e pH.
+ É o ponto de partida do modelo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fatores Fs,
+ Ft e Fc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Multiplicadores que corrigem a taxa pela severidade,
+ pela temperatura e pelo tipo de corrosão.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Taxa final de corrosão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Taxa base multiplicada pelos três fatores.
+ Mostra a agressividade total estimada.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor selecionado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nome,
+ classe,
+ eficiência e descrição do inibidor indicado para o fluido.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fator de vazão Fq
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correção da dose pela vazão (Fq = 1 + vazão/1000).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dose recomendada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quantidade estimada de inibidor,
+ em ppm.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Duas observações auxiliam o usuário a evitar interpretações equivocadas.
+ A primeira é que,
+ a interface escreve a unidade “mm/ano” junto à taxa de corrosão,
+ mas a taxa do modelo é um índice relativo e serve para comparar cenários entre si e a influência de cada parâmetro,
+ ela não mede a perda real de espessura do aço.
+ A segunda é que,
+ em fluidos com pH igual ou superior a 7,
+ o fator de acidez será zero,
+ de modo que a taxa base e a dose resultam em zero,
+ representando uma limitação no modelo,
+ que considera corrosão relevante apenas em meio ácido.
+\end_layout
+
+\begin_layout Section
+Problemas comuns e mensagens de erro
+\end_layout
+
+\begin_layout Standard
+A tabela 8.6 reúne as situações mais frequentes de erros possíveis na simulação e como solucioná-los.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dúvidas frequentes e soluções
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Duvidas"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="5.5cm">
+<column alignment="left" valignment="top" width="4.7cm">
+<column alignment="left" valignment="top" width="5.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Situação
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Causa provável
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+O que fazer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mensagem “pH deve estar entre 0 e 14.”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O valor informado de pH está fora do intervalo físico possível.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Corrija o valor.
+ No Modo Perguntas,
+ a conversa recomeça do início.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mensagens de que CO₂,
+ H₂S,
+ salinidade,
+ pressão ou vazão “não pode ser negativo(a)”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Foi informado um valor negativo.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Informe um valor igual ou maior que zero.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mensagem “Temperatura não pode ser menor que o zero absoluto.”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Foi informada uma temperatura abaixo de −273,15 °C.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Informe uma temperatura fisicamente possível.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mensagem “Isso não parece um número válido.”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No Modo Perguntas,
+ foi digitado texto em vez de número.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Digite apenas o número,
+ usando ponto ou vírgula decimal.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Taxa de corrosão e dose iguais a zero
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O pH informado é 7 ou maior,
+ ou o CO₂ é zero.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reduza o pH ou aumente o CO₂.
+ O modelo prevê corrosão apenas em meio ácido.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resultado do formulário idêntico ao de uma simulação anterior
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Os valores iniciais do formulário não foram alterados.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Altere os campos e clique novamente em Simular.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A aba Gráficos mostra o pedido para simular
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nenhuma simulação foi executada ainda.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simule um cenário em qualquer aba de entrada e volte à aba Gráficos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No lugar do logotipo aparece um retângulo com o texto “UENF”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O arquivo assets/uenf.png não foi encontrado.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mantenha a pasta assets ao lado do executável.
+ O funcionamento do programa não é afetado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O programa não abre ou reclama de arquivos .dll
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O executável foi movido sem as bibliotecas do Qt.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Use a pasta completa do programa,
+ sem separar os arquivos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Uso em sala de aula
+\end_layout
+
+\begin_layout Standard
+Como o software foi estruturado como material complementar da disciplina,
+ propõe-se um roteiro de exercícios em que o discente altera um parâmetro por vez e interpreta o efeito sobre a taxa,
+ a severidade,
+ o inibidor sugerido e sua respectiva dosagem.
+ Todos os exercícios abaixo parte de um mesmo cenário base na aba Formulário:
+ pH= 5,5;
+ H₂S=0;
+ salinidade= 5000 ppm;
+ pressão= 2000psi;
+ vazão 1000 m³/dia,
+ e os demais valores indicados em cada exercício.
+ Os valores das tabelas foram obtidos executando o próprio código do programa e servem de gabarito.
+ A sugestão é pedir ao estudante que simule antes de olhar a tabela e depois compare.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Exercício-1--Efeito"
+
+\end_inset
+
+Exercício 1- Efeito da concentação de CO2
+\end_layout
+
+\begin_layout Standard
+Mantenha temperatura = 30 °C e varie o CO₂.
+ Pergunta:
+ o que acontece quando o CO₂ ultrapassa 20 ppm?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gabarito do Exercício 1 (variação do CO₂)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Exercicio1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.6cm">
+<column alignment="left" valignment="top" width="2.6cm">
+<column alignment="left" valignment="top" width="2.8cm">
+<column alignment="left" valignment="top" width="3.7cm">
+<column alignment="left" valignment="top" width="4.2cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+CO₂ (ppm)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Taxa base
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Severidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tipo de corrosão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Inibidor e dose
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27,33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Leve
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Geral;
+ 11,71 ppm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+136,66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Doce (Sweet)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orgânico;
+ 120,58 ppm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+273,32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Doce (Sweet)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orgânico;
+ 241,16 ppm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discussão:
+ ao passar de 20 ppm de CO₂,
+ a corrosão passa a ser classificada como doce,
+ o fator Fc sobe de 1,0 para 1,5 e o inibidor muda de geral para orgânico.
+ Observe também que a taxa base é proporcional ao CO₂:
+ dobrar o CO₂ de 50 para 100 ppm dobra a taxa e a dose.
+\end_layout
+
+\begin_layout Subsection
+Exercício 2- Efeito da pH
+\end_layout
+
+\begin_layout Standard
+Mantenha CO₂ = 50 ppm e temperatura = 30 °C e varie o pH de 4 a 7.
+ Pergunta:
+ por que a dose cai quando o pH aumenta?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gabarito do Exercício 2 (variação do pH)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Exercicio2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.8cm">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="3.7cm">
+<column alignment="left" valignment="top" width="3.3cm">
+<column alignment="left" valignment="top" width="3.7cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+pH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Taxa base
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Severidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Inibidor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Dose (ppm)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+273,32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orgânico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+241,16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+182,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orgânico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+160,78
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+91,11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Geral
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+97,61
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6,5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45,55
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Geral
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29,28
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Baixa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Geral
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,00
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discussão:
+ quanto menor o pH,
+ maior o fator de acidez (7 − pH) e maior a taxa.
+ Note que,
+ a partir de pH 6,
+ o critério do inibidor orgânico (pH < 6) deixa de ser atendido e o software passa a indicar o inibidor geral,
+ de menor eficiência.
+ Em pH 7,
+ o fator de acidez se anula e a taxa e a dose são zero,
+ o que permite discutir os limites do modelo.
+\end_layout
+
+\begin_layout Subsection
+Exercício 3- Efeito da temperatura
+\end_layout
+
+\begin_layout Standard
+Use CO₂ = 50 ppm e varie a temperatura em torno dos limites de 40 °C e 80 °C.
+ Pergunta:
+ por que um pequeno aumento de temperatura pode causar um salto na dose?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gabarito do Exercício 3 (variação da temperatura)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Exercicio3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.7cm">
+<column alignment="left" valignment="top" width="3.1cm">
+<column alignment="left" valignment="top" width="3.4cm">
+<column alignment="left" valignment="top" width="6.8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+T (°C)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Fator FT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Taxa base
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Dose (ppm),
+ inibidor orgânico
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39,9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+166,58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+146,98
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+166,92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+191,46
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+371,48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+426,11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80,1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+372,22
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+591,17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discussão:
+ a taxa base cresce de forma contínua com a temperatura (exponencial),
+ mas o fator FT é um degrau:
+ ele muda de 1,0 para 1,3 em 40 °C e de 1,3 para 1,8 acima de 80 °C.
+ Entre 39,9 °C e 40 °C a taxa praticamente não muda,
+ mas a dose sobe cerca de 30 %,
+ por causa do degrau.
+ É uma boa oportunidade para discutir que fatores em degraus são simplificações de uma variação real que é contínua.
+\end_layout
+
+\begin_layout Subsection
+Exercício 4- Introdução do H₂S
+\end_layout
+
+\begin_layout Standard
+Use pH = 5,5;
+ CO₂ = 50 ppm e temperatura = 60 °C.
+ Simule com H₂S = 0 e depois com H₂S = 15 ppm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gabarito do Exercício 4 (introdução do H₂S)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Exercicio4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.1cm">
+<column alignment="left" valignment="top" width="3.1cm">
+<column alignment="left" valignment="top" width="3.7cm">
+<column alignment="left" valignment="top" width="2.9cm">
+<column alignment="left" valignment="top" width="3.3cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+H₂S (ppm)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Taxa base
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Tipo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Inibidor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Dose (ppm)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+249,01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Doce (Sweet)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Orgânico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+285,63
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+249,01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ácida (Sour)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+348,08
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discussão:
+ o H₂S não altera a taxa base,
+ que depende apenas de CO₂,
+ temperatura e pH.
+ O efeito aparece no tipo de corrosão,
+ no fator Fc (de 1,5 para 2,0) e na troca do inibidor para o de H₂S,
+ mais eficiente (η de 0,85 para 0,93).
+ Vale perguntar à turma se essa simplificação do modelo é realista.
+\end_layout
+
+\begin_layout Subsection
+Exercício 5- Efeito da vazão
+\end_layout
+
+\begin_layout Standard
+Use pH = 5,5;
+ CO₂ = 50 ppm e temperatura = 60 °C,
+ e varie a vazão.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gabarito do Exercício 5 (variação da vazão)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Exercicio5"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4.9cm">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="7.6cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Vazão (m³/dia)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Fator Fq
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Dose (ppm),
+ inibidor orgânico
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+157,10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+285,63
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.570,95
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discussão:
+ a dose é diretamente proporcional ao fator de vazão,
+ o que reflete a ideia de que vazões altas removem o filme protetor e exigem mais produto.
+ Peça ao estudante que verifique que Fq = 1 + vazão/1000 e que a taxa de corrosão não muda com a vazão,
+ pois ela só afeta a dose.
+\end_layout
+
+\begin_layout Standard
+Como atividade final,
+ sugere-se que o discente monte um cenário próprio,
+ antecipe qual inibidor será indicado e a ordem de grandeza da dose,
+ e confira o resultado no software,
+ justificando cada diferença com a ajuda da aba Material de Apoio.
+\end_layout
+
+\begin_layout Section
+Documentação para o desenvolvedor
+\end_layout
+
+\begin_layout Subsection
+Como compilar e executar
+\end_layout
+
+\begin_layout Standard
+Para compilar o projeto são necessários um compilador C++ compatível com o padrão C++20 (no desenvolvimento foi usado o MinGW-w64),
+ o CMake versão 3.27 ou superior e,
+ para a interface gráfica,
+ o Qt 6 com o módulo Qt Widgets (o CMake também aceita o Qt 5).
+ Em sistemas Ubuntu e Debian,
+ o Qt pode ser instalado com o pacote qt6-base-dev.
+ Os passos,
+ a partir da pasta do projeto,
+ são
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Método de seleção do inibidor (trecho de Inibidor.cpp)},label={lst:7.4}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Compilação"
+
+\end_inset
+
+Compilação
+\end_layout
+
+\end_inset
+
+cmake -B build
+\end_layout
+
+\begin_layout Plain Layout
+cmake --build build
+\end_layout
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+# Se o CMake não encontrar o Qt automaticamente (comum no Windows):
+\end_layout
+
+\begin_layout Plain Layout
+cmake -DCMAKE_PREFIX_PATH="C:/Qt/6.7.0/mingw_64" -B build
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+OO comando gera dois executáveis dentro da pasta build:
+ SoftwareDeCorrosao (console) e SoftwareCorrosaoGUI (interface gráfica).
+ Se o Qt não for encontrado,
+ apenas o executável de console é gerado e o CMake registra um aviso.
+ A pasta assets é copiada automaticamente para junto do executável da interface gráfica.
+ No Windows,
+ para distribuir o programa a quem não tem o Qt instalado,
+ é preciso copiar também as bibliotecas do Qt para a pasta do executável,
+ o que pode ser feito com a ferramenta windeployqt,
+ fornecida com o Qt.
+ No Visual Studio Code,
+ é possível usar a extensão CMake Tools:
+ Configure,
+ depois Build,
+ escolhendo o alvo desejado.
+\end_layout
+
+\begin_layout Subsection
+Estrutura do projeto
+\end_layout
+
+\begin_layout Standard
+A organização das pastas e a relação entre os arquivos e as classes estão na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:b565,lis:Compilação"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+.
+ Em resumo,
+ as classes do núcleo de cálculo (Fluido,
+ AnaliseCorrosao,
+ Inibidor,
+ SeletorInibidor,
+ CalculadoraDosagem e SimuladorCorrosao) ficam na raiz do projeto e não dependem do Qt,
+ o que permite reutilizá-las em outros programas.
+ O código da interface fica na pasta gui,
+ e a pasta assets guarda o logotipo.
+ O arquivo LICENSE traz a licença do código e o README_GUI.md traz instruções de compilação da interface.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Como-estender-o"
+
+\end_inset
+
+Como estender o sistema
+\end_layout
+
+\begin_layout Standard
+Para adicionar um novo inibidor,
+ siga quatro passos:
+ (1) criar em Inibidor.h e Inibidor.cpp uma classe derivada de Inibidor,
+ definindo nome,
+ eficiência e descrição no construtor;
+ (2) implementar os métodos Tipo() e EhAplicavel();
+ (3) incluir o critério de seleção no método SeletorInibidor::Selecionar(),
+ na posição de prioridade desejada;
+ e (4) acrescentar os casos de teste correspondentes.
+ Como a interface gráfica usa apenas a interface comum da classe Inibidor,
+ o novo inibidor já aparece nos relatórios e gráficos.
+ Há uma exceção:
+ o texto explicativo da aba Gráficos escolhe a descrição pelo tipo do inibidor,
+ e por isso é preciso acrescentar a descrição do novo tipo na função DescricaoTipoInibidor,
+ em gui/MainWindow.cpp.
+\end_layout
+
+\begin_layout Standard
+Para adicionar ou alterar amostras padrão,
+ edite o método SimuladorCorrosao::AmostrasPadrao(),
+ que alimenta o console e a lista da interface.
+ Os nomes exibidos na lista e os comentários explicativos de cada cenário estão em gui/MainWindow.cpp e devem ser atualizados em conjunto,
+ para que fiquem coerentes com os dados.
+\end_layout
+
+\begin_layout Standard
+Para alterar os parâmetros do modelo,
+ use a Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:ParametrosAjustaveis"
+
+\end_inset
+
+,
+ que indica onde cada valor está programado.
+ Depois de qualquer alteração,
+ é necessário atualizar a Seção 2.2,
+ o texto da aba Material de Apoio e os casos de teste do Capítulo 7.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Onde estão os parâmetros ajustáveis do modelo
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:ParametrosAjustaveis"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4.9cm">
+<column alignment="left" valignment="top" width="4.3cm">
+<column alignment="left" valignment="top" width="6.7cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Parâmetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Valor atual
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Local no código
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Constante b da exponencial de temperatura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido::FatorTemperatura e AnaliseCorrosao::CalcularTaxaBaseCorrosao
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Limites de severidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 e 50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao::DeterminarSeveridade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fatores de severidade Fs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,0;
+ 1,5;
+ 2,5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao::CalcularFatorSeveridade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Limites e fatores de temperatura FT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40 e 80 °C;
+ 1,0;
+ 1,3;
+ 1,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao::CalcularFatorTemperatura
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Limiares e fatores Fc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S > 10;
+ CO₂ > 20;
+ 2,0;
+ 1,5;
+ 1,0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao::CalcularFatorCorrosivo e DeterminarTipoCorrosao
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Critérios e eficiências dos inibidores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tabela 6.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor.cpp (construtores,
+ EhAplicavel e Selecionar)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Constante empírica K
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalculadoraDosagem.h (constanteEmpirica)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fator de vazão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 + vazão/1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalculadoraDosagem::FatorDeVazao
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ao alterar um limiar de seleção,
+ lembre-se de que ele aparece em dois lugares,
+ no método EhAplicavel() da classe do inibidor e no método Selecionar() (Seção 6.4),
+ e que ambos devem ser atualizados.
+\end_layout
+
+\begin_layout Section
+Licença
+\end_layout
+
+\begin_layout Standard
+O código do projeto é distribuído como software livre,
+ de acordo com as normas da disciplina,
+ sob a licença MIT,
+ cujo texto integral está no arquivo LICENSE na pasta do projeto.
+ Essa licença permite usar,
+ copiar,
+ modificar e distribuir o código,
+ inclusive para fins didáticos,
+ desde que o aviso de direitos autorais e o texto da licença sejam mantidos nas cópias.
+\end_layout
+
+\end_body
+\end_document

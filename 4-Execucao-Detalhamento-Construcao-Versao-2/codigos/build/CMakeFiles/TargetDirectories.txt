@@ -1,0 +1,6 @@
+C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/CMakeFiles/SoftwareDeCorrosao.dir
+C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/CMakeFiles/SoftwareCorrosaoGUI.dir
+C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/CMakeFiles/edit_cache.dir
+C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/CMakeFiles/rebuild_cache.dir
+C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/CMakeFiles/SoftwareCorrosaoGUI_autogen_timestamp_deps.dir
+C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/CMakeFiles/SoftwareCorrosaoGUI_autogen.dir

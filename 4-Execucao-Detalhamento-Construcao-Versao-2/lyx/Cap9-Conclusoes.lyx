@@ -1,0 +1,1114 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conclusões e Sugestões para Trabalhos Futuros
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Conclusoes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{
+\backslash
+thechapter 
+\backslash
+space - Conclusões}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusões
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:conclusoes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O objetivo do presente trabalho projetar,
+ desenvolver e implementar um software educacional para análise e seleção de inibidores de corrosão,
+ com aplicação para o setor de óleo e gás,
+ para a disciplina de Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
+ O desenvolvimento do software foi uma oportunidade de integrar em uma única ferramenta computacional,
+ as fases relacionadas à caracterização do meio corrosivo,
+ de análise da corrosão,
+ de seleção de inibidor de corrosão e de estimativa de sua dosagem necessária.
+ Com os desafios na disciplina,
+ o software foi planejado e estruturado com o objetivo de ser uma ferramenta para aplicação prática de conhecimentos teóricos adquiridos na disciplina,
+ sendo um material extra para a disciplina.
+ Com o desenvolvimento do software,
+ o sistema procurou contribuir para o ensino através de recursos lúdicos que possibilitam a correlação de parâmetros operacionais e de propriedades do fluido com as decisões tomadas para mitigação da corrosão.
+\end_layout
+
+\begin_layout Standard
+O desenvolvimento foi realizado em C++,
+ usando os princípios da programação orientada a objetos e a organização das funcionalidades em classes com responsabilidades específicas.
+ Esta abordagem permitiu a estruturação do sistema de forma modular,
+ separando o recebimento e a validação dos parâmetros do fluido a análise da corrosão,
+ a seleção do inibidor e o cálculo da dosagem.
+ A utilização desta estrutura e arquitetura,
+ ajudou na organização do código e na limitação das responsabilidades de cada um dos componentes,
+ auxiliando assim em futuras manutenções do programa e possibilitando futuras implementações de novas funcionalidades.
+\end_layout
+
+\begin_layout Standard
+Ainda dentro do processo de desenvolvimento,
+ a modelagem do sistema,
+ por meio da utilização da linguagem de modelagem unificada (Unified Modeling Language - UML),
+ teve papel fundamental.
+ Foram elaborados diagramas que auxiliam na representação dos requisitos e no fluxo de funcionamento do software,
+ além das interações entre os objetos e a seqüência de operações executadas.
+\end_layout
+
+\begin_layout Standard
+O programa desenvolvido recebe sete parâmetros do fluido (pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ temperatura,
+ pressão e vazão),
+ valida os dados,
+ estima a taxa de corrosão,
+ classifica o tipo e a severidade,
+ escolhe a classe de inibidor,
+ estima a dosagem em ppm e mostra os resultados de forma numérica e gráfica.
+ Dessa forma,
+ o objetivo geral foi atingido,
+ respeitadas as limitações de um modelo de caráter didático.
+ Em relação aos objetivos específicos,
+ a tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:10.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ resume a situação de cada um e indica onde está a evidência correspondente.
+ Os comentários que seguem detalham os referidos resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Situação dos objetivos específicos ao final do trabalho
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:10.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="6.2cm">
+<column alignment="left" valignment="top" width="3.6cm">
+<column alignment="left" valignment="top" width="6.2cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Objetivo específico (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:objetivos-especificos"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Situação
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Evidência ao trabalho
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reexaminar os princípios de corrosão,
+ os ambientes corrosivos e a atuação dos inibidores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atingido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seções 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Análise-de-domínio"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:formulacao-teorica"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+;
+ premissas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:premissas-e-limitacoes-do-modelo"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identificar os requisitos e mapeá-los em UML
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atingido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seções 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Requisitos"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Casos-de-uso"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+;
+ Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Identificação-de-pacotes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+;
+ Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Analise-Orientada-a-Objeto"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Projeto-do-Sistema"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Codificar em C++ a validação,
+ a análise,
+ a seleção,
+ a dosagem e os resultados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atingido,
+ com ressalvas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ciclos-Construcao-Implementacao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+;
+ exportação de relatórios e perfil por profundidade fora do escopo (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:escopo-implementado-e-limitacoes-do-cicl"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Organizar o código com herança e polimorfismo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atingido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seções 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:padroes-e-decisoes-de-projeto"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:extensibilidade"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:como-estender-o-sistema,subsec:Como-estender-o"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Validar por cenários,
+ com cálculos independentes e tendências da literatura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atingido em nível da TRL 3 e 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seções 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:testes-unitarios"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:cenarios-de-validacao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:analise-dos-resultados-e-limitacoes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+;
+ sem dados experimentais
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Associar o programa à disciplina LEP01550
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Atingido quanto ao material;
+ uso com turma não avaliado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:como-estender-o-sistema,subsec:Exercício-1--Efeito"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ e aba Material de Apoio (Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Documentacao-Desenvolvedor"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O primeiro objetivo foi atingido nos Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Introdução"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Elaboracao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Na análise de domínio,
+ foram reunidos os mecanismos de corrosão,
+ os ambientes comuns de produção de petróleo,
+ os métodos de mitigação e as classes de inibidores.
+ Na formulação teórica,
+ esses conceitos foram traduzidos em equações para a taxa de corrosão,
+ os fatores de correção,
+ a eficiência do inibidor e a dosagem.
+ As premissas e os limites do modelo foram explicitados na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:premissas-e-limitacoes-do-modelo"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ de forma que o estudante sabe o que a ferramenta representa e o que ela não representa.
+\end_layout
+
+\begin_layout Standard
+O segundo objetivo foi cumprido com a especificação de dez requisitos funcionais,
+ sete requisitos não funcionais e quatro casos de uso (Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Concepção"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+),
+ e com a modelagem em UML apresentada nos Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Elaboracao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Projeto-do-Sistema"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+:
+ diagramas de pacotes,
+ de classes,
+ de sequência,
+ de comunicação,
+ de máquina de estados e de atividades.
+ A estruturação em cinco pacotes (Aplicação,
+ Visualização,
+ Dosagem,
+ Inibidores e Modelo) separou a coordenação da execução,
+ a apresentação,
+ o cálculo e as regras de seleção,
+ e serviu de orientação para a implementação.
+\end_layout
+
+\begin_layout Standard
+Os terceiro e quarto objetivos foram atingidos nos Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ciclos-Planejamento-Detalhamento"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ciclos-Construcao-Implementacao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O desenvolvimento ocorreu em cinco ciclos,
+ ordenados pela dependência entre as classes,
+ e cada ciclo foi verificado quanto aos critérios de aceite (Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.6"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ O núcleo de cálculo,
+ composto pelas classes Fluido,
+ AnaliseCorrosao,
+ SeletorInibidor e CalculadoraDosagem,
+ não depende da biblioteca gráfica e é utilizado tanto pela versão de console quanto pela interface em Qt,
+ que contém cinco abas e um painel de gráficos.
+ A hierarquia de inibidores,
+ com a classe abstrata Inibidor e quatro classes derivadas,
+ torna o uso de polimorfismo concreto:
+ a interface gráfica interage com qualquer inibidor através da interface comum.
+ É importante registrar que a inclusão de um novo tipo requer,
+ além da nova classe,
+ a inserção do seu critério no SeletorInibidor,
+ como descrito na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:extensibilidade"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+O quinto objetivo,
+ a validação,
+ foi atingido através de três tipos de verificação (Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Teste"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ Os 16 testes unitários de valores de fronteira foram aprovados,
+ o que confirma o tratamento correto dos limiares de severidade,
+ temperatura,
+ salinidade e acidez.
+ Nos sete cenários de validação,
+ a saída do programa foi idêntica ao cálculo manual independente,
+ com diferença de 0,00 % em todas as doses,
+ e o tipo de corrosão,
+ a severidade e o inibidor selecionado foram os esperados,
+ com cobertura de todos os ramos da árvore de seleção.
+ O programa também rejeitou entradas fora das faixas,
+ com mensagem de erro,
+ sem interromper a execução.
+ Além disso,
+ o comportamento do modelo foi consistente com as tendências da literatura:
+ a taxa de corrosão cresce com o CO₂ e com a temperatura e diminui com o aumento do pH,
+ o H₂S determina a classe específica de inibidor,
+ e a dose aumenta com a severidade e com a vazão.
+ É importante diferenciar o alcance dessa validação:
+ a concordância com o cálculo manual comprova que o código implementa corretamente as equações propostas,
+ mas não comprova que as equações representem a corrosão real,
+ o que exigiria dados experimentais.
+ Por isso,
+ o trabalho se situa no nível de maturidade TRL 3 a 4,
+ como previsto na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:maturidade-tecnologica-e-comercial-pretendida"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+O sexto objetivo foi atingido pela documentação do Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Documentacao-Desenvolvedor"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ que reúne o manual do usuário,
+ cinco exercícios propostos para sala de aula (efeito do CO₂,
+ do pH,
+ da temperatura,
+ da presença de H₂S e da vazão),
+ a aba de material de apoio com o resumo das fórmulas e as instruções de compilação e extensão do código,
+ que é distribuído como software livre sob a licença MIT.
+ É importante notar,
+ porém,
+ que a utilidade pedagógica do programa não foi avaliada com estudantes e docentes,
+ de modo que o ganho de aprendizagem permanece uma hipótese a ser testada.
+\end_layout
+
+\begin_layout Standard
+As limitações do estudo derivam,
+ essencialmente,
+ da essência do modelo e devem ser tidas em conta na análise dos resultados (Seções 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:premissas-e-limitacoes-do-modelo"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:analise-dos-resultados-e-limitacoes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+A taxa de corrosão é relativa (adimensional) e a constante K,
+ os parâmetros e as eficiências dos inibidores não foram calibrados empiricamente;
+ por isso,
+ as concentrações nos cenários mais severos atingem milhares de ppm,
+ acima das concentrações comumente usadas no campo,
+ devendo ser interpretadas como indicadores relativos entre os cenários,
+ não como uma sugestão de concentração;
+\end_layout
+
+\begin_layout Itemize
+O H₂S não tem uma variável específica na equação da taxa de corrosão,
+ atuando somente pelo parâmetro corrosivo e pela escolha do inibidor,
+ e,
+ para pH superior ou igual a 7,
+ a taxa e a concentração são nulas;
+\end_layout
+
+\begin_layout Itemize
+A pressão é verificada e mostrada,
+ mas não afeta os cálculos,
+ e os parâmetros estabelecidos por faixas fazem a concentração mudar de maneira repentina nos limites;
+\end_layout
+
+\begin_layout Itemize
+A corrosão local,
+ a corrosão por tensão,
+ a microbiológica e a erosão-corrosão não são modeladas,
+ e o aplicativo escolhe uma categoria de inibidor,
+ não um produto comercial;
+\end_layout
+
+\begin_layout Itemize
+Os gráficos mostram um cenário de cada vez,
+ e o perfil em relação à profundidade do poço e a exportação de relatórios não foram realizados (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:escopo-implementado-e-limitacoes-do-cicl"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Em síntese,
+ o software atinge o objetivo proposto:
+ reunir em uma única área os conhecimentos sobre corrosão,
+ as propriedades do fluido e a escolha e concentração de inibidores,
+ permitindo que o aluno mude um parâmetro de cada vez e veja o impacto em cada resposta do modelo.
+ O principal valor reside na integração desses assuntos em uma ferramenta de código aberto,
+ modular e documentada,
+ e não na exatidão preditiva,
+ que não é um dos objetivos do projeto.
+ A estrutura escolhida deixa o sistema pronto,
+ como nas sugestões feitas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sugestoes-trabalhos-futuros"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Sugestões para trabalhos futuros
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:sugestoes-trabalhos-futuros"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Calibração da taxa de corrosão e a constante K com dados experimentais ou de campo,
+ e validar a ferramenta com resultados de laboratório;
+\end_layout
+
+\begin_layout Itemize
+Incorporação de modelos de corrosão mais completos,
+ por exemplo com a pressão parcial de CO₂,
+ o efeito do filme de FeCO₃ e o regime de escoamento;
+\end_layout
+
+\begin_layout Itemize
+Inclusão de mecanismos de corrosão localizada e novos tipos de inibidores,
+ incluindo os de origem vegetal e biodegradáveis,
+ que vêm ganhando destaque por razões ambientais;
+\end_layout
+
+\begin_layout Itemize
+Criação de um banco de dados de produtos e de eficiências,
+ com consulta e comparação;
+\end_layout
+
+\begin_layout Itemize
+Desenvolvimento da interface gráfica completa e a exportação de relatórios;
+\end_layout
+
+\begin_layout Itemize
+Avaliação do software com estudantes e docentes,
+ medindo ganho de aprendizagem.
+\end_layout
+
+\end_body
+\end_document

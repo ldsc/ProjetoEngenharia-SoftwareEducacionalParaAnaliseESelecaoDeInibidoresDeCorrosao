@@ -1,0 +1,453 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+Referências
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{Referências}
+\backslash
+chead{}
+\backslash
+rhead{}
+\backslash
+addcontentsline{toc}{chapter}{Referências}
+\backslash
+begingroup
+\backslash
+setlength{
+\backslash
+parskip}{1.2em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+AHMED, E.; LIU, J.; LIU, J. Mitigating corrosion in downhole environments of oil and gas operations: mechanisms, challenges, and control strategies. Trends in Sciences, v. 22, n. 8, art. 9855, 2025. DOI: 10.48048/tis.2025.9855.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+AMERICAN PETROLEUM INSTITUTE. bA RP 14E: recommended practice for design and installation of offshore production platform piping systems. 5. ed. Washington: API, 1991.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+BAHADORI, A. Corrosion and materials selection: a guide for the chemical and petroleum industries. Hoboken: John Wiley & Sons, 2014.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+BLAHA, M.; RUMBAUGH, J. Modelagem e projetos baseados em objetos com UML 2. Rio de Janeiro: Campus, 2006.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+BRASIL. Ministério de Minas e Energia. Estudo sobre o aproveitamento do gás natural do pré-sal. Brasília, 2020. Disponível em: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+https://www.gov.br/anp/pt-br/centrais-de-conteudo/publicacoes/livros-e-revistas/arquivos/aproveitamentognpresal.pdf
+\end_layout
+
+\end_inset
+
+. Acesso em: 11 out. 2026.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+BUENO, A. D. Programação orientada a objeto com C++: aprenda a programar em ambiente multiplataforma com software livre. São Paulo: Novatec, 2003.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+CAMARILLO, M. K.; STRINGFELLOW, W. T. Biological treatment of oil and gas produced water: a review and meta-analysis. Clean Technologies and Environmental Policy, v. 20, n. 6, 2018. DOI: 10.1007/s10098-018-1564-9.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+DE WAARD, C.; MILLIAMS, D. E. Carbonic acid corrosion of steel. Corrosion, v. 31, n. 5, p. 177-181, 1975.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+DING, Y. et al. The effect of temperature and critical micelle concentrations (CMC) on the inhibition performance of a quaternary ammonium-type corrosion inhibitor. In: NACE INTERNATIONAL CORROSION CONFERENCE, 2020. Paper C2020-14793.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+EMAM, E. A.; MOAWAD, T. M.; ABOUL-GHEIT, N. A. K. Evaluating the characteristics of offshore oilfield produced water. Petroleum & Coal, v. 56, n. 4, p. 363-372, 2014.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+FINŠGAR, M.; JACKSON, J. Application of corrosion inhibitors for steels in acidic media for the oil and gas industry: a review. Corrosion Science, v. 86, p. 17-41, 2014.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+FONTANA, M. G. Corrosion engineering. 3. ed. New York: McGraw-Hill, 1986.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+GENTIL, V. Corrosão. 3. ed. Rio de Janeiro: LTC, 1996.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+GROYSMAN, A. Corrosion problems and solutions in oil, gas, refining and petrochemical industry. Cham: Springer, 2017.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. ISO 15156-1: petroleum and natural gas industries – materials for use in H₂S-containing environments in oil and gas production. Geneva: ISO.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. ISO 15156-2: petroleum and natural gas industries – materials for use in H₂S-containing environments in oil and gas production – Part 2: cracking-resistant carbon and low-alloy steels. Geneva: ISO, 2020.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+KUMAR, N. et al. An overview on emerging green organic corrosion inhibitors: sustainable solution for oil and gas industrial applications. RSC Advances, v. 16, p. 3909-3948, 2026. DOI: 10.1039/d5ra08166a.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+LA MONACO. Commercial Readiness Level (CRL) for Startups. La Monaco Blog, 11 dez. 2024. Disponível em: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+https://lamonaco.com/blogs/2024/12/11/commercial-readiness-level-crl-for-startups
+\end_layout
+
+\end_inset
+
+. Acesso em: 30 set. 2026.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+LDSC. LDSC- ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao. Disponível em: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+https://github.com/ldsc/ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao
+\end_layout
+
+\end_inset
+
+. Acesso em: 30 out 2026.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+LI, S. et al. CO₂ corrosion of low carbon steel under the joint effects of time-temperature-salt concentration. Frontiers in Materials, v. 6, art. 10, 2019. DOI: 10.3389/fmats.2019.00010.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+NATIONAL AERONAUTICS AND SPACE ADMINISTRATION (NASA). Technology Readiness Levels. Space Communications and Navigation (SCaN), 2024. Disponível em: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+https://www.nasa.gov/directorates/somd/space-communications-navigation-program/technology-readiness-levels/
+\end_layout
+
+\end_inset
+
+. Acesso em: 30 set. 2026.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+NEŠIĆ, S. Key issues related to modelling of internal corrosion of oil and gas pipelines – a review. Corrosion Science, v. 49, p. 4308-4338, 2007. DOI: 10.1016/j.corsci.2007.06.006.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+NUNES, L. P. Fundamentos de resistência à corrosão. Rio de Janeiro: Interciência, 2007.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+PETROBRAS. Encomendas Tecnológicas. Conexões para Inovação, [s.d.]. Disponível em: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+https://conexoes-inovacao.petrobras.com.br/s/encomendas-tecnologicas?language=pt_BR
+\end_layout
+
+\end_inset
+
+. Acesso em: 03 ago. 2026.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+POPOOLA, L. T. et al. Corrosion problems during oil and gas production and its mitigation. International Journal of Industrial Chemistry, v. 4, art. 35, 2013.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+REVIE, R. W.; UHLIG, H. H. Corrosion and corrosion control. 4. ed. Hoboken: John Wiley & Sons, 2008.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+SANDER, R. Compilation of Henry’s law constants (version 5.0.0) for water as solvent. Atmospheric Chemistry and Physics, v. 23, n. 19, p. 10901-12440, 2023. DOI: 10.5194/acp-23-10901-2023.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+SCHMITT, G. Application of inhibitors for acid media: report prepared for the European Federation of Corrosion Working Party on Inhibitors. British Corrosion Journal, v. 19, n. 4, p. 165-176, 1984.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+SHAMSA, A. et al. Hydrolysis of imidazoline based corrosion inhibitor and effects on inhibition performance of X65 steel in CO₂ saturated brine. Journal of Petroleum Science and Engineering, v. 208, part B, art. 109235, 2022. DOI: 10.1016/j.petrol.2021.109235.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+SMITH, L. M. Control of corrosion in oil and gas production tubing. British Corrosion Journal, v. 34, n. 4, p. 247-253, 1999.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+SVEDEMAN, S. J. Erosional/corrosional testing for multiphase flow lines. San Antonio: Southwest Research Institute, 1995.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+TELLES, P. C. S. Materiais para equipamentos de processo. 6. ed. Rio de Janeiro: Interciência, 2003.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\paragraph_spacing single
+WANG, Z. M.; SONG, G.-L.; ZHANG, J. Corrosion control in CO₂ enhanced oil recovery from a perspective of multiphase fluids. Frontiers in Materials, v. 6, 2019. DOI: 10.3389/fmats.2019.00272.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+endgroup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

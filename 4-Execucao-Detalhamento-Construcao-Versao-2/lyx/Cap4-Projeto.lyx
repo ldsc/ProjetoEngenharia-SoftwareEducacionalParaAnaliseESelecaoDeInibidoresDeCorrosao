@@ -1,0 +1,677 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement p
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Projeto 
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Projeto-do-Sistema"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{
+\backslash
+thechapter - Projeto} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste capítulo do projeto de engenharia veremos questões associadas ao projeto do sistema,
+ incluindo protocolos,
+ recursos,
+ plataformas suportadas,
+ inplicações nos diagramas feitos anteriormente,
+ diagramas de componentes e implantação.
+ Na segunda parte revisamos os diagramas levando em conta as decisões do projeto do sistema.
+\end_layout
+
+\begin_layout Section
+Projeto do Sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projeto-do-sistema-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Plataforma,
+ linguagem e bibliotecas
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:plataforma-linguagem-e-bibliotecas"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O software educacional foi escrito na linguagem de programação C++ e,
+ utilizando o paradigma de programação orientada a objetos (POO),
+ as funções foram distribuídas entre diferentes classes,
+ cada uma com sua respectiva responsabilidade.
+ A arquitetura da solução está organizada em módulos:
+ caracterização do fluido,
+ análise de corrosão,
+ escolha de inibidores,
+ determinação da dose e visualização dos resultados.
+ A interface com o usuário foi criada com o Qt 6 usando o componente Qt Widgets,
+ enquanto os gráficos com os resultados são exibidos no interior do próprio programa.
+ Os cálculos são efetuados com o tipo de dados 'double',
+ e as funções de processamento e manipulação de dados utilizam os recursos da biblioteca padrão de C++.
+\end_layout
+
+\begin_layout Subsection
+Arquitetura em pacotes e fluxo de controle
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:arquitetura-em-pacotes-e-fluxo-de-controle"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como mostrado na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Identificação-de-pacotes"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ o sistema está organizado em pacotes que agrupam as classes segundo suas responsabilidades,
+ e as dependências entre eles foram representadas no diagrama de pacotes.
+ O controle do fluxo de execução é da classe SimuladorCorrosao,
+ que chama,
+ em cada fase do processo,
+ as funções necessárias:
+ leitura e validação dos dados do fluido,
+ análise de corrosão,
+ seleção do inibidor,
+ cálculo da dosagem e apresentação dos resultados.
+ Esse encadeamento corresponde ao diagrama de máquina de estados apresentado na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:diagrama-de-estado"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ A divisão das funções em classes com responsabilidades bem definidas facilita a manutenção do código e permite alterar um comportamento em um único ponto,
+ sem modificar o restante do programa.
+\end_layout
+
+\begin_layout Subsection
+Tratamento de erros
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:tratamento-de-erros"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A validação dos parâmetros do fluido é realizada pela própria classe que armazena os dados,
+ a qual lança exceções quando os valores não pertencem aos intervalos e critérios estabelecidos.
+ Já no cálculo da dosagem,
+ a eficiência do inibidor é também verificada,
+ caso η ≤ 0,
+ é lançado o erro std::invalid_argument,
+ evitando a divisão por zero ou por um valor negativo.
+\end_layout
+
+\begin_layout Standard
+Dessa forma,
+ o tratamento de erros e exceções realizadas pelo software permite comunicar o erro ao usuário sem que seja interrompido de maneira brusca o programa.
+\end_layout
+
+\begin_layout Subsection
+Entrada e saída de dados
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:entrada-e-saida-de-dados"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O software educacional permite que o usuário faça uma simulação de ensaios com amostras de dados que ele próprio entra,
+ por meio de parâmetros do fluido (pH,
+ concentrações de CO₂ e H₂S,
+ salinidade,
+ temperatura,
+ pressão,
+ vazão).
+ Depois de tudo ter sido processado,
+ os resultados são exibidos para o usuário através da interface gráfica,
+ que indica dados sobre a corrosão,
+ o inibidor escolhido e a quantidade de dosagem estimada.
+\end_layout
+
+\begin_layout Subsection
+Padrões e decisões de projeto
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:padroes-e-decisoes-de-projeto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Herança e polimorfismo:
+ a classe abstrata Inibidor possui uma interface comum às classes concretas,
+ permitindo a existência de várias classes de inibidores de forma uniforme.
+\end_layout
+
+\begin_layout Itemize
+Centralização da seleção:
+ a classe SeletorInibidor concentra as regras de escolha e devolve uma instância concreta de Inibidor de acordo com as características do fluido.
+\end_layout
+
+\begin_layout Itemize
+Separação de responsabilidades:
+ a análise da corrosão,
+ o cálculo da dosagem,
+ a seleção dos inibidores e a apresentação dos resultados são distribuídos entre classes específicas.
+\end_layout
+
+\begin_layout Itemize
+Encapsulamento:
+ os atributos e as operações auxiliares estão organizados conforme suas responsabilidades,
+ permitindo assim,
+ que o acesso direto aos dados seja restrito quando necessário.
+\end_layout
+
+\begin_layout Section
+Projeto Orientado a Objeto – POO
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projeto-orientado-a-objeto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Efeitos do projeto na análise
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:efeitos-do-projeto-na-analise"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir da implementação foi possível transformar o modelo abstrato desenvolvido por meio da elaboração teórica e dos diagramas em uma estrutura de classes que pudesse ser executada e que se transformasse em seguida em um software.
+ A classe SimuladorCorrosao é a que coordena o fluxo de processamento e a validação dos parâmetros é feita pela classe Fluido,
+ a qual recebe os dados do usuário.
+ A classe AnaliseCorrosao agrupa os cálculos relativos à taxa,
+ tipo e severidade da corrosão,
+ além dos coeficientes de dosagem.
+ Por outro lado,
+ a classe SeletorInibidor é a que concentra a seleção do inibidor recomendado para uso.
+\end_layout
+
+\begin_layout Subsection
+Associações e dependências
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:associacoes-e-dependencias"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As relações entre as classes expressam a colaboração exigida para a realização de uma simulação.
+ O SimuladorCorrosao organiza as tarefas e usa os componentes de análise,
+ escolha e cálculo.
+ A AnaliseCorrosao e a CalculadoraDosagem consultam os parâmetros do fluido para fazer seus cálculos,
+ enquanto o SeletorInibidor usa os dados para criar uma classe de inibidor concreta.
+ Essa separação impede que todas as tarefas sejam feitas por um único componente e ajuda na manutenção do código.
+\end_layout
+
+\begin_layout Subsection
+Extensibilidade
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:extensibilidade"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A estrutura de herança permite adicionar novos tipos de inibidores através de classes que herdam de Inibidor,
+ que precisam implementar os métodos virtuais criados pela classe-base.
+ Para que um novo tipo possa ser escolhido pelo sistema,
+ é preciso incluir o seu critério na lógica de SeletorInibidor.
+ Além disso,
+ os modelos de análise de corrosão podem ser melhorados na classe AnaliseCorrosao,
+ desde que se mantenham as interfaces usadas pelos outros componentes.
+ Essa forma de organizar fornece uma base para futuras melhorias,
+ como a adição de novos critérios de seleção e o melhoramento dos modelos de cálculo,
+ sem ter que reestruturar todo o software.
+\end_layout
+
+\begin_layout Section
+Diagrama de componentes
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Diagrama de componentes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagrama-de-componentes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diagrama de componentes mostra a forma como os componentes do software se relacionam,
+ suas dependências.
+ Inclui itens como:
+ componentes,
+ subsistemas,
+ executáveis,
+ nós,
+ associações,
+ dependências,
+ generalizações,
+ restrições e notas.
+ Exemplos de componentes são bibliotecas estáticas,
+ bibliotecas dinâmicas,
+ dlls,
+ componentes Java,
+ executáveis,
+ arquivos de disco,
+ código-fonte.
+ O código-fonte do sistema é organizado em um par de arquivos (cabeçalho e implementação) para cada classe,
+ e esses arquivos formam dois grupos de componentes.
+ O primeiro é o núcleo de cálculo,
+ que reúne as classes Fluido,
+ AnaliseCorrosao,
+ Inibidor (com suas subclasses e o SeletorInibidor),
+ CalculadoraDosagem e SimuladorCorrosao.
+ O segundo é a interface gráfica,
+ localizada na pasta gui e composta por MainWindow,
+ GraficoResultados,
+ Estilo.h e main_gui.cpp.
+\end_layout
+
+\begin_layout Standard
+Veja na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:componentes"
+nolink "false"
+
+\end_inset
+
+ apresenta as dependências entre os componentes.
+ O SimuladorCorrosao coordena o núcleo de cálculo:
+ utiliza Fluido,
+ AnaliseCorrosao,
+ os inibidores e a CalculadoraDosagem.
+ Por isso o mesmo núcleo é reutilizado por dois executáveis:
+ o de console (SoftwareDeCorrosao),
+ cujo ponto de entrada é o main.cpp,
+ e o gráfico (SoftwareCorrosaoGUI),
+ em que a MainWindow utiliza o núcleo para realizar as simulações.
+ A interface gráfica depende ainda do módulo Qt Widgets,
+ enquanto o núcleo de cálculo não depende do Qt.
+ Essa separação permite compilar e executar o núcleo mesmo sem a biblioteca gráfica.
+\end_layout
+
+\begin_layout Standard
+O arquivo CMakeLists.txt define os dois alvos de compilação e,
+ na ausência do Qt,
+ gera apenas o executável de console.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/diagrama_componentes.png
+	lyxscale 90
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de componentes
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:componentes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de implantação
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Diagrama de implantação
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+range none
+pageformat default
+status open
+
+\begin_layout Plain Layout
+Diagrama de execução
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagrama-de-execução"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O software é executado localmente em um computador pessoal com Windows,
+ sem necessidade de servidor,
+ rede ou banco de dados.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:implantacao"
+nolink "false"
+
+\end_inset
+
+ apresenta a implantação do sistema.
+\end_layout
+
+\begin_layout Standard
+No ambiente de desenvolvimento,
+ o código-fonte em C++20 e o arquivo CMakeLists.txt são compilados com o Visual Studio Code,
+ a extensão CMake Tools e o compilador MinGW-w64,
+ o que gera os dois executáveis.
+\end_layout
+
+\begin_layout Standard
+No computador do usuário ficam o executável de console (SoftwareDeCorrosao.exe),
+ o executável gráfico (SoftwareCorrosaoGUI.exe),
+ as bibliotecas dinâmicas do Qt 6 utilizadas pela interface e a pasta assets,
+ de onde a interface lê o logotipo da UENF.
+ O executável de console não depende do Qt e pode ser usado de forma independente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/diagrama_implantacao.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de implantação
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:implantacao"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Nota:
+ 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Não perca de vista a visão do todo;
+ do projeto de engenharia como um todo.
+ Cada capítulo,
+ cada seção,
+ cada parágrafo deve se encaixar.
+ Este é um diferencial fundamental do engenheiro em relação ao técnico,
+ a capacidade de desenvolver projetos,
+ de ver o todo e suas diferentes partes,
+ de modelar processos/sistemas/produtos de engenharia.
+\end_layout
+
+\end_body
+\end_document

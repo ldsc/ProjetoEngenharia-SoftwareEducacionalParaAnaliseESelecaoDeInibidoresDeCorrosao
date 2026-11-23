@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+ed8b60afe82f54b0b3323f3a7aeb739f CMakeFiles/SoftwareCorrosaoGUI_autogen
+4572c17d5e72df8ed105daddb8dca707 SoftwareCorrosaoGUI_autogen/timestamp

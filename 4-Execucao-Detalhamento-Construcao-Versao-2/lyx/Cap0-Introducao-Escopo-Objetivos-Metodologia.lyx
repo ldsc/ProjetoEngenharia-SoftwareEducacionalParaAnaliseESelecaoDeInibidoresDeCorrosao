@@ -1,0 +1,1520 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introdução
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Introdução"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Introdução}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+%
+\backslash
+fancyhead[L]{
+\backslash
+thechapter}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyhead[C]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyhead[R]{
+\backslash
+thepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyfoot[L]{NomeProfessor-Cliente}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyfoot[C]{}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+fancyfoot[R]{
+\backslash
+today}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Jamais retire o 
+\backslash
+today ele vai colocar data no material impresso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A corrosão é um processo contínuo e natural de deterioração de um material devido a reações químicas,
+ eletroquímicas ou mecânicas entre o material e o meio onde se encontra (GENTIL,
+ 1996).
+ Popoola et al.
+ (2013) a definem como 
+\begin_inset Quotes eld
+\end_inset
+
+o ataque destrutivo de um material por reação com o seu meio
+\begin_inset Quotes erd
+\end_inset
+
+.
+ No setor de petróleo e gás,
+ o fenômeno ocorre em tubulações,
+ válvulas,
+ revestimentos,
+ colunas de produção e estruturas metálicas em todos os pontos da cadeia,
+ desde a exploração e produção até o transporte e o refino (BAHADORI,
+ 2014).
+ Além de diminuir a vida útil dos equipamentos,
+ a corrosão pode levar a falhas catastróficas,
+ prejuízos financeiros,
+ danos ao meio ambiente e riscos à segurança das operações (UHLIG;
+ REVIE,
+ 2008).
+\end_layout
+
+\begin_layout Standard
+Nos sistemas de produção,
+ o problema é agravado pelas condições do meio,
+ como nos casos de poços profundos,
+ onde a combinação de altas pressões e temperaturas com gases ácidos,
+ como CO₂ e H₂S,
+ auxiliam para o aumento da corrosão e fazem com que seja exigido a combinação de inibidores,
+ revestimentos e seleção de materiais (AHMED;
+ LIU;
+ LIU,
+ 2025).
+ Altas pressões e temperaturas se associam com a presença de espécies agressivas,
+ tais como o dióxido de carbono (CO₂),
+ o sulfeto de hidrogênio (H₂S) e os íons cloreto (Cl
+\begin_inset Formula $^{-}$
+\end_inset
+
+) (POPOOLA et al,
+ 2013),
+ em fluidos que geralmente possuem água de formação com alta salinidade (BAHADORI,
+ 2014).
+ O CO₂ dissolvido em água forma ácido carbônico e dá origem à chamada corrosão doce,
+ denominada sweet corrosion (NEŠIC,
+ 2007).
+ O H₂S,
+ por sua vez,
+ está relacionado à corrosão sulfídrica e à fragilização do aço por hidrogênio.
+ Os cloretos,
+ por fim,
+ favorecem a corrosão localizada.
+\end_layout
+
+\begin_layout Standard
+Entre as formas de mitigação,
+ a injeção de inibidores de corrosão é uma das mais utilizadas,
+ pois diminui a velocidade do ataque com pequenas concentrações de produto.
+ Esse efeito ocorre pela formação de um filme adsorvido sobre a superfície metálica ou pela modificação das reações que causam a degradação (FINŠGAR;
+ JACKSON,
+ 2014).
+ A seleção do inibidor,
+ entretanto,
+ não é tão simples,
+ pois a escolha depende do mecanismo de corrosão dominante,
+ da composição do fluido e das condições operacionais,
+ e requer a interpretação de várias variáveis ao mesmo tempo.
+ Revisões mais recentes mostram que a pesquisa em inibidores avança atualmente também para compostos orgânicos de origem natural,
+ os quais são menos tóxicos,
+ e seu desempenho depende de mecanismos de adsorção na superfície metálica e das condições do meio observado,
+ como a presença de CO₂ e H₂S (KUMAR et al.,
+ 2026).
+\end_layout
+
+\begin_layout Standard
+Esta necessidade de integrar conceitos também aparece no ensino.
+ Mecanismos de corrosão,
+ propriedades dos fluidos,
+ efeito da temperatura e do pH,
+ presença de CO₂ e H₂S e critérios de seleção e dosagem de inibidores costumam ser estudados em separado durante a disciplina de Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
+ Este trabalho propõe reunir esses temas em um software educacional,
+ escrito em C++ com programação orientada a objetos,
+ que permita ao estudante criar um cenário de produção e observar como cada parâmetro modifica a análise de corrosão,
+ a escolha do inibidor de corrosão e sua dosagem estimada.
+\end_layout
+
+\begin_layout Section
+Escopo do problema
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Escopo-do-Problema"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A integridade,
+ segurança e confiabilidade dos sistemas de produção de petróleo são prejudicadas pela corrosão.
+ As partes que compõem os poços,
+ como os tubos,
+ válvulas,
+ revestimentos e cabeças de poço,
+ estão expostas a um ambiente corrosivo,
+ o que leva a altos gastos com manutenção,
+ aumento do risco de falhas estruturais e possíveis acidentes ambientais (BAHADORI,
+ 2014).
+ Apesar dos avanços no monitoramento e nas técnicas de prevenção,
+ a gestão da corrosão continua sendo um dos principais problemas enfrentados pela engenharia de poços.
+\end_layout
+
+\begin_layout Standard
+No âmbito acadêmico,
+ o problema se apresenta de outra maneira.
+ A disciplina opcional Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550) fornece os conhecimentos básicos para entender os mecanismos de corrosão e as maneiras de preveni-la com excelência.
+ No entanto,
+ ainda não há uma ferramenta computacional educativa relacionada a ela que permita que o estudante integre esses conhecimentos adquiridos na aula em um único ambiente de simulação para consolidar os conceitos teóricos adquiridos.
+ Sendo assim,
+ falta um recurso no qual o estudante possa mudar as condições de um cenário e observar,
+ de forma simulada e aplicada,
+ os resultados sobre a avaliação da corrosão.
+\end_layout
+
+\begin_layout Standard
+O desafio tecnológico deste projeto é transformar os conhecimentos teóricos da engenharia de corrosão em um modelo computacional organizado para a sala de aula.
+ Com os dados fornecidos pelo usuário,
+ o programa deve verificar as informações,
+ calcular a taxa de corrosão,
+ identificar o tipo e a intensidade da corrosão,
+ escolher uma categoria de inibidor baseado nos critérios estabelecidos e,
+ em seguida,
+ estimar a quantidade necessária,
+ mostrando os resultados de forma numérica e gráfica para o usuário.
+ A ferramenta não substitui os livros,
+ as aulas,
+ os ensaios de laboratório ou os programas industriais.
+ Os resultados obtidos são apenas estimativas educacionais e não devem ser utilizados como sugestão para aplicação no campo.
+\end_layout
+
+\begin_layout Section
+Objetivos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Objetivos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Objetivo geral
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:objetivo-geral"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Criar um programa educacional para análise e escolha de inibidores de corrosão,
+ empregando C++ e o modelo de programação orientado a objetos,
+ que possa incorporar propriedades físico-químicas dos fluidos e condições operacionais de sistemas de extração de petróleo para avaliar a velocidade de corrosão do ambiente,
+ definir sua gravidade,
+ sugerir uma categoria de inibidor apropriada ao contexto e prever uma dose caso necessário,
+ exibindo os resultados de maneira numérica e visual ao usuário.
+\end_layout
+
+\begin_layout Subsection
+Objetivos específicos
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:objetivos-especificos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Reexaminar os princípios da corrosão,
+ os ambientes corrosivos da extração de petróleo e os modos de atuação dos inibidores que servem de base para o modelo computacional;
+\end_layout
+
+\begin_layout Itemize
+Identificar os requisitos do sistema e mapeá-lo em UML (casos de uso,
+ pacotes,
+ classes,
+ sequência,
+ estados e atividades);
+\end_layout
+
+\begin_layout Itemize
+Codificar em C++ os componentes de salvamento e verificação dos dados do fluido,
+ avaliação de corrosão,
+ escolha do inibidor,
+ cálculo da dose e produção de gráficos e resultados;
+\end_layout
+
+\begin_layout Itemize
+Organizar o código por herança e polimorfismo,
+ de forma que novas classes de inibidores possam ser adicionadas futuramente sem reescrever o programa;
+\end_layout
+
+\begin_layout Itemize
+Validar o programa através de cenários de teste,
+ comparando as saídas com cálculos independentes e com as tendências relatadas na literatura;
+\end_layout
+
+\begin_layout Itemize
+Associar o uso do programa ao conteúdo da disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550),
+ sugerindo cenários para aulas e exercícios.
+\end_layout
+
+\begin_layout Section
+Justificativa e público-alvo
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:justificativa-e-publico-alvo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O grande diferencial do projeto está na possibilidade de reunir,
+ em um único meio de ensino aplicado,
+ os conteúdos de Engenharia de Petróleo,
+ Engenharia de Corrosão e Computação.
+ Como a corrosão não se dá por apenas uma única variável em sistema de produção,
+ então a análise da corrosão em um meio de ensino se dá pela análise simultânea do pH,
+ concentração de CO₂ e H₂S,
+ temperatura,
+ pressão,
+ salinidade e vazão.
+ Por exemplo,
+ na análise,
+ o estudante pode comparar um caso de baixa concentração de CO₂ com um de alta concentração,
+ observar o efeito de uma queda de pH ou até mesmo analisar e estudar a influência da temperatura na dosagem de inibidor de corrosão sugerida.
+\end_layout
+
+\begin_layout Standard
+O público-alvo principal são os estudantes do curso de Engenharia de Exploração e Produção de Petróleo,
+ especialmente aqueles que cursam a disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
+ O professor também pode utilizar casos já preparados em sala de aula para demonstrar como a alteração de um parâmetro altera a severidade da corrosão ou a recomendação de inibidor.
+ A arquitetura orientada a objetos também possibilita a futura expansão com novos modelos de corrosão,
+ novas classes de inibidores e bancos de dados de produtos.
+\end_layout
+
+\begin_layout Section
+Metodologia
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:metodologia"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O trabalho é classificado como uma pesquisa aplicada,
+ de natureza tecnológica,
+ que visa o desenvolvimento de um produto de software.
+ O desenvolvimento segue o modelo de projeto de engenharia utilizado no curso,
+ com ciclos iterativos e incrementais,
+ sendo estruturado nas sete etapas apresentadas na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:metodologia"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+:
+ definição do problema,
+ fundamentação teórica,
+ especificação,
+ modelagem,
+ desenvolvimento,
+ testes e validação e produto final.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Metodologia utilizada no desenvolvimento do sistema
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:metodologia"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/metodologia.png
+	lyxscale 50
+	special height=0.8\textheight
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026) – Criado no Software PlantUML.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na definição do problema foram identificados o problema de engenharia,
+ o escopo,
+ o público-alvo e os objetivos.
+ A fundamentação teórica reuniu os conceitos de corrosão,
+ o papel do CO₂ e do H₂S,
+ as classes de inibidores,
+ os critérios de seleção e os modelos de taxa de corrosão e de dosagem,
+ que serão apresentados no Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Elaboracao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ A especificação definiu requisitos,
+ entradas,
+ saídas e casos de uso (este capítulo),
+ e a modelagem produziu os diagramas UML dos Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Analise-Orientada-a-Objeto"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Projeto-do-Sistema"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O desenvolvimento e os testes ocorrem nos ciclos descritos nos Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ciclos-Planejamento-Detalhamento"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Teste"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para a criação dos diagramas de linguagem de modelagem unificada (UML),
+ foi-se utilizado a ferramenta PlantUML.
+ Por adotar o paradigma Diagrams as Code (diagramas como código),
+ a ferramenta viabiliza a construção de artefatos gráficos a partir de descrições textuais estruturadas.
+ Essa abordagem garantiu a padronização visual das representações conforme as especificações da UML,
+ facilitou o controle dos modelos junto ao código-fonte e conferiu uma maior agilidade nas atualizações e manutenções dos diagramas ao longo dos ciclos do projeto.
+\end_layout
+
+\begin_layout Section
+Maturidade tecnológica e comercial pretendida
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:maturidade-tecnologica-e-comercial-pretendida"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para avaliar o nível de desenvolvimento e a possibilidade de comercialização de uma inovação,
+ são aplicadas medidas padronizadas de maturidade técnica e de mercado,
+ com especial atenção ao Technology Readiness Level (TRL) e ao Commercial Readiness Level (CRL).
+ O TRL é uma escala de nove pontos,
+ criada inicialmente pela NASA,
+ para avaliar a maturidade de uma tecnologia,
+ que vai da observação dos princípios básicos (TRL 1) até a demonstração do sistema em ambiente real (TRL 9).
+ Por outro lado,
+ o CRL mede a preparação comercial e o posicionamento no mercado da solução,
+ seguindo o desenvolvimento do projeto desde a identificação de oportunidades e o estabelecimento do modelo de negócios até o amadurecimento do produto e o ganho de receita (níveis 1 a 9).
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:trl"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e a Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresentam os níveis de maturidade tecnológica (TRL),
+ enquanto a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:crl"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e a Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresentam os níveis de prontidão comercial (CRL).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Níveis de Maturidade Tecnológica (Technology Readiness Levels – TRL)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:trl"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Nova pasta/imagens/trl.jpg
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Petrobras (2024).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Explicação Níveis de Maturidade Tecnológica (Technology Readiness Levels – TRL)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="1.7cm">
+<column alignment="block" valignment="top" width="13.8cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nível
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Estágio da Maturidade Tecnológica
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Identificação dos princípios científicos fundamentais que podem servir de base para o desenvolvimento da tecnologia.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Concepção da tecnologia e descoberta de suas utilizações potenciais.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Criação inicial e análise experimental ou analítica do conceito,
+ com o objetivo de provar que ele é possível.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teste dos componentes ou modelos no laboratório,
+ através de ensaios controlados.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teste da tecnologia em tamanho reduzido ou em situações que imitem o local onde ela vai ser usada.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Criação e exibição de um modelo funcionando em condições importantes de Uso.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exibição da tecnologia em condições de trabalho,
+ com análise de como ela funciona em um caso real.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tecnologia terminada,
+ testada e pronta para ser vendida.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRL 9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tecnologia totalmente funcionando,
+ provado pelo fato de que ela já foi usada com sucesso em situações reais.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Níveis de Prontidão Comercial (Commercial Readiness Level – CRL)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:crl"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Nova pasta/imagens/crl.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria no CANVA (2026)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Explicação Níveis de Prontidão Comercial (Commercial Readiness Level – CRL)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="1.7cm">
+<column alignment="block" valignment="top" width="13.8cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nível
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Estágio da Maturidade Tecnológica
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entendimento de mercado,
+ identificação de clientes-alvo e de suas necessidades
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correlação de clientes-alvo com suas necessidades,
+ concorrência e proposta de valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pesquisa de clientes-alvo e validação da solução com protótipos de baixa fidelidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definição da atuação na cadeia de valor,
+ das parcerias,
+ dos custos e das receitas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definição de canais de marketing,
+ de preços e das ações de promoção
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Estrutura de processos de marketing,
+ vendas,
+ entrega,
+ treinamento,
+ suporte e pagamentos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acesso ao mercado,
+ geração de demanda e desenvolvimento de funil de vendas CRL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Demonstrações de produto,
+ provas de conceito e projetos piloto com clientes-alvo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CRL 9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Conversão das primeiras vendas e geração de receitas com clientes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O nível de maturidade tecnológica (TRL,
+ do inglês Technology Readiness Level) é alcançado entre o TRL 3 e o TRL 4.
+ No TRL 3,
+ os princípios da solução são demonstrados por meio de modelos computacionais e da primeira implementação dos algoritmos de análise de corrosão,
+ classificação de severidade e seleção de inibidores.
+ No TRL 4,
+ a tecnologia é validada em um ambiente controlado,
+ através de simulações que representam cenários fictícios da indústria de petróleo.
+ Não se espera validar a tecnologia em campo real,
+ uma vez que a aplicação é focada na aplicação educacional.
+ No entanto,
+ a arquitetura permite a evolução futura através da integração com dados reais e validação experimental.
+\end_layout
+
+\begin_layout Standard
+Do ponto de vista da maturidade comercial (CRL,
+ Commercial Readiness Level),
+ o projeto situa-se entre o CRL 2 e o CRL 3.
+ Existe uma definição conceitual da solução,
+ do problema e do público-alvo,
+ além de um protótipo funcional que pode ser utilizado em ambiente acadêmico.
+ O objetivo principal não é a comercialização,
+ mas sim a validação técnica e o potencial de aplicação futura.
+ De acordo com as normas da disciplina,
+ o código será disponibilizado como Software Livre.
+\end_layout
+
+\begin_layout Section
+Organização do trabalho
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:organizacao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este manual do desenvolvedor está estruturado em oito capítulos e um apêndice,
+ que seguem as etapas da metodologia apresentada na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:metodologia"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Concepção"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ trata da concepção do sistema (nome,
+ especificação,
+ requisitos e casos de uso).
+ O Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Elaboracao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ trata da elaboração,
+ da análise do domínio,
+ da formulação teórica e da identificação dos pacotes.
+ O Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Analise-Orientada-a-Objeto"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresenta a análise orientada a objeto e o Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Projeto-do-Sistema"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ o projeto do sistema e o projeto orientado a objeto.
+ O Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ciclos-Planejamento-Detalhamento"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresenta o planejamento e o detalhamento dos ciclos de desenvolvimento,
+ o Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ciclos-Construcao-Implementacao"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ a construção e a implementação,
+ e o Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Teste"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ os testes.
+ O Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Documentacao-Desenvolvedor"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reúne a documentação para o desenvolvedor (dependências,
+ compilação,
+ estrutura do projeto e como estender o sistema).
+ O Apêndice A traz o código-fonte.
+ O manual do usuário é apresentado em documento separado.
+\end_layout
+
+\end_body
+\end_document

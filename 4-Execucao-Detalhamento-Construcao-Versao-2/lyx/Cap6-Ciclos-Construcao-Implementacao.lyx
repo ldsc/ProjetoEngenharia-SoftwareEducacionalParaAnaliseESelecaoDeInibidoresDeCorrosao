@@ -1,0 +1,3750 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master ProjetoEngenharia-ManualDoDesenvolvedor.lyx
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package prettyref
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Ciclos:
+ Construção e Implementação
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Ciclos-Construcao-Implementacao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Implementação}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste capítulo,
+ é apresentada a arquitetura e a implementação do software em cada um dos seus ciclos,
+ de acordo com o planejamento estabelecido na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:6.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e os critérios de aceitação definidos na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:6.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Em cada ciclo,
+ são descritas as funcionalidades implementadas,
+ os fragmentos de código mais importantes,
+ as decisões adotadas e as limitações identificadas.
+\end_layout
+
+\begin_layout Standard
+A sequência dos ciclos está baseada nas relações de dependência entre as classes:
+\end_layout
+
+\begin_layout Enumerate
+Ciclo 1:
+ o fluido não possui dependência de nenhuma outra classe.
+\end_layout
+
+\begin_layout Enumerate
+Ciclo 2:
+ a análise de corrosão depende da classe do fluido para sua realização
+\end_layout
+
+\begin_layout Enumerate
+Ciclo 3:
+ a seleção do inibidor depende do fluido.
+\end_layout
+
+\begin_layout Enumerate
+Ciclo 4:
+ a dosagem do inibidor de corrosão requer a utilização das classes do fluido,
+ da análise de corrosão e da seleção do inibidor.
+\end_layout
+
+\begin_layout Enumerate
+Ciclo 5:
+ O simulador e a interface gráfica englobam todas as classes anteriormente desenvolvidas.
+\end_layout
+
+\begin_layout Section
+Ambiente de desenvolvimento e organização do código
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ambiente-de-desenvolvimento-e-organizaca"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O código foi desenvolvido em C++,
+ com configurações de compilação para o padrão C++20,
+ e é construído usando o CMake (versão mínima 3.27).
+ A interface gráfica é implementada usando o Qt 6 (no módulo Qt Widgets),
+ onde o arquivo CMakeLists.txt tenta localizar o Qt 6 e,
+ caso não o encontre,
+ procura o Qt 5.
+ No caso de nenhuma das duas versões estar instalada,
+ o projeto continuará compilando o executável de console,
+ e apenas o alvo gráfico será omitido,
+ com um aviso no registro do CMake.
+ Esta decisão evita que a ausência de uma biblioteca de interface impeça o uso do núcleo de cálculo.
+ O desenvolvimento e a compilação foram realizados no Visual Studio Code com a extensão CMake Tools,
+ no ambiente Windows com o compilador MinGW-w64,
+ e o diretório de compilação agrupa os dois executáveis (SoftwareDeCorrosao,
+ de console,
+ e SoftwareCorrosaoGUI,
+ com interface gráfica) junto com as bibliotecas do Qt necessárias para a execução.
+\end_layout
+
+\begin_layout Standard
+O código foi elaborado com um par de arquivos (cabeçalho .h e implementação .cpp) para cada classe.
+ As classes do núcleo de cálculo se encontram na raiz do projeto,
+ o código que depende do Qt se encontra na pasta gui e os recursos visuais (logotipo da UENF) se encontram na pasta assets,
+ copiada automaticamente para junto do executável a cada compilação.
+ A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ mostra cada arquivo em relação à sua classe,
+ ao seu pacote e ao ciclo em que foi desenvolvido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Organização dos arquivos do projeto
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:7.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="4.4cm">
+<column alignment="left" valignment="top" width="4.9cm">
+<column alignment="left" valignment="top" width="2.5cm">
+<column alignment="left" valignment="top" width="3.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Arquivos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Classe ou componente
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Pacote
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Ciclo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido.h / Fluido.cpp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fluido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modelo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao.h / .cpp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AnaliseCorrosao
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modelo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor.h / Inibidor.cpp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor,
+ InibidorOrganico,
+ InibidorH2S,
+ InibidorCatodico,
+ InibidorGeral e SeletorInibidor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalculadoraDosagem.h / .cpp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalculadoraDosagem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dosagem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimuladorCorrosao.h / .cpp e main.cpp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimuladorCorrosao e menu de console
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aplicação
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gui/MainWindow.h / .cpp,
+ gui/main_gui.cpp e gui/Estilo.h
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MainWindow,
+ ponto de entrada gráfico e folha de estilos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aplicação
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gui/GraficoResultados.h / .cpp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GraficoResultados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Visualização
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quanto às convenções de código,
+ os nomes das classes,
+ métodos e atributos foram criados em português,
+ com iniciais maiúsculas nos métodos (por exemplo,
+ CalcularDose) e minúsculas nos atributos (por exemplo,
+ taxaCorrosao).
+ Os métodos de consulta estão declarados como const,
+ os objetos são passados por referência constante e os números são representados pelo tipo double,
+ cumprindo assim o requisito RNF07.
+ As constantes empíricas estão isoladas no código,
+ sendo um exemplo a constante K da dosagem,
+ declarada como constexpr na classe CalculadoraDosagem.
+\end_layout
+
+\begin_layout Section
+Ciclo 1:
+ propriedades do fluido
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ciclo-1-propriedades-do-fluido"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O primeiro ciclo foi implementado pela classe Fluido,
+ que é o meio corrosivo.
+ Ela guarda sete parâmetros de entrada (pH,
+ CO₂,
+ H₂S,
+ salinidade,
+ temperatura,
+ pressão e vazão) e fornece um construtor padrão,
+ um construtor completo,
+ métodos de leitura e de modificação e o método privado Validar(),
+ que valida os valores.
+ O construtor padrão cria um fluido neutro com pH 7,
+ temperatura de 25 °C e pressão de 101,325,
+ sem CO₂,
+ H₂S,
+ salinidade ou vazão.
+ O construtor completo chama Validar() antes de terminar,
+ de modo que não é possível criar um objeto Fluido com dados inválidos.
+ Esse é o ponto de atendimento do requisito RF02 e a base para o tratamento de erros descrito na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:tratamento-de-erros"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+As regras de validação programadas estão na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Elas só verificam a consistência física dos valores (por exemplo,
+ concentrações negativas não existem),
+ e não a faixa típica de operação da Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Valores fora da faixa típica,
+ mas fisicamente possíveis,
+ são aceitos,
+ porque o software é uma ferramenta de ensino e o aluno pode querer explorar condições extremas.
+ As faixas típicas são mostradas ao usuário na interface gráfica,
+ como orientação,
+ e não como bloqueio (ver Manual do Usuário).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Regras de validação implementadas na classe Fluido
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:7.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="2.9cm">
+<column alignment="left" valignment="top" width="3.2cm">
+<column alignment="left" valignment="top" width="4.6cm">
+<column alignment="left" valignment="top" width="4.7cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Parâmetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Unidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Valor rejeitado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Mensagem da exceção
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+–
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que 0 ou maior que 14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pH deve estar entre 0 e 14.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO₂
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO2 não pode ser negativo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H2S não pode ser negativo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salinidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Salinidade não pode ser negativa.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temperatura
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+°C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que −273,15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temperatura não pode ser menor que o zero absoluto.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pressão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+psi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pressão não pode ser negativa.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vazão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+m³/dia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+menor que 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vazão não pode ser negativa.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Construtor completo e método de validação da classe Fluido (trecho de Fluido.cpp)},label={lst:7.1}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Construtor completo e método de validação da classe Fluido (trecho de Fluido.cpp)
+\end_layout
+
+\end_inset
+
+Fluido::Fluido(double pH,
+ double co2,
+ double h2s,
+ double salinidade,
+\end_layout
+
+\begin_layout Plain Layout
+double temperatura,
+ double pressao,
+ double vazao)
+\end_layout
+
+\begin_layout Plain Layout
+:
+ pH(pH),
+ co2(co2),
+ h2s(h2s),
+ salinidade(salinidade),
+\end_layout
+
+\begin_layout Plain Layout
+temperatura(temperatura),
+ pressao(pressao),
+ vazao(vazao)
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+Validar();
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+void Fluido::Validar() const
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+if (pH < 0.0 || pH > 14.0)
+\end_layout
+
+\begin_layout Plain Layout
+throw std::invalid_argument("pH deve estar entre 0 e 14.");
+\end_layout
+
+\begin_layout Plain Layout
+if (co2 < 0.0)
+\end_layout
+
+\begin_layout Plain Layout
+throw std::invalid_argument("CO2 não pode ser negativo.");
+\end_layout
+
+\begin_layout Plain Layout
+if (temperatura < -273.15)
+\end_layout
+
+\begin_layout Plain Layout
+throw std::invalid_argument(
+\end_layout
+
+\begin_layout Plain Layout
+"Temperatura não pode ser menor que o zero absoluto.");
+\end_layout
+
+\begin_layout Plain Layout
+// ...
+ demais verificações (H2S,
+ salinidade,
+ pressão e vazão)
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\begin_layout Standard
+Importante ressaltar o comportamento frente aos valores limites.
+ O pH de 7.5 é aceitável,
+ pois está no intervalo entre 0 e 14,
+ porém o fator de acidez equivalente é considerado nulo e,
+ consequentemente,
+ a taxa de corrosão base também é nula.
+ Uma temperatura negativa,
+ como −10 °C,
+ também é aceitável,
+ e apenas é rejeitada se estiver abaixo do zero absoluto.
+ Por outro lado,
+ um pH de 15 ou uma concentração de CO₂ negativa geram uma exceção do tipo std::invalid_argument,
+ que é tratada pela camada de apresentação e convertida em uma mensagem para o usuário,
+ não causando o encerramento do programa.
+ Esses cenários foram confirmados nos testes da Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:testes-unitarios"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Adicionalmente,
+ além de guardar e validar,
+ a classe fornece três valores resultantes.
+ O fator de temperatura,
+ obtido como e^(0,02·T),
+ é igual à Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fator-temperatura"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O fator de acidez é obtido como o valor máximo entre zero e (7 − pH),
+ que é igual ao termo de acidez da Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cr-base"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e evita que um pH básico gere uma taxa negativa.
+ Por último,
+ o método PressaoParcialCO2() resulta no produto entre a concentração de CO₂ e a pressão do sistema,
+ que aparece nos relatórios como um indicador relativo e não entra nas equações de taxa e de dosagem.
+\end_layout
+
+\begin_layout Standard
+Foram encontrados dois problemas com esse ciclo.
+ O primeiro é que os métodos de modificação (DefinirPH,
+ DefinirCO2 etc.) mudam o valor e depois chamam Validar();
+ se o valor for inválido,
+ a exceção é gerada,
+ mas o objeto continua com o valor rejeitado.
+ No fluxo atual do software não há problema,
+ pois os fluidos são sempre criados pelo construtor completo e descartados em caso de erro,
+ mas uma versão futura deverá validar antes de mudar.
+ O segundo é que o produto CO₂ × pressão não tem significado físico direto como pressão parcial,
+ que precisaria da fração molar do gás;
+ por isso foi mantido apenas como informação complementar.
+\end_layout
+
+\begin_layout Section
+Ciclo 2:
+ análise de corrosão
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ciclo-2-analise-de-corrosao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No segundo ciclo,
+ foi criado um objeto AnaliseCorrosao que engloba as regras da Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:formulacao-teorica"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O objeto AnaliseCorrosao recebe o fluido como referência constante e executa o método Analisar() durante a sua construção,
+ para que no momento em que ele seja criado,
+ ele já possua todos os dados calculados e não haja problemas em consultar um resultado ainda não calculado.
+ O método Analisar() chama,
+ em sequência,
+ o cálculo da taxa base,
+ a definição do tipo,
+ a classificação da severidade,
+ o cálculo dos três fatores e,
+ por último,
+ a taxa final.
+ A 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lst:7.2,lis:Núcleo-da-classe"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ mostra a essência dessa classe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Núcleo da classe AnaliseCorrosao (trechos de AnaliseCorrosao.cpp)},label={lst:7.2}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Núcleo-da-classe"
+
+\end_inset
+
+Núcleo da classe AnaliseCorrosao (trechos de AnaliseCorrosao.cpp)
+\end_layout
+
+\end_inset
+
+void AnaliseCorrosao::Analisar()
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+taxaCorrosao = CalcularTaxaBaseCorrosao();
+\end_layout
+
+\begin_layout Plain Layout
+tipoCorrosao = DeterminarTipoCorrosao();
+\end_layout
+
+\begin_layout Plain Layout
+severidade = DeterminarSeveridade(taxaCorrosao);
+\end_layout
+
+\begin_layout Plain Layout
+fatorSeveridade = CalcularFatorSeveridade(severidade);
+\end_layout
+
+\begin_layout Plain Layout
+fatorTemperatura = CalcularFatorTemperatura();
+\end_layout
+
+\begin_layout Plain Layout
+fatorCorrosivo = CalcularFatorCorrosivo();
+\end_layout
+
+\begin_layout Plain Layout
+taxaCorrosaoFinal = taxaCorrosao * fatorSeveridade
+\end_layout
+
+\begin_layout Plain Layout
+* fatorTemperatura * fatorCorrosivo;
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+double AnaliseCorrosao::CalcularTaxaBaseCorrosao() const
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+return fluido.CO2() * std::exp(0.02 * fluido.Temperatura())
+\end_layout
+
+\begin_layout Plain Layout
+* fluido.FatorAcidez();
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+std::string AnaliseCorrosao::DeterminarTipoCorrosao() const
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+if (fluido.H2S() > 10.0) return "Corrosão Ácida (Sour)";
+\end_layout
+
+\begin_layout Plain Layout
+if (fluido.CO2() > 20.0) return "Corrosão Doce (Sweet)";
+\end_layout
+
+\begin_layout Plain Layout
+return "Leve";
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\begin_layout Standard
+A taxa base é calculada pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cr-base"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O modo de corrosão é definido pela Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ onde o H₂S é considerado prioritariamente na ordem de verificação.
+ Os nomes dos rótulos no código são “Corrosão Ácida (Sour)”,
+ “Corrosão Doce (Sweet)” e “Leve”,
+ os quais correspondem às denominações sulfídrica,
+ doce e branda da Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ A severidade é calculada a partir da taxa base,
+ usando os limites 10 e 50 da Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ e os coeficientes Fs,
+ FT e Fc são calculados de acordo com as Tabelas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.4"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.5"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.3"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ estão descritas as regras implementadas,
+ onde os operadores de comparação são os mesmos que os usados no código,
+ pois eles definem como os valores de fronteira devem ser tratados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Regras de classificação e fatores implementados em AnaliseCorrosao
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:7.3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.9cm">
+<column alignment="left" valignment="top" width="5.6cm">
+<column alignment="left" valignment="top" width="5.9cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Grandeza
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Condição (como no código)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Resultado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de corrosão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S > 10
+\end_layout
+
+\begin_layout Plain Layout
+CO₂ > 20
+\end_layout
+
+\begin_layout Plain Layout
+demais casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Corrosão Ácida (Sour)
+\end_layout
+
+\begin_layout Plain Layout
+Corrosão Doce (Sweet)
+\end_layout
+
+\begin_layout Plain Layout
+Leve
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Severidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CR_base < 10
+\end_layout
+
+\begin_layout Plain Layout
+CR_base < 50
+\end_layout
+
+\begin_layout Plain Layout
+demais casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Baixa (Fs = 1,0)
+\end_layout
+
+\begin_layout Plain Layout
+Média (Fs = 1,5)
+\end_layout
+
+\begin_layout Plain Layout
+Alta (Fs = 2,5)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fator térmico FT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+T < 40
+\end_layout
+
+\begin_layout Plain Layout
+40 ≤ T ≤ 80
+\end_layout
+
+\begin_layout Plain Layout
+T > 80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,0
+\end_layout
+
+\begin_layout Plain Layout
+1,3
+\end_layout
+
+\begin_layout Plain Layout
+1,8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fator corrosivo Fc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+H₂S > 10
+\end_layout
+
+\begin_layout Plain Layout
+CO₂ > 20
+\end_layout
+
+\begin_layout Plain Layout
+demais casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2,0
+\end_layout
+
+\begin_layout Plain Layout
+1,5
+\end_layout
+
+\begin_layout Plain Layout
+1,0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para que se possa entender melhor o encadeamento,
+ veja a Amostra 1 do software (pH 5,50;
+ CO2 60 ppm;
+ H2S 25 ppm;
+ temperatura 65 °C).
+ A taxa base é 60 × e^(0,02×65) × (7 − 5,5) = 60 × 3,6693 × 1,5 ≈ 330,24.
+ Uma vez que o resultado é superior a 50,
+ a severidade é Alta e Fs = 2,5.
+ Uma vez que a temperatura se encontra na faixa de 40 °C a 80 °C,
+ então FT = 1,3 e uma vez que o H2S excede 10 ppm,
+ então o tipo é Sour e Fc = 2,0.
+ A taxa final será de 330,24 × 2,5 × 1,3 × 2,0 ≈ 2.146,54.
+\end_layout
+
+\begin_layout Standard
+Uma decisão importante deste ciclo é aquela referente à taxa final.
+ A classe calcula e fornece dois valores,
+ a taxa base e a taxa final (Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cr-final"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ A taxa final é utilizada na apresentação para indicar ao estudante o aumento da taxa a cada fator aplicado,
+ contudo não faz parte do cálculo da dose.
+ Na Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dose"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ já são multiplicadas a taxa base por Fs,
+ FT e Fc,
+ de modo explícito e,
+ caso a taxa final fosse usada em vez da taxa base,
+ estes fatores seriam aplicados duas vezes.
+ Portanto,
+ a CalculadoraDosagem chama TaxaCorrosao(),
+ e não TaxaCorrosaoFinal().
+\end_layout
+
+\begin_layout Standard
+Ainda cabe ressaltar uma deficiência de implementação:
+ o fator de severidade é obtido comparando o texto da severidade ("Baixa",
+ "Média") com constantes de cadeia de caracteres,
+ o que funciona,
+ mas depende de uma grafia exata,
+ inclusive do acento.
+ Uma melhoria interessante seria trocar essas constantes de cadeia de caracteres por um tipo enumerado,
+ o que eliminaria essa dependência e o risco de erro de digitação nas modificações futuras.
+\end_layout
+
+\begin_layout Section
+Ciclo 3:
+ inibidores e seleção
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ciclo-3-inibidores-e-selecao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No terceiro ciclo foi implementado a hierarquia de inibidores,
+ que é onde a orientação a objetos aparece mais claramente no projeto.
+ A classe Inibidor é abstrata:
+ possui o nome,
+ a eficiência e a descrição,
+ tem destrutor virtual e declara dois métodos virtuais puros Tipo() e EhAplicavel(),
+ que devem ser implementados por cada classe derivada.
+ As quatro classes concretas (InibidorOrganico,
+ InibidorH2S,
+ InibidorCatodico e InibidorGeral) fixam,
+ em seus construtores,
+ o nome,
+ a eficiência e a descrição,
+ e implementam o critério de aplicabilidade.
+ O uso de herança e polimorfismo satisfaz o requisito RNF01:
+ o restante do programa manipula qualquer inibidor através da interface comum,
+ sem necessitar conhecer a classe concreta (BLAHA;
+ RUMBAUGH,
+ 2006).
+ A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.4"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ mostra os valores programados,
+ que coincidem com os da Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.6"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Inibidores implementados,
+ eficiências e critérios de aplicabilidade
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:7.4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.4cm">
+<column alignment="left" valignment="top" width="3.6cm">
+<column alignment="left" valignment="top" width="1.7cm">
+<column alignment="left" valignment="top" width="4.2cm">
+<column alignment="left" valignment="top" width="4.7cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Ordem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Classe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+η
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Critério de aplicabilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Descrição no código
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+InibidorH2S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0,93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+H₂S > 10 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Indicado para ambientes sour com presença significativa de H₂S.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+InibidorOrganico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0,85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+CO₂ > 20 ppm e pH < 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Forma filme adsorvido na superfície metálica,
+ reduzindo o contato metal-fluido.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+InibidorCatodico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0,80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Salinidade > 15.000 ppm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Reduz a reação catódica,
+ sendo indicado para ambientes de alta salinidade.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+InibidorGeral
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+0,70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Sempre verdadeiro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Aplicado em cenários leves ou como alternativa padrão.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Classe-base Inibidor e uma classe derivada (trechos de Inibidor.h e Inibidor.cpp)},label={lst:7.3}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Classe-base Inibidor e uma classe derivada (trechos de Inibidor.h e Inibidor.cpp)
+\end_layout
+
+\end_inset
+
+class Inibidor
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+protected:
+\end_layout
+
+\begin_layout Plain Layout
+std::string nome;
+\end_layout
+
+\begin_layout Plain Layout
+double eficiencia;
+\end_layout
+
+\begin_layout Plain Layout
+std::string descricao;
+\end_layout
+
+\begin_layout Plain Layout
+public:
+\end_layout
+
+\begin_layout Plain Layout
+Inibidor(const std::string& nome,
+ double eficiencia,
+\end_layout
+
+\begin_layout Plain Layout
+const std::string& descricao);
+\end_layout
+
+\begin_layout Plain Layout
+virtual ~Inibidor() = default;
+\end_layout
+
+\begin_layout Plain Layout
+virtual std::string Tipo() const = 0;
+\end_layout
+
+\begin_layout Plain Layout
+virtual bool EhAplicavel(const Fluido& fluido) const = 0;
+\end_layout
+
+\begin_layout Plain Layout
+};
+\end_layout
+
+\begin_layout Plain Layout
+bool InibidorOrganico::EhAplicavel(const Fluido& fluido) const
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+return fluido.CO2() > 20.0 && fluido.PH() < 6.0;
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\begin_layout Standard
+A seleção do inibidor é feita pelo método estático SeletorInibidor::Selecionar(),
+ que testa os critérios pela ordem de importância deles e retorna o primeiro que for verdadeiro (Código 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lst:7.4,lis:Método-de-seleção"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+).
+ O retorno é um std::unique_ptr<Inibidor>,
+ isto é,
+ um ponteiro inteligente que transfere a posse do objeto para quem chama a função.
+ Esta escolha resolve dois problemas ao mesmo tempo:
+ o objeto que retorna pode ser de qualquer classe derivada (polimorfismo) e a memória é liberada automaticamente quando o ponteiro sai de escopo,
+ sem delete manual e sem risco de vazamento.
+ Os testes mostram o efeito da ordem de importância:
+ na Amostra 2,
+ a salinidade (120.000 ppm) satisfaria o critério catódico,
+ mas o critério do inibidor orgânico,
+ testado antes,
+ é verdadeiro e prevalece;
+ na Amostra 7,
+ os três critérios são verdadeiros ao mesmo tempo e vence o inibidor para H₂S.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Método de seleção do inibidor (trecho de Inibidor.cpp)},label={lst:7.4}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Método-de-seleção"
+
+\end_inset
+
+Método de seleção do inibidor (trecho de Inibidor.cpp)
+\end_layout
+
+\end_inset
+
+std::unique_ptr<Inibidor> SeletorInibidor::Selecionar(const Fluido& fluido)
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+if (fluido.H2S() > 10.0)
+\end_layout
+
+\begin_layout Plain Layout
+return std::make_unique<InibidorH2S>();
+\end_layout
+
+\begin_layout Plain Layout
+if (fluido.CO2() > 20.0 && fluido.PH() < 6.0)
+\end_layout
+
+\begin_layout Plain Layout
+return std::make_unique<InibidorOrganico>();
+\end_layout
+
+\begin_layout Plain Layout
+if (fluido.Salinidade() > 15000.0)
+\end_layout
+
+\begin_layout Plain Layout
+return std::make_unique<InibidorCatodico>();
+\end_layout
+
+\begin_layout Plain Layout
+return std::make_unique<InibidorGeral>();
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\begin_layout Standard
+Deve-se fazer uma consideração de design:
+ os limites de cada parâmetro de seleção ocorrem duas vezes no programa (nos métodos EhAplicavel() e Selecionar().
+ Desde que sejam sempre mantidos idênticos,
+ não haverá problema,
+ porém há o perigo de incompatibilidade quando algum deles for modificado posteriormente.
+ Como melhoria,
+ pode-se implementar o selecionador para que este busque uma série de inibidores ordenados e escolha aquele cujo EhAplicavel() retornar verdadeiro,
+ desta forma,
+ cada regra é definida num só lugar.
+ No entanto,
+ preferiu-se deixar a versão atual por ser mais clara de ser lida e de ser seguida no diagrama de atividades.
+\end_layout
+
+\begin_layout Section
+Ciclo 4:
+ cálculo da dosagem
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ciclo-4-calculo-da-dosagem"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durante o quarto ciclo foi criada a classe CalculadoraDosagem,
+ que agrupa os dados dos três ciclos precedentes para determinar a dose a partir da equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dose"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ O cálculo não tem dependência de estados internos,
+ por isso a classe possui apenas métodos estáticos e a constante empírica K = 0,1 é declarada como constexpr em um único local.
+ O método CalcularDose() recebe como parâmetros o fluido,
+ a análise e o inibidor.
+ Antes de fazer o cálculo,
+ o método verifica a eficiência do inibidor,
+ lançando uma exceção do tipo std::invalid_argument se ela for igual ou inferior a zero,
+ prevenindo dessa forma tanto uma divisão por zero quanto uma dose negativa.
+ O fator de vazão da equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fq"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ é obtido pelo método FatorDeVazao(),
+ público devido à sua utilização nos relatórios e nos gráficos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Cálculo da dosagem (CalculadoraDosagem.cpp)},label={lst:7.5}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cálculo da dosagem (CalculadoraDosagem.cpp)
+\end_layout
+
+\end_inset
+
+double CalculadoraDosagem::CalcularDose(const Fluido& fluido,
+\end_layout
+
+\begin_layout Plain Layout
+const AnaliseCorrosao& analise,
+\end_layout
+
+\begin_layout Plain Layout
+const Inibidor& inibidor)
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+if (inibidor.Eficiencia() <= 0.0)
+\end_layout
+
+\begin_layout Plain Layout
+throw std::invalid_argument(
+\end_layout
+
+\begin_layout Plain Layout
+"A eficiencia do inibidor deve ser maior que zero.");
+\end_layout
+
+\begin_layout Plain Layout
+const double fatorVazao = FatorDeVazao(fluido);
+\end_layout
+
+\begin_layout Plain Layout
+return (constanteEmpirica * analise.TaxaCorrosao()
+\end_layout
+
+\begin_layout Plain Layout
+* analise.FatorSeveridade()
+\end_layout
+
+\begin_layout Plain Layout
+* analise.FatorCorrecaoTemperatura()
+\end_layout
+
+\begin_layout Plain Layout
+* analise.FatorCorrosivo() * fatorVazao)
+\end_layout
+
+\begin_layout Plain Layout
+/ inibidor.Eficiencia();
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+double CalculadoraDosagem::FatorDeVazao(const Fluido& fluido)
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+return 1.0 + (fluido.Vazao() / 1000.0);
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\begin_layout Standard
+Considerando ainda o caso da Amostra 1,
+ a vazão de 5.000 m³/dia resulta em Fq = 1 + 5000/1000 = 6,0,
+ e o inibidor escolhido é o de H₂S,
+ sendo η = 0,93.
+ A dose será então Dose = (0,1 × 330,24 × 2,5 × 1,3 × 2,0 × 6,0) / 0,93 ≈ 1.384,86 ppm,
+ exatamente como se calcula manualmente na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:cenario-1-sour-acentuado"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Essa coincidência também evidencia a abrangência do modelo:
+ nas amostras padrão,
+ a dose muda de 0,58 ppm (Amostra 4,
+ condição suave) para 17.293,09 ppm (Amostra 7,
+ condição extrema),
+ demonstrando que o programa responde em proporção à severidade do ambiente.
+ Os ppm da condição extrema são muito maiores do que o que se usa normalmente no campo,
+ o que confirma o caráter instrucional e não prognóstico do modelo,
+ já abordado na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:premissas-e-limitacoes-do-modelo"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ciclo 5:
+ simulador e apresentação dos resultados
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ciclo-5-simulador-e-apresentacao-dos-res"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O quinto ciclo agregou os módulos do ciclo anterior em um software viável,
+ que foi segmentado em três componentes:
+ o console-simulador,
+ a interface gráfica baseada em Qt e o painel gráfico.
+ Os testes e a documentação desse ciclo estão nos Capítulos 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Teste"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Documentacao-Desenvolvedor"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Simulador e execução em console
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:simulador-e-execucao-em-console"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A classe SimuladorCorrosao é a que coordena o fluxo de execução.
+ O método estático AmostrasPadrao() devolve um array com as sete amostras de referência,
+ e esse conjunto é a única fonte de dados de amostras:
+ tanto o menu de console quanto a interface gráfica o usam,
+ o que evita que os dois executáveis tenham dados diferentes.
+ O método Executar() passa por todas as amostras e,
+ para cada uma,
+ imprime o resumo do fluido,
+ da corrosão,
+ do inibidor e da dosagem;
+ o método ExecutarInterativo() pede os sete parâmetros ao usuário,
+ valida a leitura e permite repetir a entrada em caso de erro.
+ Os métodos de impressão são privados,
+ porque fazem parte da apresentação e não da regra de negócio.
+ O arquivo main.cpp mostra um menu com três opções (amostras padrão,
+ dados informados pelo usuário e sair) e,
+ no Windows,
+ muda o console para UTF-8,
+ o que resolveu o problema de exibição de acentos e do símbolo de grau que acontecia na página de código padrão.
+\end_layout
+
+\begin_layout Subsection
+Interface gráfica com Qt
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:interface-grafica-com-qt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A interface gráfica foi feita em cima do Qt Widgets,
+ tendo como centro a classe MainWindow que junta cinco abas:
+ Formulário,
+ Amostras Padrão,
+ Modo Perguntas,
+ Gráficos e Material de Apoio.
+ As três primeiras abas são maneiras diferentes de falar qual é o cenário,
+ e todas elas vão dar no mesmo caminho de conta,
+ como podemos ver na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:7.1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Esta igualdade foi pensada desde o começo do projeto:
+ o MontarFluido() faz o objeto Fluido e portanto faz a mesma validação que o console,
+ e o GerarRelatorioHtml() e o AtualizarPainelGraficos() fazem a análise,
+ a escolha e a dosagem um depois do outro.
+ Então,
+ se uma regra mudar numa classe do núcleo,
+ ela vai valer para todas as maneiras de entrar com dados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../imagens/cap6-fluxo-dados-interface.png
+	lyxscale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxo de dados compartilhado pelas três formas de entrada da interface gráfica
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:7.1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.5"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ apresenta-se a relação das abas com os requisitos funcionais que cada uma delas implementa,
+ e no Código 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lst:7.6,lis:Atualização-do-painel"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ é mostrado o método que alimenta o painel de gráficos,
+ o qual reutiliza as classes do núcleo sem que haja redundância de regras de cálculo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Abas da interface e requisitos atendidos
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:7.5"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.4cm">
+<column alignment="left" valignment="top" width="7.8cm">
+<column alignment="left" valignment="top" width="4.2cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Aba
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Função
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Requisitos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Formulário
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada manual dos sete parâmetros em caixas numéricas,
+ com unidade e faixa de referência de cada campo,
+ e botão Simular.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF01,
+ RF02,
+ RF08
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amostras Padrão
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Seleção e simulação das sete amostras de referência,
+ individualmente ou todas de uma vez.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF08
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modo Perguntas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada em formato de conversa,
+ com uma pergunta por vez.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF01,
+ RF02,
+ RF08
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gráficos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Painel visual do último resultado simulado,
+ com texto explicativo.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF09
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Material de Apoio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resumo das fórmulas,
+ dos tipos de corrosão,
+ dos inibidores e das referências.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Apoio didático
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={C++},caption={Atualização do painel de gráficos (trecho de gui/MainWindow.cpp)},label={lst:7.6}"
+inline false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Atualização-do-painel"
+
+\end_inset
+
+Atualização do painel de gráficos (trecho de gui/MainWindow.cpp)
+\end_layout
+
+\end_inset
+
+void MainWindow::AtualizarPainelGraficos(const Fluido& fluido)
+\end_layout
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\begin_layout Plain Layout
+const AnaliseCorrosao analise(fluido);
+\end_layout
+
+\begin_layout Plain Layout
+const std::unique_ptr<Inibidor> inibidor =
+\end_layout
+
+\begin_layout Plain Layout
+SeletorInibidor::Selecionar(fluido);
+\end_layout
+
+\begin_layout Plain Layout
+const double fatorVazao = CalculadoraDosagem::FatorDeVazao(fluido);
+\end_layout
+
+\begin_layout Plain Layout
+const double dose =
+\end_layout
+
+\begin_layout Plain Layout
+CalculadoraDosagem::CalcularDose(fluido,
+ analise,
+ *inibidor);
+\end_layout
+
+\begin_layout Plain Layout
+graficoResultados->AtualizarDados(fluido,
+ analise,
+ *inibidor,
+\end_layout
+
+\begin_layout Plain Layout
+fatorVazao,
+ dose);
+\end_layout
+
+\begin_layout Plain Layout
+// ...
+ atualiza o texto explicativo do tipo de corrosão e do inibidor
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\begin_layout Standard
+Há algumas decisões de interface que merecem ser registradas.
+ Os campos do formulário são caixas numéricas com unidade e intervalo de referência,
+ e cada campo possui um botão que exibe ou esconde a orientação sobre o intervalo típico,
+ para que a tela fique limpa para quem já sabe os parâmetros e instrutiva para quem está aprendendo.
+ Os campos estão em uma região de rolagem,
+ para que nada seja cortado em janelas menores,
+ e o botão Simular fica sempre visível.
+ No Modo Perguntas,
+ o aplicativo suporta tanto o ponto quanto a vírgula como separador decimal,
+ pois o estudante brasileiro geralmente escreve “6,5”;
+ uma entrada que não seja numérica resulta em uma mensagem de instrução e uma entrada fisicamente errada inicia novamente a conversa com a justificativa do erro.
+ A folha de estilo fica restrita a um único arquivo (Estilo.h),
+ permitindo mudar a identidade visual sem alterar a lógica das telas.
+\end_layout
+
+\begin_layout Subsection
+Painel de gráficos
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:painel-de-graficos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os gráficos são gerados diretamente pela classe GraficoResultados (uma subclasse da classe QWidget),
+ usando a classe QPainter,
+ sem o uso do módulo Qt Charts.
+ Esta opção reduz as dependências de instalação,
+ o que é consistente com o requisito de portabilidade (RNF03),
+ e também oferece um controle completo sobre o visual.
+ O painel está dividido em seis seções:
+ o perfil do fluido simulado,
+ as barras de fatores de correção Fs,
+ FT,
+ Fc e Fq (conforme o RF09),
+ a evolução da taxa de corrosão em cada fator aplicado,
+ a comparação entre a taxa base e a taxa final (coloridas por severidade),
+ um medidor circular com a eficiência do inibidor escolhido e um cartão com a dose recomendada.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:7.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ mostra a parte inferior do painel para a Amostra 7.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagens/cap6-painel-graficos.png
+	lyxscale 50
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Painel de gráficos para a Amostra 7:
+ evolução da taxa,
+ comparativo base e final,
+ eficiência do inibidor e dose
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:7.2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os gráficos referem-se sempre à última simulação realizada em alguma das três abas de entrada;
+ enquanto não ocorre a primeira simulação,
+ o painel mostra um aviso instruindo o usuário a criar um cenário de simulação.
+ Além disso,
+ existe um texto explicativo que relata o tipo de corrosão detectado e o inibidor selecionado.
+\end_layout
+
+\begin_layout Subsection
+Escopo implementado e limitações do ciclo
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:escopo-implementado-e-limitacoes-do-cicl"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Importante é definir o que foi produzido pelo quinto ciclo.
+ A representação visual obtida é a interpretação gráfica de um cenário de cada vez.
+ O perfil de corrosão e de dosagem em relação à profundidade do poço,
+ que era previsto como uma alternativa na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fluxo-geral-de-processamento"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ a criação de arquivos de dados para desenho externo e a exportação de relatórios não foram feitos e são indicados como ideias para pesquisas futuras (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sugestoes-trabalhos-futuros"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+).
+ A biblioteca CGnuplot,
+ que faz parte do projeto original e é compilada no executável de console,
+ não é utilizada pelas funções de simulação.
+ Também deve-se dizer que o relatório é mostrado na interface mesmo,
+ sem poder salvar em arquivo.
+\end_layout
+
+\begin_layout Section
+Balanço dos ciclos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:balanco-dos-ciclos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:7.6"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ os critérios de aceitação do Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:6.2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ são revistos e é apontado onde se encontra a prova de cada um deles.
+ Os critérios dos Ciclos 1 a 4 foram validados através de testes unitários e de comparações com cálculos de referência,
+ enquanto o critério do Ciclo 5 foi verificado pela execução integrada da aplicação utilizando as sete amostras padrão e com dados inválidos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Situação dos ciclos em relação aos critérios de aceite
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:7.6"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.4cm">
+<column alignment="left" valignment="top" width="6.6cm">
+<column alignment="left" valignment="top" width="4.2cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Ciclo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Entregue
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Critério de aceite
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classe Fluido com validação e valores derivados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parâmetros válidos aceitos e inválidos rejeitados
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classe AnaliseCorrosao com taxa,
+ tipo,
+ severidade e fatores
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resultados iguais aos do cálculo de referência
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hierarquia de inibidores e SeletorInibidor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Inibidor conforme a ordem e os critérios definidos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Classe CalculadoraDosagem com exceção para η ≤ 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dose conforme a equação e exceção para eficiência inválida
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simulador,
+ interface gráfica Qt e painel de gráficos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simulações,
+ resultados e gráficos pela interface
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Fonte:
+ Autoria própria (2026).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com o encerramento do Ciclo 5,
+ o software passou a atender os requisitos funcionais RF01 a RF09.
+ O requisito RF09,
+ de gráfico comparativo dos fatores,
+ foi atendido pelo painel da aba Gráficos;
+ a parte do projeto original que previa curvas em função da profundidade ficou de fora do escopo,
+ como detalhado na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:escopo-implementado-e-limitacoes-do-cicl"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

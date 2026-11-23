@@ -1,0 +1,23 @@
+# ninja log v7
+2295	15021	8160356818459444	CMakeFiles/SoftwareDeCorrosao.dir/Fluido.cpp.obj	d56ba52bd7fd41ae
+748	27030	8160356803431247	CMakeFiles/SoftwareDeCorrosao.dir/main.cpp.obj	efbd32aad6126bca
+15153	27175	8160356945789973	CMakeFiles/SoftwareDeCorrosao.dir/AnaliseCorrosao.cpp.obj	f22b39d4a1c8532b
+176	31751	8160357081173791	SoftwareCorrosaoGUI_autogen/timestamp	f3fc9f3bb772f50f
+176	31751	8160357081173791	SoftwareCorrosaoGUI_autogen/mocs_compilation.cpp	f3fc9f3bb772f50f
+176	31751	8160357081173791	C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/SoftwareCorrosaoGUI_autogen/timestamp	f3fc9f3bb772f50f
+176	31751	8160357081173791	C:/Users/lroch/Desktop/SoftwareEducacionalSelecaoInibidoresCorrosao2026_Laysla/build/SoftwareCorrosaoGUI_autogen/mocs_compilation.cpp	f3fc9f3bb772f50f
+27218	34181	8160357065571053	CMakeFiles/SoftwareDeCorrosao.dir/CalculadoraDosagem.cpp.obj	ce725ef5d203136
+27057	34754	8160357063919182	CMakeFiles/SoftwareDeCorrosao.dir/Inibidor.cpp.obj	bf35584bd43576dc
+31810	44081	8160357116781373	CMakeFiles/SoftwareDeCorrosao.dir/SimuladorCorrosao.cpp.obj	90a8ca250e2a0f0b
+34345	45566	8160357138868174	CMakeFiles/SoftwareDeCorrosao.dir/CGnuplot.cpp.obj	d683aea8ce34a43e
+34972	86829	8160357144841895	CMakeFiles/SoftwareCorrosaoGUI.dir/SoftwareCorrosaoGUI_autogen/mocs_compilation.cpp.obj	a3c58d06612624d0
+44104	88831	8160357236366455	CMakeFiles/SoftwareCorrosaoGUI.dir/gui/main_gui.cpp.obj	1c3324b82d09f386
+45700	95817	8160357251223327	CMakeFiles/SoftwareCorrosaoGUI.dir/gui/MainWindow.cpp.obj	7321abc70e8d9d65
+88853	102586	8160357682716626	CMakeFiles/SoftwareCorrosaoGUI.dir/Fluido.cpp.obj	9a57e703bd4fbba9
+96021	108346	8160357755773028	CMakeFiles/SoftwareCorrosaoGUI.dir/AnaliseCorrosao.cpp.obj	50a3daf4e3f8b010
+102661	127594	8160357819862789	CMakeFiles/SoftwareCorrosaoGUI.dir/Inibidor.cpp.obj	cf3d12869b7f83ca
+108634	128320	8160357887062965	CMakeFiles/SoftwareCorrosaoGUI.dir/CalculadoraDosagem.cpp.obj	3e058ffa5d789054
+86951	129959	8160357663113648	CMakeFiles/SoftwareCorrosaoGUI.dir/gui/GraficoResultados.cpp.obj	76505080a0487644
+128352	134624	8160358077560272	SoftwareDeCorrosao.exe	e749576b6a9217b4
+127613	136771	8160358071237066	CMakeFiles/SoftwareCorrosaoGUI.dir/SimuladorCorrosao.cpp.obj	408fe40cd0dd5c58
+136774	140892	8160358161002922	SoftwareCorrosaoGUI.exe	b28fb68ed49b5b21

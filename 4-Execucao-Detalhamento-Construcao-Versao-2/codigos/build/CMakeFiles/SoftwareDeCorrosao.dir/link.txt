@@ -1,0 +1,3 @@
+C:\mingw\bin\cmake.exe -E rm -f CMakeFiles\SoftwareDeCorrosao.dir/objects.a
+C:\mingw\bin\ar.exe qc CMakeFiles\SoftwareDeCorrosao.dir/objects.a @CMakeFiles\SoftwareDeCorrosao.dir\objects1.rsp
+C:\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\SoftwareDeCorrosao.dir/objects.a -Wl,--no-whole-archive -o SoftwareDeCorrosao.exe -Wl,--out-implib,libSoftwareDeCorrosao.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SoftwareDeCorrosao.dir\linkLibs.rsp
