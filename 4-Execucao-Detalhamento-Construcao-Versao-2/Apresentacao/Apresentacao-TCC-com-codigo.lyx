@@ -1,0 +1,6549 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usefonttheme[onlymath]{serif}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc,fit}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{colortbl}
+\definecolor{navy}{RGB}{11,46,79}
+\definecolor{teal}{RGB}{27,138,143}
+\definecolor{rust}{RGB}{194,86,43}
+\definecolor{sand}{RGB}{245,240,231}
+\definecolor{ink}{RGB}{34,48,60}
+\definecolor{amber}{RGB}{214,150,40}
+\definecolor{titleblue}{RGB}{11,46,79}
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=0.9cm,text margin right=0.9cm}
+\setbeamercolor{normal text}{fg=ink}
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{alerted text}{fg=rust}
+\setbeamercolor{block title}{fg=white,bg=teal}
+\setbeamercolor{block body}{fg=ink,bg=sand}
+\setbeamercolor{block title alerted}{fg=white,bg=rust}
+\setbeamercolor{block body alerted}{fg=ink,bg=sand}
+\setbeamercolor{block title example}{fg=white,bg=navy}
+\setbeamercolor{block body example}{fg=ink,bg=sand}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{itemize item}{\color{rust}\scriptsize$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{teal}\scriptsize$\blacktriangleright$}
+\setbeamertemplate{enumerate item}{\color{rust}\bfseries\insertenumlabel.}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+\setbeamertemplate{frametitle}{%
+  \ifx\insertframetitle\empty\else
+  \vskip0.28cm
+  {\usebeamerfont{frametitle}\bfseries\color{titleblue}\insertframetitle}\par
+  \vskip0.07cm
+  \tikz{\shade[left color=teal,right color=rust] (0,0) rectangle (2.6,0.07);}%
+  \fi}
+\setbeamertemplate{footline}{%
+  \ifnum\insertframenumber=1\else\ifnum\insertframenumber>\numexpr\inserttotalframenumber-2\relax\else\vbox{\hbox to \paperwidth{\tikz{\shade[left color=teal,right color=rust] (0,0) rectangle (\paperwidth,0.05);}}\vskip0.14cm%
+  \hbox to \paperwidth{\hspace{0.9cm}{\scriptsize\color{ink!70}UENF $\cdot$ LENEP \hfill \insertframenumber\,/\,\inserttotalframenumber}\hspace{0.9cm}}%
+  \vskip0.22cm}\fi\fi}
+\newcommand{\inslogo}[2]{\IfFileExists{imagens/#1.png}{\includegraphics[height=#2]{imagens/#1.png}}{\IfFileExists{imagens/#1.jpg}{\includegraphics[height=#2]{imagens/#1.jpg}}{\IfFileExists{imagens/#1.pdf}{\includegraphics[height=#2]{imagens/#1.pdf}}{\fbox{\footnotesize\strut inserir #1.png}}}}}
+\newcommand{\foto}[3]{\IfFileExists{imagens/#1.jpg}{\includegraphics[width=#2,height=#3,keepaspectratio]{imagens/#1.jpg}}{\IfFileExists{imagens/#1.png}{\includegraphics[width=#2,height=#3,keepaspectratio]{imagens/#1.png}}{\tikz\node[draw=teal,dashed,line width=1pt,rounded corners=4pt,minimum width=#2,minimum height=#3,align=center,text=teal,font=\footnotesize]{inserir foto\\imagens/#1.jpg};}}}
+\newcommand{\chip}[2]{\tikz[baseline=(c.base)]\node[fill=#1,text=white,rounded corners=2pt,inner sep=2.5pt,font=\scriptsize\bfseries](c){#2};}
+\usepackage{listings}
+\lstdefinestyle{Cslide}{language=C++,basicstyle=\scriptsize\ttfamily\color{ink},keywordstyle=\color{navy}\bfseries,commentstyle=\color{teal}\itshape,stringstyle=\color{rust},numbers=left,numberstyle=\tiny\color{ink!60},numbersep=5pt,frame=single,rulecolor=\color{teal},backgroundcolor=\color{sand},breaklines=true,showstringspaces=false,columns=fullflexible,xleftmargin=0.6cm,literate={ã}{{\~a}}1 {õ}{{\~o}}1 {ç}{{\c c}}1 {Á}{{\'A}}1 {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1}
+\lstdefinestyle{Cmed}{style=Cslide,basicstyle=\fontsize{6.6}{7.9}\selectfont\ttfamily\color{ink}}
+\lstdefinestyle{Ctiny}{style=Cslide,basicstyle=\tiny\ttfamily\color{ink}}
+\renewcommand{\arraystretch}{1.25}
+\end_preamble
+\options aspectratio=169
+\use_default_options true
+\maintain_unincluded_children no
+\language brazilian
+\language_package auto
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_title "Software Educacional para Análise e Seleção de Inibidores de Corrosão"
+\pdf_author "Laysla Nicoli Pereira da Rocha"
+\pdf_subject "Trabalho de Conclusão de Curso – UENF/LENEP"
+\pdf_keywords "corrosão; inibidores; software educacional; C++; óleo e gás"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref page
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+\begin_layout Frame
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[remember picture,overlay]
+\backslash
+fill[sand] (current page.south west) rectangle (current page.north east);
+\backslash
+fill[white] ([yshift=-1.75cm]current page.north west) rectangle (current page.north east);
+\backslash
+shade[left color=teal,right color=rust] ([yshift=-1.75cm]current page.north west) rectangle ([yshift=-1.83cm]current page.north east);
+\backslash
+foreach 
+\backslash
+r/
+\backslash
+c in {0.9/teal!14,1.8/teal!11,2.7/rust!8}{
+\backslash
+draw[
+\backslash
+c,line width=1.2pt] ([xshift=-1.6cm,yshift=1.6cm]current page.south east) circle (
+\backslash
+r cm);}
+\backslash
+node[anchor=west] at ([xshift=0.9cm,yshift=-0.85cm]current page.north west) {
+\end_layout
+
+\end_inset
+
+\begin_inset Graphics
+	filename imagens/logo-uenf.png
+	height 1.3cm
+	keepAspectRatio
+\end_inset
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+};
+\backslash
+node[anchor=east] at ([xshift=-0.9cm,yshift=-0.85cm]current page.north east) {
+\end_layout
+
+\end_inset
+
+\begin_inset Graphics
+	filename imagens/logo-lenep.png
+	height 1.1cm
+	keepAspectRatio
+\end_inset
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+};
+\backslash
+node[align=center,font=
+\backslash
+scriptsize,text=ink] at ([yshift=-0.85cm]current page.north) {Universidade Estadual do Norte Fluminense Darcy Ribeiro
+\backslash
+
+\backslash
+Laborat
+\backslash
+'orio de Engenharia e Explora
+\backslash
+c{c}
+\backslash
+~ao de Petr
+\backslash
+'oleo};
+\backslash
+node[anchor=north west,align=left,text width=0.8
+\backslash
+paperwidth] at ([xshift=0.9cm,yshift=-2.25cm]current page.north west) {{
+\backslash
+fontsize{20}{22}
+\backslash
+selectfont
+\backslash
+bfseries
+\backslash
+color{navy}Software Educacional para
+\backslash
+
+\backslash
+An
+\backslash
+'alise e Sele
+\backslash
+c{c}
+\backslash
+~ao de Inibidores de
+\backslash
+
+\backslash
+Corros
+\backslash
+~ao}
+\backslash
+par
+\backslash
+vspace{6pt}{
+\backslash
+normalsize
+\backslash
+color{teal}Trabalho de Conclus
+\backslash
+~ao de Curso}
+\backslash
+par
+\backslash
+vspace{0.75cm}{
+\backslash
+normalsize
+\backslash
+bfseries
+\backslash
+color{ink}Laysla Nicoli Pereira da Rocha}
+\backslash
+par
+\backslash
+vspace{3pt}{
+\backslash
+small
+\backslash
+color{ink}Orientador: Prof. Andr
+\backslash
+'e Duarte Bueno}
+\backslash
+par
+\backslash
+vspace{3pt}{
+\backslash
+scriptsize
+\backslash
+color{ink}Maca
+\backslash
+'e -- RJ $
+\backslash
+cdot$ Novembro de 2026}};
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Roteiro da apresentação
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.2cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}[x=2.85cm]
+\backslash
+node[circle,fill=rust,text=white,minimum size=0.95cm,font=
+\backslash
+Large
+\backslash
+bfseries] (c0) at (0,0) {1};
+\backslash
+node[align=center,text width=2.5cm,text=navy,font=
+\backslash
+small
+\backslash
+bfseries] at (0,-1.15) {Problema e objetivos};
+\backslash
+node[circle,fill=teal,text=white,minimum size=0.95cm,font=
+\backslash
+Large
+\backslash
+bfseries] (c1) at (1,0) {2};
+\backslash
+node[align=center,text width=2.5cm,text=navy,font=
+\backslash
+small
+\backslash
+bfseries] at (1,-1.15) {Modelo de corros
+\backslash
+~ao e dosagem};
+\backslash
+draw[teal!60,line width=1.2pt] (c0)--(c1);
+\backslash
+node[circle,fill=rust,text=white,minimum size=0.95cm,font=
+\backslash
+Large
+\backslash
+bfseries] (c2) at (2,0) {3};
+\backslash
+node[align=center,text width=2.5cm,text=navy,font=
+\backslash
+small
+\backslash
+bfseries] at (2,-1.15) {Projeto e implementa
+\backslash
+c{c}
+\backslash
+~ao};
+\backslash
+draw[teal!60,line width=1.2pt] (c1)--(c2);
+\backslash
+node[circle,fill=teal,text=white,minimum size=0.95cm,font=
+\backslash
+Large
+\backslash
+bfseries] (c3) at (3,0) {4};
+\backslash
+node[align=center,text width=2.5cm,text=navy,font=
+\backslash
+small
+\backslash
+bfseries] at (3,-1.15) {Valida
+\backslash
+c{c}
+\backslash
+~ao};
+\backslash
+draw[teal!60,line width=1.2pt] (c2)--(c3);
+\backslash
+node[circle,fill=rust,text=white,minimum size=0.95cm,font=
+\backslash
+Large
+\backslash
+bfseries] (c4) at (4,0) {5};
+\backslash
+node[align=center,text width=2.5cm,text=navy,font=
+\backslash
+small
+\backslash
+bfseries] at (4,-1.15) {Conclus
+\backslash
+~oes};
+\backslash
+draw[teal!60,line width=1.2pt] (c3)--(c4);
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.4cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Do problema à ferramenta:
+ cada etapa responde a uma pergunta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Roteiro (inclui-se no tempo da abertura).}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Por que um software de inibidores de corrosão?
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[T]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.520
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A corrosão ataca tubos,
+ válvulas,
+ revestimentos e cabeças de poço.
+\end_layout
+
+\begin_layout Itemize
+Gera custo de manutenção e risco de falhas e acidentes.
+\end_layout
+
+\begin_layout Itemize
+Mitigar exige decidir:
+ 
+\series bold
+qual inibidor
+\series default
+ usar e 
+\series bold
+em que dose
+\series default
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.460
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{alertblock}{Lacuna}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em sala de aula,
+ a teoria costuma ficar separada da decisão prática.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{alertblock}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exampleblock}{Proposta}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uma ferramenta única:
+ meio corrosivo,
+ corrosão,
+ inibidor e dosagem,
+ ligada à disciplina LEP01550.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exampleblock}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Contexto e problema (2 min):
+ custos e riscos da corrosão;
+ a teoria separada da decisão prática;
+ a ferramenta integra caracterização do fluido,
+ análise,
+ seleção de inibidor e dosagem.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Objetivos
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[T]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.380
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{block}{Objetivo geral}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Projetar,
+ desenvolver e implementar um software educacional para análise e seleção de inibidores de corrosão,
+ com aplicação ao setor de óleo e gás.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{block}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.600
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Reexaminar os princípios de corrosão,
+ os ambientes corrosivos e os inibidores
+\end_layout
+
+\begin_layout Enumerate
+Identificar os requisitos e mapeá-los em UML
+\end_layout
+
+\begin_layout Enumerate
+Codificar em C++:
+ validação,
+ análise,
+ seleção,
+ dosagem e resultados
+\end_layout
+
+\begin_layout Enumerate
+Organizar o código com herança e polimorfismo
+\end_layout
+
+\begin_layout Enumerate
+Validar por cenários,
+ cálculos independentes e tendências da literatura
+\end_layout
+
+\begin_layout Enumerate
+Associar o programa à disciplina LEP01550
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Objetivos (1,5 min):
+ geral em uma frase;
+ os seis específicos em uma frase cada.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Metodologia e maturidade (TRL)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.500
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}
+\backslash
+node[anchor=south west,inner sep=0] (im) {
+\end_layout
+
+\end_inset
+
+\begin_inset Graphics
+	filename imagens/trl.jpg
+	width 97line%
+\end_inset
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+}; 
+\backslash
+begin{scope}[x={(im.south east)},y={(im.north west)}]
+\backslash
+draw[rust,line width=1.8pt,rounded corners=3pt] (0.228,0.19) rectangle (0.432,0.86);
+\backslash
+node[rust,fill=white,inner sep=2pt,font=
+\backslash
+scriptsize
+\backslash
+bfseries] at (0.33,-0.07) {este trabalho};
+\backslash
+end{scope}
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.480
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Pesquisa aplicada,
+ de natureza tecnológica
+\end_layout
+
+\begin_layout Itemize
+Cinco ciclos iterativos e incrementais
+\end_layout
+
+\begin_layout Itemize
+Modelagem em UML antes de codificar
+\end_layout
+
+\begin_layout Itemize
+Validação por testes unitários e cenários com cálculo manual
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prova de conceito (TRL 3 a 4):
+
+\series default
+ sem dados de campo;
+ foco educacional,
+ não preditivo
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Metodologia (1,5 min):
+ TRL e CRL em uma frase;
+ posicionar o trabalho em TRL 3-4.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Maturidade comercial (CRL)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\backslash
+node[anchor=south west,inner sep=0] (im) {
+\end_layout
+
+\end_inset
+
+\begin_inset Graphics
+	filename imagens/crl.png
+	width 78line%
+\end_inset
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+}; 
+\backslash
+begin{scope}[x={(im.south east)},y={(im.north west)}]
+\backslash
+draw[rust,line width=1.8pt,rounded corners=3pt] (0.115,0.24) rectangle (0.352,0.80);
+\backslash
+node[rust,fill=white,inner sep=2pt,font=
+\backslash
+scriptsize
+\backslash
+bfseries] at (0.233,-0.08) {este trabalho};
+\backslash
+end{scope}
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CRL 2 a 3:
+
+\series default
+ solução e público-alvo definidos conceitualmente
+\end_layout
+
+\begin_layout Itemize
+Protótipo funcional para uso acadêmico
+\end_layout
+
+\begin_layout Itemize
+Foco:
+ validação técnica,
+ não comercialização
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{CRL (0,5 min,
+ dentro do tempo de metodologia):
+ o projeto está entre CRL 2 e 3;
+ objetivo é validação técnica,
+ não comercial.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Corrosão e inibidores:
+ o que o modelo representa
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/tipos_inibidores.png
+	width 88text%
+	height 50theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mecanismos:
+ corrosão doce (CO₂) e corrosão sulfeto/ácida (H₂S)
+\end_layout
+
+\begin_layout Itemize
+Fatores:
+ pH,
+ temperatura,
+ salinidade e vazão
+\end_layout
+
+\begin_layout Itemize
+Classes de inibidor usadas:
+ específico para H₂S,
+ orgânico,
+ catódico e geral
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Fundamentação (2 min):
+ mecanismos,
+ fatores e classes de inibidores.
+ As premissas do modelo estão explícitas no texto.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Do fluido à dose:
+ o modelo em quatro passos
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+resizebox{
+\backslash
+linewidth}{!}{
+\backslash
+begin{tikzpicture}[node distance=0.55cm,box/.style={rounded corners=4pt,draw=none,text=white,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,minimum height=0.95cm,text width=2.2cm},>={Stealth[length=2mm]}] 
+\backslash
+node[box,fill=navy] (a) {7 par
+\backslash
+^ametros
+\backslash
+
+\backslash
+pH,
+ CO$_2$,
+ H$_2$S,
+ salinidade,
+ T,
+ P,
+ Q};
+ 
+\backslash
+node[box,fill=teal,right=of a] (b) {Taxa de corros
+\backslash
+~ao
+\backslash
+
+\backslash
+CR};
+ 
+\backslash
+node[box,fill=teal,right=of b] (c) {Tipo e
+\backslash
+
+\backslash
+severidade};
+ 
+\backslash
+node[box,fill=rust,right=of c] (d) {Classe de
+\backslash
+
+\backslash
+inibidor};
+ 
+\backslash
+node[box,fill=rust,right=of d] (e) {Dose
+\backslash
+
+\backslash
+(ppm)};
+ 
+\backslash
+foreach 
+\backslash
+x/
+\backslash
+y in {a/b,b/c,c/d,d/e}{
+\backslash
+draw[->,ink,thick] (
+\backslash
+x)--(
+\backslash
+y);} 
+\backslash
+end{tikzpicture}}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{CR}_{base}=\mathrm{CO}_{2}\cdot e^{0{,}02\,T}\cdot(7-\mathrm{pH})\qquad\mathrm{CR}_{final}=\mathrm{CR}_{base}\cdot F_{s}\cdot F_{T}\cdot F_{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{Dose}=\frac{K\cdot\mathrm{CR}\cdot F_{s}\cdot F_{T}\cdot F_{c}\cdot F_{q}}{\eta}\qquad F_{q}=1+\frac{Q}{1000},\ K=0{,}1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+O modelo é relativo:
+ K e as eficiências não foram calibrados com dados experimentais.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Modelo (2,5 min):
+ taxa base com CO2,
+ temperatura e acidez;
+ fatores de severidade,
+ temperatura e corrosividade;
+ dose com fator de vazão e eficiência.
+ Ressaltar:
+ modelo relativo,
+ não calibrado.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Regras de decisão do modelo
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[T]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.500
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+1.
+ Classificar a corrosão
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small
+\backslash
+begin{tabular}{@{}p{3.0cm}lc@{}}
+\backslash
+rowcolor{navy}
+\backslash
+textcolor{white}{
+\backslash
+bfseries Condi
+\backslash
+c{c}
+\backslash
+~ao}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Tipo}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries $F_c$}
+\backslash
+
+\backslash
+ H$_2$S $>$ 10 ppm&
+\backslash
+'Acida (
+\backslash
+textit{sour})&2,0
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}CO$_2$ $>$ 20 ppm&Doce (
+\backslash
+textit{sweet})&1,5
+\backslash
+
+\backslash
+Demais casos&Leve&1,0
+\backslash
+end{tabular}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.35cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small
+\backslash
+begin{tabular}{@{}lcc@{
+\backslash
+hspace{1.0cm}}lc@{}}
+\backslash
+rowcolor{navy}
+\backslash
+textcolor{white}{
+\backslash
+bfseries CR}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Severidade}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries $F_s$}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries $T$ ($^
+\backslash
+circ$C)}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries $F_T$}
+\backslash
+
+\backslash
+ $<10$&Baixa&1,0&$<40$&1,0
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}10 a 50&M
+\backslash
+'edia&1,5&40 a 80&1,3
+\backslash
+
+\backslash
+$
+\backslash
+geq50$&Alta&2,5&$>80$&1,8
+\backslash
+end{tabular}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.480
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+2.
+ Escolher o inibidor (por prioridade)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{tabular}{@{}c>{
+\backslash
+raggedright
+\backslash
+arraybackslash}p{2.55cm}>{
+\backslash
+raggedright
+\backslash
+arraybackslash}p{1.95cm}c@{}}
+\backslash
+rowcolor{rust}
+\backslash
+textcolor{white}{
+\backslash
+bfseries 
+\backslash
+#}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Crit
+\backslash
+'erio}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Inibidor}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries $
+\backslash
+eta$}
+\backslash
+
+\backslash
+ 1&H$_2$S $>$ 10 ppm&Para H$_2$S&0,93
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}2&CO$_2$ $>$ 20 ppm e pH $<$ 6&Org
+\backslash
+^anico&0,85
+\backslash
+
+\backslash
+3&Salinidade $>$ 15
+\backslash
+,000 ppm&Cat
+\backslash
+'odico&0,80
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}4&Nenhuma condi
+\backslash
+c{c}
+\backslash
+~ao cr
+\backslash
+'itica&Geral&0,70
+\backslash
+end{tabular}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3cm}
+\backslash
+begin{tikzpicture}
+\backslash
+node[fill=white,draw=rust,line width=0.9pt,rounded corners=4pt,text width=5.9cm,inner sep=6pt,align=left,font=
+\backslash
+footnotesize] (n) {
+\backslash
+textcolor{rust}{
+\backslash
+bfseries Observa
+\backslash
+c{c}
+\backslash
+~ao:} se H$_2$S $>$ 10 ppm, o inibidor para H$_2$S 
+\backslash
+'e escolhido e os demais crit
+\backslash
+'erios nem s
+\backslash
+~ao avaliados.};
+\backslash
+node[circle,fill=rust,text=white,font=
+\backslash
+scriptsize
+\backslash
+bfseries,inner sep=1.5pt,minimum size=0.42cm] at (n.north west) {!};
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Regras (parte do tempo do modelo):
+ tipo de corrosão e Fc;
+ severidade e Fs;
+ fator de temperatura;
+ ordem de seleção do inibidor com eficiência típica.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Requisitos e casos de uso
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[card/.style={rounded corners=5pt,fill=sand,draw=teal,line width=0.8pt,minimum width=3.8cm,minimum height=1.5cm,align=center}] 
+\backslash
+node[card] at (0,1.6) {{
+\backslash
+Huge
+\backslash
+bfseries
+\backslash
+color{rust}10}
+\backslash
+
+\backslash
+[-1pt]
+\backslash
+small requisitos funcionais};
+ 
+\backslash
+node[card] at (4.2,1.6) {{
+\backslash
+Huge
+\backslash
+bfseries
+\backslash
+color{teal}7}
+\backslash
+
+\backslash
+[-1pt]
+\backslash
+small requisitos n
+\backslash
+~ao funcionais};
+ 
+\backslash
+node[card] at (8.4,1.6) {{
+\backslash
+Huge
+\backslash
+bfseries
+\backslash
+color{navy}4}
+\backslash
+
+\backslash
+[-1pt]
+\backslash
+small casos de uso};
+ 
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.4cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[uc/.style={rounded corners=3pt,text=white,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,minimum height=1.0cm,text width=2.5cm},>={Stealth[length=2mm]}] 
+\backslash
+node[uc,fill=navy] (u1) at (0,-0.6) {UC01
+\backslash
+
+\backslash
+Definir o cen
+\backslash
+'ario};
+ 
+\backslash
+node[uc,fill=teal] (u2) at (3.35,-0.6) {UC02
+\backslash
+
+\backslash
+Analisar a corros
+\backslash
+~ao e selecionar o inibidor};
+ 
+\backslash
+node[uc,fill=teal] (u3) at (6.7,-0.6) {UC03
+\backslash
+
+\backslash
+Calcular a dosagem};
+ 
+\backslash
+node[uc,fill=rust] (u4) at (10.05,-0.6) {UC04
+\backslash
+
+\backslash
+Apresentar os resultados};
+ 
+\backslash
+foreach 
+\backslash
+x/
+\backslash
+y in {u1/u2,u2/u3,u3/u4}{
+\backslash
+draw[->,ink,thick] (
+\backslash
+x)--(
+\backslash
+y);} 
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+O usuário informa o cenário;
+ o sistema valida as faixas,
+ analisa,
+ seleciona o inibidor,
+ calcula a dose e mostra os resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Requisitos e casos de uso (2 min):
+ os quatro casos de uso e um ou dois requisitos de robustez,
+ como a validação das faixas de entrada.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Diagrama de casos de uso geral
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/uc_geral_a.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/uc_geral_b.png
+	width 92text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Diagrama de apoio:
+ o usuário define o cenário,
+ os parâmetros são validados e a análise segue até a disponibilização dos resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Diagrama de casos de uso geral (0,5 min):
+ partes 1 e 2 do diagrama geral.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Arquitetura em cinco pacotes
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.620
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/diagrama_pacotes.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.360
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Cinco pacotes:
+ Aplicação,
+ Visualização,
+ Dosagem,
+ Inibidores e Modelo
+\end_layout
+
+\begin_layout Itemize
+Núcleo de cálculo independente da biblioteca gráfica
+\end_layout
+
+\begin_layout Itemize
+O mesmo núcleo atende o console e a interface Qt
+\end_layout
+
+\begin_layout Itemize
+Cada classe,
+ uma responsabilidade
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Arquitetura (2,5 min):
+ núcleo (Fluido,
+ AnaliseCorrosao,
+ SeletorInibidor,
+ CalculadoraDosagem) independente do Qt;
+ diagramas de sequência,
+ comunicação,
+ estados e atividades também foram feitos.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Diagrama de classes
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/diagrama_classes.png
+	width 100text%
+	height 66theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Visão geral das classes do núcleo,
+ da hierarquia de inibidores e da interface.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Diagrama de classes:
+ destacar Fluido,
+ AnaliseCorrosao,
+ SeletorInibidor,
+ CalculadoraDosagem e a hierarquia Inibidor.
+ O arquivo imagens/diagrama_classes.png pode ser ampliado em tela cheia,
+ se a banca pedir.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Herança e polimorfismo na prática
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+resizebox{0.9
+\backslash
+linewidth}{!}{
+\backslash
+begin{tikzpicture}[cls/.style={rounded corners=3pt,draw=navy,line width=0.9pt,fill=sand,font=
+\backslash
+scriptsize,align=center,minimum height=0.9cm,text width=2.3cm}] 
+\backslash
+node[cls,fill=navy,text=white,font=
+\backslash
+scriptsize,text width=4.2cm] (r) at (3.75,2.6) {
+\backslash
+textbf{
+\backslash
+textit{Inibidor}} 
+\backslash
+quad {
+\backslash
+tiny(abstrata)}
+\backslash
+
+\backslash
+[1pt]{
+\backslash
+tiny
+\backslash
+itshape Tipo() = 0 
+\backslash
+quad EhAplicavel() = 0}}; 
+\backslash
+node[cls] (h) at (0,0) {
+\backslash
+textbf{InibidorH2S}
+\backslash
+
+\backslash
+$
+\backslash
+eta$ = 0,93}; 
+\backslash
+node[cls] (o) at (2.5,0) {
+\backslash
+textbf{InibidorOrganico}
+\backslash
+
+\backslash
+$
+\backslash
+eta$ = 0,85}; 
+\backslash
+node[cls] (c) at (5.0,0) {
+\backslash
+textbf{InibidorCatodico}
+\backslash
+
+\backslash
+$
+\backslash
+eta$ = 0,80}; 
+\backslash
+node[cls] (g) at (7.5,0) {
+\backslash
+textbf{InibidorGeral}
+\backslash
+
+\backslash
+$
+\backslash
+eta$ = 0,70}; 
+\backslash
+coordinate (bus) at (3.75,1.35); 
+\backslash
+foreach 
+\backslash
+x in {h,o,c,g}{
+\backslash
+draw[navy,thick,rounded corners=2pt] (
+\backslash
+x.north) |- (bus);} 
+\backslash
+draw[navy,thick,-{Triangle[open,length=3.2mm,width=3.6mm]}] (bus) -- (r.south); 
+\backslash
+node[font=
+\backslash
+tiny
+\backslash
+itshape,text=ink!70,anchor=west] at (3.85,1.85) {herda de}; 
+\backslash
+end{tikzpicture}}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A interface trata qualquer inibidor pelo contrato comum da classe abstrata
+\end_layout
+
+\begin_layout Itemize
+Novo inibidor:
+ nova classe derivada 
+\series bold
+e
+\series default
+ o critério no SeletorInibidor
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Polimorfismo:
+ a interface gráfica usa qualquer inibidor pela interface comum.
+ Limitação honesta:
+ incluir um tipo exige também o critério no SeletorInibidor.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Diagrama de sequência: simulação completa
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/seq_geral.png
+	height 76theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Sequ
+\backslash
+^encia geral: main cria o SimuladorCorrosao; para cada amostra, Fluido valida, AnaliseCorrosao calcula, SeletorInibidor escolhe e CalculadoraDosagem devolve a dose.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Diagrama de sequência: cálculo da dosagem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\backslash
+begin{column}{0.66
+\backslash
+textwidth}
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/seq_dosagem.png
+	width 100line%
+	height 74theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\backslash
+begin{column}{0.32
+\backslash
+textwidth}
+\backslash
+small
+\backslash
+begin{itemize}
+\backslash
+setlength{
+\backslash
+itemsep}{4pt}
+\backslash
+item L
+\backslash
+^e a efici
+\backslash
+^encia $
+\backslash
+eta$ do inibidor
+\backslash
+item $
+\backslash
+eta
+\backslash
+leq0$: lan
+\backslash
+c{c}a exce
+\backslash
+c{c}
+\backslash
+~ao
+\backslash
+item $
+\backslash
+eta>0$: calcula $F_q=1+Q/1000$
+\backslash
+item Consulta CR, $F_s$, $F_T$ e $F_c$ na an
+\backslash
+'alise
+\backslash
+item Devolve a dose em ppm
+\backslash
+end{itemize}
+\backslash
+end{column}
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Dosagem: a eficiencia vem do inibidor por polimorfismo; com eficiencia invalida o calculo e interrompido com excecao.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Diagrama de estados: ciclo de uma simulação
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\backslash
+begin{column}{0.36
+\backslash
+textwidth}
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/estados_simulacao.png
+	height 76theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\backslash
+begin{column}{0.62
+\backslash
+textwidth}
+\backslash
+small
+\backslash
+begin{itemize}
+\backslash
+setlength{
+\backslash
+itemsep}{3pt}
+\backslash
+item Come
+\backslash
+c{c}a em 
+\backslash
+textbf{DadosInformados}; 
+\backslash
+texttt{Validar()} leva a 
+\backslash
+textbf{Validado}
+\backslash
+item Valor fora da faixa: 
+\backslash
+textbf{Invalido}, e o usu
+\backslash
+'ario corrige e reenvia
+\backslash
+item 
+\backslash
+texttt{Analisar()} $
+\backslash
+rightarrow$ 
+\backslash
+textbf{CorrosaoAnalisada}; 
+\backslash
+texttt{Selecionar()} $
+\backslash
+rightarrow$ 
+\backslash
+textbf{InibidorSelecionado}
+\backslash
+item 
+\backslash
+texttt{CalcularDose()} com $
+\backslash
+eta>0$: 
+\backslash
+textbf{DosagemCalculada} $
+\backslash
+rightarrow$ 
+\backslash
+textbf{ResultadoApresentado}
+\backslash
+item $
+\backslash
+eta
+\backslash
+leq0$: 
+\backslash
+textbf{ErroDosagem}, e o fluxo termina sem dose
+\backslash
+end{itemize}
+\backslash
+vspace{0.2cm}
+\backslash
+begin{tikzpicture}
+\backslash
+node[fill=navy,text=white,rounded corners=4pt,text width=7.6cm,inner sep=6pt,font=
+\backslash
+footnotesize,align=center]{Dois caminhos de exce
+\backslash
+c{c}
+\backslash
+~ao previstos: 
+\backslash
+textbf{dados inv
+\backslash
+'alidos} e 
+\backslash
+textbf{erro na dosagem}.};
+\backslash
+end{tikzpicture}
+\backslash
+end{column}
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Estados: ciclo de vida de uma simulacao, do dado informado ao resultado, com os dois caminhos de excecao.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Diagrama de atividades: cálculo da dosagem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\backslash
+begin{column}{0.64
+\backslash
+textwidth}
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/atividades_dosagem.png
+	width 100line%
+	height 76theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\backslash
+begin{column}{0.34
+\backslash
+textwidth}
+\backslash
+small{
+\backslash
+footnotesize
+\backslash
+color{ink!75}Raias: SimuladorCorrosao, CalculadoraDosagem, Inibidor, Fluido e AnaliseCorrosao}
+\backslash
+par
+\backslash
+vspace{0.2cm}
+\backslash
+begin{enumerate}
+\backslash
+setlength{
+\backslash
+itemsep}{3pt}
+\backslash
+item Pede o c
+\backslash
+'alculo e obt
+\backslash
+'em $
+\backslash
+eta$
+\backslash
+item $
+\backslash
+eta
+\backslash
+leq0$: exce
+\backslash
+c{c}
+\backslash
+~ao, c
+\backslash
+'alculo interrompido
+\backslash
+item Calcula $F_q=1+Q/1000$
+\backslash
+item Obt
+\backslash
+'em CR, $F_s$, $F_T$ e $F_c$
+\backslash
+item Aplica a equa
+\backslash
+c{c}
+\backslash
+~ao da dose e devolve ao simulador
+\backslash
+end{enumerate}
+\backslash
+end{column}
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Atividades: fluxo do calculo da dose dividido em raias por classe.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Cinco ciclos de desenvolvimento
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.5cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}[x=2.7cm]
+\backslash
+draw[line width=2pt,teal!50] (0,0)--(4,0);
+\backslash
+node[circle,fill=rust,text=white,minimum size=0.8cm,font=
+\backslash
+bfseries] at (0,0) {1};
+\backslash
+node[text=navy,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,text width=2.4cm] at (0,-0.95) {Fluido};
+\backslash
+node[text=ink,font=
+\backslash
+scriptsize,align=center,text width=2.4cm] at (0,-1.65) {valida as entradas};
+\backslash
+node[circle,fill=navy,text=white,minimum size=0.8cm,font=
+\backslash
+bfseries] at (1,0) {2};
+\backslash
+node[text=navy,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,text width=2.4cm] at (1,-0.95) {AnaliseCorrosao};
+\backslash
+node[text=ink,font=
+\backslash
+scriptsize,align=center,text width=2.4cm] at (1,-1.65) {taxa,
+ tipo e severidade};
+\backslash
+node[circle,fill=rust,text=white,minimum size=0.8cm,font=
+\backslash
+bfseries] at (2,0) {3};
+\backslash
+node[text=navy,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,text width=2.4cm] at (2,-0.95) {Inibidores e Seletor};
+\backslash
+node[text=ink,font=
+\backslash
+scriptsize,align=center,text width=2.4cm] at (2,-1.65) {classe pela ordem de crit
+\backslash
+'erios};
+\backslash
+node[circle,fill=navy,text=white,minimum size=0.8cm,font=
+\backslash
+bfseries] at (3,0) {4};
+\backslash
+node[text=navy,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,text width=2.4cm] at (3,-0.95) {CalculadoraDosagem};
+\backslash
+node[text=ink,font=
+\backslash
+scriptsize,align=center,text width=2.4cm] at (3,-1.65) {dose em ppm;
+ erro se $
+\backslash
+eta
+\backslash
+leq0$};
+\backslash
+node[circle,fill=rust,text=white,minimum size=0.8cm,font=
+\backslash
+bfseries] at (4,0) {5};
+\backslash
+node[text=navy,font=
+\backslash
+scriptsize
+\backslash
+bfseries,align=center,text width=2.4cm] at (4,-0.95) {Simulador e Qt};
+\backslash
+node[text=ink,font=
+\backslash
+scriptsize,align=center,text width=2.4cm] at (4,-1.65) {resultados e gr
+\backslash
+'aficos};
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Cada ciclo só avançou depois de cumprir o seu critério de aceite.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Ciclos:
+ ordenados pela dependência entre classes;
+ todos os critérios de aceite foram atendidos.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Implementação:
+ console e interface Qt
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.620
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagens/cap6-painel-graficos.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.360
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+C++20,
+ CMake e Qt 6
+\end_layout
+
+\begin_layout Itemize
+Dois executáveis:
+ 
+\series bold
+console
+\series default
+ e 
+\series bold
+interface gráfica
+\end_layout
+
+\begin_layout Itemize
+Cinco abas:
+ Formulário,
+ Amostras Padrão,
+ Modo Perguntas,
+ Gráficos e Material de Apoio
+\end_layout
+
+\begin_layout Itemize
+Código aberto (licença MIT)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Implementação:
+ as três primeiras abas de entrada convergem para o mesmo caminho de cálculo.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Código:
+ validação dos parâmetros (Fluido)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={Cmed}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Fluido::Fluido(double pH,
+ double co2,
+ double h2s,
+ double salinidade,
+\end_layout
+
+\begin_layout Plain Layout
+
+double temperatura,
+ double pressao,
+ double vazao)
+\end_layout
+
+\begin_layout Plain Layout
+
+:
+ pH(pH),
+ co2(co2),
+ h2s(h2s),
+ salinidade(salinidade),
+\end_layout
+
+\begin_layout Plain Layout
+
+temperatura(temperatura),
+ pressao(pressao),
+ vazao(vazao)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  Validar();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+void Fluido::Validar() const
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (pH < 0.0 || pH > 14.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    throw std::invalid_argument("pH deve estar entre 0 e 14.");
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (co2 < 0.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    throw std::invalid_argument("CO2 não pode ser negativo.");
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (temperatura < -273.15)
+\end_layout
+
+\begin_layout Plain Layout
+
+    throw std::invalid_argument(
+\end_layout
+
+\begin_layout Plain Layout
+
+  "Temperatura não pode ser menor que o zero absoluto.");
+\end_layout
+
+\begin_layout Plain Layout
+
+  // ...
+ demais verificações (H2S,
+ salinidade,
+ pressão e vazão)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-4pt}{
+\backslash
+scriptsize
+\backslash
+color{ink!75}
+\backslash
+textbf{Fonte:} 
+\backslash
+texttt{Fluido.cpp}, linhas 18--58 (trecho resumido) 
+\backslash
+textperiodcentered{} c
+\backslash
+'odigo completo no Ap
+\backslash
+^endice A do TCC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Código :
+ o construtor valida os sete parâmetros e rejeita valores fora da faixa com exceção,
+ sem derrubar o programa.
+ Trecho de Fluido.cpp.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Código:
+ análise de corrosão (AnaliseCorrosao)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={Ctiny}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void AnaliseCorrosao::Analisar()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  taxaCorrosao = CalcularTaxaBaseCorrosao();
+\end_layout
+
+\begin_layout Plain Layout
+
+  tipoCorrosao = DeterminarTipoCorrosao();
+\end_layout
+
+\begin_layout Plain Layout
+
+  severidade = DeterminarSeveridade(taxaCorrosao);
+\end_layout
+
+\begin_layout Plain Layout
+
+  fatorSeveridade = CalcularFatorSeveridade(severidade);
+\end_layout
+
+\begin_layout Plain Layout
+
+  fatorTemperatura = CalcularFatorTemperatura();
+\end_layout
+
+\begin_layout Plain Layout
+
+  fatorCorrosivo = CalcularFatorCorrosivo();
+\end_layout
+
+\begin_layout Plain Layout
+
+  taxaCorrosaoFinal = taxaCorrosao * fatorSeveridade
+\end_layout
+
+\begin_layout Plain Layout
+
+  * fatorTemperatura * fatorCorrosivo;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+double AnaliseCorrosao::CalcularTaxaBaseCorrosao() const
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  return fluido.CO2() * std::exp(0.02 * fluido.Temperatura())
+\end_layout
+
+\begin_layout Plain Layout
+
+  * fluido.FatorAcidez();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+std::string AnaliseCorrosao::DeterminarTipoCorrosao() const
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (fluido.H2S() > 10.0) return "Corrosão Ácida (Sour)";
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (fluido.CO2() > 20.0) return "Corrosão Doce (Sweet)";
+\end_layout
+
+\begin_layout Plain Layout
+
+  return "Leve";
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-4pt}{
+\backslash
+scriptsize
+\backslash
+color{ink!75}
+\backslash
+textbf{Fonte:} 
+\backslash
+texttt{AnaliseCorrosao.cpp}, linhas 19--46 
+\backslash
+textperiodcentered{} c
+\backslash
+'odigo completo no Ap
+\backslash
+^endice A do TCC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Código :
+ Analisar() encadeia taxa,
+ tipo e severidade.
+ Trechos de AnaliseCorrosao.cpp.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Código:
+ hierarquia de inibidores
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={Cslide}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Inibidor
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+protected:
+\end_layout
+
+\begin_layout Plain Layout
+
+  std::string nome;
+\end_layout
+
+\begin_layout Plain Layout
+
+  double eficiencia;
+\end_layout
+
+\begin_layout Plain Layout
+
+  std::string descricao;
+\end_layout
+
+\begin_layout Plain Layout
+
+public:
+\end_layout
+
+\begin_layout Plain Layout
+
+  Inibidor(const std::string& nome,
+ double eficiencia,
+\end_layout
+
+\begin_layout Plain Layout
+
+  const std::string& descricao);
+\end_layout
+
+\begin_layout Plain Layout
+
+  virtual ~Inibidor() = default;
+\end_layout
+
+\begin_layout Plain Layout
+
+  virtual std::string Tipo() const = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+  virtual bool EhAplicavel(const Fluido& fluido) const = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+bool InibidorOrganico::EhAplicavel(const Fluido& fluido) const
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  return fluido.CO2() > 20.0 && fluido.PH() < 6.0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-4pt}{
+\backslash
+scriptsize
+\backslash
+color{ink!75}
+\backslash
+textbf{Fonte:} 
+\backslash
+texttt{Inibidor.h}, linhas 9--29 (resumido) e 
+\backslash
+texttt{Inibidor.cpp}, linhas 39--42 
+\backslash
+textperiodcentered{} c
+\backslash
+'odigo completo no Ap
+\backslash
+^endice A do TCC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Código:
+ classe abstrata Inibidor com métodos virtuais puros e uma classe derivada.
+ Aqui está o polimorfismo.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Código:
+ seleção do inibidor (SeletorInibidor)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={Cslide}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+std::unique_ptr<Inibidor> SeletorInibidor::Selecionar(const Fluido& fluido)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (fluido.H2S() > 10.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return std::make_unique<InibidorH2S>();
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (fluido.CO2() > 20.0 && fluido.PH() < 6.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return std::make_unique<InibidorOrganico>();
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (fluido.Salinidade() > 15000.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return std::make_unique<InibidorCatodico>();
+\end_layout
+
+\begin_layout Plain Layout
+
+  return std::make_unique<InibidorGeral>();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-4pt}{
+\backslash
+scriptsize
+\backslash
+color{ink!75}
+\backslash
+textbf{Fonte:} 
+\backslash
+texttt{Inibidor.cpp}, linhas 95--107 
+\backslash
+textperiodcentered{} c
+\backslash
+'odigo completo no Ap
+\backslash
+^endice A do TCC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Código:
+ ordem das regras:
+ H2S,
+ depois CO2 com pH baixo,
+ depois salinidade,
+ senão geral.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Código:
+ cálculo da dosagem (CalculadoraDosagem)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "style={Cmed}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+double CalculadoraDosagem::CalcularDose(const Fluido& fluido,
+\end_layout
+
+\begin_layout Plain Layout
+
+const AnaliseCorrosao& analise,
+\end_layout
+
+\begin_layout Plain Layout
+
+const Inibidor& inibidor)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (inibidor.Eficiencia() <= 0.0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    throw std::invalid_argument(
+\end_layout
+
+\begin_layout Plain Layout
+
+  "A eficiencia do inibidor deve ser maior que zero.");
+\end_layout
+
+\begin_layout Plain Layout
+
+  const double fatorVazao = FatorDeVazao(fluido);
+\end_layout
+
+\begin_layout Plain Layout
+
+  return (constanteEmpirica * analise.TaxaCorrosao()
+\end_layout
+
+\begin_layout Plain Layout
+
+  * analise.FatorSeveridade()
+\end_layout
+
+\begin_layout Plain Layout
+
+  * analise.FatorCorrecaoTemperatura()
+\end_layout
+
+\begin_layout Plain Layout
+
+  * analise.FatorCorrosivo() * fatorVazao)
+\end_layout
+
+\begin_layout Plain Layout
+
+  / inibidor.Eficiencia();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+double CalculadoraDosagem::FatorDeVazao(const Fluido& fluido)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  return 1.0 + (fluido.Vazao() / 1000.0);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-4pt}{
+\backslash
+scriptsize
+\backslash
+color{ink!75}
+\backslash
+textbf{Fonte:} 
+\backslash
+texttt{CalculadoraDosagem.cpp}, linhas 5--25 
+\backslash
+textperiodcentered{} c
+\backslash
+'odigo completo no Ap
+\backslash
+^endice A do TCC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Código (1 min):
+ dose em ppm a partir da análise e da eficiência do inibidor;
+ exceção se a eficiência for menor ou igual a zero.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Demonstração ao vivo
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[c]
+\backslash
+begin{column}{0.43
+\backslash
+textwidth}
+\backslash
+begin{tikzpicture}[num/.style={circle,text=white,font=
+\backslash
+small
+\backslash
+bfseries,minimum size=0.62cm,inner sep=0},txt/.style={anchor=west,text width=5.0cm,font=
+\backslash
+footnotesize,text=ink,align=left}] 
+\backslash
+draw[teal!45,line width=1.2pt] (0,0) -- (0,-3.6); 
+\backslash
+node[num,fill=rust] at (0,0) {1}; 
+\backslash
+node[txt] at (0.45,0) {
+\backslash
+textbf{Amostra 4} (leve)
+\backslash
+
+\backslash
+[-1pt]{
+\backslash
+scriptsize Inibidor Geral $
+\backslash
+rightarrow$ 
+\backslash
+textbf{0,58 ppm}}}; 
+\backslash
+node[num,fill=teal] at (0,-1.2) {2}; 
+\backslash
+node[txt] at (0.45,-1.2) {
+\backslash
+textbf{Amostra 1} (sour, H$_2$S)
+\backslash
+
+\backslash
+[-1pt]{
+\backslash
+scriptsize Inibidor para H$_2$S $
+\backslash
+rightarrow$ 
+\backslash
+textbf{1.384,86 ppm}}}; 
+\backslash
+node[num,fill=rust] at (0,-2.4) {3}; 
+\backslash
+node[txt] at (0.45,-2.4) {
+\backslash
+textbf{Alterar o pH}: 5,5 $
+\backslash
+rightarrow$ 6,5
+\backslash
+
+\backslash
+[-1pt]{
+\backslash
+scriptsize mesmo inibidor, acidez 1,5 $
+\backslash
+rightarrow$ 0,5: 
+\backslash
+textbf{461,62 ppm}}}; 
+\backslash
+node[num,fill=teal] at (0,-3.6) {4}; 
+\backslash
+node[txt] at (0.45,-3.6) {
+\backslash
+textbf{Aba Gr
+\backslash
+'aficos}
+\backslash
+
+\backslash
+[-1pt]{
+\backslash
+scriptsize etapas do c
+\backslash
+'alculo e efici
+\backslash
+^encia do inibidor}}; 
+\backslash
+end{tikzpicture}
+\backslash
+par
+\backslash
+vspace{0.3cm}
+\backslash
+begin{tikzpicture}
+\backslash
+node[fill=navy,text=white,rounded corners=4pt,text width=5.4cm,align=center,inner sep=6pt,font=
+\backslash
+footnotesize] {
+\backslash
+textbf{Ideia central:} o aluno muda um par
+\backslash
+^ametro por vez e v
+\backslash
+^e o impacto na dose.};
+\backslash
+end{tikzpicture}
+\backslash
+end{column}
+\backslash
+begin{column}{0.55
+\backslash
+textwidth}
+\backslash
+centering
+\backslash
+setlength{
+\backslash
+fboxsep}{0pt}
+\backslash
+setlength{
+\backslash
+fboxrule}{0.8pt}{
+\backslash
+color{teal}
+\backslash
+fbox{
+\end_layout
+
+\end_inset
+\begin_inset Graphics
+	filename imagens/teste-amostra1-a.png
+	width 98line%
+
+\end_inset
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}}
+\backslash
+par
+\backslash
+vspace{4pt}{
+\backslash
+scriptsize
+\backslash
+color{ink!75}Aba 
+\backslash
+textit{Amostras Padr
+\backslash
+~ao}: resultado da Amostra 1}
+\backslash
+end{column}
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Demonstracao (2 min): rodar Amostra 4, depois Amostra 1; mudar o pH de 5,5 para 6,5 no Formulario (dose cai para 461,62 ppm, mesmo inibidor); abrir a aba Graficos. Plano B se o programa falhar: capturas do Cap. 7.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Um cálculo passo a passo:
+ cenário 1 (sour acentuado)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small
+\backslash
+begin{tabular}{@{}>{
+\backslash
+color{rust}
+\backslash
+bfseries}p{2.3cm}p{11.4cm}@{}} Entradas&pH 5,5 $
+\backslash
+cdot$ CO$_2$ 60 ppm $
+\backslash
+cdot$ H$_2$S 25 ppm $
+\backslash
+cdot$ salinidade 80
+\backslash
+,000 ppm $
+\backslash
+cdot$ T 65
+\backslash
+,$^
+\backslash
+circ$C $
+\backslash
+cdot$ Q 5000 m$^3$/dia
+\backslash
+
+\backslash
+
+\backslash
+hline 
+\backslash
+rowcolor{sand}Taxa base&acidez $=7-5{,}5=1{,}5$;
+ $e^{0{,}02
+\backslash
+cdot65}=3{,}669$;
+ $
+\backslash
+mathrm{CR}_{base}=60
+\backslash
+cdot3{,}669
+\backslash
+cdot1{,}5=
+\backslash
+mathbf{330{,}24}$
+\backslash
+
+\backslash
+
+\backslash
+hline Tipo e fatores&H$_2$S $>$ 10:
+ 
+\backslash
+textbf{sulf
+\backslash
+'idrica};
+ CR $
+\backslash
+geq$ 50:
+ 
+\backslash
+textbf{severidade alta} ($F_s=2{,}5$);
+ $F_T=1{,}3$;
+ $F_c=2{,}0$
+\backslash
+
+\backslash
+
+\backslash
+hline 
+\backslash
+rowcolor{sand}Inibidor&H$_2$S $>$ 10:
+ 
+\backslash
+textbf{inibidor para H$_2$S},
+ $
+\backslash
+eta=0{,}93$
+\backslash
+
+\backslash
+
+\backslash
+hline Dose&$F_q=1+5000/1000=6$;
+ $
+\backslash
+mathrm{Dose}=0{,}1
+\backslash
+cdot330{,}24
+\backslash
+cdot2{,}5
+\backslash
+cdot1{,}3
+\backslash
+cdot2{,}0
+\backslash
+cdot6/0{,}93=
+\backslash
+textbf{1
+\backslash
+,384,86 ppm}$
+\backslash
+end{tabular}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Validação:
+ testes e cenários
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[T]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.320
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[st/.style={rounded corners=5pt,fill=sand,draw=teal,line width=0.8pt,minimum width=3.6cm,minimum height=1.4cm,text width=3.4cm,align=center}] 
+\backslash
+node[st] at (0,0) {{
+\backslash
+LARGE
+\backslash
+bfseries
+\backslash
+color{teal}16/16}
+\backslash
+
+\backslash
+[-1pt]
+\backslash
+scriptsize testes unit
+\backslash
+'arios};
+ 
+\backslash
+node[st] at (0,-1.7) {{
+\backslash
+LARGE
+\backslash
+bfseries
+\backslash
+color{navy}7}
+\backslash
+
+\backslash
+[-1pt]
+\backslash
+scriptsize cen
+\backslash
+'arios validados};
+ 
+\backslash
+node[st] at (0,-3.4) {{
+\backslash
+LARGE
+\backslash
+bfseries
+\backslash
+color{rust}0,00
+\backslash
+,
+\backslash
+%}
+\backslash
+
+\backslash
+[-1pt]
+\backslash
+scriptsize diferen
+\backslash
+c{c}a para o c
+\backslash
+'alculo manual (Cap.~7)};
+ 
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.660
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{tabular}{@{}clllr@{}}
+\backslash
+rowcolor{navy}
+\backslash
+textcolor{white}{
+\backslash
+bfseries Cen.}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Tipo}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Severidade}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Inibidor}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Dose (ppm)}
+\backslash
+
+\backslash
+ 1&Sour&Alta&Para H$_2$S&1
+\backslash
+,384,86
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}2&Doce&Alta&Org
+\backslash
+^anico&1
+\backslash
+,665,61
+\backslash
+
+\backslash
+3&Doce&Alta&Org
+\backslash
+^anico&3
+\backslash
+,822,76
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}4&Leve&Baixa&Geral&0,58
+\backslash
+
+\backslash
+5&Leve&Baixa&Cat
+\backslash
+'odico&1,56
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}6&Leve&M
+\backslash
+'edia&Cat
+\backslash
+'odico&10,49
+\backslash
+
+\backslash
+7&Sour&Alta&Para H$_2$S&17
+\backslash
+,293,09
+\backslash
+end{tabular}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_layout Itemize
+Todos os ramos da árvore de seleção foram cobertos
+\end_layout
+
+\begin_layout Itemize
+Entradas fora das faixas são rejeitadas sem interromper o programa
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+O que a validação comprova (e o que não comprova)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[T]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.490
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exampleblock}{Comprova}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+O código implementa corretamente as equações propostas
+\end_layout
+
+\begin_layout Itemize
+Tendências coerentes com a literatura:
+ a taxa cresce com CO₂ e temperatura e cai com o pH;
+ o H₂S define a classe;
+ a dose cresce com severidade e vazão
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exampleblock}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.490
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{alertblock}{Não comprova}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Que as equações representem a corrosão real
+\end_layout
+
+\begin_layout Itemize
+Isso exigiria dados experimentais:
+ por isso,
+ 
+\series bold
+TRL 3 a 4
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{alertblock}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Limitações assumidas
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\backslash
+fill[sand,rounded corners=3pt] (0.00,0.00) rectangle ++(4.45,2.15);
+\backslash
+fill[rust,rounded corners=1pt] (0.00,0.00) rectangle ++(0.09,2.15);
+\backslash
+node[anchor=north west,text width=4.0cm,font=
+\backslash
+footnotesize,align=left,text=ink] at (0.20,2.05) {
+\backslash
+bfseries
+\backslash
+color{navy}K e efici
+\backslash
+^encias n
+\backslash
+~ao calibrados
+\backslash
+par
+\backslash
+vspace{2pt}
+\backslash
+normalfont doses s
+\backslash
+~ao indicadores relativos (milhares de ppm nos casos severos)};
+\backslash
+fill[sand,rounded corners=3pt] (4.70,0.00) rectangle ++(4.45,2.15);
+\backslash
+fill[rust,rounded corners=1pt] (4.70,0.00) rectangle ++(0.09,2.15);
+\backslash
+node[anchor=north west,text width=4.0cm,font=
+\backslash
+footnotesize,align=left,text=ink] at (4.90,2.05) {
+\backslash
+bfseries
+\backslash
+color{navy}H$_2$S sem termo pr
+\backslash
+'oprio
+\backslash
+par
+\backslash
+vspace{2pt}
+\backslash
+normalfont atua pelo fator de corrosividade e pela escolha do inibidor};
+\backslash
+fill[sand,rounded corners=3pt] (9.40,0.00) rectangle ++(4.45,2.15);
+\backslash
+fill[rust,rounded corners=1pt] (9.40,0.00) rectangle ++(0.09,2.15);
+\backslash
+node[anchor=north west,text width=4.0cm,font=
+\backslash
+footnotesize,align=left,text=ink] at (9.60,2.05) {
+\backslash
+bfseries
+\backslash
+color{navy}Press
+\backslash
+~ao exibida,
+ sem efeito
+\backslash
+par
+\backslash
+vspace{2pt}
+\backslash
+normalfont verificada e mostrada,
+ mas n
+\backslash
+~ao entra no c
+\backslash
+'alculo};
+\backslash
+fill[sand,rounded corners=3pt] (0.00,-2.35) rectangle ++(4.45,2.15);
+\backslash
+fill[rust,rounded corners=1pt] (0.00,-2.35) rectangle ++(0.09,2.15);
+\backslash
+node[anchor=north west,text width=4.0cm,font=
+\backslash
+footnotesize,align=left,text=ink] at (0.20,-0.30) {
+\backslash
+bfseries
+\backslash
+color{navy}Corros
+\backslash
+~ao localizada fora do modelo
+\backslash
+par
+\backslash
+vspace{2pt}
+\backslash
+normalfont tamb
+\backslash
+'em tens
+\backslash
+~ao,
+ microbiol
+\backslash
+'ogica e eros
+\backslash
+~ao-corros
+\backslash
+~ao};
+\backslash
+fill[sand,rounded corners=3pt] (4.70,-2.35) rectangle ++(4.45,2.15);
+\backslash
+fill[rust,rounded corners=1pt] (4.70,-2.35) rectangle ++(0.09,2.15);
+\backslash
+node[anchor=north west,text width=4.0cm,font=
+\backslash
+footnotesize,align=left,text=ink] at (4.90,-0.30) {
+\backslash
+bfseries
+\backslash
+color{navy}Sa
+\backslash
+'ida limitada
+\backslash
+par
+\backslash
+vspace{2pt}
+\backslash
+normalfont gr
+\backslash
+'aficos de um cen
+\backslash
+'ario por vez;
+ sem relat
+\backslash
+'orios nem perfil por profundidade};
+\backslash
+fill[sand,rounded corners=3pt] (9.40,-2.35) rectangle ++(4.45,2.15);
+\backslash
+fill[rust,rounded corners=1pt] (9.40,-2.35) rectangle ++(0.09,2.15);
+\backslash
+node[anchor=north west,text width=4.0cm,font=
+\backslash
+footnotesize,align=left,text=ink] at (9.60,-0.30) {
+\backslash
+bfseries
+\backslash
+color{navy}Uso em sala n
+\backslash
+~ao avaliado
+\backslash
+par
+\backslash
+vspace{2pt}
+\backslash
+normalfont ganho de aprendizagem 
+\backslash
+'e hip
+\backslash
+'otese a testar};
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Conclusões
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small
+\backslash
+renewcommand{
+\backslash
+arraystretch}{1.05}
+\backslash
+begin{tabular}{@{}p{6.2cm}p{7.2cm}@{}}
+\backslash
+rowcolor{navy}
+\backslash
+textcolor{white}{
+\backslash
+bfseries Objetivo espec
+\backslash
+'ifico}&
+\backslash
+textcolor{white}{
+\backslash
+bfseries Situa
+\backslash
+c{c}
+\backslash
+~ao}
+\backslash
+
+\backslash
+ Princ
+\backslash
+'ipios de corros
+\backslash
+~ao e inibidores&
+\backslash
+chip{teal}{Atingido}
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}Requisitos e UML&
+\backslash
+chip{teal}{Atingido}
+\backslash
+
+\backslash
+Codifica
+\backslash
+c{c}
+\backslash
+~ao em C++&
+\backslash
+chip{amber}{Atingido,
+ com ressalvas}
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}Heran
+\backslash
+c{c}a e polimorfismo&
+\backslash
+chip{teal}{Atingido}
+\backslash
+
+\backslash
+Valida
+\backslash
+c{c}
+\backslash
+~ao por cen
+\backslash
+'arios&
+\backslash
+chip{teal}{Atingido (TRL 3 a 4)}
+\backslash
+
+\backslash
+
+\backslash
+rowcolor{sand}Associa
+\backslash
+c{c}
+\backslash
+~ao 
+\backslash
+`a disciplina LEP01550&
+\backslash
+chip{amber}{Material pronto;
+ uso em turma n
+\backslash
+~ao avaliado}
+\backslash
+end{tabular}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{columns}[T]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.460
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{exampleblock}{Objetivo geral atingido}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Respeitadas as limitações de um modelo didático.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{exampleblock}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{column}{0.520
+\backslash
+textwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O valor está na 
+\series bold
+integração
+\series default
+ de corrosão,
+ fluido,
+ inibidor e dosagem em uma ferramenta 
+\series bold
+aberta,
+ modular e documentada
+\series default
+,
+ não na exatidão preditiva.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{column}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{columns}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Conclusões (1,5 min):
+ objetivo geral atingido;
+ ressalvas em implementação e em uso com turma.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{
+\end_layout
+
+\end_inset
+Trabalhos futuros
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\backslash
+fill[sand,rounded corners=3pt] (0.00,0.00) rectangle ++(4.45,2.15);
+\backslash
+node[circle,fill=teal,text=white,font=
+\backslash
+bfseries,minimum size=0.75cm] at (0.55,1.60) {1};
+\backslash
+node[anchor=north west,text width=3.35cm,font=
+\backslash
+footnotesize,text=ink] at (1.00,1.95) {Calibrar K e as efici
+\backslash
+^encias com dados experimentais ou de campo};
+\backslash
+fill[sand,rounded corners=3pt] (4.70,0.00) rectangle ++(4.45,2.15);
+\backslash
+node[circle,fill=rust,text=white,font=
+\backslash
+bfseries,minimum size=0.75cm] at (5.25,1.60) {2};
+\backslash
+node[anchor=north west,text width=3.35cm,font=
+\backslash
+footnotesize,text=ink] at (5.70,1.95) {Modelos mais completos:
+ press
+\backslash
+~ao parcial de CO$_2$,
+ filme de FeCO$_3$,
+ regime de escoamento};
+\backslash
+fill[sand,rounded corners=3pt] (9.40,0.00) rectangle ++(4.45,2.15);
+\backslash
+node[circle,fill=teal,text=white,font=
+\backslash
+bfseries,minimum size=0.75cm] at (9.95,1.60) {3};
+\backslash
+node[anchor=north west,text width=3.35cm,font=
+\backslash
+footnotesize,text=ink] at (10.40,1.95) {Corros
+\backslash
+~ao localizada e inibidores verdes e biodegrad
+\backslash
+'aveis};
+\backslash
+fill[sand,rounded corners=3pt] (0.00,-2.35) rectangle ++(4.45,2.15);
+\backslash
+node[circle,fill=rust,text=white,font=
+\backslash
+bfseries,minimum size=0.75cm] at (0.55,-0.75) {4};
+\backslash
+node[anchor=north west,text width=3.35cm,font=
+\backslash
+footnotesize,text=ink] at (1.00,-0.40) {Banco de dados de produtos e efici
+\backslash
+^encias};
+\backslash
+fill[sand,rounded corners=3pt] (4.70,-2.35) rectangle ++(4.45,2.15);
+\backslash
+node[circle,fill=teal,text=white,font=
+\backslash
+bfseries,minimum size=0.75cm] at (5.25,-0.75) {5};
+\backslash
+node[anchor=north west,text width=3.35cm,font=
+\backslash
+footnotesize,text=ink] at (5.70,-0.40) {Interface completa com exporta
+\backslash
+c{c}
+\backslash
+~ao de relat
+\backslash
+'orios};
+\backslash
+fill[sand,rounded corners=3pt] (9.40,-2.35) rectangle ++(4.45,2.15);
+\backslash
+node[circle,fill=rust,text=white,font=
+\backslash
+bfseries,minimum size=0.75cm] at (9.95,-0.75) {6};
+\backslash
+node[anchor=north west,text width=3.35cm,font=
+\backslash
+footnotesize,text=ink] at (10.40,-0.40) {Avaliar com estudantes e docentes o ganho de aprendizagem};
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tikzpicture}[remember picture,overlay] 
+\backslash
+fill[sand] (current page.south west) rectangle (current page.north east); 
+\backslash
+foreach 
+\backslash
+r/
+\backslash
+c in {1.0/teal!14,1.8/teal!11,2.6/rust!11,3.4/rust!8}{
+\backslash
+draw[
+\backslash
+c,line width=1.4pt] ([xshift=-1.3cm,yshift=1.3cm]current page.south east) circle (
+\backslash
+r cm);} 
+\backslash
+shade[left color=teal,right color=rust] ([yshift=0.08cm]current page.south west) rectangle (current page.south east); 
+\backslash
+node[anchor=west,text=navy,align=left,text width=0.7
+\backslash
+paperwidth] at ([xshift=0.9cm,yshift=0.6cm]current page.center) {{
+\backslash
+fontsize{34}{38}
+\backslash
+selectfont
+\backslash
+bfseries Obrigada!}
+\backslash
+par
+\backslash
+vspace{6pt}{
+\backslash
+color{teal}
+\backslash
+Large Perguntas?}}; 
+\backslash
+node[anchor=south west,text=ink,align=left,text width=0.8
+\backslash
+paperwidth] at ([xshift=0.9cm,yshift=1.2cm]current page.south west) {
+\backslash
+footnotesize C
+\backslash
+'odigo aberto (licen
+\backslash
+c{c}a MIT):
+\backslash
+
+\backslash
+[2pt]{
+\backslash
+tiny
+\backslash
+url{https://github.com/ldsc/ProjetoEngenharia-SoftwareEducacionalParaAnaliseESelecaoDeInibidoresDeCorrosao}}}; 
+\backslash
+node[anchor=north east] at ([xshift=-0.9cm,yshift=-0.6cm]current page.north east) {
+\end_layout
+
+\end_inset
+
+\begin_inset Graphics
+	filename imagens/logo-uenf.png
+	height 0.9cm
+	keepAspectRatio
+\end_inset
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+hspace{0.3cm}
+\end_layout
+
+\end_inset
+
+\begin_inset Graphics
+	filename imagens/logo-lenep.png
+	height 0.9cm
+	keepAspectRatio
+\end_inset
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+}; 
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+\begin_deeper
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[remember picture,overlay] 
+\backslash
+IfFileExists{imagens/foto-agradecimento.jpg}{
+\backslash
+node[inner sep=0] at (current page.center) {
+\backslash
+includegraphics[width=
+\backslash
+paperwidth,height=
+\backslash
+paperheight]{imagens/foto-agradecimento.jpg}};}{
+\backslash
+IfFileExists{imagens/foto-agradecimento.png}{
+\backslash
+node[inner sep=0] at (current page.center) {
+\backslash
+includegraphics[width=
+\backslash
+paperwidth,height=
+\backslash
+paperheight]{imagens/foto-agradecimento.png}};}{
+\backslash
+fill[sand] (current page.south west) rectangle (current page.north east);
+\backslash
+draw[teal,dashed,line width=1.2pt,rounded corners=6pt] ([shift={(0.8cm,0.8cm)}]current page.south west) rectangle ([shift={(-0.8cm,-0.8cm)}]current page.north east);
+\backslash
+node[text=teal,align=center,font=
+\backslash
+large] at (current page.center) {inserir a montagem de fotos
+\backslash
+
+\backslash
+[3pt]
+\backslash
+footnotesize imagens/foto-agradecimento.jpg (16:9,
+ ex.:
+ 1920$
+\backslash
+times$1080)};}} 
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+note{Slide final:
+ montagem de fotos para o agradecimento.
+ Salve a imagem como imagens/foto-agradecimento.jpg (proporção 16:9).}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+
+\end_body
+\end_document
