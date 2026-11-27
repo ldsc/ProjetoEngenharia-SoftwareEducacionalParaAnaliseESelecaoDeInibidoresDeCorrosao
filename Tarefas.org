@@ -1,0 +1,12 @@
+* Arquivo Tarefas.org
+Colocarei aqui tarefas que devem ser realizadas
+
+* Tarefas para antes da banca
+
+** Revisar um a um os capítulos, fiz anotações/correções
+
+* Tarefas para depois da defesa
+
+** Retira pontos finais de todos os títulos, incluindo de figuras e tabelas; mesmo a citação dentro da figura/tabela como Fonte:... não leva ponto final.
+Titulos não levam ponto final
+** Equacoes como CO₂ selecione e pressione Ctrl-M, vai virar equação. E se tiver citação a letra C de carbono, selecione e pressione Ctrl-M vai virar equação, assim ficam com a mesma fonte.

@@ -109,7 +109,7 @@
 \papersides 2
 \paperpagestyle fancy
 \tablestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \change_bars false
 \postpone_fragile_content false
@@ -119,6 +119,7 @@
 \docbook_table_output 0
 \docbook_mathml_prefix 1
 \docbook_mathml_version 0
+\author 2029516212 "Andr'e Duarte Bueno"
 \end_header
 
 \begin_body
@@ -128,6 +129,21 @@ Introdução
 \begin_inset CommandInset label
 LatexCommand label
 name "cha:Introdução"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795807463
+não deveria estar como duplicata;
+ verifique onde tem uma segunda definição do label/rótulo cha:Introdução
+\change_unchanged
+
+\end_layout
 
 \end_inset
 
@@ -220,9 +236,40 @@ today ele vai colocar data no material impresso
 \end_inset
 
 
+\change_inserted 2029516212 1795808186
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 2029516212 1795808312
+Veremos neste Capítulo o escopo do problema,
+ objetivos,
+ justificativa,
+ metodologia e o nível de maturidade do produto a ser desenvolvido.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795808469
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795808480
+movi para dentro do escopo e juntei pois repetia
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 2029516212 1795808319
 A corrosão é um processo contínuo e natural de deterioração de um material devido a reações químicas,
  eletroquímicas ou mecânicas entre o material e o meio onde se encontra (GENTIL,
  1996).
@@ -252,6 +299,8 @@ o ataque destrutivo de um material por reação com o seu meio
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 2029516212 1795808319
 Nos sistemas de produção,
  o problema é agravado pelas condições do meio,
  como nos casos de poços profundos,
@@ -284,6 +333,8 @@ Nos sistemas de produção,
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 2029516212 1795808319
 Entre as formas de mitigação,
  a injeção de inibidores de corrosão é uma das mais utilizadas,
  pois diminui a velocidade do ataque com pequenas concentrações de produto.
@@ -304,6 +355,8 @@ Entre as formas de mitigação,
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 2029516212 1795808319
 Esta necessidade de integrar conceitos também aparece no ensino.
  Mecanismos de corrosão,
  propriedades dos fluidos,
@@ -313,6 +366,8 @@ Esta necessidade de integrar conceitos também aparece no ensino.
  escrito em C++ com programação orientada a objetos,
  que permita ao estudante criar um cenário de produção e observar como cada parâmetro modifica a análise de corrosão,
  a escolha do inibidor de corrosão e sua dosagem estimada.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -327,6 +382,128 @@ name "sec:Escopo-do-Problema"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 2029516212 1795808492
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795808507
+leia esta seção numa tacada só e verifique se esta fluido
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+A corrosão é um processo contínuo e natural de deterioração de um material devido a reações químicas,
+ eletroquímicas ou mecânicas entre o material e o meio onde se encontra (GENTIL,
+ 1996).
+ Popoola et al.
+ (2013) a definem como 
+\begin_inset Quotes eld
+\end_inset
+
+o ataque destrutivo de um material por reação com o seu meio
+\begin_inset Quotes erd
+\end_inset
+
+.
+ No setor de petróleo e gás,
+ o fenômeno ocorre em tubulações,
+ válvulas,
+ revestimentos,
+ colunas de produção e estruturas metálicas em todos os pontos da cadeia,
+ desde a exploração e produção até o transporte e o refino (BAHADORI,
+ 2014).
+ Além de diminuir a vida útil dos equipamentos,
+ a corrosão pode levar a falhas catastróficas,
+ prejuízos financeiros,
+ danos ao meio ambiente e riscos à segurança das operações (UHLIG;
+ REVIE,
+ 2008).
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795808325
+Nos sistemas de produção,
+ o problema é agravado pelas condições do meio,
+ como nos casos de poços profundos,
+ onde a combinação de altas pressões e temperaturas com gases ácidos,
+ como 
+\begin_inset Formula $CO₂$
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795808325
+** Equacoes como CO₂ selecione e pressione Ctrl-M,
+ vai virar equação.
+ E se tiver citação a letra C de carbono,
+ selecione e pressione Ctrl-M vai virar equação,
+ assim ficam com a mesma fonte.
+\end_layout
+
+\end_inset
+
+e H₂S,
+ auxiliam para o aumento da corrosão e fazem com que seja exigido a combinação de inibidores,
+ revestimentos e seleção de materiais (AHMED;
+ LIU;
+ LIU,
+ 2025).
+ Altas pressões e temperaturas se associam com a presença de espécies agressivas,
+ tais como o dióxido de carbono (CO₂),
+ o sulfeto de hidrogênio (H₂S) e os íons cloreto (Cl
+\begin_inset Formula $^{-}$
+\end_inset
+
+) (POPOOLA et al,
+ 2013),
+ em fluidos que geralmente possuem água de formação com alta salinidade (BAHADORI,
+ 2014).
+ O CO₂ dissolvido em água forma ácido carbônico e dá origem à chamada corrosão doce,
+ denominada sweet corrosion (NEŠIC,
+ 2007).
+ O H₂S,
+ por sua vez,
+ está relacionado à corrosão sulfídrica e à fragilização do aço por hidrogênio.
+ Os cloretos,
+ por fim,
+ favorecem a corrosão localizada.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795808325
+Entre as formas de mitigação,
+ a injeção de inibidores de corrosão é uma das mais utilizadas,
+ pois diminui a velocidade do ataque com pequenas concentrações de produto.
+ Esse efeito ocorre pela formação de um filme adsorvido sobre a superfície metálica ou pela modificação das reações que causam a degradação (FINŠGAR;
+ JACKSON,
+ 2014).
+ A seleção do inibidor,
+ entretanto,
+ não é tão simples,
+ pois a escolha depende do mecanismo de corrosão dominante,
+ da composição do fluido e das condições operacionais,
+ e requer a interpretação de várias variáveis ao mesmo tempo.
+ Revisões mais recentes mostram que a pesquisa em inibidores avança atualmente também para compostos orgânicos de origem natural,
+ os quais são menos tóxicos,
+ e seu desempenho depende de mecanismos de adsorção na superfície metálica e das condições do meio observado,
+ como a presença de CO₂ e H₂S (KUMAR et al.,
+ 2026).
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 2029516212 1795808332
 A integridade,
  segurança e confiabilidade dos sistemas de produção de petróleo são prejudicadas pela corrosão.
  As partes que compõem os poços,
@@ -339,6 +516,8 @@ A integridade,
  2014).
  Apesar dos avanços no monitoramento e nas técnicas de prevenção,
  a gestão da corrosão continua sendo um dos principais problemas enfrentados pela engenharia de poços.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -347,15 +526,45 @@ No âmbito acadêmico,
  A disciplina opcional Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550) fornece os conhecimentos básicos para entender os mecanismos de corrosão e as maneiras de preveni-la com excelência.
  No entanto,
  ainda não há uma ferramenta computacional educativa relacionada a ela que permita que o estudante integre esses conhecimentos adquiridos na aula em um único ambiente de simulação para consolidar os conceitos teóricos adquiridos.
+ 
+\change_inserted 2029516212 1795808396
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795808455
+Esta necessidade de integrar conceitos também aparece no ensino.
  Sendo assim,
  falta um recurso no qual o estudante possa mudar as condições de um cenário e observar,
  de forma simulada e aplicada,
  os resultados sobre a avaliação da corrosão.
+ Este trabalho propõe reunir esses temas em um software educacional,
+ escrito em C++ com programação orientada a objetos,
+ que permita ao estudante criar um cenário de produção e observar como cada parâmetro modifica a análise de corrosão,
+ a escolha do inibidor de corrosão e sua dosagem estimada.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 2029516212 1795808451
+Sendo assim,
+ falta um recurso no qual o estudante possa mudar as condições de um cenário e observar,
+ de forma simulada e aplicada,
+ os resultados sobre a avaliação da corrosão.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 O desafio tecnológico deste projeto é transformar os conhecimentos teóricos da engenharia de corrosão em um modelo computacional organizado para a sala de aula.
- Com os dados fornecidos pelo usuário,
+ 
+\change_inserted 2029516212 1795808351
+
+\end_layout
+
+\begin_layout Standard
+Com os dados fornecidos pelo usuário,
  o programa deve verificar as informações,
  calcular a taxa de corrosão,
  identificar o tipo e a intensidade da corrosão,
@@ -378,6 +587,31 @@ name "sec:Objetivos"
 \end_inset
 
 
+\change_inserted 2029516212 1795808515
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795808528
+Veremos aqui o objetivo geral e específicos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795808542
+não pode existir seção órfã,
+ sem texto.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -391,13 +625,34 @@ name "subsec:objetivo-geral"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Criar um programa educacional para análise e escolha de inibidores de corrosão,
- empregando C++ e o modelo de programação orientado a objetos,
- que possa incorporar propriedades físico-químicas dos fluidos e condições operacionais de sistemas de extração de petróleo para avaliar a velocidade de corrosão do ambiente,
+ 
+\change_deleted 2029516212 1795808597
+empregando C++ e o modelo de programação orientado a objetos,
+ 
+\change_unchanged
+que possa incorporar propriedades físico-químicas dos fluidos e condições operacionais de sistemas de extração de petróleo para avaliar a velocidade de corrosão do ambiente,
  definir sua gravidade,
  sugerir uma categoria de inibidor apropriada ao contexto e prever uma dose caso necessário,
  exibindo os resultados de maneira numérica e visual ao usuário.
+
+\change_inserted 2029516212 1795808738
+ O software irá utilizar o paradigma de programação orientado a objetos,
+ e a linguagem de programação C++ adotados no curso,
+ isto irá viabilizar o desenvolvimento de uma segunda versão com interface gráfica escrita usando a biblioteca gráfica Qt,
+ seguindo o padrão de outros softwares educacionais já desenvolvidos e disponibilizados no site 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://github.com/ldsc"
+literal "false"
+
+\end_inset
+
+.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -417,7 +672,11 @@ Reexaminar os princípios da corrosão,
 \end_layout
 
 \begin_layout Itemize
-Identificar os requisitos do sistema e mapeá-lo em UML (casos de uso,
+Identificar os requisitos do sistema e mapeá-lo em UML (
+\change_inserted 2029516212 1795808776
+diagramas de 
+\change_unchanged
+casos de uso,
  pacotes,
  classes,
  sequência,
@@ -444,6 +703,16 @@ Validar o programa através de cenários de teste,
 \begin_layout Itemize
 Associar o uso do programa ao conteúdo da disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550),
  sugerindo cenários para aulas e exercícios.
+\change_inserted 2029516212 1795808799
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795808832
+Testar o uso do software com alunos já no ano de 2027.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -462,8 +731,28 @@ O grande diferencial do projeto está na possibilidade de reunir,
  em um único meio de ensino aplicado,
  os conteúdos de Engenharia de Petróleo,
  Engenharia de Corrosão e Computação.
- Como a corrosão não se dá por apenas uma única variável em sistema de produção,
- então a análise da corrosão em um meio de ensino se dá pela análise simultânea do pH,
+ 
+\change_inserted 2029516212 1795808884
+
+\end_layout
+
+\begin_layout Standard
+Como a corrosão 
+\change_inserted 2029516212 1795808899
+em sistema de produção 
+\change_unchanged
+não se dá por apenas uma única variável
+\change_deleted 2029516212 1795808902
+ em sistema de produção
+\change_unchanged
+,
+ 
+\change_deleted 2029516212 1795808933
+então a análise da corrosão em um meio de ensino se dá pela
+\change_inserted 2029516212 1795808941
+seu estudo inclui a
+\change_unchanged
+ análise simultânea do pH,
  concentração de CO₂ e H₂S,
  temperatura,
  pressão,
@@ -477,7 +766,21 @@ O grande diferencial do projeto está na possibilidade de reunir,
 \begin_layout Standard
 O público-alvo principal são os estudantes do curso de Engenharia de Exploração e Produção de Petróleo,
  especialmente aqueles que cursam a disciplina Fundamentos de Corrosão Aplicada à Indústria do Petróleo (LEP01550).
- O professor também pode utilizar casos já preparados em sala de aula para demonstrar como a alteração de um parâmetro altera a severidade da corrosão ou a recomendação de inibidor.
+ 
+\change_deleted 2029516212 1795808999
+O
+\change_inserted 2029516212 1795808999
+A
+\change_unchanged
+ professor
+\change_inserted 2029516212 1795809001
+a
+\change_unchanged
+ também pode
+\change_inserted 2029516212 1795809007
+rá
+\change_unchanged
+ utilizar casos já preparados em sala de aula para demonstrar como a alteração de um parâmetro altera a severidade da corrosão ou a recomendação de inibidor.
  A arquitetura orientada a objetos também possibilita a futura expansão com novos modelos de corrosão,
  novas classes de inibidores e bancos de dados de produtos.
 \end_layout
@@ -551,7 +854,6 @@ name "fig:metodologia"
 \align center
 \begin_inset Graphics
 	filename ../imagens/metodologia.png
-	lyxscale 50
 	special height=0.8\textheight
 
 \end_inset
@@ -562,7 +864,22 @@ name "fig:metodologia"
 \begin_layout Plain Layout
 \align center
 Fonte:
- Autoria própria (2026) – Criado no Software PlantUML.
+ Autoria própria (2026) – Criado no Software PlantUML
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+RETIRAR PONTOS FINAIS DE TODOS OS TITULOS
+\end_layout
+
+\begin_layout Plain Layout
+Lembre de fazer isso em todos os docs;
+ anote na lista Tarefas Finais
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -644,7 +961,11 @@ nolink "false"
 \begin_layout Standard
 Para a criação dos diagramas de linguagem de modelagem unificada (UML),
  foi-se utilizado a ferramenta PlantUML.
- Por adotar o paradigma Diagrams as Code (diagramas como código),
+ Por adotar o paradigma 
+\emph on
+Diagrams as Code 
+\emph default
+(diagramas como código),
  a ferramenta viabiliza a construção de artefatos gráficos a partir de descrições textuais estruturadas.
  Essa abordagem garantiu a padronização visual das representações conforme as especificações da UML,
  facilitou o controle dos modelos junto ao código-fonte e conferiu uma maior agilidade nas atualizações e manutenções dos diagramas ao longo dos ciclos do projeto.
@@ -664,7 +985,15 @@ name "sec:maturidade-tecnologica-e-comercial-pretendida"
 \begin_layout Standard
 Para avaliar o nível de desenvolvimento e a possibilidade de comercialização de uma inovação,
  são aplicadas medidas padronizadas de maturidade técnica e de mercado,
- com especial atenção ao Technology Readiness Level (TRL) e ao Commercial Readiness Level (CRL).
+ com especial atenção ao 
+\emph on
+Technology Readiness Level (TRL) 
+\emph default
+e ao 
+\emph on
+Commercial Readiness Level (CRL)
+\emph default
+.
  O TRL é uma escala de nove pontos,
  criada inicialmente pela NASA,
  para avaliar a maturidade de uma tecnologia,
@@ -736,7 +1065,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Níveis de Maturidade Tecnológica (Technology Readiness Levels – TRL)
+Níveis de Maturidade Tecnológica (
+\emph on
+Technology Readiness Levels – TRL
+\emph default
+)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:trl"
@@ -787,7 +1120,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Explicação Níveis de Maturidade Tecnológica (Technology Readiness Levels – TRL)
+Explicação Níveis de Maturidade Tecnológica (
+\emph on
+Technology Readiness Levels – TRL
+\emph default
+)
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:1.1"
@@ -1049,7 +1386,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Níveis de Prontidão Comercial (Commercial Readiness Level – CRL)
+Níveis de Prontidão Comercial (
+\emph on
+Commercial Readiness Level – CRL
+\emph default
+)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:crl"
@@ -1100,7 +1441,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Explicação Níveis de Prontidão Comercial (Commercial Readiness Level – CRL)
+Explicação Níveis de Prontidão Comercial (
+\emph on
+Commercial Readiness Level – CRL
+\emph default
+)
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:1.2"
@@ -1356,23 +1701,49 @@ Fonte:
 \end_layout
 
 \begin_layout Standard
-O nível de maturidade tecnológica (TRL,
- do inglês Technology Readiness Level) é alcançado entre o TRL 3 e o TRL 4.
+O nível de maturidade tecnológica (TRL
+\change_deleted 2029516212 1795813735
+,
+ do inglês Technology Readiness Level
+\change_unchanged
+) é alcançado entre o TRL 3 e o TRL 4.
  No TRL 3,
  os princípios da solução são demonstrados por meio de modelos computacionais e da primeira implementação dos algoritmos de análise de corrosão,
  classificação de severidade e seleção de inibidores.
  No TRL 4,
  a tecnologia é validada em um ambiente controlado,
  através de simulações que representam cenários fictícios da indústria de petróleo.
- Não se espera validar a tecnologia em campo real,
+ 
+\change_deleted 2029516212 1795813742
+Não se espera 
+\change_inserted 2029516212 1795813749
+O produto será 
+\change_unchanged
+valida
+\change_inserted 2029516212 1795813761
+dado em sala de aula no ano de 2027
+\change_deleted 2029516212 1795813750
+r
+\change_unchanged
+ 
+\change_deleted 2029516212 1795813767
+a tecnologia em campo real,
  uma vez que a aplicação é focada na aplicação educacional.
  No entanto,
- a arquitetura permite a evolução futura através da integração com dados reais e validação experimental.
+ a arquitetura permite a evolução futura através da integração com dados reais e validação experimental
+\change_inserted 2029516212 1795813786
+ e pretende-se produzir futuramente uma versão com interface gráfica
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
-Do ponto de vista da maturidade comercial (CRL,
- Commercial Readiness Level),
+Do ponto de vista da maturidade comercial (CRL
+\change_deleted 2029516212 1795813791
+,
+ Commercial Readiness Level
+\change_unchanged
+),
  o projeto situa-se entre o CRL 2 e o CRL 3.
  Existe uma definição conceitual da solução,
  do problema e do público-alvo,
