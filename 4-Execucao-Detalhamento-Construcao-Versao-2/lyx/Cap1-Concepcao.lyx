@@ -110,7 +110,7 @@
 \papersides 1
 \paperpagestyle fancy
 \tablestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \change_bars false
 \postpone_fragile_content false
@@ -120,6 +120,7 @@
 \docbook_table_output 0
 \docbook_mathml_prefix 1
 \docbook_mathml_version 0
+\author 2029516212 "Andr'e Duarte Bueno"
 \end_header
 
 \begin_body
@@ -184,7 +185,11 @@ name "sec:nome-sistema"
 \end_layout
 
 \begin_layout Standard
-O sistema foi denominado Software Educacional para Análise e Seleção de Inibidores de Corrosão.
+O sistema foi denominado 
+\emph on
+Software Educacional para Análise e Seleção de Inibidores de Corrosão
+\emph default
+.
  Ele foi construído com base em módulos de simulação e interface,
  dados do fluido,
  análise de corrosão,
@@ -280,6 +285,8 @@ Nome
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\emph on
 Software Educacional para Análise e Seleção de Inibidores de Corrosão
 \end_layout
 
@@ -301,11 +308,41 @@ Componentes principais
 
 \begin_layout Plain Layout
 Módulo de dados do fluido (entrada e validação);
- módulo de análise de corrosão (taxa,
+ 
+\change_inserted 2029516212 1795863080
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_deleted 2029516212 1795863082
+m
+\change_inserted 2029516212 1795863082
+M
+\change_unchanged
+ódulo de análise de corrosão (taxa,
  tipo e severidade);
- módulo de seleção de inibidores;
+ 
+\change_deleted 2029516212 1795863087
+m
+\change_inserted 2029516212 1795863088
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795863087
+M
+\change_unchanged
+ódulo de seleção de inibidores;
  módulo de cálculo de dosagem;
- módulo de simulação e interface,
+ 
+\change_deleted 2029516212 1795863092
+m
+\change_inserted 2029516212 1795863092
+M
+\change_unchanged
+ódulo de simulação e interface,
  com apresentação dos resultados e gráficos.
 \end_layout
 
@@ -346,10 +383,50 @@ Entrada de dados
 \begin_inset Text
 
 \begin_layout Plain Layout
-pH,
- concentração de CO₂ (ppm),
- concentração de H₂S (ppm),
- temperatura (°C),
+
+\change_deleted 2029516212 1795863113
+pH
+\change_inserted 2029516212 1795863113
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+,
+ concentração de 
+\change_deleted 2029516212 1795863116
+CO₂
+\change_inserted 2029516212 1795863116
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ (ppm),
+ concentração de 
+\change_deleted 2029516212 1795863120
+H₂S
+\change_inserted 2029516212 1795863120
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+ (ppm),
+ temperatura (
+\change_deleted 2029516212 1795863123
+°C
+\change_inserted 2029516212 1795863123
+
+\begin_inset Formula $°C$
+\end_inset
+
+
+\change_unchanged
+),
  pressão (psi),
  salinidade (ppm) e vazão (m
 \begin_inset Formula $^{3}$
@@ -399,6 +476,10 @@ Licença
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 2029516212 1795863151
+GPL 2.0 - 
+\change_unchanged
 Software livre.
 \end_layout
 
@@ -457,8 +538,28 @@ name "sec:especificacao"
 
 \begin_layout Standard
 Os dados de pH,
- concentração de CO₂ (ppm),
- concentração de H₂S (ppm),
+ concentração de 
+\change_deleted 2029516212 1795863196
+CO₂
+\change_inserted 2029516212 1795863196
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ (ppm),
+ concentração de 
+\change_deleted 2029516212 1795863199
+H₂S
+\change_inserted 2029516212 1795863200
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+ (ppm),
  temperatura (°C),
  pressão (psi),
  salinidade (ppm) e vazão (m
@@ -466,7 +567,25 @@ Os dados de pH,
 \end_inset
 
 /dia) são fornecidos pelo usuário como parâmetros referentes ao cenário de produção do fluido e ao poço.
- Os dados são validados pelo software que executa,
+ Os dados são validados pelo software que executa
+\change_inserted 2029516212 1795863233
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795863241
+informe o tipo de validação
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+,
  logo em seguida,
  a análise das condições de corrosão,
  a seleção da classe de inibidor,
@@ -476,8 +595,35 @@ Os dados de pH,
  taxa de corrosão,
  classe de inibidor recomendada e dosagem estimada,
  além de gráficos para a análise.
- A cadeia de processamento que foi adotada pode ser resumida em:
+ 
+\change_inserted 2029516212 1795863268
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 2029516212 1795863283
+A cadeia de processamento que foi adotada pode ser resumida em:
  condições do sistema → análise da corrosividade → classificação da severidade → seleção do inibidor → estimativa da dosagem → visualização dos resultados.
+\change_inserted 2029516212 1795863287
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795863309
+coloque isso depois;
+ na especificação não colocamos decisões de como ficará
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -506,6 +652,24 @@ name "sec:Requisitos"
 \begin_layout Standard
 Apresentam-se nesta seção os requisitos funcionais e não funcionais do sistema,
  bem como a delimitação do projeto.
+\change_inserted 2029516212 1795863326
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795863354
+coloque um parágrafo diferenciando os dois tipos de requisitos para que membros da banca saibam a diferença
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -572,7 +736,7 @@ name "tab:2.2"
 <column alignment="center" valignment="top" width="1.6cm">
 <column alignment="block" valignment="top" width="10.8cm">
 <column alignment="center" valignment="top" width="1.6cm">
-<column alignment="center" valignment="top" width="1.6cm">
+<column alignment="center" valignment="top" width="2.1cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -1359,6 +1523,16 @@ Não fazem parte do âmbito deste projeto,
  fendas e fendas devido a tensão) e a pesquisa em arquivos de dados comerciais de inibidores.
  O modelo mostra a corrosão de maneira simples e experimental,
  ideal para o uso educacional na sala de aula para entendimento de cenários práticos baseados na literatura.
+\change_inserted 2029516212 1795863878
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795863904
+Versões posteriores a serem desenvolvidas por outras equipes devem considerar a adição destas funcionalidades.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -1478,7 +1652,6 @@ name "fig:uc-geral"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/uc_geral_a.png
-	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -1490,7 +1663,6 @@ name "fig:uc-geral"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/uc_geral_b.png
-	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -1662,6 +1834,7 @@ Fluxo principal
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 5.
  O sistema seleciona a classe de inibidor recomendada.
 \end_layout
@@ -1777,14 +1950,58 @@ nolink "false"
 \end_inset
 
 ).
- A primeira consiste nas condições de operação:
+
+\change_deleted 2029516212 1795864594
+ 
+\change_inserted 2029516212 1795864591
+
+\end_layout
+
+\begin_layout Itemize
+A primeira consiste nas condições de operação:
  profundidade,
  vazão,
  pressão e temperatura.
- A segunda é composta pelas propriedades do fluido:
+ 
+\change_inserted 2029516212 1795864597
+
+\end_layout
+
+\begin_layout Itemize
+A segunda é composta pelas propriedades do fluido:
  salinidade,
- quantidade de H₂S,
- concentração de CO₂ e pH.
+ quantidade de 
+\change_deleted 2029516212 1795864604
+H₂S
+\change_inserted 2029516212 1795864604
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+,
+ concentração de 
+\change_deleted 2029516212 1795864607
+CO₂
+\change_inserted 2029516212 1795864607
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795864609
+pH
+\change_inserted 2029516212 1795864609
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -1837,7 +2054,6 @@ name "fig:uc01"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/uc01_definicao_cenario.png
-	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -1929,6 +2145,7 @@ Nome
 \begin_inset Text
 
 \begin_layout Plain Layout
+\align left
 Caso de uso específico UC-01 – Definição do cenário
 \end_layout
 
@@ -1949,6 +2166,7 @@ Ator
 \begin_inset Text
 
 \begin_layout Plain Layout
+\align left
 Usuário.
 \end_layout
 
@@ -1969,7 +2187,28 @@ Pré-condições
 \begin_inset Text
 
 \begin_layout Plain Layout
-O software deve estar iniciado e disponível para utilização.
+\align left
+
+\change_inserted 2029516212 1795864773
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795864822
+isto é óbvio;
+ coloque demandas iniciais para que o caso de uso seja utilizado
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 2029516212 1795864771
+O software deve estar iniciado e disponível para utilização
+\change_unchanged
+.
 \end_layout
 
 \end_inset
@@ -1989,16 +2228,19 @@ Fluxo principal
 \begin_inset Text
 
 \begin_layout Plain Layout
+\align left
 1.
  O usuário inicia a definição do cenário.
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 2.
  O usuário seleciona a opção de configuração dos parâmetros.
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 3.
  O usuário informa a profundidade,
  a vazão,
@@ -2006,14 +2248,46 @@ Fluxo principal
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 4.
  O usuário informa as propriedades do fluido:
  salinidade,
- concentração de H₂S,
- concentração de CO₂ e pH.
+ concentração de 
+\change_deleted 2029516212 1795864835
+H₂S
+\change_inserted 2029516212 1795864835
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+,
+ concentração de 
+\change_deleted 2029516212 1795864838
+CO₂
+\change_inserted 2029516212 1795864838
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795864840
+pH
+\change_inserted 2029516212 1795864840
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 5.
  O sistema reúne os dados informados para a análise de corrosão.
 \end_layout
@@ -2035,12 +2309,14 @@ Fluxos alternativos
 \begin_inset Text
 
 \begin_layout Plain Layout
+\align left
 1a.
  Caso algum parâmetro obrigatório não seja informado,
  o sistema apenas prosseguirá após o preenchimento.
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 1b.
  Caso sejam identificados valores inconsistentes,
  o sistema aguarda a correção dos dados e não prossegue.
@@ -2063,6 +2339,7 @@ Pós-condições
 \begin_inset Text
 
 \begin_layout Plain Layout
+\align left
 O cenário fica definido com os parâmetros operacionais e as propriedades do fluido informados,
  ficando disponível para validação e análise.
 \end_layout
@@ -2171,7 +2448,6 @@ name "fig:uc02"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/uc02_analise_selecao.png
-	lyxscale 50
 	special height=0.8\textheight
 
 \end_inset
@@ -2540,7 +2816,6 @@ name "fig:uc03"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/uc03_dosagem.png
-	lyxscale 50
 	width 90text%
 
 \end_inset
@@ -2695,37 +2970,85 @@ Fluxo principal
 \begin_layout Plain Layout
 1.
  O usuário inicia o cálculo da dosagem.
- 2.
+ 
+\change_inserted 2029516212 1795865557
+
+\end_layout
+
+\begin_layout Plain Layout
+2.
  O sistema recupera os parâmetros necessários ao cálculo.
- 3.
+ 
+\change_inserted 2029516212 1795865560
+
+\end_layout
+
+\begin_layout Plain Layout
+3.
  O sistema determina ou obtém o fator de vazão (
 \begin_inset Formula $F_{q}$
 \end_inset
 
 ).
- 4.
+ 
+\change_inserted 2029516212 1795865561
+
+\end_layout
+
+\begin_layout Plain Layout
+4.
  O sistema determina ou obtém o fator de corrosividade (
 \begin_inset Formula $F_{c}$
 \end_inset
 
 ).
- 5.
+ 
+\change_inserted 2029516212 1795865564
+
+\end_layout
+
+\begin_layout Plain Layout
+5.
  O sistema determina ou obtém o fator de temperatura (
 \begin_inset Formula $F_{T}$
 \end_inset
 
 ).
- 6.
+ 
+\change_inserted 2029516212 1795865565
+
+\end_layout
+
+\begin_layout Plain Layout
+6.
  O sistema determina ou obtém o fator de severidade (
 \begin_inset Formula $F_{s}$
 \end_inset
 
 ).
- 7.
+ 
+\change_inserted 2029516212 1795865566
+
+\end_layout
+
+\begin_layout Plain Layout
+7.
  O sistema obtém a eficiência do inibidor (η).
- 8.
+ 
+\change_inserted 2029516212 1795865568
+
+\end_layout
+
+\begin_layout Plain Layout
+8.
  O sistema aplica a equação de dosagem definida no projeto.
- 9.
+ 
+\change_inserted 2029516212 1795865570
+
+\end_layout
+
+\begin_layout Plain Layout
+9.
  O sistema determina a dosagem final estimada,
  expressa em ppm.
 \end_layout
@@ -2899,7 +3222,6 @@ name "fig:uc04"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/uc04_resultados.png
-	lyxscale 50
 	width 90text%
 
 \end_inset
