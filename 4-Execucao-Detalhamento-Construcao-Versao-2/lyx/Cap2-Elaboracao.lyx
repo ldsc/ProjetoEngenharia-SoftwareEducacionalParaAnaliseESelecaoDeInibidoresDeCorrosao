@@ -110,7 +110,7 @@
 \papersides 1
 \paperpagestyle fancy
 \tablestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \change_bars false
 \postpone_fragile_content false
@@ -120,6 +120,7 @@
 \docbook_table_output 0
 \docbook_mathml_prefix 1
 \docbook_mathml_version 0
+\author 2029516212 "Andr'e Duarte Bueno"
 \end_header
 
 \begin_body
@@ -170,8 +171,16 @@ name "chap:Elaboracao"
 Após a definição dos objetivos,
  da especificação e dos casos de uso apresentados no capítulo anterior,
  inicia-se a etapa de elaboração do projeto de engenharia.
- Esta etapa aprofunda a compreensão do problema,
- estabelece os fundamentos teóricos necessários à sua solução e organiza o sistema em pacotes,
+ Esta etapa aprofunda a compreensão do problema
+\change_inserted 2029516212 1795870718
+ de engenharia
+\change_unchanged
+,
+ estabelece os fundamentos teóricos necessários à sua solução e organiza o sistema 
+\change_inserted 2029516212 1795870732
+de software 
+\change_unchanged
+em pacotes,
  de modo a ligar o conhecimento de engenharia de corrosão à implementação orientada a objetos em C++.
 \end_layout
 
@@ -223,24 +232,102 @@ A corrosão é a degradação gradual dos materiais,
  hidróxidos ou sais.
  Na indústria de óleo e gás,
  esse fenômeno é aumentado pela umidade,
- pelos gases reativos (presença de CO₂ e H₂S) e pelas variações de pressão,
+ pelos gases reativos (presença de 
+\change_deleted 2029516212 1795870783
+CO₂
+\change_inserted 2029516212 1795870783
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795870786
+H₂S
+\change_inserted 2029516212 1795870786
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+) e pelas variações de pressão,
  temperatura e potencial eletroquímico.
 \end_layout
 
 \begin_layout Standard
 Nunes (2007) afirma que os mecanismos podem ser classificados em eletroquímicos e químicos.
- A corrosão eletroquímica é a forma mais comum de corrosão e depende da presença de um eletrólito,
+ 
+\change_inserted 2029516212 1795871335
+
+\end_layout
+
+\begin_layout Itemize
+A corrosão eletroquímica é a forma mais comum de corrosão e depende da presença de um eletrólito,
  geralmente água líquida,
  que favorece a formação de células de corrosão.
- Uma célula de corrosão necessita de quatro componentes:
- uma região anódica (onde ocorre a oxidação e dissolução do metal),
- uma região catódica (onde ocorrem as reações de redução),
- um eletrólito (que permite a condução iônica) e uma conexão elétrica entre ânodo e cátodo (que permite o fluxo de elétrons).
- A corrosão química,
+
+\change_deleted 2029516212 1795871339
+ 
+\change_unchanged
+Uma célula de corrosão necessita de quatro componentes:
+ 
+\change_deleted 2029516212 1795871349
+uma 
+\change_inserted 2029516212 1795871281
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+região anódica (onde ocorre a oxidação e dissolução do metal),
+ 
+\change_inserted 2029516212 1795871291
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 2029516212 1795871289
+uma 
+\change_unchanged
+região catódica (onde ocorrem as reações de redução),
+ 
+\change_inserted 2029516212 1795871298
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted 2029516212 1795871297
+um
+\change_unchanged
+ eletrólito (que permite a condução iônica) 
+\change_inserted 2029516212 1795871304
+
+\end_layout
+
+\begin_layout Itemize
+e uma conexão elétrica entre ânodo e cátodo (que permite o fluxo de elétrons).
+ 
+\change_inserted 2029516212 1795871310
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A corrosão química,
  por sua vez,
  acontece na falta de água líquida,
  por meio de uma reação direta entre o metal e o meio.
- No caso do ferro,
+ 
+\change_inserted 2029516212 1795871368
+
+\end_layout
+
+\begin_layout Standard
+No caso do ferro,
  a reação anódica e as reações catódicas mais comuns em meio aquoso são:
 \end_layout
 
@@ -284,13 +371,75 @@ Segundo Gentil (1996),
  servem de barreira de proteção e,
  quando porosos,
  podem incrementar o ataque.
- A corrosão pode ser uniforme,
+ 
+\change_inserted 2029516212 1795871415
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795871447
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795871581
+se estas classificações (uniforme...) serão usadas no software ou resultados,
+ coloque como itens (alt-p-i ;
+ alt-p para informar que vai manuipular paragrafo e i para itemizer)
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+A corrosão pode ser uniforme,
  em que o ataque se dá de forma homogênea,
  ou localizada,
  em que a corrosão se concentra em regiões determinadas,
- como é o caso dos pites.
+ como é o caso dos pites
+\change_inserted 2029516212 1795871595
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795871607
+coloque nota de rodapé explicando o que é um pites
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  Essa diferença é relevante para o software educacional desenvolvido,
  uma vez que o modelo adotado estima uma taxa de corrosão generalizada e não o mecanismo localizado.
+\change_inserted 2029516212 1795871639
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795871686
+coloque a sugestão em trabalhos futuros;
+ tudo que for bacana e não fez vai para trabalhos futuros
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -313,6 +462,16 @@ A corrosão pode ser afetada e aumentada por vários motivos.
  calor e fluxo,
  conforme Groysman (2017).
  Os principais fatores e variáveis levados em conta neste trabalho estão descritos a seguir.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 2029516212 1795872339
+Dióxido de carbono (
+\begin_inset Formula $CO₂$
+\end_inset
+
+) 
 \end_layout
 
 \begin_layout Standard
@@ -348,59 +507,274 @@ O dióxido de carbono (CO₂),
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795872343
+Sulfeto de hidrogênio (
+\begin_inset Formula $H₂S$
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_deleted 2029516212 1795872352
 Por sua vez,
- o sulfeto de hidrogênio (H₂S),
+ o
+\change_inserted 2029516212 1795872352
+O
+\change_unchanged
+ sulfeto de hidrogênio (H₂S),
  que também é chamado de ácido sulfídrico,
  quando se encontra em meio aquoso,
- se ioniza em HS
+ se ioniza em 
+\change_deleted 2029516212 1795872358
+HS
 \begin_inset Formula $^{-}$
 \end_inset
 
- e S
+
+\change_inserted 2029516212 1795872358
+
+\begin_inset Formula $HS^{-}$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795872362
+S
 \begin_inset Formula $^{2-}$
 \end_inset
 
+
+\change_inserted 2029516212 1795872362
+
+\begin_inset Formula $S^{2-}$
+\end_inset
+
+
+\change_unchanged
 ,
- que vão reagir com o ferro e vão formar sulfetos de ferro na superfície.
+ que vão reagir com o ferro e 
+\change_deleted 2029516212 1795872369
+vão
+\change_unchanged
+ formar sulfetos de ferro na superfície.
  O filme resultante pode ser protetor ou não.
- O H₂S,
+ O 
+\change_deleted 2029516212 1795872381
+H₂S
+\change_inserted 2029516212 1795872381
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+,
  ainda,
- dificulta a recombinação do hidrogênio atômico em H₂,
+ dificulta a recombinação do hidrogênio atômico em 
+\change_deleted 2029516212 1795872387
+H₂
+\change_inserted 2029516212 1795872387
+
+\begin_inset Formula $H₂$
+\end_inset
+
+
+\change_unchanged
+,
  o que facilita a difusão para a rede metálica,
  reduzindo a tenacidade do aço e podendo induzir trincas por hidrogênio.
- Esse meio é chamado de ácido (sour) e requer uma proteção especial.
+ Esse meio é chamado de ácido (
+\emph on
+sour
+\emph default
+) e requer uma proteção especial.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795872422
+Íons cloreto
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 Os íons cloreto quebram os filmes protetores e favorecem a corrosão localizada.
  A elevada salinidade também aumenta a condutividade do eletrólito,
  o que favorece a corrosão eletroquímica,
  conforme Bahadori (2014).
+\change_inserted 2029516212 1795872429
+
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795872439
+Potencial hidrogeniônico (pH)
+\change_unchanged
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 O pH,
  potencial hidrogeniônico,
  é o que indica se uma solução aquosa está ácida,
  neutra ou básica,
- em uma escala de 0 a 14,
- onde os valores abaixo de 7 representam meios ácidos,
- o valor 7 é neutro e os valores acima de 7 são meios básicos.
+ em uma escala de 
+\change_deleted 2029516212 1795872458
+0
+\change_inserted 2029516212 1795872458
+
+\begin_inset Formula $0$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795872460
+14
+\change_inserted 2029516212 1795872460
+
+\begin_inset Formula $14$
+\end_inset
+
+
+\change_unchanged
+,
+ onde os valores abaixo de 
+\change_deleted 2029516212 1795872463
+7
+\change_inserted 2029516212 1795872463
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+ representam meios ácidos,
+ o valor 
+\change_deleted 2029516212 1795872468
+7
+\change_inserted 2029516212 1795872468
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+ é neutro e os valores acima de 
+\change_deleted 2029516212 1795872473
+7
+\change_inserted 2029516212 1795872473
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+ são meios básicos.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795872488
+Temperatura e pressão
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
 A temperatura e a pressão também têm muita influência na corrosão,
  o aumento da temperatura acelera a velocidade das reações,
  enquanto a pressão aumenta a solubilidade dos gases agressivos na fase líquida.
- Os regimes de escoamento turbulentos podem retirar os filmes de FeCO₃ e FeS e produzir corrosão-erosão (GROYSMAN,
+
+\change_deleted 2029516212 1795872521
+ 
+\change_inserted 2029516212 1795872510
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795872635
+Vazão
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 2029516212 1795872654
+A vazão influencia tanto a corrosão quanto a eficácia do inibidor,
+ que depende da presença de um filme na superfície.
+\change_unchanged
+Os regimes de escoamento turbulentos podem retirar os filmes de 
+\change_deleted 2029516212 1795872541
+FeCO₃
+\change_inserted 2029516212 1795872634
+
+\begin_inset Formula $FeCO₃$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795872543
+FeS
+\change_inserted 2029516212 1795872634
+
+\begin_inset Formula $FeS$
+\end_inset
+
+
+\change_unchanged
+ e produzir corrosão-erosão (GROYSMAN,
  2017).
+
+\change_deleted 2029516212 1795872651
  A vazão,
  portanto,
  influencia tanto a corrosão quanto a eficácia do inibidor,
  que depende da presença de um filme na superfície.
+\change_inserted 2029516212 1795872634
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795872617
+vazão também acontece em regime laminar;
+ releia o parágrafo,
+ o 
+\begin_inset Quotes eld
+\end_inset
+
+portanto
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 Todos esses efeitos se manifestam de formas diferentes nos equipamentos.
  Nos dutos,
@@ -413,11 +787,49 @@ Todos esses efeitos se manifestam de formas diferentes nos equipamentos.
  além da corrosão interna,
  ocorre também a corrosão externa em ambiente marinho (GROYSMAN,
  2017).
+\change_inserted 2029516212 1795872686
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795872730
+inclua abaixo imagem mostrando estes equipamentos;
+ pode ser para a apresentação e depois da banca
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 Para facilitar,
  o software educacional não diferenciará os equipamentos e a análise será baseada no aço carbono em contato com o fluido do cenário informado.
+\change_inserted 2029516212 1795872747
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795872767
+Coloque em trabalhos futuros;
+ diferentes materiais e diferentes equipamentos
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -434,26 +846,129 @@ name "subsec:metodos-de-controle-e-mitigacao"
 \begin_layout Standard
 A corrosão não é eliminável,
  mas pode ser controlada.
- Os métodos mais usados na indústria são a seleção de materiais e revestimentos,
- a proteção catódica e o uso de inibidores químicos que devem ser considerados complementares (POPOOLA et al.,
+ Os métodos mais usados na indústria são
+\change_inserted 2029516212 1795873036
+:
+
+\change_unchanged
+ 
+\change_inserted 2029516212 1795873051
+i) 
+\change_unchanged
+a seleção de materiais e revestimentos,
+ 
+\change_inserted 2029516212 1795873059
+ii) 
+\change_unchanged
+a proteção catódica e o 
+\change_inserted 2029516212 1795873067
+iii) 
+\change_unchanged
+uso de inibidores químicos que devem ser considerados complementares (POPOOLA et al.,
  2013).
- Os revestimentos servem de barreira física entre o metal e o meio,
+ 
+\change_inserted 2029516212 1795872929
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795873154
+textos corridos são mais fáceis de ler e mais fluidos;
+ mas este também é um problema,
+ lê-se rápido e nem sempre pontuamos os itens;
+ o uso de itemizações faz com que o cérebro pare,
+ leia o item e pense nele isoladamente;
+ a frase acima conecta eles;
+ em textos técnicos prefiro sentenças por ordenar as coisas
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Os 
+\emph on
+revestimentos
+\emph default
+ servem de barreira física entre o metal e o meio,
  e a escolha do material a ser usado (aços carbono,
  aços inoxidáveis martensíticos,
  ligas de níquel e titânio) deve levar em consideração a composição do fluido,
  a pressão e a temperatura.
- A proteção catódica transforma toda a superfície metálica em cátodo,
+
+\change_deleted 2029516212 1795872862
+ 
+\change_inserted 2029516212 1795872836
+
+\end_layout
+
+\begin_layout Itemize
+A 
+\emph on
+proteção catódica 
+\emph default
+transforma toda a superfície metálica em cátodo,
  seja por ânodos de sacrifício,
  tais como zinco,
  alumínio ou magnésio,
  ou por corrente impressa.
- Segundo Ahmed,
+
+\change_deleted 2029516212 1795872862
+ 
+\change_inserted 2029516212 1795872850
+
+\end_layout
+
+\begin_layout Itemize
+Segundo Ahmed,
  Liu e Liu (2025),
  em situações de poços profundos,
  de alta temperatura e pressão,
- a combinação de inibidores químicos,
+ a combinação de 
+\emph on
+inibidores químicos
+\emph default
+,
  revestimentos e ligas adequadas é a estratégia mais discutida,
  e cada uma delas apresenta vantagens e limitações próprias.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795873224
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795873262
+acima tem:
+ revestimentos/catodos/inibidores;
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795873267
+e abaixo só vai ter a seção para inibidor?
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795873264
+coloque aqui um parágrafo justificando
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -473,10 +988,39 @@ Os inibidores de corrosão são os compostos químicos que contribuem para dimin
  2017).
  A sua atuação consiste essencialmente na adsorção do composto inibidor sobre a superfície do metal,
  que cria uma película de proteção que impede o transporte das espécies agressivas.
- De acordo com a reação afetada,
- os inibidores podem ser classificados em anódicos,
- catódicos ou mistos.
- A adsorção pode ocorrer fisicamente (fisissorção),
+ 
+\change_inserted 2029516212 1795873478
+
+\end_layout
+
+\begin_layout Standard
+De acordo com a reação afetada,
+ os inibidores podem ser classificados em
+\change_inserted 2029516212 1795873486
+:
+
+\change_unchanged
+ 
+\change_inserted 2029516212 1795873488
+i) 
+\change_unchanged
+anódicos,
+ 
+\change_inserted 2029516212 1795873491
+ii) 
+\change_unchanged
+catódicos ou 
+\change_inserted 2029516212 1795873494
+iii) 
+\change_unchanged
+mistos.
+ 
+\change_inserted 2029516212 1795873501
+
+\end_layout
+
+\begin_layout Standard
+A adsorção pode ocorrer fisicamente (fisissorção),
  por meio das forças de Van der Waals,
  ou quimicamente (quimissorção),
  através de ligações que se formam com o metal.
@@ -493,13 +1037,25 @@ Os inibidores orgânicos são os mais empregados na produção de petróleo.
  se adsorvem bem no ferro e formam filmes hidrofóbicos que repelem a água ou a solução aquosa (FINŠGAR;
  JACKSON,
  2014).
- Os inibidores inorgânicos,
+ 
+\change_inserted 2029516212 1795873536
+
+\end_layout
+
+\begin_layout Standard
+Os inibidores inorgânicos,
  como cromatos,
  fosfatos e molibdatos,
  funcionam pela passivação,
  porém,
  são de uso limitado devido à sua toxicidade.
- Mais recentemente,
+ 
+\change_inserted 2029516212 1795873548
+
+\end_layout
+
+\begin_layout Standard
+Mais recentemente,
  os inibidores de origem renovável e biodegradável ganharam grande importância,
  pois podem chegar a boas eficiências com menor impacto ambiental.
  Kumar et al.
@@ -508,7 +1064,15 @@ Os inibidores orgânicos são os mais empregados na produção de petróleo.
  os aminoácidos,
  os biopolímeros e os extratos de plantas,
  cujo desempenho depende do mecanismo de adsorção na superfície metálica e das condições de seu meio.
- Como o software não avalia produtos comerciais,
+ 
+\change_inserted 2029516212 1795873575
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 2029516212 1795873592
+Como o software não avalia produtos comerciais,
  ele trabalha com as classes de inibidores que representam o mecanismo de atuação predominante.
 \end_layout
 
@@ -559,7 +1123,6 @@ name "fig:tipos-inibidores"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/tipos_inibidores.png
-	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -582,12 +1145,42 @@ Fonte:
 A aplicação,
  portanto,
  varia de acordo com a fase de operação.
- Em fluidos de perfuração e completação,
+ 
+\change_inserted 2029516212 1795873665
+
+\end_layout
+
+\begin_layout Itemize
+Em 
+\emph on
+fluidos de perfuração 
+\emph default
+e completação,
  os inibidores devem apresentar compatibilidade com sais e outros aditivos químicos.
- Na estimulação ácida,
+ 
+\change_inserted 2029516212 1795873669
+
+\end_layout
+
+\begin_layout Itemize
+Na 
+\emph on
+estimulação ácida
+\emph default
+,
  em presença de HCl,
  os inibidores são necessários para reduzir a solubilização do aço até mesmo quando a temperatura excede 120 °C.
- Nas linhas de produção e transporte,
+ 
+\change_inserted 2029516212 1795873672
+
+\end_layout
+
+\begin_layout Itemize
+Nas 
+\emph on
+linhas de produção e transporte
+\emph default
+,
  os inibidores podem ser introduzidos de maneira contínua ou intermitente e sua seleção deve levar em conta a compatibilidade com o fluido,
  o tipo de fluxo e o custo de novas aplicações.
 \end_layout
@@ -597,6 +1190,15 @@ Dentre as principais restrições práticas avaliadas nestas condições,
  destacam-se a estabilidade térmica,
  a reação com outros aditivos e a variação entre o desempenho no laboratório e o desempenho no campo,
  o que indica que os resultados obtidos por este software devem ser considerados como estimativas.
+\change_inserted 2029516212 1795873634
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 2029516212 1795873740
+Nesta primeira versão o software não avaliará produtos comerciais,
+ trabalhará com as classes de inibidores que representam o mecanismo de atuação predominante.
 \end_layout
 
 \begin_layout Section
@@ -663,10 +1265,10 @@ name "tab:3.1"
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="4">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="1.8cm">
+<column alignment="center" valignment="top" width="2.5cm">
 <column alignment="center" valignment="top" width="1.8cm">
 <column alignment="center" valignment="top" width="2.7cm">
-<column alignment="block" valignment="top" width="9.3cm">
+<column alignment="block" valignment="top" width="7cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -718,7 +1320,17 @@ Influência principal
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874205
 pH
+\change_inserted 2029516212 1795874205
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -736,7 +1348,17 @@ pH
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874216
 3 – 7
+\change_inserted 2029516212 1795874216
+
+\begin_inset Formula $3–7$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -758,7 +1380,17 @@ Acidez do meio;
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874208
 CO₂
+\change_inserted 2029516212 1795874208
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -776,7 +1408,17 @@ ppm
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874218
 0 – 100+
+\change_inserted 2029516212 1795874218
+
+\begin_inset Formula $0–100+$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -796,7 +1438,17 @@ Formação de ácido carbônico (corrosão doce)
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874211
 H₂S
+\change_inserted 2029516212 1795874211
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -814,7 +1466,17 @@ ppm
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874222
 0 – 50+
+\change_inserted 2029516212 1795874222
+
+\begin_inset Formula $0–50+$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -852,7 +1514,17 @@ Temperatura
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874225
 20 – 150
+\change_inserted 2029516212 1795874225
+
+\begin_inset Formula $20–150$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -890,7 +1562,17 @@ psi
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874228
 1000 – 10000
+\change_inserted 2029516212 1795874228
+
+\begin_inset Formula $1000–10000$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -928,7 +1610,17 @@ ppm
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874231
 0 – 200000
+\change_inserted 2029516212 1795874231
+
+\begin_inset Formula $0–200000$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -970,7 +1662,17 @@ m
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874235
 100 – 10000
+\change_inserted 2029516212 1795874235
+
+\begin_inset Formula $100–10000$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1016,7 +1718,27 @@ nolink "false"
 \end_inset
 
  são valores típicos de referência e não limites de validação:
- o programa rejeita apenas valores fisicamente impossíveis (como detalhado na Seção 
+ o 
+\change_deleted 2029516212 1795873905
+programa
+\change_inserted 2029516212 1795873909
+software
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795873921
+troque programa por software
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ rejeita apenas valores fisicamente impossíveis (como detalhado na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:ciclo-1-propriedades-do-fluido"
@@ -1030,49 +1752,565 @@ nolink "false"
 ),
  permitindo que o estudante explore condições fora delas.
  Estes valores foram determinados com base na literatura de corrosão em óleo e gás.
- O pH de 3 a 7 compreende a água saturada de CO₂ com pH em torno de 4 e as salmouras tamponadas,
- entre 5 e 7 (NEŠIĆ,
+ O 
+\change_deleted 2029516212 1795873973
+pH
+\change_inserted 2029516212 1795873973
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ de 
+\change_deleted 2029516212 1795873975
+3
+\change_inserted 2029516212 1795873975
+
+\begin_inset Formula $3$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795873977
+7
+\change_inserted 2029516212 1795873977
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+ compreende a água saturada de 
+\change_deleted 2029516212 1795873980
+CO₂
+\change_inserted 2029516212 1795873980
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ com 
+\change_deleted 2029516212 1795873982
+pH
+\change_inserted 2029516212 1795873982
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ em torno de 
+\change_deleted 2029516212 1795873984
+4
+\change_inserted 2029516212 1795873984
+
+\begin_inset Formula $4$
+\end_inset
+
+
+\change_unchanged
+ e as salmouras tamponadas,
+ entre 
+\change_deleted 2029516212 1795873986
+5
+\change_inserted 2029516212 1795873986
+
+\begin_inset Formula $5$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795873988
+7
+\change_inserted 2029516212 1795873988
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+ (NEŠIĆ,
  2007);
- em água produzida offshore foram medidos valores de 4,2 a 6,8 (EMAM;
+ em água produzida 
+\emph on
+offshore
+\emph default
+ foram medidos valores de 
+\change_deleted 2029516212 1795873994
+4,2
+\change_inserted 2029516212 1795873994
+
+\begin_inset Formula $4,2$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795873996
+6,8
+\change_inserted 2029516212 1795873996
+
+\begin_inset Formula $6,8$
+\end_inset
+
+
+\change_unchanged
+ (EMAM;
  MOAWAD;
  ABOUL-GHEIT,
  2014).
- A temperatura de 20 a 150 °C inclui as condições dos ensaios de corrosão por CO₂ com pico entre 60 e 80 °C (NEŠIĆ,
- 2007) e termina em 150 °C,
+ A temperatura de 
+\change_deleted 2029516212 1795874001
+20
+\change_inserted 2029516212 1795874001
+
+\begin_inset Formula $20$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874005
+150 °C
+\change_inserted 2029516212 1795874005
+
+\begin_inset Formula $150°C$
+\end_inset
+
+
+\change_unchanged
+ inclui as condições dos ensaios de corrosão por 
+\change_deleted 2029516212 1795874011
+CO₂
+\change_inserted 2029516212 1795874011
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ com pico entre 
+\change_deleted 2029516212 1795874013
+60
+\change_inserted 2029516212 1795874013
+
+\begin_inset Formula $60$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795874016
+80 °C
+\change_inserted 2029516212 1795874016
+
+\begin_inset Formula $80°C$
+\end_inset
+
+
+\change_unchanged
+ (NEŠIĆ,
+ 2007) e termina em 
+\change_deleted 2029516212 1795874020
+150 °C
+\change_inserted 2029516212 1795874020
+
+\begin_inset Formula $150°C$
+\end_inset
+
+
+\change_unchanged
+,
  acima do qual os inibidores orgânicos geralmente não são recomendados (SMITH,
  1999).
- A salinidade de até 200.000 ppm cobre águas produzidas com 196 a 264 g/L de sólidos dissolvidos (EMAM;
+ A salinidade de até 
+\change_deleted 2029516212 1795874048
+200.000 ppm
+\change_inserted 2029516212 1795874048
+
+\begin_inset Formula $200.000ppm$
+\end_inset
+
+
+\change_unchanged
+ cobre águas produzidas com 
+\change_deleted 2029516212 1795874051
+196
+\change_inserted 2029516212 1795874051
+
+\begin_inset Formula $196$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874054
+264 g/L
+\change_inserted 2029516212 1795874054
+
+\begin_inset Formula $264g/L$
+\end_inset
+
+
+\change_unchanged
+ de sólidos dissolvidos (EMAM;
  MOAWAD;
  ABOUL-GHEIT,
  2014),
- embora a mediana de 50 estudos seja de 28 g/L (CAMARILLO;
+ embora a mediana de 
+\change_deleted 2029516212 1795874058
+50
+\change_inserted 2029516212 1795874058
+
+\begin_inset Formula $50$
+\end_inset
+
+
+\change_unchanged
+ estudos seja de 
+\change_deleted 2029516212 1795874062
+28 g/L
+\change_inserted 2029516212 1795874062
+
+\begin_inset Formula $28g/L$
+\end_inset
+
+
+\change_unchanged
+ (CAMARILLO;
  STRINGFELLOW,
  2018).
- A pressão de 1.000 a 10.000 psi (cerca de 7 a 69 MPa) é compatível com pressões na cabeça do poço que superam 10 MPa (WANG;
+ A pressão de 
+\change_deleted 2029516212 1795874066
+1.000
+\change_inserted 2029516212 1795874066
+
+\begin_inset Formula $1.000$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874073
+10.000 psi
+\change_inserted 2029516212 1795874073
+
+\begin_inset Formula $10.000psi$
+\end_inset
+
+
+\change_unchanged
+ (cerca de 
+\change_deleted 2029516212 1795874075
+7
+\change_inserted 2029516212 1795874075
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874077
+69
+\change_inserted 2029516212 1795874077
+
+\begin_inset Formula $69$
+\end_inset
+
+
+\change_unchanged
+ MPa) é compatível com pressões na cabeça do poço que superam 
+\change_deleted 2029516212 1795874084
+10 MPa
+\change_inserted 2029516212 1795874084
+
+\begin_inset Formula $10MPa$
+\end_inset
+
+
+\change_unchanged
+ (WANG;
  SONG;
  ZHANG,
- 2019) e com pressões de fundo de 6.400 a 17.500 psi (SMITH,
+ 2019) e com pressões de fundo de 
+\change_deleted 2029516212 1795874089
+6.400
+\change_inserted 2029516212 1795874089
+
+\begin_inset Formula $6.400$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874093
+17.500 psi
+\change_inserted 2029516212 1795874093
+
+\begin_inset Formula $17.500psi$
+\end_inset
+
+
+\change_unchanged
+ (SMITH,
  1999),
  sem pretender cobrir os poços de alta pressão e alta temperatura,
- definidos acima de 500 bar.
+ definidos acima de 
+\change_deleted 2029516212 1795874097
+500 bar
+\change_inserted 2029516212 1795874097
+
+\begin_inset Formula $500bar$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
-O CO₂ e o H₂S são informados em ppm,
+O 
+\change_deleted 2029516212 1795874101
+CO₂
+\change_inserted 2029516212 1795874101
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ e o 
+\change_deleted 2029516212 1795874104
+H₂S
+\change_inserted 2029516212 1795874104
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+ são informados em ppm,
  em escala relativa ao cenário simulado,
- pois nos campos o CO₂ é reportado em porcentagem do gás,
- de 2 a 15% (SMITH,
- 1999) e de 8 a 25% no campo de Lula (BRASIL,
+ pois nos campos o 
+\change_deleted 2029516212 1795874108
+CO₂
+\change_inserted 2029516212 1795874108
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ é reportado em porcentagem do gás,
+ de 
+\change_deleted 2029516212 1795874112
+2
+\change_inserted 2029516212 1795874112
+
+\begin_inset Formula $2$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874115
+15%
+\change_inserted 2029516212 1795874115
+
+\begin_inset Formula $15%\ensuremath{}
+$
+\end_inset
+
+
+\change_unchanged
+ (SMITH,
+ 1999) e de 
+\change_deleted 2029516212 1795874119
+8
+\change_inserted 2029516212 1795874119
+
+\begin_inset Formula $8$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795874121
+25%
+\change_inserted 2029516212 1795874121
+
+\begin_inset Formula $25%\ensuremath{}
+$
+\end_inset
+
+
+\change_unchanged
+ no campo de Lula (BRASIL,
  2020).
- O limiar de 10 ppm de H₂S corresponde ao critério de serviço ácido da ISO 15156-2,
- de pressão parcial de H₂S acima de 0,3 kPa:
+ O limiar de 
+\change_deleted 2029516212 1795874129
+10 ppm
+\change_inserted 2029516212 1795874129
+
+\begin_inset Formula $10ppm$
+\end_inset
+
+
+\change_unchanged
+ de 
+\change_deleted 2029516212 1795874132
+H₂S
+\change_inserted 2029516212 1795874132
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+ corresponde ao critério de serviço ácido da ISO 15156-2,
+ de pressão parcial de 
+\change_deleted 2029516212 1795874136
+H₂S
+\change_inserted 2029516212 1795874136
+
+\begin_inset Formula $H₂S$
+\end_inset
+
+
+\change_unchanged
+ acima de 
+\change_deleted 2029516212 1795874139
+0,3 kPa
+\change_inserted 2029516212 1795874139
+
+\begin_inset Formula $0,3kPa$
+\end_inset
+
+
+\change_unchanged
+:
  pela lei de Henry (SANDER,
  2023),
- 10 mg/L dissolvidos equivalem a cerca de 0,29 kPa.
- O limiar de 20 ppm de CO₂ equivale a uma pressão parcial de aproximadamente 0,014 atm e,
+ 
+\change_deleted 2029516212 1795874145
+10 mg/L
+\change_inserted 2029516212 1795874145
+
+\begin_inset Formula $10mg/L$
+\end_inset
+
+
+\change_unchanged
+ dissolvidos equivalem a cerca de 
+\change_deleted 2029516212 1795874148
+0,29 kPa
+\change_inserted 2029516212 1795874148
+
+\begin_inset Formula $0,29kPa$
+\end_inset
+
+
+\change_unchanged
+.
+ O limiar de 
+\change_deleted 2029516212 1795874151
+20 ppm 
+\change_inserted 2029516212 1795874160
+
+\begin_inset Formula $20ppm$
+\end_inset
+
+ 
+\change_unchanged
+de 
+\change_deleted 2029516212 1795874162
+CO₂
+\change_inserted 2029516212 1795874162
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ equivale a uma pressão parcial de aproximadamente 
+\change_deleted 2029516212 1795874168
+0,014 atm
+\change_inserted 2029516212 1795874168
+
+\begin_inset Formula $0,014atm$
+\end_inset
+
+
+\change_unchanged
+ e,
  em água sem tampão,
- a um pH próximo de 4,8,
- o que sustenta o critério conjunto de CO₂ superior a 20 ppm e pH inferior a 6 para o inibidor orgânico.
+ a um 
+\change_deleted 2029516212 1795874173
+pH
+\change_inserted 2029516212 1795874173
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ próximo de 
+\change_deleted 2029516212 1795874176
+4,8
+\change_inserted 2029516212 1795874176
+
+\begin_inset Formula $4,8$
+\end_inset
+
+
+\change_unchanged
+,
+ o que sustenta o critério conjunto de 
+\change_deleted 2029516212 1795874180
+CO₂
+\change_inserted 2029516212 1795874180
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ superior a 
+\change_deleted 2029516212 1795874183
+20 ppm
+\change_inserted 2029516212 1795874183
+
+\begin_inset Formula $20ppm$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795874185
+pH
+\change_inserted 2029516212 1795874185
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ inferior a 
+\change_deleted 2029516212 1795874187
+6
+\change_inserted 2029516212 1795874187
+
+\begin_inset Formula $6$
+\end_inset
+
+
+\change_unchanged
+ para o inibidor orgânico.
  Trata-se de um limiar conservador,
  de caráter didático,
  pois a gravidade da corrosão é definida pela taxa e por seus limites (Tabela 
@@ -1104,7 +2342,17 @@ name "subsec:fundamentos-termodinamicos"
 Sob uma perspectiva termodinâmica,
  o fenômeno da corrosão encontra-se diretamente correlacionado com a variação da energia livre de Gibbs.
  Nesse contexto,
- uma determinada reação eletroquímica é considerada espontânea se e somente se o valor de 
+ uma determinada reação eletroquímica é considerada espontânea se
+\change_inserted 2029516212 1795874266
+,
+
+\change_unchanged
+ e somente se
+\change_inserted 2029516212 1795874268
+,
+
+\change_unchanged
+ o valor de 
 \begin_inset Formula $\Delta G$
 \end_inset
 
@@ -1137,6 +2385,24 @@ Onde:
 \end_inset
 
 );
+\change_inserted 2029516212 1795874305
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795874318
+unidades dentro de [unidade]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -1227,7 +2493,27 @@ Onde:
 \end_layout
 
 \begin_layout Standard
-A 25 °C (298 K),
+A 
+\change_deleted 2029516212 1795874343
+25 °C
+\change_inserted 2029516212 1795874343
+
+\begin_inset Formula $25°C$
+\end_inset
+
+
+\change_unchanged
+ (
+\change_deleted 2029516212 1795874346
+298 K
+\change_inserted 2029516212 1795874346
+
+\begin_inset Formula $298K$
+\end_inset
+
+
+\change_unchanged
+),
  a equação assume a forma simplificada:
 \end_layout
 
@@ -1298,11 +2584,30 @@ name "fig:pourbaix"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/pourbaix_fe_h2o.png
-	lyxscale 50
+	lyxscale 200
 	width 60text%
 
 \end_inset
 
+
+\change_inserted 2029516212 1795874384
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795874410
+você pode entregar o diagrama para IA e pedir para melhorar qualidade e resolução;
+ verifique se ficou igual e troque
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -1319,10 +2624,30 @@ Fonte:
 \end_layout
 
 \begin_layout Standard
-O pH entra no software por esta razão,
+O 
+\change_deleted 2029516212 1795874426
+pH
+\change_inserted 2029516212 1795874426
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ entra no software por esta razão,
  quanto mais ácido o meio,
  maior será a agressividade.
- As linhas de equilíbrio dependentes apenas do pH têm a forma:
+ As linhas de equilíbrio dependentes apenas do 
+\change_deleted 2029516212 1795874433
+pH
+\change_inserted 2029516212 1795874433
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ têm a forma:
 \end_layout
 
 \begin_layout Standard
@@ -1381,7 +2706,17 @@ Onde:
 \begin_inset Formula $C_{CO_{2}}$
 \end_inset
 
- é a concentração de CO₂ dissolvido;
+ é a concentração de 
+\change_deleted 2029516212 1795874441
+CO₂
+\change_inserted 2029516212 1795874441
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ dissolvido;
 \end_layout
 
 \begin_layout Itemize
@@ -1396,7 +2731,17 @@ Onde:
 \begin_inset Formula $P_{CO_{2}}$
 \end_inset
 
- é a pressão parcial do CO₂.
+ é a pressão parcial do 
+\change_deleted 2029516212 1795874445
+CO₂
+\change_inserted 2029516212 1795874445
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -1416,11 +2761,31 @@ P_{CO_{2}}=y_{CO_{2}}\cdot P
 
 \begin_layout Standard
 Em sua versão atual,
- a classe que define as propriedades do fluido recebe a concentração de CO₂ em ppm,
+ a classe que define as propriedades do fluido recebe a concentração de 
+\change_deleted 2029516212 1795874456
+CO₂
+\change_inserted 2029516212 1795874456
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ em ppm,
  diretamente,
  e utiliza a pressão total apenas para fins de seleção do inibidor.
  Quando a fração molar não é conhecida,
- adota-se a simplificação de usar o valor de CO₂ informado.
+ adota-se a simplificação de usar o valor de 
+\change_deleted 2029516212 1795874453
+CO₂
+\change_inserted 2029516212 1795874453
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ informado.
 \end_layout
 
 \begin_layout Subsection
@@ -1460,10 +2825,20 @@ Onde:
 \end_inset
 
  é uma constante empírica,
- adotada como 0,02 °C
+ adotada como 
+\change_deleted 2029516212 1795874610
+0,02 °C
 \begin_inset Formula $^{-1}$
 \end_inset
 
+
+\change_inserted 2029516212 1795874610
+
+\begin_inset Formula $0,02°C^{-1}$
+\end_inset
+
+
+\change_unchanged
 ;
 \end_layout
 
@@ -1471,7 +2846,17 @@ Onde:
 \begin_inset Formula $T$
 \end_inset
 
- é a temperatura (°C).
+ é a temperatura (
+\change_deleted 2029516212 1795874613
+°C
+\change_inserted 2029516212 1795874613
+
+\begin_inset Formula $°C$
+\end_inset
+
+
+\change_unchanged
+).
 \end_layout
 
 \begin_layout Subsection
@@ -1521,18 +2906,48 @@ Onde:
 \end_layout
 
 \begin_layout Itemize
-CO₂ é a concentração de dióxido de carbono (ppm);
+
+\change_deleted 2029516212 1795874621
+CO₂
+\change_inserted 2029516212 1795874621
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+ é a concentração de dióxido de carbono (ppm);
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $T$
 \end_inset
 
- é a temperatura (°C);
+ é a temperatura (
+\change_deleted 2029516212 1795874626
+°C
+\change_inserted 2029516212 1795874626
+
+\begin_inset Formula $°C$
+\end_inset
+
+
+\change_unchanged
+);
 \end_layout
 
 \begin_layout Itemize
-pH é o potencial hidrogeniônico;
+
+\change_deleted 2029516212 1795874628
+pH
+\change_inserted 2029516212 1795874628
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ é o potencial hidrogeniônico;
 \end_layout
 
 \begin_layout Itemize
@@ -1549,12 +2964,62 @@ O termo
 
  representa o quanto o meio se distancia da neutralidade.
  Portanto,
- o modelo só funciona para pH menor que 7;
- quando o pH é igual a 7,
+ o modelo só funciona para 
+\change_deleted 2029516212 1795874685
+pH
+\change_inserted 2029516212 1795874685
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ menor que 
+\change_deleted 2029516212 1795874687
+7
+\change_inserted 2029516212 1795874687
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+;
+ quando o 
+\change_deleted 2029516212 1795874690
+pH
+\change_inserted 2029516212 1795874690
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ é igual a 
+\change_deleted 2029516212 1795874692
+7
+\change_inserted 2029516212 1795874692
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+,
  a taxa estimada é zero e,
  acima disso,
  o termo fica negativo,
- então a validação dos dados deve limitar a faixa de pH (Tabela 
+ então a validação dos dados deve limitar a faixa de 
+\change_deleted 2029516212 1795874700
+pH
+\change_inserted 2029516212 1795874700
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ (Tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:3.1"
@@ -1579,7 +3044,17 @@ nolink "false"
 \end_inset
 
  não é o modelo original de De Waard e Milliams,
- que relaciona o logaritmo da taxa com o inverso da temperatura absoluta e com o logaritmo da pressão parcial de CO₂.
+ que relaciona o logaritmo da taxa com o inverso da temperatura absoluta e com o logaritmo da pressão parcial de 
+\change_deleted 2029516212 1795874711
+CO₂
+\change_inserted 2029516212 1795874711
+
+\begin_inset Formula $CO₂$
+\end_inset
+
+
+\change_unchanged
+.
  Trata-se de uma expressão simplificada e didática,
  que gera as mesmas tendências qualitativas.
  Por ser relativa,
@@ -1596,6 +3071,24 @@ nolink "false"
 \end_inset
 
  foram estabelecidos para essa escala.
+\change_inserted 2029516212 1795874725
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795874748
+trabalhos futuros usar a equação de De Waard completa
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -1670,7 +3163,7 @@ name "tab:3.2"
 <lyxtabular version="3" rows="4" columns="2">
 <features tabularvalignment="middle">
 <column alignment="block" valignment="top" width="6.9cm">
-<column alignment="block" valignment="top" width="8.6cm">
+<column alignment="block" valignment="top" width="7.6cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -1700,7 +3193,17 @@ Tipo de corrosão
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874757
 H₂S > 10 ppm
+\change_inserted 2029516212 1795874757
+
+\begin_inset Formula $H₂S>10ppm$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1724,7 +3227,27 @@ sour corrosion
 \begin_inset Text
 
 \begin_layout Plain Layout
-CO₂ > 20 ppm (e H₂S ≤ 10 ppm)
+
+\change_deleted 2029516212 1795874762
+CO₂ > 20 ppm
+\change_inserted 2029516212 1795874762
+
+\begin_inset Formula $CO₂>20ppm$
+\end_inset
+
+
+\change_unchanged
+ (e
+\change_deleted 2029516212 1795874767
+ H₂S ≤ 10 ppm
+\change_inserted 2029516212 1795874767
+
+\begin_inset Formula $H₂S≤10ppm$
+\end_inset
+
+
+\change_unchanged
+)
 \end_layout
 
 \end_inset
@@ -1819,7 +3342,7 @@ name "tab:3.3"
 <lyxtabular version="3" rows="4" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="6.8cm">
-<column alignment="center" valignment="top" width="4.4cm">
+<column alignment="center" valignment="top" width="3.4cm">
 <column alignment="center" valignment="top" width="4.4cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
@@ -1865,7 +3388,17 @@ Fator de severidade (
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874773
 CR < 10
+\change_inserted 2029516212 1795874773
+
+\begin_inset Formula $CR<10$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1894,7 +3427,17 @@ Baixa
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874781
 10 ≤ CR < 50
+\change_inserted 2029516212 1795874781
+
+\begin_inset Formula $10≤CR<50$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1923,7 +3466,17 @@ Média
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874783
 CR ≥ 50
+\change_inserted 2029516212 1795874783
+
+\begin_inset Formula $CR≥50$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1966,9 +3519,33 @@ Fonte:
 \end_layout
 
 \begin_layout Standard
-Os limites (10 e 50) são parâmetros do modelo que podem ser modificados pelo usuário;
+Os limites (
+\change_deleted 2029516212 1795874790
+10
+\change_inserted 2029516212 1795874790
+
+\begin_inset Formula $10$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795874793
+50
+\change_inserted 2029516212 1795874793
+
+\begin_inset Formula $50$
+\end_inset
+
+
+\change_unchanged
+) são parâmetros do modelo que podem ser modificados pelo usuário;
  eles foram utilizados como parâmetros de controle para o contexto escolar.
- O professor pode alterá-los para ajustar o nível de dificuldade dos problemas.
+ O professor pode
+\change_inserted 2029516212 1795874803
+rá
+\change_unchanged
+ alterá-los para ajustar o nível de dificuldade dos problemas.
 \end_layout
 
 \begin_layout Standard
@@ -2052,7 +3629,7 @@ name "tab:3.4"
 <lyxtabular version="3" rows="4" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="9cm">
-<column alignment="center" valignment="top" width="6.5cm">
+<column alignment="center" valignment="top" width="5cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -2085,7 +3662,17 @@ Temperatura (°C)
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874818
 T < 40
+\change_inserted 2029516212 1795874818
+
+\begin_inset Formula $T<40$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -2105,7 +3692,17 @@ T < 40
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874820
 40 ≤ T ≤ 80
+\change_inserted 2029516212 1795874820
+
+\begin_inset Formula $40≤T≤80$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -2125,7 +3722,17 @@ T < 40
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874823
 T > 80
+\change_inserted 2029516212 1795874823
+
+\begin_inset Formula $T>80$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -2193,7 +3800,7 @@ name "tab:3.5"
 <lyxtabular version="3" rows="4" columns="2">
 <features tabularvalignment="middle">
 <column alignment="block" valignment="top" width="11.7cm">
-<column alignment="center" valignment="top" width="3.8cm">
+<column alignment="center" valignment="top" width="2.8cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -2226,7 +3833,17 @@ Condição
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874827
 H₂S > 10 ppm
+\change_inserted 2029516212 1795874827
+
+\begin_inset Formula $H₂S>10ppm$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -2246,7 +3863,17 @@ H₂S > 10 ppm
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted 2029516212 1795874830
 CO₂ > 20 ppm (e H₂S ≤ 10 ppm)
+\change_inserted 2029516212 1795874830
+
+\begin_inset Formula $CO₂>20ppm(eH₂S≤10ppm)$
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -2303,18 +3930,183 @@ Fonte:
 \begin_layout Standard
 O efeito da temperatura indica que o inibidor perde eficiência quando aquecido.
  Ding et al.
- (2020) demonstraram que a quantidade de inibidor necessária para conseguir uma eficiência equivalente a 50 °C em relação a 25 °C é aproximadamente oito vezes maior,
- e não conseguiram observar qualquer tipo de inibição a 80 °C.
+ (2020) demonstraram que a quantidade de inibidor necessária para conseguir uma eficiência equivalente a 
+\change_deleted 2029516212 1795875024
+50 °C
+\change_inserted 2029516212 1795875025
+
+\begin_inset Formula $50°C$
+\end_inset
+
+
+\change_unchanged
+ em relação a 
+\change_deleted 2029516212 1795875028
+25 °C
+\change_inserted 2029516212 1795875029
+
+\begin_inset Formula $25°C$
+\end_inset
+
+
+\change_unchanged
+ é aproximadamente oito vezes maior,
+ e não conseguiram observar qualquer tipo de inibição a 
+\change_deleted 2029516212 1795875033
+80 °C
+\change_inserted 2029516212 1795875033
+
+\begin_inset Formula $80°C$
+\end_inset
+
+
+\change_unchanged
+.
  Shamsa et al.
  (2022) mostraram que a hidrólise de um inibidor baseado em imidazolina aumenta com a temperatura,
- tendo uma meia-vida de 20,5 h a 70 °C e de 0,8 h a 120 °C.
- Os pontos de ruptura em 40 e 80 °C dividem assim três formas de atuação:
+ tendo uma meia-vida de 
+\change_deleted 2029516212 1795875039
+20,5 h
+\change_inserted 2029516212 1795875039
+
+\begin_inset Formula $20,5h$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795875042
+70 °C
+\change_inserted 2029516212 1795875042
+
+\begin_inset Formula $70°C$
+\end_inset
+
+
+\change_unchanged
+ e de 
+\change_deleted 2029516212 1795875046
+0,8 h
+\change_inserted 2029516212 1795875046
+
+\begin_inset Formula $0,8h$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795875048
+120 °C
+\change_inserted 2029516212 1795875048
+
+\begin_inset Formula $120°C$
+\end_inset
+
+
+\change_unchanged
+.
+ Os pontos de ruptura em 
+\change_deleted 2029516212 1795875051
+40
+\change_inserted 2029516212 1795875051
+
+\begin_inset Formula $40$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795875053
+80 °C
+\change_inserted 2029516212 1795875053
+
+\begin_inset Formula $80°C$
+\end_inset
+
+
+\change_unchanged
+ dividem assim três formas de atuação:
  bom desempenho,
  quantidade crescente e perda de eficiência do inibidor.
- Os valores 1,0;
- 1,3 e 1,8 são educativos e muito mais suaves do que as diferenças medidas nestas pesquisas.
- O aumento do fator acima de 80 °C se relaciona com o inibidor e não com a velocidade de desgaste do aço,
- que costuma diminuir nessa região pela formação de FeCO₃ (NEŠIĆ,
+ Os valores 
+\change_deleted 2029516212 1795875059
+1,0
+\change_inserted 2029516212 1795875059
+
+\begin_inset Formula $1,0$
+\end_inset
+
+
+\change_unchanged
+;
+ 
+\change_deleted 2029516212 1795875062
+1,3
+\change_inserted 2029516212 1795875062
+
+\begin_inset Formula $1,3$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795875064
+1,8
+\change_inserted 2029516212 1795875064
+
+\begin_inset Formula $1,8$
+\end_inset
+
+
+\change_unchanged
+ são educativos e muito mais suaves do que as diferenças medidas nestas pesquisas
+\change_inserted 2029516212 1795875072
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795875108
+trabalhos futuros analisar outros valores para tabela fator corrosividade 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.5"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ O aumento do fator acima de 
+\change_deleted 2029516212 1795875115
+80 °C
+\change_inserted 2029516212 1795875115
+
+\begin_inset Formula $80°C$
+\end_inset
+
+
+\change_unchanged
+ se relaciona com o inibidor e não com a velocidade de desgaste do aço,
+ que costuma diminuir nessa região pela formação de 
+\change_deleted 2029516212 1795875120
+FeCO₃
+\change_inserted 2029516212 1795875120
+
+\begin_inset Formula $FeCO₃$
+\end_inset
+
+
+\change_unchanged
+ (NEŠIĆ,
  2007;
  LI et al.,
  2019).
@@ -2395,8 +4187,8 @@ name "tab:3.6"
 <lyxtabular version="3" rows="5" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="1.9cm">
-<column alignment="block" valignment="top" width="5.1cm">
-<column alignment="block" valignment="top" width="6.6cm">
+<column alignment="block" valignment="top" width="4.1cm">
+<column alignment="block" valignment="top" width="5.6cm">
 <column alignment="center" valignment="top" width="1.9cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
@@ -2657,6 +4449,24 @@ Onde:
 \end_inset
 
  é a taxa de corrosão sem inibidor;
+\change_inserted 2029516212 1795875277
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795875294
+coloque unidades dentro de [] se não tem coloque [admensional]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -2692,7 +4502,27 @@ Onde:
 \begin_inset Formula $\theta$
 \end_inset
 
- é o grau de recobrimento da superfície (0 a 1);
+ é o grau de recobrimento da superfície (
+\change_deleted 2029516212 1795875301
+0
+\change_inserted 2029516212 1795875301
+
+\begin_inset Formula $0$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795875303
+1
+\change_inserted 2029516212 1795875303
+
+\begin_inset Formula $1$
+\end_inset
+
+
+\change_unchanged
+);
 \end_layout
 
 \begin_layout Itemize
@@ -2715,6 +4545,24 @@ No software não se calcula a eficiência pela isoterma,
  No entanto,
  a isoterma é usada para explicar que a eficiência aumenta com a quantidade de dose até atingir um máximo,
  fenômeno que pode ser visto nos gráficos de eficiência em relação à quantidade de dose.
+\change_inserted 2029516212 1795875322
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795875331
+trabalhos futuros considerar as isotermas
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -2730,7 +4578,17 @@ name "subsec:modelo-de-dosagem"
 
 \begin_layout Standard
 A dosagem estimada,
- em ppm,
+ em 
+\change_deleted 2029516212 1795875337
+ppm
+\change_inserted 2029516212 1795875337
+
+\begin_inset Formula $ppm$
+\end_inset
+
+
+\change_unchanged
+,
  é obtida pela equação:
 \end_layout
 
@@ -2753,8 +4611,38 @@ Onde:
 \begin_inset Formula $K$
 \end_inset
 
- é a constante empírica de ajuste (adotada como 0,1;
- faixa de referência de 0,05 a 0,2);
+ é a constante empírica de ajuste (adotada como 
+\change_deleted 2029516212 1795875343
+0,1
+\change_inserted 2029516212 1795875343
+
+\begin_inset Formula $0,1$
+\end_inset
+
+
+\change_unchanged
+;
+ faixa de referência de 
+\change_deleted 2029516212 1795875346
+0,05
+\change_inserted 2029516212 1795875346
+
+\begin_inset Formula $0,05$
+\end_inset
+
+
+\change_unchanged
+ a 
+\change_deleted 2029516212 1795875349
+0,2
+\change_inserted 2029516212 1795875349
+
+\begin_inset Formula $0,2$
+\end_inset
+
+
+\change_unchanged
+);
 \end_layout
 
 \begin_layout Itemize
@@ -2877,28 +4765,118 @@ Para estimar a vazão do fluido foi usado um índice de velocidade do fluido,
  GROYSMAN,
  2017).
  O fator 
+\change_deleted 2029516212 1795875391
+
 \begin_inset Formula $F_{q}$
 \end_inset
 
- = 1 + Q/1000 dobra a dose em 1.000 m
+ = 1 + Q/1000
+\change_inserted 2029516212 1795875391
+
+\begin_inset Formula $F_{q}=1+Q/1000$
+\end_inset
+
+
+\change_unchanged
+ dobra a dose em 
+\change_deleted 2029516212 1795875396
+1.000 m
 \begin_inset Formula $^{3}$
 \end_inset
 
-/dia,
+/dia
+\change_inserted 2029516212 1795875396
+
+\begin_inset Formula $1.000m^{3}/dia$
+\end_inset
+
+
+\change_unchanged
+,
  vazão que em coluna de 
 \begin_inset Formula $2\,7/8''$
 \end_inset
 
- representa aproximadamente 4 m/s,
- próxima da velocidade erosional de 4,3 m/s obtida pela API RP 14E para massa específica de 800 kg/m
+ representa aproximadamente 
+\change_deleted 2029516212 1795875402
+4 m/s
+\change_inserted 2029516212 1795875402
+
+\begin_inset Formula $4m/s$
+\end_inset
+
+
+\change_unchanged
+,
+ próxima da velocidade erosional de 
+\change_deleted 2029516212 1795875406
+4,3 m/s
+\change_inserted 2029516212 1795875406
+
+\begin_inset Formula $4,3m/s$
+\end_inset
+
+
+\change_unchanged
+ obtida pela API RP 14E para massa específica de 
+\change_deleted 2029516212 1795875411
+800 kg/m
 \begin_inset Formula $^{3}$
 \end_inset
 
- e C = 100 (API,
+
+\change_inserted 2029516212 1795875411
+
+\begin_inset Formula $800kg/m^{3}$
+\end_inset
+
+
+\change_unchanged
+ e 
+\change_deleted 2029516212 1795875415
+C = 100 
+\change_inserted 2029516212 1795875415
+
+\begin_inset Formula $C=100$
+\end_inset
+
+
+\change_unchanged
+(API,
  1991;
  SVEDEMAN,
  1995).
- A forma linear e o divisor 1000 são adotados por motivos didáticos.
+ A forma linear e o divisor 
+\change_deleted 2029516212 1795875418
+1000 
+\change_inserted 2029516212 1795875420
+
+\begin_inset Formula $1000$
+\end_inset
+
+ 
+\change_unchanged
+são adotados por motivos didáticos
+\change_inserted 2029516212 1795875431
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 2029516212 1795875476
+trabalhos futuros;
+ toda simplificação por motivos didáticos gera uma sugestão para trabalhos futuros,
+ teremos uma lista de coisas para outros alunos fazerem
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Subsection
@@ -2920,7 +4898,27 @@ O modelo é empírico e qualitativo,
 \end_layout
 
 \begin_layout Itemize
-A taxa de corrosão é relativa (adimensional) e válida para aço carbono em meios com pH inferior a 7;
+A taxa de corrosão é relativa (adimensional) e válida para aço carbono em meios com 
+\change_deleted 2029516212 1795875496
+pH
+\change_inserted 2029516212 1795875496
+
+\begin_inset Formula $pH$
+\end_inset
+
+
+\change_unchanged
+ inferior a 
+\change_deleted 2029516212 1795875498
+7
+\change_inserted 2029516212 1795875498
+
+\begin_inset Formula $7$
+\end_inset
+
+
+\change_unchanged
+;
 \end_layout
 
 \begin_layout Itemize
@@ -2934,8 +4932,24 @@ A corrosão localizada,
 \begin_layout Itemize
 Os fatores,
  limiares,
- a constante K e as eficiências são parâmetros de referência,
- e que podem ser alterados sem modificar a estrutura do programa;
+ a constante 
+\change_deleted 2029516212 1795875508
+K
+\change_inserted 2029516212 1795875508
+
+\begin_inset Formula $K$
+\end_inset
+
+
+\change_unchanged
+ e as eficiências são parâmetros de referência,
+ e que podem ser alterados sem modificar a estrutura do 
+\change_deleted 2029516212 1795875514
+programa
+\change_inserted 2029516212 1795875515
+software
+\change_unchanged
+;
 \end_layout
 
 \begin_layout Itemize
@@ -2965,11 +4979,23 @@ O processamento consiste em seis etapas interligadas:
  seleção do inibidor,
  cálculo da dosagem,
  apresentação dos resultados e geração de gráficos.
- Na fase de análise,
+ 
+\change_inserted 2029516212 1795875538
+
+\end_layout
+
+\begin_layout Standard
+Na fase de análise,
  além de checar os intervalos de operação,
  se estabelece qual é o tipo predominante de corrosão,
  calcula-se a velocidade da mesma e quantifica-se a severidade.
- Os gráficos mostram a comparação entre os fatores de severidade,
+ 
+\change_inserted 2029516212 1795875545
+
+\end_layout
+
+\begin_layout Standard
+Os gráficos mostram a comparação entre os fatores de severidade,
  a velocidade de corrosão e a dose em cada ponto para serem exibidos.
 \end_layout
 
@@ -3004,40 +5030,128 @@ nolink "false"
 \end_layout
 
 \begin_layout Itemize
-Aplicação:
+
+\series bold
+Aplicação
+\series default
+:
  reúne os componentes que são responsáveis por inicializar e gerenciar o sistema,
- incluindo a função principal (main),
- a interface gráfica (main_gui e MainWindow) e o simulador (SimuladorCorrosao)
+ incluindo a função principal (
+\family typewriter
+main
+\family default
+),
+ a interface gráfica (
+\family typewriter
+main_gui
+\family default
+ e 
+\family typewriter
+MainWindow
+\family default
+) e o simulador (
+\family typewriter
+SimuladorCorrosao
+\family default
+)
+\change_inserted 2029516212 1795875613
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
-Visualização:
- contém a classe GraficoResultados,
+
+\series bold
+Visualização
+\series default
+:
+ contém a classe 
+\family typewriter
+GraficoResultados
+\family default
+,
  que é responsável por exibir os resultados obtidos na simulação realizada no software.
 \end_layout
 
 \begin_layout Itemize
-Dosagem:
- reúne a classe CalculadoraDosagem,
+
+\series bold
+Dosagem
+\series default
+:
+ reúne a classe 
+\family typewriter
+CalculadoraDosagem
+\family default
+,
  responsável por estimar a dosagem do inibidor com base nos parâmetros fornecidos no momento de supor o cenário,
  nas informações da análise de corrosão e nas características do inibidor selecionado.
 \end_layout
 
 \begin_layout Itemize
-Inibidores:
+
+\series bold
+Inibidores
+\series default
+:
  reúne a classe abstrata Inibidor,
- suas implementações específicas (InibidorOrganico,
- InibidorH2S,
- InibidorCatodico e InibidorGeral) e a classe SeletorInibidor,
+ suas implementações específicas 
+\change_inserted 2029516212 1795876072
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+(
+\family typewriter
+InibidorOrganico
+\family default
+,
+ 
+\family typewriter
+InibidorH2S
+\family default
+,
+ 
+\family typewriter
+InibidorCatodico 
+\family default
+e 
+\family typewriter
+InibidorGeral
+\family default
+) e a classe 
+\family typewriter
+SeletorInibidor
+\family default
+,
  que é responsável por escolher o tipo de inibidor de acordo com os critérios estabelecidos no software.
 \end_layout
 
 \begin_layout Itemize
-Modelo:
- reúne as classes Fluido e AnaliseCorrosao,
+
+\series bold
+Modelo
+\series default
+:
+ reúne as classes 
+\family typewriter
+Fluido
+\family default
+ e 
+\family typewriter
+AnaliseCorrosao
+\family default
+,
  que representam,
  respectivamente,
  as propriedades do fluido e as informações relacionadas à análise do processo corrosivo
+\change_inserted 2029516212 1795875617
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -3110,7 +5224,6 @@ name "fig:pacotes"
 \align center
 \begin_inset Graphics
 	filename ../Nova pasta/imagens/diagrama_pacotes.png
-	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -3130,15 +5243,65 @@ Fonte:
 \end_layout
 
 \begin_layout Standard
-O pacote Aplicação tem dependências com os pacotes Visualização,
- Dosagem e Inibidores,
+O pacote 
+\family typewriter
+Aplicação
+\family default
+ tem dependências com os pacotes 
+\family typewriter
+Visualização
+\family default
+,
+ 
+\family typewriter
+Dosagem 
+\family default
+e 
+\family typewriter
+Inibidores
+\family default
+,
  refletindo sua função de coordenador a execução do sistema.
- O pacote Visualização possui dependência com o pacote Inibidores para acessar as informações necessárias para geração de resultado,
- em contrapartida o pacote Dosagem utiliza recursos dos pacotes Inibidores e Modelo para que possa realizar os cálculos.
- Por fim,
- o pacote Inibidores,
+ O pacote 
+\family typewriter
+Visualização
+\family default
+ possui dependência com o pacote 
+\family typewriter
+Inibidores
+\family default
+ para acessar as informações necessárias para geração de resultado,
+ em contrapartida o pacote 
+\family typewriter
+Dosagem
+\family default
+ utiliza recursos dos pacotes 
+\family typewriter
+Inibidores
+\family default
+ e 
+\family typewriter
+Modelo
+\family default
+ para que possa realizar os cálculos.
+ 
+\change_deleted 2029516212 1795875788
+Por fim,
+ o
+\change_inserted 2029516212 1795875788
+O
+\change_unchanged
+ pacote 
+\family typewriter
+Inibidores
+\family default
+,
  por sua vez,
- possui dependência com o pacote Modelo,
+ possui dependência com o pacote 
+\family typewriter
+Modelo
+\family default
+,
  visto que os critérios de seleção consideram propriedades do fluido.
  Dessa forma,
  o diagrama de pacotes evidencia a separação entre a coordenação da aplicação,
